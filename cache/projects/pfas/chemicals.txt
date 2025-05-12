@@ -1,0 +1,37 @@
+trifluoroacetic acid  
+perfluoropropionic acid  
+perfluorobutanoic acid  
+perfluoropentanoic acid  
+perfluorohexanoic acid  
+perfluoroheptanoic acid  
+perfluorooctanoic acid  
+perfluorononanoic acid  
+perfluorodecanoic acid  
+perfluoroundecanoic acid  
+perfluorododecanoic acid  
+perfluorotridecanoic acid  
+perfluorotetradecanoic acid  
+perfluoropropanesulfonic acid  
+perfluorobutanesulfonic acid  
+perfluoropentanesulfonic acid  
+perfluorohexanesulfonic acid  
+perfluoroheptanesulfonic acid  
+perfluorooctanesulfonic acid  
+perfluorononanesulfonic acid  
+perfluorodecanesulfonic acid  
+perfluorooctanesulfonamide  
+N-methyl perfluorooctanesulfonamide  
+N-ethyl perfluorooctanesulfonamide  
+N-methyl perfluorooctane sulfonamidoacetic acid  
+N-ethyl perfluorooctane sulfonamidoacetic acid  
+2-(perfluorohexyl)ethane-1-sulfonic acid  
+2-(perfluorooctyl)ethane-1-sulfonic acid  
+1,1,2,2-tetrahydroperfluoro-1-octanol  
+1,1,2,2-tetrahydroperfluoro-1-decanol  
+2,3,3,3-tetrafluoro-2-(heptafluoropropoxy)propanoic acid  
+2,2,3-trifluoro-3-[1,1,2,2,3,3-hexafluoro-3-(trifluoromethoxy)propoxy]propanoic acid  
+9-chlorohexadecafluoro-3-oxanonane-1-sulfonic acid  
+11-chloroeicosafluoro-3-oxaundecane-1-sulfonic acid  
+bis(2-(perfluorohexyl)ethyl) phosphate  
+bis(2-(perfluorooctyl)ethyl) phosphate  
+perfluoro(4-ethylcyclohexane)sulfonic acid  

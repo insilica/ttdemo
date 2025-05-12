@@ -1,0 +1,103 @@
+Bis(2-ethylhexyl) phthalate  
+Dibutyl phthalate  
+Diisobutyl phthalate  
+Benzyl butyl phthalate  
+Diisononyl phthalate  
+Diisodecyl phthalate  
+Di-n-octyl phthalate  
+Diethyl phthalate  
+Dimethyl phthalate  
+Dicyclohexyl phthalate  
+Bisphenol A  
+Bisphenol B  
+Bisphenol S  
+Bisphenol F  
+Bisphenol AF  
+4,4'-Cyclohexylidenebisphenol  
+4-Octylphenol  
+Nonylphenol  
+4,4'-(1-Phenylethylidene)bisphenol  
+Tetrabromobisphenol A  
+Perfluorooctanoic acid  
+Perfluorooctanesulfonic acid  
+Perfluorononanoic acid  
+Perfluorohexanoic acid  
+Perfluorohexanesulfonic acid  
+Perfluorobutane sulfonic acid  
+Perfluorodecanoic acid  
+3,3,4,4,5,5,6,6,7,7,8,8,8-Tridecafluorooctan-1-ol  
+Bisphenol A diglycidyl ether  
+Bisphenol F diglycidyl ether  
+Benzophenone  
+4-Methylbenzophenone  
+2-Isopropylthioxanthone  
+4,4'-Bis(dimethylamino)benzophenone  
+Diphenyl(2,4,6-trimethylbenzoyl)phosphine oxide  
+Styrene  
+Vinyl chloride  
+Acrylonitrile  
+Butadiene  
+Formaldehyde  
+Melamine  
+Caprolactam  
+Epichlorohydrin  
+Vinylidene chloride  
+Vinyl acetate  
+Acrylamide  
+Methyl methacrylate  
+Butyl acrylate  
+Methyl acrylate  
+4,4'-Methylenedianiline  
+Methylene diphenyl diisocyanate  
+Toluene diisocyanate  
+Toluene  
+Benzene  
+Isophorone  
+Tris(2-chloroethyl) phosphate  
+Tris(2-chloropropyl) phosphate  
+Tris(1,3-dichloropropan-2-yl) phosphate  
+Hexabromocyclododecane  
+Decabromodiphenyl ether  
+Triphenyl phosphate  
+Methyl paraben  
+Ethyl paraben  
+Propyl paraben  
+Butyl paraben  
+2,6-Di-tert-butyl-4-methylphenol  
+2-tert-Butyl-4-hydroxyanisole  
+3-tert-Butyl-4-hydroxyanisole  
+Octadecyl 3-(3,5-di-tert-butyl-4-hydroxyphenyl)propionate  
+Pentaerythritol tetrakis(3-(3,5-di-tert-butyl-4-hydroxyphenyl)propionate)  
+Tris(2,4-di-tert-butylphenyl) phosphite  
+Oleamide  
+Erucamide  
+N,N'-Ethylenebis(stearamide)  
+Glycerol monostearate  
+Stearic acid  
+Bis(2-ethylhexyl) adipate  
+Acetyl tributyl citrate  
+Benzoguanamine  
+Terephthalic acid  
+Isophthalic acid  
+Acetaldehyde  
+Naphthalene  
+1-Methylnaphthalene  
+2,6-Diisopropylnaphthalene  
+Bisphenol A bis(diphenyl phosphate)  
+Adipic acid  
+Cyclohexanone  
+Phenol  
+Semicarbazide  
+Azodicarbonamide  
+Phthalic anhydride  
+Perfluorobutanoic acid  
+Perfluoropentanoic acid  
+Perfluoroheptanoic acid  
+Perfluoroundecanoic acid  
+Perfluorododecanoic acid  
+Benzoic acid  
+Ethyl 4-dimethylaminobenzoate  
+1-Hydroxycyclohexyl phenyl ketone  
+N-Nitrosodibutylamine  
+2-Mercaptobenzothiazole  
+N-Methyl-2-pyrrolidone  

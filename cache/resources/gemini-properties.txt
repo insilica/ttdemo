@@ -1,0 +1,165 @@
+identification of androgen receptor antagonists in mda cell line assay
+[toxicology assessment of small molecule antagonists in thyroid receptor signaling pathway]
+cell-based progesterone receptor antagonist assay in toxicology
+assay for agonists of thyroid stimulating hormone receptor in human cell line
+ceetox_h295r_testo_dn assay for chemical toxicity
+toxicity assessment of chemicals on p53 expression and cell viability
+oral reproductive developmental noael in mammals
+endocrine disruption assay
+zebrafish teratogenicity assay at 144 hours post fertilization
+tox21_gr_bla_antagonist measurement assay
+heparg cyp3a7 induction assay
+assay for vitamin d3 receptor activity in toxicology studies
+[assay for gonadotropin-releasing hormone receptor targeted chemicals]
+toxicogenomic assessment of cyp2c8 inducing chemicals in heparg cells
+[p53 activation assay]
+chemical-induced upregulation of sox genes in cis configuration
+toxicological analysis of cyp2c19 inducing compounds in heparg cells
+acea ar antagonist viability assay
+estrogen receptor antagonist assay for chemical toxicity
+toxicological assessment of chemicals on heparg cells with tp53 upregulation
+h295r assay for cortisol regulation in chemical exposure
+assay for androgen receptor agonist activity ratio in bla toxicology model
+assay for retinoic acid receptor rxr-alpha activity in humans
+tox21 erb bla antagonist assay for activity analysis
+estrogen receptor alpha antagonist assay using bg1 cell line
+[p53 reactivator potency assay for toxicologists]
+chemical call assay (ot_era_eregfp_0480)
+chemical toxicity assessment through atg_ppre_cis_up assay
+estrogen receptor antagonist assay at 0.1nm e2 concentration
+heparg cyp3a4 induction assay
+high-throughput screening assay for human nuclear receptor toxicity
+assay for viability of cho cells using antagonists of rorg
+assay for androgen receptor antagonist activity on mdakb2 cells at 10nm r1881 concentration and viability
+assay for chemicals with ap1-bla agonist activity in tox21 study
+heparg cyp2b6 induction assay
+viability assay for active agonist chemicals targeting the aryl hydrocarbon receptor
+toxicity assessment of chemical agonists targeting rar
+embryonic zebrafish teratogenicity assessment (144hpf)
+antioxidant response element activation assay
+estrogen receptor activity assay
+assay for nuclear receptor ror-gamma activity with ic50 measurements
+assay for retinoic acid receptor rxr-alpha activity in humans
+potential organ harm from chemical exposure
+chemical-induced p53 activation assay ratio
+48-hour cyp3a4 chemical exposure assay
+assay for cellular viability effects of antagonistic chemicals on the car pathway
+h295r assay for ohprog toxicity
+chemical toxicity screening assay for potential human health hazards
+human pxr small molecule agonist assay by tox21
+androgen receptor signaling pathway antagonist identification assay
+estrogen receptor-beta coactivator binding inhibitors dose response confirmation
+assay for chemical-induced activation or inhibition of the p53 pathway in toxicology studies
+assay for toxicity prediction of pgc err antagonist
+estrogen-related receptor gamma inhibition assay using ic50 measurements
+toxicity assessment of chemicals as active agonists using er-luc-bg1-4e2 assay
+toxicity assay for antagonistic activity against ar-bla
+identification of small molecule antagonists of the estrogen receptor beta signaling pathway in cell-based assay
+assay for heparg cell line response to chemicals targeting hmgcs2 gene
+ar antagonist activity assay in mda-mb-231 cells
+estrogen receptor alpha activation assay - 1440_cells
+oral repeat dose mammalian loael assessment
+chemical toxicity assay
+toxicity assessment of chemicals on hepg2 cell cycle arrest at 24 hours
+estrogen receptor alpha luciferase assay for antagonistic activity of chemicals at 0.5nm e2 concentration on cell viability
+assessment of retinoic acid receptor beta agonist activity
+identification of aryl hydrocarbon receptor (ahr) activating small molecules
+reproductive toxicity assay
+identification of small molecule activators of brca1 expression in human cells
+[functional measurement of log gi50 for p388 leukemia cell line growth inhibition assay]
+assay for estrogen receptor alpha antagonist activity
+chemical induced activation of atg_rxrb transcription
+chemical-induced p53 activation assay in tox21
+assessment of chemical potency on nuclear receptor ror-gamma
+assay for estrogen related receptor signaling pathway antagonists from tox21 10k library
+genotoxicity assessment of chemicals in hepg2 cells using p-h2ax assay
+tox21 era luc vm7 antagonist cell viability assay
+hormonal disruption assay for progesterone up-regulation in h295r cells
+chemical viability assessment using h2ax htrf cho assay
+toxicity of rorg antagonists in cho cells
+assay for rorg antagonist activity in cho cells
+identification of small molecule antagonists of the thyroid receptor signaling pathway
+ccris mutagenicity assay study
+dsstox carcinogenic potency database summary single-cell call results
+ahr activation assay in tox21 study
+assessment of developmental toxicity in mammals via oral noael measurement
+[assay for 5-hydroxytryptamine receptor 1a binding affinity]
+dsstox carcinogenic potency database mouse bioassay summary
+toxicological assessment of small molecule antagonists targeting the glucocorticoid receptor signaling pathway
+assay for reproductive and breast toxicity
+chemical-induced p53 activation in toxicology screening
+assay for chemical viability in tox21_p53 study
+chemically-induced neoplasms assay
+androgen receptor binding assay data for toxicological study
+assay for peroxisome proliferator-activated receptor gamma activation
+assay for androgen receptor toxicity assay data
+estrogen receptor binding assay analysis
+assay for estrogen receptor y537s mutation targeting chemicals
+tox21 ar mda kb2 luc antagonist viability assay
+viability assay for er antagonists
+identification of progesterone receptor antagonists through cell viability counter screen
+assay for small molecule androgen receptor agonists with cell viability counter screen
+dsstox salmonella mutagenicity assay
+assay for cytochrome p450 2c19 substrate and inhibitor identification
+[gene-tox mutagenicity bioassay]
+estrogen receptor alpha antagonist viability assay at 0.5nm e2
+oral reproductive toxicity assessment in mammals - loael mg/kg-day
+tox21_carcinogenesis antagonist assay
+assay for human mitochondrial dihydroorotate dehydrogenase targeting chemicals
+assay for androgen receptor toxicity evaluation
+estrogen receptor-alpha coactivator binding inhibitors toxicity assessment
+oral developmental toxicity assessment in mammals
+estrogen receptor alpha assay in toxicology
+chemical activation of the aryl hydrocarbon receptor: a toxicologist's perspective
+assay for peroxisome proliferator-activated receptor delta agonists
+assay for peroxisome proliferator-activated receptor gamma agonists
+identification of small molecule antagonists of the ppard signaling pathway - cell viability counter screen assay
+toxicological screening of small molecule antagonists of the ror-gamma signaling pathway
+assay for inhibitors of ror gamma transcriptional activity
+discovery of potential toxicants targeting nuclear receptor ror-gamma
+assay for nuclear receptor ror-gamma ligands using ic50 values
+assay for nuclear receptor ror-gamma activity via ic50 evaluation
+assessment of chemical potency on nuclear receptor ror-gamma
+assay for nuclear receptor ror-gamma activity with ic50 measurements
+assay for agonists of thyroid stimulating hormone receptor in human cell line
+assay for viability of cho cells using antagonists of rorg
+toxicity of rorg antagonists in cho cells
+assay for rorg antagonist activity in cho cells
+tox21 ror cho antagonist viability assay
+assay for toxicological screening of small molecule agonists for p53 signaling pathway
+assay for p53 activation in toxicology studies
+assay for p53 activity in toxicology studies
+chemical-induced p53 activity assay in toxicology
+chemical-induced p53 activity assay in toxicology testing
+chemical induced p53 activation assay in tox21
+toxicological assessment of chemicals on heparg cells with tp53 upregulation
+hepg2 p53 activity response assay
+assay for chemicals impact on p53 protein expression in bla cells
+assay for chemical-induced p53 activation in toxicology studies
+hepg2 cell p53 activation assay notification
+hepg2 p53 activation assay at 72 hours
+hepg2 cell activation assay for p53 upregulation at 24 hours
+heparg toxicity assay for tp53 activation
+identification of genotoxic compounds in isogenic chicken dt40 cell lines
+assay for genotoxic compounds in isogenic chicken cell lines
+identification of genotoxic compounds in chicken dt40 cell lines with mutated dna damage response pathways
+genotoxicity assessment assay in human kidney cells
+genotoxicity screening assay in hek293t cells
+induction of dna damage in hepg2 cells exposed to chemicals for 24 hours
+hepg2 cell dna damage assay - 24 hour treatment detection
+electrode-assisted bursting assay for dna-damaging chemicals
+atad5 assay for dna damage assessment
+h2ax-induced dna damage agonist assay
+tox21_h2ax_htrf_cho_viability_assay
+chemical viability assessment using h2ax htrf cho assay
+assay for small molecule agonists of h2ax in toxicology
+cell viability assay for h2ax agonist identification
+zebrafish developmental toxicity assay with chemical exposure at 120 hours post-fertilization
+zebrafish toxicity at 120 hours post-fertilization - upregulated
+zebrafish mortality assay at 120 hours post-fertilization - upregulated
+zebrafish developmental toxicity assay: zebrafish 120-hour post-fertilization axis up
+zebrafish embryo jaw toxicity assay at 120 hours post fertilization (hpf) - upregulated
+zebrasdaniofish_tanguay_assayup
+[mammalian oral developmental loael assay]
+chemical effects on pregnancy and neonatal health
+in vitro bacterial mutagenicity assay
