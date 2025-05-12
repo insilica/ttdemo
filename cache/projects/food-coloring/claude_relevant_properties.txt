@@ -1,0 +1,102 @@
+Eye damage hazard assessment
+Skin contact hazard assessment
+Skin irritation assay hazard code H315
+Acute oral LD50 in mammals
+Oral acute LC50 assay for chemical toxicity
+Oral chronic toxicity screening level assessment in mg/kg-day
+Oral short-term toxicity assay for crustaceans
+Oral reproductive developmental NOAEL in mammals
+Oral chronic mammalian RfD assessment in mg/kg-day
+Oral subchronic mammalian NOAEL measurement in mg/kg-day
+Oral repeat dose mammalian NOAEL assessment
+Oral chronic mammalian LOAEL assessment
+Oral subchronic mammalian LOAEL measurement in mg/kg-day
+Acute oral EC toxicity assay in algae
+Potential organ harm from chemical exposure
+Flammable hazard assessment
+Respiratory irritation hazard assessment
+Hazardous ingestion risk measurement
+HEPG2 cell viability assay for toxicity screening
+Dermal LD risk assessment in mammals
+Chronic oral NOEC in fish for chemical toxicology study
+Genotoxicity assessment of chemicals in HEPG2 cells using p-H2AX assay
+CCRIS mutagenicity assay study
+Developmental toxicity assay
+CCRIS carcinogenicity assay study
+DSSTOX carcinogenic potency database summary
+Reproductive toxicity assay
+Endocrine disruption assay
+Skin sensitization risk assessment test
+Respiratory toxicity assay
+Neurotoxicity assessment of chemical exposure
+Teratogenicity assessment
+Zebrafish teratogenicity assay at 144 hours post fertilization
+Zebrafish embryo jaw toxicity assay
+Hepatotoxicity assessment via GCLC inhibition in HEPARG cells
+Nephrotoxicity assessment
+HEPARG cell line assay for adenylate kinase downregulation
+Immunotoxicity assessment via CD86 expression analysis
+Cardiovascular toxicity screening
+CYP1A1 induction assay for chemical toxicity
+CYP2C9 small molecule screening assay
+CYP2C19 inhibitor and substrate assay for toxicological screening
+CYP3A4 inhibitors and substrates assay
+Aromatase inhibition assay in human cells
+DNA damage assessment
+Long-lasting aquatic toxicity assay
+Acute fish LC50 assay - mg/L
+Carcinogenic potency assessment
+Mutagenicity bioassay
+Aquatic ecotoxicity with long lasting effects
+Cellular cytotoxicity assay utilizing plate reader
+HEPG2 mitotic arrest assay for chemical toxicity
+Mitochondrial membrane potential disruption assay
+Caspase-3/7 activation profiling
+Oxidative stress assessment via NRF2 pathway
+Inflammatory response assessment
+Gastrointestinal toxicity effects assay
+Estrogen receptor activity assay
+Androgen receptor activity assay
+Thyroid receptor signaling pathway toxicology assessment
+PPAR transactivation assay
+Liver metabolism and excretion assessment via CYP enzymes
+Bioaccumulation potential assessment
+Glutathione depletion assay
+Reactive oxygen species generation assay
+Protein binding assay for toxic compound profiling
+Photosensitization potential assessment
+Matrix metalloproteinase inhibition assay
+Allergy potential assessment
+HEPARG fatty acid synthesis induction assay
+HEPARG cytotoxicity assay for chemical evaluation
+In vitro blood-brain barrier permeability assay
+Cell migration assay for toxicity evaluation
+Hemolysis assay for red blood cell toxicity
+Mitochondrial toxicity assessment
+Lipid peroxidation assay
+Neurite outgrowth inhibition assay
+Bile acid metabolism disruption assessment
+Platelet aggregation assay
+Cell cycle arrest assay for chemicals
+COMET assay for DNA strand breaks
+Apoptosis vs necrosis determination assay
+Myelotoxicity assessment
+Placental barrier transfer assay
+Cholinesterase inhibition assay
+Glutathione S-transferase inhibition assay
+MAO-A/MAO-B inhibition assay
+Micronucleus assay for chromosomal damage
+Ames test for mutagenicity
+Cytochrome P450 induction profile
+Phase II enzyme induction profile
+NADPH oxidase activation assay
+Gap junction intercellular communication assay
+Ion channel activity modulation assay
+Antioxidant response element activation assay
+Heat shock protein induction assay
+Unfolded protein response activation assay
+Autophagy induction assessment
+Proteasome inhibition assay
+Skin corrosion assay
+Kidney proximal tubule cell toxicity assay
+Melanin interaction potential for colored compounds

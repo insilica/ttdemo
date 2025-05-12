@@ -1,0 +1,102 @@
+eye damage hazard assessment
+[skin contact hazard assessment]
+skin irritation assay hazard code h315
+acute oral ld50 in mammals
+oral acute lc50 assay for chemical toxicity
+oral chronic toxicity screening level assessment in mg/kg-day
+oral short-term toxicity assay for crustaceans
+oral reproductive developmental noael in mammals
+chronic oral mammalian rfd assessment in mg/kg-day
+oral subchronic mammalian noael measurement in mg/kg-day
+oral repeat dose mammalian noael assessment
+chronic oral mammalian loael assessment
+oral subchronic mammalian noael measurement in mg/kg-day
+acute oral ec toxicity assay in algae
+potential organ harm from chemical exposure
+flammable hazard assessment
+respiratory irritation hazard assessment
+[hazardous ingestion risk measurement]
+hepg2 cell viability assay for toxicity screening
+acute dermal ld risk assessment in mammals
+chronic oral noec in fish for chemical toxicology study
+genotoxicity assessment of chemicals in hepg2 cells using p-h2ax assay
+ccris mutagenicity assay study
+chemical toxicity assay
+ccris mutagenicity assay study
+dsstox carcinogenic potency database mouse bioassay summary
+reproductive toxicity assay
+endocrine disruption assay
+skin sensitization risk assessment test
+respiratory toxicity assay
+reproductive toxicity assessment of chemicals
+inhalation toxicity assessment
+zebrafish teratogenicity assay at 144 hours post fertilization
+embryonic zebrafish teratogenicity assessment (144hpf)
+hepatotoxicity assessment via gclc inhibition in heparg cells
+inhalation toxicity assessment
+heparg cell assay for adenylate kinase downregulation
+chemical immunotoxicity assessment via cd86 expression analysis
+htrf assay for toxicity screening
+48-hour cyp1a1 induction assay for chemical toxicity
+[cyp2c9 small molecule screening assay]
+[cytochrome p450 2c9 inhibitor and substrate assay for toxicological screening]
+assay for cytochrome p450 2d6 inhibitors and substrates
+assay for carbonic anhydrase 9 inhibition in human cells
+eye damage hazard assessment
+long-lasting aquatic toxicity assay
+fish acute lc50 assay - mg/l
+kinase inhibitor potency assessment
+[gene-tox mutagenicity bioassay]
+assay for aquatic ecotoxicity with long lasting effects
+cell-based cytotoxicity assay utilizing plate reader - broad institute study
+hepg2 mitotic arrest assay for chemical toxicity
+mitochondrial membrane potential disruption assay for small molecules
+thrombomodulin activation assay
+skin sensitization risk assessment test
+inflammatory response inhibition assay
+assay for gastrointestinal toxicity effects
+estrogen receptor activity assay
+androgen receptor agonist assay
+heparg cell toxicity assay targeting pten signaling pathway
+pparg transactivation assay
+chemical immunotoxicity assessment via cd86 expression analysis
+inhalation toxicity assessment
+lead toxicity assay detection
+oxytocin receptor toxicity assay information
+protein binding assay for toxic compound profiling
+skin sensitization risk assessment test
+matrix metalloproteinase inhibition assay
+assay for ototoxicity assessment
+heparg fatty acid synthesis induction assay
+hepg2 cytotoxicity assay for chemicals detection
+blood-brain barrier permeability assay
+chemical migration assay for toxicity evaluation
+assay for human cell line toxicity
+inhalation toxicity assessment
+heparg cyp3a7 induction assay
+nr-aromatase inhibition assay
+inhalation toxicity assessment
+heparg nfe2l2 activation assay
+hepg2 cell mitotic arrest assay for chemicals
+mea burst rate decrease assay
+chemokine-induced apoptosis assay
+inhalation toxicity assessment
+blood-brain barrier permeability assay
+chemokine inhibition assay
+histone-lysine n-methyltransferase ezh2 inhibition assay data
+vcam1 inhibition assay
+eralpha-mediated chemical assay for toxicology
+ccris mutagenicity assay study
+assay for cytochrome p450 1a1 inhibition
+chemical induction of nrf2-mediated cytotoxicity
+heparg tgfa activation assay
+chemical-induced upregulation assay
+insulin promoter activity modulation assay in min6 cells
+antioxidant response element activation assay
+heparg ugt1a1 induction assay
+assay for small molecule activators of the unfolded protein response
+heparg cyp3a7 induction assay
+nr-aromatase inhibition assay
+skin and eye corrosion assay
+clinical trial toxicity assay signals
+[tbk1 inhibition assay for potential toxic compounds]

@@ -1,0 +1,96 @@
+skin sensitization risk assessment test
+eye damage hazard assessment
+skin irritation assay hazard code h315
+skin contact toxicity assay
+chemokine inhibition assay
+skin and eye corrosion assay
+[skin contact hazard assessment]
+endocrine disruption assay
+respiratory irritation hazard assessment
+human maximization test for chemical sensitization
+acute dermal ld risk assessment in mammals
+oral acute lc50 assay for chemical toxicity
+oral chronic toxicity screening level assessment in mg/kg-day
+oral subchronic mammalian noael measurement in mg/kg-day
+oral reproductive toxicity assessment in mammals - loael mg/kg-day
+oral developmental toxicity assessment in mammals
+oral reproductive developmental noael in mammals
+reproductive toxicity assay
+chemical toxicity assay
+zebrafish teratogenicity assay at 144 hours post fertilization
+hepatotoxicity assessment via gclc inhibition in heparg cells
+hepatotoxicity assessment through cell loss at 24 hours
+hepg2 cell viability assay for toxicity screening
+hepg2 cytotoxicity assay for small-molecule toxicity
+hepg2 mitotic arrest assay for chemical toxicity
+hepg2 cell loss assay for 24h downstream targets
+heparg tgfa activation assay
+hepg2 mitochondrial mass decrease assay at 24 hours
+hepg2 cell viability assay for chemical toxicity assessment
+hepg2 cell proliferation assay for dna damage induction
+assay for cytotoxicity in human fibroblasts
+human dermal fibroblast cell growth factor and macrophage colony-stimulating factor downregulation assay
+flammable hazard assessment
+[hazardous ingestion risk measurement]
+long-lasting aquatic toxicity assay
+matrix metalloproteinase inhibition assay
+carbonic anhydrase 2 inhibition assay targeting human enzyme
+histone deacetylase inhibition assay in human cells
+melanocortin receptor 4 toxicity assay
+estrogen receptor alpha activation assay
+estrogen receptor agonist assay
+estrogen receptor beta activation assay for toxicity assessment
+cell viability assay for androgen receptor antagonists
+androgen receptor ligand binding domain assay for toxicologists
+skin sensitization risk assessment test
+assay for long-term acea ar agonist toxicity
+cell viability assay for toxicity screening
+genotoxicity assessment of chemicals in hepg2 cells using p-h2ax assay
+genotoxicity assessment assay in human kidney cells
+ccris mutagenicity assay study
+skin contact toxicity assay
+respiratory toxicity assay
+chemokine inhibition assay
+human norepinephrine transporter toxicology assay
+assay for sodium-dependent dopamine transporter inhibitors
+assay for melanin-concentrating hormone receptor 1 binding activity
+reproductive toxicity assessment of chemicals
+respiratory toxicity assay
+assay for ototoxicity assessment
+ahr activation assay
+assay for aquatic ecotoxicity with long lasting effects
+assay for acute oral toxicity in crustaceans using ec values in mg/l
+chemical reactivity assessment json
+navigating kinome toxicity assessment
+heat shock element activity assay
+human lymphoblast cell line viability assay
+irritant potential assessment by eye irritation assay
+inflammation response inhibition assay
+heparg ugt1a1 downregulation assay
+chemical immunotoxicity assessment via cd86 expression analysis
+assay for cytotoxicity in human fibroblasts
+3t3 gli3 agonist viability assay
+h9 cystine induced stress assay result notification
+antioxidant response element activation assay
+flammable hazard assessment
+chemical inhibition assay targeting timp2
+assay for ototoxicity assessment
+htrf assay for toxicity screening
+metabolism and nutrition disorders assay
+thrombin dose response confirmation assay
+trpc4 activation screening assay
+oxytocin receptor toxicity assay information
+heparg cyp3a7 induction assay
+protein binding assay for toxic compound profiling
+heparg cell assay for upregulation of icam1
+chemokine inhibition assay
+chemokine expression inhibition assay
+kinase inhibition assay for toxicity assessment
+trpc4 activation screening assay
+hepg2 microtubule disruption assay
+acute inhalation lc50 testing in mammals
+heparg cell assay for kcnk1 modulation
+chemokine expression inhibition assay
+skin sensitization risk assessment test
+[hazardous chemical hit identification assay]
+lead toxicity assay detection

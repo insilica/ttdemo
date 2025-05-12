@@ -1,0 +1,96 @@
+skin sensitization risk assessment test
+eye damage hazard assessment
+skin irritation assay hazard code h315
+skin contact toxicity assay
+eye irritation assay
+skin and eye corrosion assay
+skin contact hazard assessment
+endocrine disruption assay
+respiratory irritation hazard assessment
+skin maximization test for chemical sensitization
+acute dermal ld risk assessment in mammals
+oral acute lc50 assay for chemical toxicity
+oral chronic toxicity screening level assessment in mg/kg-day
+oral subchronic mammalian noael measurement in mg/kg-day
+oral reproductive toxicity assessment in mammals - loael mg/kg-day
+oral developmental toxicity assessment in mammals
+oral reproductive developmental noael in mammals
+reproductive toxicity assay
+developmental toxicity assay
+zebrafish teratogenicity assay at 144 hours post fertilization
+hepatotoxicity assessment via gclc inhibition in heparg cells
+hepatotoxicity assessment through cell loss at 24 hours
+HepG2 cell viability assay for toxicity screening
+HepG2 cytotoxicity assay for small-molecule toxicity
+HepG2 mitotic arrest assay for chemical toxicity
+HepG2 cell loss assay for 24h downstream targets
+HepG2 p53 activation assay
+HepG2 mitochondrial mass decrease assay at 24 hours
+HepG2 cell viability assay for chemical toxicity assessment
+HepG2 cell proliferation assay for DNA damage induction
+human dermal fibroblast cytotoxicity assay
+human dermal fibroblast cell growth factor downregulation assay
+flammable hazard assessment
+hazardous ingestion risk measurement
+long-lasting aquatic toxicity assay
+matrix metalloproteinase inhibition assay
+aromatase inhibition assay targeting human enzyme
+histone deacetylase inhibition assay in human cells
+human nuclear receptor toxicity assay
+estrogen receptor alpha activation assay
+estrogen receptor antagonist assay
+estrogen receptor beta activation assay for toxicity assessment
+androgen receptor antagonist assay
+androgen receptor ligand binding domain assay
+photosensitization risk assessment
+long-term stability test in cosmetic formulations
+cell viability assay for toxicity screening
+genotoxicity assessment of chemicals in HepG2 cells using p-H2AX assay
+DNA damage assessment in human cells
+mutagenicity assay study
+carcinogenicity assay
+phototoxicity assay
+CYP inhibition assay
+human norepinephrine transporter toxicology assay
+human dopamine transporter inhibition assay
+melanin-concentrating hormone receptor assay
+neurotoxicity assessment of chemical exposure
+respiratory toxicity assay
+ototoxicity assessment
+anti-inflammatory activity assay
+aquatic ecotoxicity with long lasting effects
+acute oral toxicity in crustaceans using EC values in mg/l
+chemical reactivity assessment
+comedogenicity assessment
+allergenicity risk assessment
+human lymphoblast cell line viability assay
+irritant potential assessment
+inflammation response inhibition assay
+heavy metal contamination assay
+immunotoxicity assessment via CD86 expression analysis
+human keratinocyte cytotoxicity assay
+3T3 cell viability assay
+oxidative stress induction assay
+antioxidant response element activation assay
+thermal stability assessment
+UV stability testing
+fragrances allergy assessment
+preservative toxicity screening
+skin metabolism assay
+percutaneous absorption testing
+cellular accumulation screening
+reactive oxygen species generation assay
+lipid peroxidation assay
+protein binding assay for toxic compound profiling
+cell migration assay for wound healing potential
+elastase inhibition assay
+collagen degradation inhibition assay
+tyrosinase inhibition assay for skin lightening assessment
+UV filter safety screening
+microbiome disruption assessment
+mucous membrane irritation testing
+cytokine modulation assay
+chemokine expression inhibition assay
+3D skin model irritation test
+human health hazard identification assay
+toxicity pathway identification assay

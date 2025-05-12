@@ -1,0 +1,104 @@
+sw480 cell viability assay for toxicological screening
+endocrine disruption assay
+oral reproductive developmental noael in mammals
+zebrafish teratogenicity assay at 144 hours post fertilization
+eye damage hazard assessment
+flammable hazard assessment
+hepatobiliary toxicity assay
+oral acute lc50 assay for chemical toxicity
+oral subchronic mammalian noael measurement in mg/kg-day
+ceetox_h295r_testo_dn assay for chemical toxicity
+tox21_ppard_bla_agonist_viability assay evaluation
+toxicity assessment of chemicals on p53 expression and cell viability
+hepg2 cell viability assay with control samples at 0 hours
+chemical induction of endoplasmic reticulum stress in toxicology assay
+chemical toxicity assay for downregulation of srb in bsk_casm3c model
+48-hour cyp1a1 induction assay for chemical toxicity
+chemical impact on hmg-coa synthase 2 expression in heparg cells
+heparg fatty acid synthesis induction assay
+ldlr downregulation assay in bsk cells
+quantitative luminescence inhibition assay for assessing chemical toxicity
+assay for vitamin d3 receptor activity in toxicology studies
+thyroid hormone receptor beta binding assay for toxicology studies
+estrogen receptor antagonist assay for chemical toxicity
+toxicological assessment of chemicals on heparg cells with tp53 upregulation
+h295r assay for cortisol regulation in chemical exposure
+cell-based progesterone receptor antagonist assay in toxicology
+5-ht6 receptor binding assay data for toxicological analysis
+thyroid hormone receptor beta binding assay for toxicology studies
+hepg2 cytotoxicity assay measured using plate reader on small-molecule chemicals
+heparg cyp3a7 induction assay
+heparg cyp4a22 inhibition assay result
+toxicogenomic assessment of cyp2c8 inducing chemicals in heparg cells
+chemical toxicity assessment through hclat assay
+oral short-term toxicity assay for crustaceans
+oral subchronic mammalian noael measurement in mg/kg-day
+ahr activation assay
+assay for chemicals impacting nervous system disorders
+toxicological analysis of cyp2c19 inducing compounds in heparg cells
+acea ar antagonist viability assay
+fxr antagonist viability assay
+toxicological assessment of chemical-induced alterations in interburst intervals
+estrogen receptor antagonist assay for chemical toxicity
+h295r assay for cortisol regulation in chemical exposure
+assay for cytochrome p450 1a1 inhibition
+chemical toxicity assay
+inhalation toxicity assessment
+blood-brain barrier permeability assay
+heparg cell assay for pdk4 induction in response to chemical exposure
+heparg cell toxicity assessment for tgfb1-induced chemicals
+[skin contact hazard assessment]
+reproductive toxicity assay
+assay for human hepatic intrinsic clearance (httk)
+ rat hepatic intrinsic clearance assay
+assay for gastrointestinal toxicity effects
+heparg abcb11 downregulation assay for chemical toxicity
+eye damage hazard assessment
+acute oral ld50 toxicity assessment in mg/kg-day
+matrix metalloproteinase inhibition assay
+hla-dr downregulation assay targeting bsk_be3c cells
+chemical-induced p53 activation assay ratio
+heparg cyp2b6 induction assay
+chemical toxicity screening assay for potential human health hazards
+respiratory toxicity assay
+heparg cyp3a7 induction assay
+chemical toxicity assay
+assay for aquatic ecotoxicity with long lasting effects
+skin sensitization risk assessment test
+inhalation toxicity assessment
+potential organ harm from chemical exposure
+tox21_pr_bla_antagonist_viability assay
+heparg cellular assay for fmo3 inhibition
+chemical migration assay for toxicity evaluation
+skin toxicity assay
+tox21_ppard_bla_antagonist_ratio assay
+respiratory irritation hazard assessment
+skin irritation assay hazard code h315
+genotoxicity assessment of chemicals in hepg2 cells using p-h2ax assay
+chronic oral noec in crustaceans for chemical exposure
+acute oral ld50 values in mammals
+chronic oral mammalian loael assessment
+chemical toxicity assessment: general disorders and administration site conditions
+fish acute lc50 assay - mg/l
+blood-brain barrier permeability assay
+inhalation toxicity assessment
+chronic oral mammalian loael assessment
+long-lasting aquatic toxicity assay
+long-lasting aquatic toxicity assay
+inhalation toxicity assessment
+oecd functional use assay for biocidal chemicals
+vcam1 inhibition assay
+endocrine disruption assay
+flammable hazard assessment
+protein binding assay for toxic compound profiling
+hepatocyte stress kinase activation assay
+chemical exposure assessment assay
+endocrine disruption assay
+antioxidant response element activation assay
+chemical response call assay
+nfkb activation viability assay
+histone deacetylase inhibition assay in human cells
+quantitative high-throughput screening for cytotoxicity evaluation
+blood-brain barrier permeability assay
+hematological toxicity assay
+chemical-induced upregulation assay in breast cancer cells

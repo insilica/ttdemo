@@ -1,0 +1,203 @@
+Endocrine disruption assay
+Hepatotoxicity assessment via gclc inhibition in heparg cells
+Oral reproductive developmental noael in mammals
+Eye damage hazard assessment
+Skin sensitization risk assessment test
+Oral acute ld50 toxicity assessment in mg/kg-day
+Genotoxicity assessment of chemicals in hepg2 cells using p-h2ax assay
+Acute oral lc50 assay for chemical toxicity
+Skin irritation assay hazard code h315
+Estrogen receptor antagonist assay for chemical toxicity
+Oral subchronic mammalian noael measurement in mg/kg-day
+Mutagenicity assay study
+Carcinogenicity assay study
+Aromatase inhibition assay targeting human enzyme
+Cell-based cytotoxicity assay utilizing plate reader
+Oral chronic mammalian noael assessment
+Reproductive toxicity assay
+Cytotoxicity assessment through hclat assay
+HepG2 cell viability assay for toxicity screening
+HepG2 mitotic arrest assay for chemical toxicity
+Estrogen receptor alpha activation assay
+Androgen receptor antagonist assay in toxicology
+Respiratory toxicity assay
+Oral chronic mammalian rfd assessment in mg/kg-day
+Human hepatic intrinsic clearance (httk) assay
+Gastrointestinal toxicity effects assay
+Chemical migration assay for toxicity evaluation
+Flammable hazard assessment
+Oral acute EC toxicity assay in algae
+Skin corrosion assay
+Neurotoxicity assessment of chemical exposure
+Renal and urinary toxicity assay
+Chemical metabolism assay by CYP2B6 detection
+HepG2 cytotoxicity assay for small-molecule chemicals
+Hazardous ingestion risk measurement
+Aquatic ecotoxicity with long lasting effects assay
+HepG2 mitochondrial mass decrease assay at 24 hours
+Potential organ harm from chemical exposure
+Plasticizer functional use assay
+Developmental toxicity in mammals via oral NOAEL measurement
+Antimicrobial/preservative functional use assay
+Acute dermal LD risk assessment in mammals
+Long-lasting aquatic toxicity assay
+Oral chronic ADI measurement in toxicology
+Chemical reactivity assessment JSON
+Thyroid hormone receptor beta binding assay
+Inhibition of stearoyl-CoA desaturase
+CYP1A1 induction assay for chemical toxicity
+OECD functional use assay for solvent evaluation
+HepG2 p53 activation assay
+Antioxidant OECD functional use assay
+Inhalation acute toxicity assessment of chemicals
+Chemical intrinsic clearance assay
+HepG2 DNA damage assay - 24 hour treatment detection
+Human maximization test for chemical sensitization
+Oral chronic screening level assessment of chemicals in ug/L
+Acetylcholinesterase inhibition assay
+Embryonic zebrafish teratogenicity assay
+Matrix metalloproteinase inhibition assay
+Chemical-induced p53 activation assay
+24-hour CYP1A2 induction assay in toxicology
+Peroxisome proliferator-activated receptor alpha activity assay
+HepG2 mitochondrial membrane potential disruption assay
+Chemical plasma protein binding assay
+Antioxidant response element activation assay
+Fish acute LC50 assay - mg/L
+Chemical metabolism by CYP3A4 in a 24-hour assay
+Cholinesterase inhibition assay targeting toxins
+Hazardous effect on aquatic life in chemical assay
+Histone deacetylase inhibition assay in human cells
+Immunotoxicity assessment in PBMCCS
+HepG2 cell cycle arrest assay
+Metabolic stability assessment of chemicals
+Bile acid receptor activity assay in human cell line
+Lipid peroxidation assay in liver cells
+Chemical metabolism through CYP2C19 inducing chemicals
+Oral short-term toxicity assay for crustaceans
+Allergic skin reaction hazard assessment
+Oral subacute mammalian NOAEL assessment
+Blood-brain barrier permeability assay
+Respiratory irritation hazard assessment
+HepG2 cell proliferation assay for DNA damage induction
+Fatty acid synthesis induction assay
+NADPH-cytochrome P450 reductase assay
+Chemical exposure assay - IgG suppression
+Glutathione depletion assay
+Bioaccumulation potential assessment
+Toxicity assessment through MMP ratio down assay
+Lipid metabolism disruption assay
+Chemical detoxification enzyme inhibition study
+Diacylglycerol O-acyltransferase inhibition assay
+Alpha-1 adrenergic receptor binding assay for toxicology
+HepG2 cytotoxicity counterscreen assay
+Inflammatory response modulation assay
+Interleukin expression modulation assay in human cells
+Protein oxidation assay in liver cells
+Mitochondrial toxicity assessment
+Humectant functional use assay
+Flavoring agents functional use assessment
+Surfactant functional use assay
+Chemokine expression inhibition assay
+Claude: Here are 100 food-contact-material relevant properties that would be most interesting to toxicologists:
+Endocrine disruption assay
+Hepatotoxicity assessment via gclc inhibition in heparg cells
+Oral reproductive developmental noael in mammals
+Eye damage hazard assessment
+Skin sensitization risk assessment test
+Oral acute ld50 toxicity assessment in mg/kg-day
+Genotoxicity assessment of chemicals in hepg2 cells using p-h2ax assay
+Acute oral lc50 assay for chemical toxicity
+Skin irritation assay hazard code h315
+Estrogen receptor antagonist assay for chemical toxicity
+Oral subchronic mammalian noael measurement in mg/kg-day
+Mutagenicity assay study
+Carcinogenicity assay study
+Aromatase inhibition assay targeting human enzyme
+Cell-based cytotoxicity assay utilizing plate reader
+Oral chronic mammalian noael assessment
+Reproductive toxicity assay
+Cytotoxicity assessment through hclat assay
+HepG2 cell viability assay for toxicity screening
+HepG2 mitotic arrest assay for chemical toxicity
+Estrogen receptor alpha activation assay
+Androgen receptor antagonist assay in toxicology
+Respiratory toxicity assay
+Oral chronic mammalian rfd assessment in mg/kg-day
+Human hepatic intrinsic clearance (httk) assay
+Gastrointestinal toxicity effects assay
+Chemical migration assay for toxicity evaluation
+Flammable hazard assessment
+Oral acute EC toxicity assay in algae
+Skin corrosion assay
+Neurotoxicity assessment of chemical exposure
+Renal and urinary toxicity assay
+Chemical metabolism assay by CYP2B6 detection
+HepG2 cytotoxicity assay for small-molecule chemicals
+Hazardous ingestion risk measurement
+Aquatic ecotoxicity with long lasting effects assay
+HepG2 mitochondrial mass decrease assay at 24 hours
+Potential organ harm from chemical exposure
+Plasticizer functional use assay
+Developmental toxicity in mammals via oral NOAEL measurement
+Antimicrobial/preservative functional use assay
+Acute dermal LD risk assessment in mammals
+Long-lasting aquatic toxicity assay
+Oral chronic ADI measurement in toxicology
+Chemical reactivity assessment JSON
+Thyroid hormone receptor beta binding assay
+Inhibition of stearoyl-CoA desaturase
+CYP1A1 induction assay for chemical toxicity
+OECD functional use assay for solvent evaluation
+HepG2 p53 activation assay
+Antioxidant OECD functional use assay
+Inhalation acute toxicity assessment of chemicals
+Chemical intrinsic clearance assay
+HepG2 DNA damage assay - 24 hour treatment detection
+Human maximization test for chemical sensitization
+Oral chronic screening level assessment of chemicals in ug/L
+Acetylcholinesterase inhibition assay
+Embryonic zebrafish teratogenicity assay
+Matrix metalloproteinase inhibition assay
+Chemical-induced p53 activation assay
+24-hour CYP1A2 induction assay in toxicology
+Peroxisome proliferator-activated receptor alpha activity assay
+HepG2 mitochondrial membrane potential disruption assay
+Chemical plasma protein binding assay
+Antioxidant response element activation assay
+Fish acute LC50 assay - mg/L
+Chemical metabolism by CYP3A4 in a 24-hour assay
+Cholinesterase inhibition assay targeting toxins
+Hazardous effect on aquatic life in chemical assay
+Histone deacetylase inhibition assay in human cells
+Immunotoxicity assessment in PBMCCS
+HepG2 cell cycle arrest assay
+Metabolic stability assessment of chemicals
+Bile acid receptor activity assay in human cell line
+Lipid peroxidation assay in liver cells
+Chemical metabolism through CYP2C19 inducing chemicals
+Oral short-term toxicity assay for crustaceans
+Allergic skin reaction hazard assessment
+Oral subacute mammalian NOAEL assessment
+Blood-brain barrier permeability assay
+Respiratory irritation hazard assessment
+HepG2 cell proliferation assay for DNA damage induction
+Fatty acid synthesis induction assay
+NADPH-cytochrome P450 reductase assay
+Chemical exposure assay - IgG suppression
+Glutathione depletion assay
+Bioaccumulation potential assessment
+Toxicity assessment through MMP ratio down assay
+Lipid metabolism disruption assay
+Chemical detoxification enzyme inhibition study
+Diacylglycerol O-acyltransferase inhibition assay
+Alpha-1 adrenergic receptor binding assay for toxicology
+HepG2 cytotoxicity counterscreen assay
+Inflammatory response modulation assay
+Interleukin expression modulation assay in human cells
+Protein oxidation assay in liver cells
+Mitochondrial toxicity assessment
+Humectant functional use assay
+Flavoring agents functional use assessment
+Surfactant functional use assay
+Chemokine expression inhibition assay
