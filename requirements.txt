@@ -1,0 +1,15 @@
+#conda create -c conda-forge -n ttdemo python=3.10 rdkit
+pandas
+rapidfuzz
+aiohttp
+tenacity
+pubchempy
+pyarrow
+fastparquet
+seaborn
+matplotlib
+scikit-learn
+fastcluster
+cython
+blosc2
+FuzzyTM

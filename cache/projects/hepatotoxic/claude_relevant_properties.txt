@@ -1,0 +1,270 @@
+[cyp2c9 small molecule screening assay]
+heparg cyp3a7 induction assay
+hepg2 cell viability assay with control samples at 0 hours
+48-hour cyp1a1 induction assay for chemical toxicity
+chemical impact on hmg-coa synthase 2 expression in heparg cells
+heparg fatty acid synthesis induction assay
+heparg cell assay for pdk4 induction in response to chemical exposure
+chemical metabolism assay by cyp2b6 detection
+heparg cyp4a22 inhibition assay result
+toxicogenomic assessment of cyp2c8 inducing chemicals in heparg cells
+toxicological analysis of cyp2c19 inducing compounds in heparg cells
+toxicological assessment of chemicals on heparg cells with tp53 upregulation
+heparg cell toxicity assessment for tgfb1-induced chemicals
+heparg cyp7a1 downregulation assay
+heparg dn chemical toxicity assay
+heparg cyp3a4 induction assay
+heparg cell assay for adenylate kinase downregulation
+assay for hepatic triacylglycerol lipase inhibition
+heparg slco1b1 downregulation assay call
+assay for chemical-induced upregulation of hspa1a expression in heparg cells
+chemical toxicity assay in heparg cells targeting slc22a1 gene suppression
+downregulation of cyp3a4 in heparg cells by ltea
+hepg2 cell viability assay for toxicity screening at 16 hours
+real time viability assay for hepg2 cell toxicity
+inhibitory effects of chemicals on tgf-b pathway in hepg2 cells
+hepg2 mitotic arrest assay interpretation
+heparg icam1 upregulation assay
+48-hour cld_cyp1a2 toxicity assay decision endpoint
+hepg2 p53 activity response assay
+toxicological evaluation of chemical-induced hepg2 cell cycle arrest after 72 hours
+heparg assay for cflar expression in response to chemicals
+heparg liver cell assay for downregulation of lipoprotein lipase
+chemical inhibition assay of sulfotransferase 2a1 in heparg cells
+downregulation of cyp2c9 in heparg cells by ltea
+heparg ugt1a1 downregulation assay
+hepg2 cytotoxicity assay measured using plate reader on small-molecule chemicals
+heparg cyp2c19 downregulation assay for chemical toxicity
+24-hour call assay for cyp1a2 activity in toxicology
+48-hour cyp3a4 chemical exposure assay
+heparg cyp2b6 induction assay
+hepg2 cell viability assay for toxicity assessment
+heparg assay for peg10-mediated toxicity
+heparg cell assay for cyp1a1 induction
+heparg chemical hepatotoxicity assay targeting afp inhibition
+heparg ezr upregulation assay
+toxicity assessment of chemicals on heparg cells: downregulation of slc22a1
+assessment of small molecule inhibitors on mir122 activity in cell-based system
+heparg cyp3a4 induction assay
+analysis of chemical-induced hepg2 cell loss after 72 hours
+assay for tgf-b inhibitors in hepg2 cells
+hepg2 cytotoxicity assay for small-molecule toxicity
+heparg lpl call assay - chemical toxicity
+genotoxicity assessment of chemicals in hepg2 cells using p-h2ax assay
+heparg cellular assay for alpp downregulation
+heparg igf1 downregulation toxicity assay
+heparg cell assay for kcnk1 modulation
+heparg assay for stat3 inhibition in response to ltea
+assay for bile acid receptor activity in human cell line
+hepg2 cell cycle arrest assay - downregulation at 72 hours
+hepg2 cell viability assay for toxicity screening
+heparg cell cyp3a7 downregulation assay
+24-hour cyp1a2 induction assay in toxicology
+assay for human hepatic intrinsic clearance (httk)
+rat hepatic intrinsic clearance assay
+heparg abcb11 downregulation assay for chemical toxicity
+hepg2 cell viability assay for toxicity screening
+inhibition of catalase activity in rat liver proteins
+hepg2 cytotoxicity assay for chemicals detection
+assay for heparg cell line response to chemicals targeting hmgcs2 gene
+heparg mir122 downregulation assay for chemical toxicity
+hepg2 cell viability assay for chemical toxicity assessment
+toxicity assessment of chemicals on hepg2 cell cycle arrest at 24 hours
+hepatotoxicity assessment through cell loss at 24 hours
+heparg cyp2c8 inhibition assay result interpretation
+foxo1 suppression assay in heparg cells
+inhibition of trypanosoma cruzi cyp51 enzyme
+heparg fmo3 downregulation assay call
+heparg cyp1a1 activation assay prediction
+induction of dna damage in hepg2 cells exposed to chemicals for 24 hours
+heparg cyp3a5 downregulation assay
+heparg assay for toxicant metabolism inhibition
+hepg2 mitochondrial mass decrease assay at 24 hours
+real time viability assay for monitoring hepg2 cell cytotoxicity
+hepg2 cell viability assay for toxic chemicals
+heparg egf-induced chemical toxicity assay
+heparg il-6 induction assay
+real time viability assay for hepg2 cell toxicity
+hepg2 cell viability toxicity assay
+hepatotoxicity assessment via gclc inhibition in heparg cells
+heparg cell heat shock protein a1a upregulation assay
+heparg ldh cytotoxicity assay
+heparg cell line assay for peg10 downregulation
+assay for cyp2c9 inhibitors using luciferase cell-based method
+assay for cyp3a4 antagonist activity in luciferase reporter assay
+heparg toxicity biomarker assay
+assay for downregulation of ccnd1 in heparg cells
+assay for cyp2c19 small molecule antagonists targeting luciferase reporter signal
+hepg2 cell viability assay for chemical toxicity
+heparg cell assay for cyp2c8 upregulation
+hepg2 mitotic arrest assay for chemical toxicity
+heparg cyp1a2 induction assay
+heparg cell cyp2b6 inhibition assay call data
+high-throughput viability assay for hepg2 cells
+chemical-induced downregulation of fabp1 in heparg cells
+"chemical transporter induction assay in heparg cells"
+heparg tgfa activation assay
+hepg2 cell-based cytotoxicity assay for small-molecule antagonists
+aldh1a1 inhibitors assay for toxicological screening
+hepg2 cytotoxicity counterscreen assay for chemicals in cell-based system
+heparg abcb11 downregulation assay for chemical toxicity
+heparg tgfa response assay
+heparg assay for abcb1 inhibition in chemical toxicology
+hcs identification of hepatic lipid droplet inhibitors
+measurement of cyp3a4 induction by small molecules through pxr signaling in a cell-based assay
+heparg assay for mir122 downregulation in chemical toxicity screening
+hepg2 cell loss assay for 24h downstream targets
+foxo1 downregulation assay in heparg cells
+heparg caspase-3 inhibition assay for liver toxicity
+heparg cell assay for upregulation of icam1
+heparg cellular assay for fmo3 inhibition
+heparg apoa5 downregulation assay call analysis
+heparg nfkb1 downregulation assay for chemical toxicity
+heparg ugt1a6 downregulation assay call analysis
+heparg ldh cytotoxicity assay
+chemical effect on liver cell growth inhibited by igf-1 in heparg assay
+hepg2 cytotoxicity assay using plate reader: small-molecule inhibitor dose analysis
+hepg2 mitotic arrest toxicity assay
+heparg nfe2l2 upregulation assay
+hepg2 cell viability assay for chemical toxicity
+analysis of small molecule mir122 inhibitors in cell-based system using plate reader
+heparg cell alpp downregulation assay interpretation
+heparg assay for gsta2 downregulation in chemical toxicity testing
+heparg ddit3 induction assay for hepatotoxicity detection
+heparg ugt1a1 induction assay
+luciferase-based assay for cyp3a4 antagonist screening
+cell-based assay for cyp2d6 small molecule antagonists
+assay for hepg2 cell viability after exposure to chemicals for 24 hours
+heparg gadd45b upregulation assay for toxicity assessment
+heparg bax up toxicity assay
+[toxicity assessment of chemicals on hepg2 cell viability after 8 hours]
+heparg cell assay for gstm3 downregulation
+assay for g-protein coupled bile acid receptor 1 activation
+heparg ddit3 call assay
+heparg assay for hif1a upregulation
+hepg2 cell proliferation assay for dna damage induction
+luciferase reporter assay for cyp2c9 small molecule antagonists
+hepg2 cell activation assay for p53 upregulation at 24 hours
+exploring cytotoxicity in hepg2 cells of compounds modulating drug-tolerant mycobacterium tuberculosis
+hepg2 viability assay for chemical toxicity assessment
+chemical call assay in heparg cells
+heparg myc upregulation toxicity assay
+metabolic stability assessment of chemicals by cyp3a4 in a 24-hour assay
+hepg2 cell mitotic arrest assay for chemicals
+decrease in mitochondrial membrane potential in hepg2 cells after 24 hours
+assay for heparg cell stat3 inhibition in response to chemicals
+heparg mmp10 upregulation assay
+heparg gadd45b downregulation assay for chemical toxicity
+heparg fabp1 downregulation assay for chemical toxicity
+heparg cell assay for bcl2l11 upregulation
+heparg assay for tgfb1-induced chemical upregulation
+heparg chemical-induced stress assay
+hepg2 cell line inhibition assay by gsk
+assay for inhibitors of aldehyde dehydrogenase 1 (aldh1a1)
+hepg2 cell p53 activation assay notification
+assay for cyp2c9 inhibition in heparg cells
+heparg abcb1 upregulation assay
+heparg-induced gadd45a expression assay
+chemical-induced changes in heparg cells: downregulation of cytotoxicity associated transcripts
+hepg2 viability assay for toxicity assessment
+tox21_rt_hepg2_glo_40hr_viability assay assessment by expert toxicologist
+heparg myc upregulation assay for toxicity screening
+ldh activity inhibition assay for measuring chemical toxicity
+heparg mmp3 downregulation assay
+high throughput cell-based assay for liver receptor homolog-1 (lrh-1) inverse agonists
+heparg cell proliferation assay targeting pdk4 upregulation
+heparg cyp2c19 downregulated chemical assay
+heparg_krt19 downregulation assay for toxicological evaluation
+heparg cell toxicity assay targeting pten signaling pathway
+assay for ileal sodium/bile acid cotransporter inhibitors
+human bile acid receptor ec50 assay data
+heparg krt19 downregulation endpoint analysis
+heparg sult2a1 downregulation assay
+heparg foxo3 downregulation assay
+24hr cyp2b6 metabolic activity assay
+inhibition of cyp1a2 in heparg cells by chemical compounds
+chemical-induced heparg il6 upregulation assay
+heparg cell assay for cyp2c19 induction
+heparg cyp3a4 suppression assay
+hepg2 flo 16hr viability assay for chemical toxicity
+heparg liver assay for lipid regulation (decreased)
+heparg acly induction assay
+heparg cell xbp1 downregulation assay for liver toxicity evaluation
+assay for heparg ugt1a6 downregulation in response to ltea chemicals
+hepg2 microtubule disruption assay
+chemical inhibition assay of cyp3a7 in heparg cells
+heparg acox1 downregulation toxicity assay
+heparg assay for mmp3 upregulation
+assay for downregulation of acox1 in heparg cells by ltea
+hepg2 p53 activation assay at 72 hours
+inhibition of cflar expression in heparg cells
+hepg2 cell viability assay time-resolved toxicity assessment
+heparg assay for abcc2 upregulation in response to chemical exposure
+heparg toxicity assay downregulating thrsp
+ncats rat liver microsome stability profiling assay for chemical screening
+heparg abcg2 upregulation assay call
+heparg cell line il6 receptor downregulation assay
+identification of chemicals inducing caspase-3/7 in hepg2 cells: a high throughput screening counter screen study
+celltox green cytotoxicity assay for hepg2 cells with real-time monitoring
+heparg cyp4a22 downregulation toxicity assay
+assay for cyp2d6 small molecule antagonists in luciferase reporter qhts analysis
+heparg fasn downregulation assay for chemical toxicity
+hepg2 cytotoxicity counterscreen assay using dry powder inhibitors
+chemical-induced cell cycle arrest assay in heparg cells
+assay for heparg cell line downregulation of il6 receptor
+heparg liver cell line lipid peroxidation assay upregulation
+real time viability assay for cytotoxicity monitoring in hepg2 cells
+heparg cell assay for downregulation of tnfrsf1a
+cellular toxicity assay for abcb1 transporter upregulation in heparg cells
+heparg cyp4a11 downregulation assay call signal
+inhibition of apoa5 expression in heparg cells assay
+hepg2 cell viability assay for chemical toxicity
+assay for decreased mitochondrial membrane potential in hepg2 cells at 72 hours
+heparg cyp4a11 downregulation assay in ltea
+downregulation of abcc3 in ltea(heparg) assay
+assay for upregulation of bax in heparg cells
+chemical-induced upregulation of gadd45g in heparg cells
+ltea_heparg_ugt1a1_up toxicity assay
+heparg assay for abcc2 downregulation
+hepg2 cell viability assay for toxicity screening
+hepg2 cell viability assay with toxicity marker casp3
+heparg assay for cyp2e1 inhibition
+chemically-induced upregulation of egr1 in heparg cells
+heparg cyp1a2 induction assay result
+hepg2 cell viability assay for chemical toxicity
+assay for 48-hour cyp2b6-mediated chemical toxicity
+assessment of small molecules toxicity on giardia lamblia: hepg2 cytotoxicity validation
+heparg-based assay for chemical induction of fatty liver disease
+inhibition of cyp2e1 activity in heparg cells
+[24-hour assessment of cyp1a1 induction in hepatocytes]
+heparg cell assay for cyp2c8 inhibition
+heparg bcl2 upregulation assay
+6-hour cyp1a1 induction assay
+hepg2 cell viability assay for toxicity screening
+hepg2 cell viability assay for 24-hour toxicity prediction
+assay for g-protein coupled bile acid receptor 1 agonists
+heparg ugt1a1 downregulation assay for hepatotoxicity assessment
+analysis of cyp2c19 enzyme activity in human cells
+luciferase reporter assay for cyp1a2 antagonists
+real time viability assay for hepg2 cell cytotoxicity
+hepg2 viability assay for toxic chemicals
+heparg nfe2l2 activation assay
+heparg-jun upregulation assay for chemical toxicity
+heparg mmp10 upregulation assay
+heparg assay for cdkn1a upregulation in response to chemical exposure
+hepg2 cytotoxicity counterscreen for small-molecule inhibitors
+hepg2 cell dna damage assay - 24 hour treatment detection
+hepg2 cell loss toxicity assay - 72 hours (downregulated)
+heparg toxicity assay for tp53 activation
+heparg slco1b1 downregulation assay for liver toxicity
+measurement of p450-cyp1a2 enzyme activity in human cells
+heparg lipc downregulation assay
+heparg cyp3a7 upregulation assay
+heparg abcc2 upregulation assay call
+[heparg cell assay for pdk4 downregulation by chemicals]
+inhibition of cyp7a1 expression in heparg cells by ltea
+antimalarial liver stage activity assay for plasmodium yoelii
+identification of chemicals inducing igfbp1 upregulation in heparg cells
+heparg assay for igfbp1 upregulation
+heparg cyp2b6 induction assay
+tox21 hepg2 viability assay at 8 hours
