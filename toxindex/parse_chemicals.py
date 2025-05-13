@@ -7,7 +7,7 @@ import sys
 import warnings
 import pathlib
 import pandas as pd
-from utils.helper import handle_exceptions, rate_limit_lockfile
+from toxindex.utils.helper import handle_exceptions, rate_limit_lockfile
 import logging
 
 # Suppress RDKit warnings for cleaner output (optional)
@@ -40,9 +40,14 @@ def parse_chemicals(input_path, output_path):
         compounds = pcp.get_compounds(name, 'name')
         if compounds is None:
             raise ValueError(f"No compounds found for {name}")
-        compound = compounds[0] # Take the first result
-        inchi = compound.inchi
-        return {"name": name, "cid": compound.cid, "inchi": inchi}
+        if not compounds: #in case of empty list
+            inchi = None
+            cid = None
+        else:
+            compound = compounds[0] # Take the first result
+            inchi = compound.inchi
+            cid = compound.cid
+        return {"name": name, "cid": cid, "inchi": inchi}
     
     df = pd.DataFrame(parse_chemical(name) for name in chemical_names)
     df.to_csv(output_path, index=False)
