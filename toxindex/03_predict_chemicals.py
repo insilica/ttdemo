@@ -2,9 +2,9 @@ import pandas as pd
 import logging
 import pathlib
 import time 
-import stages.utils.chemprop as chemprop
+import toxindex.utils.chemprop as chemprop
 import itertools
-import stages.utils.simplecache as simplecache
+import toxindex.utils.simplecache as simplecache
 from tqdm import tqdm
 
 # --- DEPENDENCIES ---
