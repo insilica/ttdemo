@@ -7,7 +7,7 @@ import sys
 import warnings
 import pathlib
 import pandas as pd
-from utils.helper import handle_exceptions, rate_limit_lockfile
+from toxindex.utils.helper import handle_exceptions, rate_limit_lockfile
 import logging
 
 # Suppress RDKit warnings for cleaner output (optional)
