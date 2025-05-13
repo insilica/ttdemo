@@ -1,4 +1,4 @@
-#conda create -c conda-forge -n ttdemo rdkit
+#conda create -c conda-forge -n ttdemo python=3.10 rdkit
 pandas
 rapidfuzz
 aiohttp
@@ -10,3 +10,6 @@ seaborn
 matplotlib
 scikit-learn
 fastcluster
+cython
+blosc2
+FuzzyTM

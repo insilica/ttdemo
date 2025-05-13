@@ -82,8 +82,8 @@ def fuzzy_match_properties(project_name):
     matched_properties_file.write_text('\n'.join(matched_properties))
     return list(set(matched_properties))
 
-for project in ['cosmetics', 'food-coloring', 'food-contact-materials', 'pfas']:
-    fuzzy_match_properties(project)
+# for project in ['cosmetics', 'food-coloring', 'food-contact-materials', 'pfas']:
+#     fuzzy_match_properties(project)
 
 #%% Build a heatmap for each project from the chemicals.txt and matched_properties.txt
 # 1. parse the chemicals to inch
@@ -91,50 +91,63 @@ for project in ['cosmetics', 'food-coloring', 'food-contact-materials', 'pfas']:
 # 3. filter to the matched properties
 # 4. build a row and column clustered heatmap of the chemicals and the properties
 # 5. generate a ppt slide for each project
-project_dir = cachedir / 'projects' / 'cosmetics'
-#%% 1. parse
-chemicals_cosmetics_file =  project_dir / 'chemicals.txt'
-parsed_chemicals_cosmetics_file = project_dir / 'parsed_chemicals.csv'
-parsed_chemicals_cosmetics = parse_chemicals(chemicals_cosmetics_file, parsed_chemicals_cosmetics_file)
+for project in ['hepatotoxic']:
+    project_dir = cachedir / 'projects' / project
 
-#%% 2. classify
-parsed_chemicals_cosmetics_file = project_dir / 'parsed_chemicals.csv'
-outdir = project_dir / 'categorize_chemicals'
-df = categorize_chemicals(parsed_chemicals_cosmetics_file,outdir)
+    #%% 0. generate example 100 properties
+    # prompt_hepatotoxic = f"""I have selected hepatotoxic chemicals.
+    # Please select properties from the below list that would be interesting to toxicologists
+    # evaluating these compounds."""
+    # prompt_hepatotoxic = prompt_hepatotoxic + '\n\n' + '\n'.join(proptitles)
+    # prompt_hepatotoxic = prompt_hepatotoxic + '\n\n' + "pick ~100 of the most hepatotoxic relevant properties and output one per line and nothing else."
+    # prompt_hepatotoxic_file = project_dir / 'property_prompt.txt'
+    # prompt_hepatotoxic_file.write_text(prompt_hepatotoxic)
+    #
+    # fuzzy_match_properties(project)
+    #%% 1. parse
+    # chemicals_cosmetics_file =  project_dir / 'chemicals.txt'
+    # parsed_chemicals_cosmetics_file = project_dir / 'parsed_chemicals.csv'
+    # parsed_chemicals_cosmetics = parse_chemicals(chemicals_cosmetics_file, parsed_chemicals_cosmetics_file)
 
-#%% 3. predict
-input_csv = project_dir / 'categorize_chemicals' / 'classified_chemicals.csv'
-outdir = project_dir / 'predict_chemicals'
-predict_chemicals(input_csv, outdir)
-#%% 4. build clustered heatmap
+    #%% 2. classify
+    # parsed_chemicals_cosmetics_file = project_dir / 'parsed_chemicals.csv'
+    # outdir = project_dir / 'categorize_chemicals'
+    # df = categorize_chemicals(parsed_chemicals_cosmetics_file,outdir)
 
-outdir = project_dir / 'build_heatmap'
-outdir.mkdir(parents=True, exist_ok=True)
-
-# tell pandas to never wrap, just keep going wider
-pd.set_option('display.width', None)
-pd.set_option('display.max_colwidth', 100)
-
-# Load and filter data
-gemini_props = pd.read_csv(pathlib.Path('cache/resources/gemini-properties.txt'), header=None)
-df = pd.read_parquet(project_dir / 'predict_chemicals' / 'chemprop_predictions.parquet')
-df = df.merge(gemini_props, left_on='property_title', right_on=0, how='inner')
-df.loc[df['classification'].str.contains("Paraffin"), 'classification'] = 'Paraffin'
-df = df[~df['classification'].str.contains("Paraffin")]
-
-ringdf = df[['name', 'property_token', 'value', 'classification']]
-ringdf = ringdf[ringdf['classification'].str.contains("Ring")]
-build_heatmap(ringdf, outdir / 'ring_heatmap.png')
-
-# create a csv of the top 5 most activated properties
-top5df = df[['name', 'property_title', 'property_source', 'property_metadata', 'value', 'classification']]
-top5df = top5df[~top5df['classification'].str.contains("Paraffin")]
-
-top5_props = top5df \
-    .groupby(['property_title', 'property_source', 'property_metadata'])['value'].mean() \
-    .reset_index().sort_values('value', ascending=False) \
-    .head(10)
-
-top5_props.to_csv(outdir / 'top_props.csv', index=False)
+    #%% 3. predict
+    input_csv = project_dir / 'categorize_chemicals' / 'classified_chemicals.csv'
+    outdir = project_dir / 'predict_chemicals'
+    predict_chemicals(input_csv, outdir)
+    #%% 4. build clustered heatmap
+    #
+    # outdir = project_dir / 'build_heatmap'
+    # outdir.mkdir(parents=True, exist_ok=True)
+    #
+    # # tell pandas to never wrap, just keep going wider
+    # pd.set_option('display.width', None)
+    # pd.set_option('display.max_colwidth', 100)
+    #
+    # # Load and filter data
+    # gemini_props = pd.read_csv(pathlib.Path('cache/resources/gemini-properties.txt'), header=None)
+    # df = pd.read_parquet(project_dir / 'predict_chemicals' / 'chemprop_predictions.parquet')
+    # df = df.merge(gemini_props, left_on='property_title', right_on=0, how='inner')
+    # df.loc[df['classification'].str.contains("Paraffin"), 'classification'] = 'Paraffin'
+    # df = df[~df['classification'].str.contains("Paraffin")] #its all gone
+    #
+    # ringdf = df[['name', 'property_token', 'value', 'classification']]
+    # ringdf = ringdf[ringdf['classification'].str.contains("Ring")]
+    #
+    # build_heatmap(ringdf, outdir / 'ring_heatmap.png')
+    #
+    # # create a csv of the top 5 most activated properties
+    # top5df = df[['name', 'property_title', 'property_source', 'property_metadata', 'value', 'classification']]
+    # top5df = top5df[~top5df['classification'].str.contains("Paraffin")]
+    #
+    # top5_props = top5df \
+    #     .groupby(['property_title', 'property_source', 'property_metadata'])['value'].mean() \
+    #     .reset_index().sort_values('value', ascending=False) \
+    #     .head(10)
+    #
+    # top5_props.to_csv(outdir / 'top_props.csv', index=False)
 
 

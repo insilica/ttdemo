@@ -10,6 +10,10 @@ from rdkit.Chem import Draw, AllChem
 def build_heatmap(pdf, outfile):
     # Pivot and normalize
     pivot_df = pdf.pivot_table(index='name', columns='property_token', values='value', aggfunc='first')
+
+    if pivot_df.empty:
+        raise ValueError("pivot_df is empty — check your data processing steps.")
+
     norm_values = pd.DataFrame(
         MinMaxScaler().fit_transform(pivot_df.fillna(0)),
         index=pivot_df.index,
