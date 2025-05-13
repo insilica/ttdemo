@@ -9,6 +9,8 @@ import pathlib
 import pandas as pd
 from toxindex.utils.helper import handle_exceptions, rate_limit_lockfile
 import logging
+import toxindex.utils.simplecache as simplecache
+from tqdm import tqdm
 
 # Suppress RDKit warnings for cleaner output (optional)
 from rdkit import rdBase
@@ -33,23 +35,25 @@ def parse_chemicals(input_path, output_path):
     chemical_names = sorted(list(chemical_names))
     
     results = []
-    
+    sc = simplecache.simple_cache(pathlib.Path('cache/function_cache/parse_chemicals'))
     def parse_chemical(name):
         logging.info(f"Parsing chemical: {name}")
         time.sleep(0.33)
         compounds = pcp.get_compounds(name, 'name')
-        if compounds is None:
-            raise ValueError(f"No compounds found for {name}")
-        if not compounds: #in case of empty list
-            inchi = None
-            cid = None
-        else:
-            compound = compounds[0] # Take the first result
-            inchi = compound.inchi
-            cid = compound.cid
-        return {"name": name, "cid": cid, "inchi": inchi}
+        if not compounds:
+            return None
+        compound = compounds[0] # Take the first result
+        inchi = compound.inchi
+        return {"name": name, "cid": compound.cid, "inchi": inchi}
     
-    df = pd.DataFrame(parse_chemical(name) for name in chemical_names)
+    parse_chemical = sc(parse_chemical)
+    results = []
+    for name in tqdm(chemical_names, desc="Parsing chemicals", unit="chemical"):
+        res = parse_chemical(name)
+        if res is not None:
+            results.append(res)
+    
+    df = pd.DataFrame(results)
     df.to_csv(output_path, index=False)
     logging.info(f"Saved results to {output_path}")
     

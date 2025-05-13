@@ -1,63 +1,55 @@
 import pandas as pd
 import logging
 import pathlib
-import time
+import time 
 import toxindex.utils.chemprop as chemprop
 import itertools
 import toxindex.utils.simplecache as simplecache
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 
-
-def predict_chemicals(input_csv, outdir, max_workers=30):
-    # --- Load Data ---
-    indf = pd.read_csv(input_csv)
-    catdf = pd.read_csv(input_csv)
-
-    # --- Setup Output Directory and Logging ---
-    outdir = pathlib.Path(outdir)
-    outdir.mkdir(parents=True, exist_ok=True)
-
-    logging.basicConfig(
-        filename=outdir / "log.txt",
-        filemode="w",
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s"
-    )
-    logger = logging.getLogger(__name__)
-
-    # --- Setup Cache ---
-    cachedir = outdir / "chemprop_predictions_cache"
+def predict_chemicals(input_path, output_path):
+    """
+    Predict chemical properties using chemprop and save results.
+    
+    Args:
+        input_path (str or pathlib.Path): Path to the input CSV file containing chemicals with 'inchi' column
+        output_path (str or pathlib.Path): Path to save the output parquet file with predictions
+    """
+    # Convert paths to pathlib.Path objects if they're not already
+    input_path = pathlib.Path(input_path)
+    output_path = pathlib.Path(output_path)
+    
+    # Read input data
+    indf = pd.read_csv(input_path)
+    
+    # Setup cache for predictions
+    cachedir = pathlib.Path('cache') / 'function_cache' / 'chemprop_predictions_cache'
     cachedir.mkdir(parents=True, exist_ok=True)
     pred = simplecache.simple_cache(cachedir)(chemprop.chemprop_predict_all)
 
-    # --- Parallel Prediction ---
-    predictions = []
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {
-            executor.submit(pred, row["inchi"]): row["inchi"]
-            for _, row in indf.iterrows()
-        }
-        for future in tqdm(as_completed(futures), total=len(futures), desc="Predicting"):
-            inchi = futures[future]
-            try:
-                result = future.result()
-                predictions.extend(result)
-            except Exception as e:
-                logger.error(f"Failed to predict {inchi}: {e}")
-
+    def safe_predict(inchi):
+        try:
+            return pred(inchi) if inchi else None
+        except Exception as e:
+            logging.error(f"Error predicting for inchi {inchi}: {e}")
+            return []
+    
+    # Make predictions
+    predictions = [safe_predict(inchi) for inchi in tqdm(indf['inchi'])]
+    predictions = list(itertools.chain.from_iterable(predictions))
     pdf = pd.DataFrame(predictions)
-
-    # --- Extract property info ---
-    pdf["property_title"] = pdf["property"].apply(lambda x: str(x.get("title", "")))
-    pdf["property_source"] = pdf["property"].apply(lambda x: str(x.get("source", "")))
-    pdf["property_categories"] = pdf["property"].apply(lambda x: str(x.get("categories", "")))
-    pdf["property_metadata"] = pdf["property"].apply(lambda x: str(x.get("metadata", "")))
-    pdf["property"] = pdf["property"].astype(str)
-
-    # --- Merge & Save ---
-    logger.info(f"Saving results to {outdir}")
-    resdf = pd.merge(pdf, catdf, on="inchi", how="left")
-    resdf.to_parquet(outdir / "chemprop_predictions.parquet")
-
-    logger.info(f"Saved results to {outdir}")
+    
+    # Extract property info
+    pdf['property_title'] = pdf['property'].apply(lambda x: str(x.get('title', ''))).astype(str)
+    pdf['property_source'] = pdf['property'].apply(lambda x: str(x.get('source', ''))).astype(str)
+    pdf['property_categories'] = pdf['property'].apply(lambda x: str(x.get('categories', ''))).astype(str)
+    pdf['property_metadata'] = pdf['property'].apply(lambda x: str(x.get('metadata', ''))).astype(str)
+    pdf['property'] = pdf['property'].astype(str)
+    
+    # Merge with categorization data
+    resdf = pd.merge(pdf, indf, on='inchi', how='left')
+    resdf.to_parquet(output_path)
+    
+    logger.info(f"Saved results to {output_path}")
+    
+    return resdf

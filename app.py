@@ -10,8 +10,8 @@ from toxindex.categorize_chemicals import categorize_chemicals
 from toxindex.predict_chemicals import predict_chemicals
 from toxindex.build_heatmap import build_heatmap
 import pathlib
-
 import json
+import toxindex.parse_chemicals as parse_chemicals
 
 cachedir = pathlib.Path('cache')
 cachedir.mkdir(exist_ok=True)
@@ -72,7 +72,7 @@ def fuzzy_match_properties(project_name):
     # UV stability testing can be matched with chemical inhibition assay targeting timp2 which is incorrect
     for rel_prop in relevant_properties:
         # Calculate similarity scores between this relevant property and all predicted properties
-        scores = [fuzz.token_sort_ratio(rel_prop.lower(), pred_prop.lower()) for pred_prop in predicted_properties]
+        scores = [rapidfuzz.fuzz.token_sort_ratio(rel_prop.lower(), pred_prop.lower()) for pred_prop in predicted_properties]
         best_match_idx = int(np.argmax(scores))
         # matched_property = predicted_properties[best_match_idx].strip("[]")
         matched_properties.append(predicted_properties[best_match_idx])
@@ -151,3 +151,28 @@ for project in ['hepatotoxic']:
     # top5_props.to_csv(outdir / 'top_props.csv', index=False)
 
 
+# parse the chemicals
+import toxindex.parse_chemicals as parse_chemicals
+for project in ['cosmetics', 'food-coloring', 'food-contact-materials', 'pfas']:
+    parse_chemicals.parse_chemicals(
+        input_path=cachedir / 'projects' / project / 'chemicals.txt',
+        output_path=cachedir / 'projects' / project / 'parsed_chemicals.csv'
+    )
+
+# run predictions
+import toxindex.predict_chemicals as predict_chemicals
+for project in ['cosmetics', 'food-coloring', 'food-contact-materials', 'pfas']:
+    predict_chemicals.predict_chemicals(
+        input_path=cachedir / 'projects' / project / 'parsed_chemicals.csv',
+        output_path=cachedir / 'projects' / project / 'predictions.parquet'
+    )
+
+# build heatmaps
+import toxindex.build_heatmap as build_heatmap
+for project in ['cosmetics', 'food-coloring', 'food-contact-materials', 'pfas']:
+    outdir = cachedir / 'projects' / project / 'heatmap_dir'
+    outdir.mkdir(exist_ok=True)
+    build_heatmap.build_heatmap(
+        input_path=cachedir / 'projects' / project / 'predictions.parquet',
+        output_path=outdir / 'heatmap.png'
+    )
