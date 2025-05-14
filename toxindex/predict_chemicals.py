@@ -50,6 +50,6 @@ def predict_chemicals(input_path, output_path):
     resdf = pd.merge(pdf, indf, on='inchi', how='left')
     resdf.to_parquet(output_path)
     
-    logger.info(f"Saved results to {output_path}")
+    logging.info(f"Saved results to {output_path}")
     
     return resdf
