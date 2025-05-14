@@ -9,9 +9,9 @@ from google import genai
 import os
 from dotenv import load_dotenv
 
-import pathlib
-import toxindex.utils.chemprop as chemprop
-import toxindex.utils.simplecache as simplecache
+# import pathlib
+# import toxindex.utils.chemprop as chemprop
+# import toxindex.utils.simplecache as simplecache
 
 # -- RDF PREDICATES -----------------------------------------
 CHEBI_PRED   = "http://vocabularies.wikipathways.org/wp#bdbChEBI"
@@ -95,8 +95,62 @@ def map_pathways_to_genes(
     return path_to_genes
 
 
-def generate_llm_input(inchi : str, pred_func):
+def get_gene_products(
+    pathway: str,
+    store: HDTStore,
+):
+    g = Graph(store = store)
+    query = f"""
+    PREFIX wp:      <http://vocabularies.wikipathways.org/wp#>
+    PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX dcterms: <http://purl.org/dc/terms/>
+
+    SELECT DISTINCT ?geneProduct ?geneLabel
+    WHERE {{
+    # --- Pathway node ----------------------------------------------------------
+    ?pathway a wp:Pathway ;
+            dcterms:identifier "{pathway}" .
+
+    # --- Gene products that belong to that pathway -----------------------------
+    ?geneProduct a wp:GeneProduct ;
+                dcterms:isPartOf ?pathway ;
+                rdfs:label      ?geneLabel .
+    }}
+    ORDER BY ?geneLabel
+    """
+    results = g.query(query)
+    df = pd.DataFrame(results, columns=["geneProduct", "geneLabel"])
+    return df
+
+
+# def generate_llm_input(inchi : str, pred_func):
+#     # make the prediction
+#     prediction = pred_func(inchi)
+
+#     # get categories and strengths
+#     categories = []
+#     strengths = []
+#     for i in range(len(prediction)):
+#         prediction_categories = prediction[i]['property']['categories']
+#         for j in range(len(prediction_categories)):
+#             categories.append(prediction_categories[j]['category'])
+#             strengths.append(prediction_categories[j]['strength'])        
     
+#     # get statistics
+#     categories = pd.Series(categories)
+#     strengths = pd.Series(strengths)
+#     numerical_predictions = pd.DataFrame({'category': categories, 'strength': strengths})
+
+#     cat_group = numerical_predictions.groupby('category')['strength']
+#     means = cat_group.mean()
+#     stds  = cat_group.std()
+#     stats = pd.DataFrame({'mean': means, 'std': stds})
+#     stats = stats.round(2)  # high precision not needed for LLM
+
+#     # call the LLM to (make a prediction)
+#     llm_input = stats.reset_index().to_dict(orient='records')
+
+#     return llm_input
 
 
 def main():
@@ -104,46 +158,30 @@ def main():
     load_dotenv()
     client = genai.Client(api_key = os.environ["GEMINI_API_KEY"])
 
+    # # Process the parquet of hepatotoxic chemicals
+    # chemicals = load_chemicals_from_parquet("chemprop_predictions.parquet")
+    # print(chemicals)
+
+    # # Predict properties and process the predictions
+    # cachedir = pathlib.Path('cache') / 'function_cache' / 'chemprop_predictions_cache'
+    # cachedir.mkdir(parents=True, exist_ok=True)
+    # pred_func = simplecache.simple_cache(cachedir)(chemprop.chemprop_predict_all)
+    # for chemical in chemicals:
+    #     prediction = pred_func(chemical)
+
+    # Get all predictions for all chemicals included in parquet
+    predictions = pd.read_parquet("chemprop_predictions.parquet")
+
     # Load wikipathways biobrick
     wikipathways = bb.assets('wikipathways')
     hdt_path = wikipathways.wikipathways_hdt
-    store = HDTStore(hdt_path)
+    store = HDTStore(hdt_path)    
 
-    # Process the parquet of hepatotoxic chemicals
-    chemicals = load_chemicals_from_parquet("chemprop_predictions.parquet")
-    print(chemicals)
-
-    # Predict properties and process the predictions
-    cachedir = pathlib.Path('cache') / 'function_cache' / 'chemprop_predictions_cache'
-    cachedir.mkdir(parents=True, exist_ok=True)
-    pred_func = simplecache.simple_cache(cachedir)(chemprop.chemprop_predict_all)
-    for chemical in chemicals:
-        # make the prediction
-        prediction = pred_func(chemical)
-
-        # get categories and strengths
-        categories = []
-        strengths = []
-        for i in range(len(prediction)):
-            prediction_categories = prediction[i]['property']['categories']
-            for j in range(len(prediction_categories)):
-                categories.append(prediction_categories[j]['category'])
-                strengths.append(prediction_categories[j]['strength'])        
-        
-        # get statistics
-        categories = pd.Series(categories)
-        strengths = pd.Series(strengths)
-        numerical_predictions = pd.DataFrame({'category': categories, 'strength': strengths})
-
-        cat_group = numerical_predictions.groupby('category')['strength']
-        means = cat_group.mean()
-        stds  = cat_group.std()
-        stats = pd.DataFrame({'mean': means, 'std': stds})
-        stats = stats.round(2)  # high precision not needed for LLM
-
-        # call the LLM to (make a prediction)
-        llm_input = stats.reset_index().to_dict(orient='records')
-        
+    # Query a pathway to get the gene products
+    pathway = "WP3657"  # Chosen pathway
+    df = get_gene_products(pathway, store)
+    store.close()
+    print(df)
 
     # ~ # Identify the relevant pathways by chemical
     # ~ chem_to_path = map_chemicals_to_pathways(chemicals, store)
