@@ -6,7 +6,6 @@ import toxindex.utils.simplecache as simplecache
 cachedir = pathlib.Path('cache') / 'function_cache' / 'chemprop_predictions_cache'
 cachedir.mkdir(parents=True, exist_ok=True)
 pred = simplecache.simple_cache(cachedir)(chemprop.chemprop_predict_all)
-# inchi = 'InChI=1S/C8H9N3O2/c1-5(10)7(12)11-6(2)8(13)9-3/h5-6,9H,1-4H3,(H,10,12)(H,11,13)'
 inchi = 'InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3'
 prediction = pred(inchi)
 
@@ -29,3 +28,9 @@ stats = pd.DataFrame({'mean': means, 'std': stds})
 stats = stats.round(2)
 
 llm_input = stats.reset_index().to_dict(orient='records')
+
+# # sanity check on the InChIs
+# for pred in prediction:
+#     if pred['inchi'] != inchi:
+#         print(f"Predicted InChI {pred['inchi']} does not match input InChI {inchi}")
+#         break
