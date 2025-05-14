@@ -9,6 +9,11 @@ from google import genai
 import os
 from dotenv import load_dotenv
 
+from pydantic import BaseModel
+
+class GenePropSchema(BaseModel):
+    property_names : list[str]
+
 # import pathlib
 # import toxindex.utils.chemprop as chemprop
 # import toxindex.utils.simplecache as simplecache
@@ -179,9 +184,10 @@ def main():
 
     # Query a pathway to get the gene products
     pathway = "WP3657"  # Chosen pathway
+    pathway_name = " Hematopoietic stem cell gene regulation by GABP alpha/beta complex"
     df = get_gene_products(pathway, store)
     store.close()
-    print(df)
+    # print(df)
 
     # ~ # Identify the relevant pathways by chemical
     # ~ chem_to_path = map_chemicals_to_pathways(chemicals, store)
@@ -192,21 +198,30 @@ def main():
     # ~ # Get gene products from these pathways
     # ~ path_to_genes = map_pathways_to_genes(unique_pathways, hdt)
 
-    # ~ # Load the property file
-    # ~ fname = "predicted_property_names.txt"
-    # ~ with open(fname, 'r') as file:
-        # ~ properties = file.readlines()
+    # Load the property file
+    fname = "predicted_property_names.txt"
+    with open(fname, 'r') as file:
+        properties = file.readlines()
     
-    # ~ # Use LLM to predict the most relevant properties from the list
-    # ~ response = client.models.generate_content(
-        # ~ model = "gemini-2.0-flash",
-        # ~ contents = [
-            # ~ "Analyze the relevant properties of these pathways:",
-            # ~ unique_pathways,
-            # ~ "given this list of possible properties:",
-            # ~ properties,
-        # ~ ],
-    # ~ )
+    # GenePropSchema = build_relevant_property_schema(properties)
+    for gene in df['geneLabel']:
+        # Use LLM to predict the most relevant properties from the list
+        response = client.models.generate_content(
+            model = "gemini-2.0-flash",
+            contents = [
+                f"Find the relevant properties of this gene: {gene}",
+                f"in the context of the pathway {pathway_name}.",
+                "From the list below, return ONLY the relevant properties as strings, one per line.",
+                "Use the property names exactly as given. No additions or explanations.",
+                "List of possible properties:",
+                properties,
+            ],
+            # config = {
+            #     "response_mime_type": "application/json",
+            #     "response_schema": GenePropSchema
+            # }
+        )
+        # breakpoint()
 
 
 if __name__ == "__main__":
