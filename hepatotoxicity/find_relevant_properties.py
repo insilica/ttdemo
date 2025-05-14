@@ -272,7 +272,33 @@ def map_pathways_to_genes(
 
 
 def generate_llm_input(inchi : str, pred_func):
-    pass
+    # make the prediction
+    prediction = pred_func(chemical)
+
+    # get categories and strengths
+    categories = []
+    strengths = []
+    for i in range(len(prediction)):
+        prediction_categories = prediction[i]['property']['categories']
+        for j in range(len(prediction_categories)):
+            categories.append(prediction_categories[j]['category'])
+            strengths.append(prediction_categories[j]['strength'])        
+    
+    # get statistics
+    categories = pd.Series(categories)
+    strengths = pd.Series(strengths)
+    numerical_predictions = pd.DataFrame({'category': categories, 'strength': strengths})
+
+    cat_group = numerical_predictions.groupby('category')['strength']
+    means = cat_group.mean()
+    stds  = cat_group.std()
+    stats = pd.DataFrame({'mean': means, 'std': stds})
+    stats = stats.round(2)  # high precision not needed for LLM
+
+    # call the LLM to (make a prediction)
+    llm_input = stats.reset_index().to_dict(orient='records')
+
+    return llm_input
 
 
 def main():
@@ -294,31 +320,7 @@ def main():
     cachedir.mkdir(parents=True, exist_ok=True)
     pred_func = simplecache.simple_cache(cachedir)(chemprop.chemprop_predict_all)
     for chemical in chemicals:
-        # make the prediction
-        prediction = pred_func(chemical)
-
-        # get categories and strengths
-        categories = []
-        strengths = []
-        for i in range(len(prediction)):
-            prediction_categories = prediction[i]['property']['categories']
-            for j in range(len(prediction_categories)):
-                categories.append(prediction_categories[j]['category'])
-                strengths.append(prediction_categories[j]['strength'])        
-        
-        # get statistics
-        categories = pd.Series(categories)
-        strengths = pd.Series(strengths)
-        numerical_predictions = pd.DataFrame({'category': categories, 'strength': strengths})
-
-        cat_group = numerical_predictions.groupby('category')['strength']
-        means = cat_group.mean()
-        stds  = cat_group.std()
-        stats = pd.DataFrame({'mean': means, 'std': stds})
-        stats = stats.round(2)  # high precision not needed for LLM
-
-        # call the LLM to (make a prediction)
-        llm_input = stats.reset_index().to_dict(orient='records')
+        llm_input = generate_llm_input(chemical, pred_func)
         
 
     # ~ # Identify the relevant pathways by chemical
