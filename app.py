@@ -43,7 +43,7 @@ def fuzzy_match_properties(input_path,output_path):
     output_path.write_text('\n'.join(matched_properties))
     return list(set(matched_properties))
 
-projects = ['nephrotoxic']
+projects = ['dev-neurotoxic']
 # parse the chemicals
 
 for project in projects:
