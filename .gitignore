@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 miniconda.sh
 toxindex/__pycache__/*
 .env
@@ -5,3 +6,7 @@ toxindex/__pycache__/*
 scratch.py
 py4cytoscape.logs
 logs/
+=======
+.env
+*.pyc
+>>>>>>> 67d49e7 (Cleaned gene_properties and workflow)
