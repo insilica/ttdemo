@@ -1,26 +1,32 @@
-import collections
+# TODO: use cache
+# TODO: split into different files
+# TODO: pathway visualization
+from tqdm import tqdm
 import pandas as pd
 import biobricks as bb
 from rdflib import Graph, Namespace
 from rdflib.plugins.stores import sparqlstore
 from rdflib_hdt import HDTStore
+import google
 from google import genai
+import time
 
 import os
 from dotenv import load_dotenv
+import json, re
 
 # import pathlib
 # import toxindex.utils.chemprop as chemprop
 # import toxindex.utils.simplecache as simplecache
 
-# -- RDF PREDICATES -----------------------------------------
-CHEBI_PRED   = "http://vocabularies.wikipathways.org/wp#bdbChEBI"
-PUBCHEM_PRED = "http://vocabularies.wikipathways.org/wp#bdbPubChem"
-ISPART_PRED  = "http://purl.org/dc/terms/isPartOf"
+# # -- RDF PREDICATES -----------------------------------------
+# CHEBI_PRED   = "http://vocabularies.wikipathways.org/wp#bdbChEBI"
+# PUBCHEM_PRED = "http://vocabularies.wikipathways.org/wp#bdbPubChem"
+# ISPART_PRED  = "http://purl.org/dc/terms/isPartOf"
 
-ENTREZ_PRED  = "http://vocabularies.wikipathways.org/wp#bdbEntrezGene"
-UNIPROT_PRED = "http://vocabularies.wikipathways.org/wp#bdbUniprot"
-LABEL_PRED   = "http://www.w3.org/2000/01/rdf-schema#label"
+# ENTREZ_PRED  = "http://vocabularies.wikipathways.org/wp#bdbEntrezGene"
+# UNIPROT_PRED = "http://vocabularies.wikipathways.org/wp#bdbUniprot"
+# LABEL_PRED   = "http://www.w3.org/2000/01/rdf-schema#label"
 
 
 def load_chemicals_from_parquet(parquet_path)
@@ -63,36 +69,36 @@ def map_chemicals_to_pathways(
     """
     chem_to_path: dict[str, set[str]] = collections.defaultdict(set)
 
-    for name, (chebi_iri, pubchem_iri) in chemicals.items():
-        id_pairs = (
-            (CHEBI_PRED, chebi_iri),
-            (PUBCHEM_PRED, pubchem_iri),
-        )
-        for pred, iri in id_pairs:
-            if not iri:
-                continue  # Identifier missing → skip
-            for node, _, _ in hdt.search_triples("", pred, iri):
-                for _, _, pwy in hdt.search_triples(node, ISPART_PRED, "")[0]:
-                    chem_to_path[name].add(pwy)
-    return chem_to_path
+#     for name, (chebi_iri, pubchem_iri) in chemicals.items():
+#         id_pairs = (
+#             (CHEBI_PRED, chebi_iri),
+#             (PUBCHEM_PRED, pubchem_iri),
+#         )
+#         for pred, iri in id_pairs:
+#             if not iri:
+#                 continue  # Identifier missing → skip
+#             for node, _, _ in hdt.search_triples("", pred, iri):
+#                 for _, _, pwy in hdt.search_triples(node, ISPART_PRED, "")[0]:
+#                     chem_to_path[name].add(pwy)
+#     return chem_to_path
 
 
-def map_pathways_to_genes(
-    pathways: set[str],
-    hdt,
-) -> dict[str, list[str]]:
-    """Return {pathway_iri -> sorted list of human gene labels}."""
-    path_to_genes: dict[str, list[str]] = {}
+# def map_pathways_to_genes(
+#     pathways: set[str],
+#     hdt,
+# ) -> dict[str, list[str]]:
+#     """Return {pathway_iri -> sorted list of human gene labels}."""
+#     path_to_genes: dict[str, list[str]] = {}
 
-    for pwy in pathways:
-        genes: set[str] = set()
-        for gene_pred in (ENTREZ_PRED, UNIPROT_PRED):
-            for node, _, _ in hdt.search_triples("", gene_pred, ""):
-                if hdt.triple_exist(node, ISPART_PRED, pwy):
-                    for _, _, label in hdt.search_triples(node, LABEL_PRED, "")[0]:
-                        genes.add(label)
-        path_to_genes[pwy] = sorted(genes)
-    return path_to_genes
+#     for pwy in pathways:
+#         genes: set[str] = set()
+#         for gene_pred in (ENTREZ_PRED, UNIPROT_PRED):
+#             for node, _, _ in hdt.search_triples("", gene_pred, ""):
+#                 if hdt.triple_exist(node, ISPART_PRED, pwy):
+#                     for _, _, label in hdt.search_triples(node, LABEL_PRED, "")[0]:
+#                         genes.add(label)
+#         path_to_genes[pwy] = sorted(genes)
+#     return path_to_genes
 
 
 def get_gene_products(
@@ -123,34 +129,34 @@ def get_gene_products(
     return df
 
 
-# def generate_llm_input(inchi : str, pred_func):
-#     # make the prediction
-#     prediction = pred_func(inchi)
+def get_response_json(response):
+    """Alter the response to be a valid JSON object."""
+    if isinstance(response, str):
+        raw = response
+    else:
+        raw = response.text
 
-#     # get categories and strengths
-#     categories = []
-#     strengths = []
-#     for i in range(len(prediction)):
-#         prediction_categories = prediction[i]['property']['categories']
-#         for j in range(len(prediction_categories)):
-#             categories.append(prediction_categories[j]['category'])
-#             strengths.append(prediction_categories[j]['strength'])        
-    
-#     # get statistics
-#     categories = pd.Series(categories)
-#     strengths = pd.Series(strengths)
-#     numerical_predictions = pd.DataFrame({'category': categories, 'strength': strengths})
+    try:
+        data = json.loads(raw)  # the normal path
+    except json.JSONDecodeError:
+        # quick fixer for the common case of a missing closing brace/bracket
+        # 1) keep only the JSON‑looking part
+        snippet = re.search(r'\{.*', raw, re.S).group(0)
 
-#     cat_group = numerical_predictions.groupby('category')['strength']
-#     means = cat_group.mean()
-#     stds  = cat_group.std()
-#     stats = pd.DataFrame({'mean': means, 'std': stds})
-#     stats = stats.round(2)  # high precision not needed for LLM
+        # 2) add missing quotes around keys
+        if snippet.count('"') % 2 == 1:
+            snippet += '"'
 
-#     # call the LLM to (make a prediction)
-#     llm_input = stats.reset_index().to_dict(orient='records')
+        # 3) add a missing closing brace/bracket if obvious
+        if snippet.count('[') > snippet.count(']'):
+            snippet += ']'
+        if snippet.count('{') > snippet.count('}'):
+            snippet += '}'
 
-#     return llm_input
+        # 4) try again
+        data = json.loads(snippet)
+
+    return data
 
 
 def main():
@@ -171,6 +177,9 @@ def main():
 
     # Get all predictions for all chemicals included in parquet
     predictions = pd.read_parquet("chemprop_predictions.parquet")
+    # # check if all property_title entries are strings
+    # if not predictions['property_title'].apply(lambda x: isinstance(x, str)).all():
+    #     raise ValueError("Not all property_title entries are strings.")
 
     # Load wikipathways biobrick
     wikipathways = bb.assets('wikipathways')
