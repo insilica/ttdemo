@@ -91,8 +91,8 @@ def fuzzy_match_properties(project_name):
 # 3. filter to the matched properties
 # 4. build a row and column clustered heatmap of the chemicals and the properties
 # 5. generate a ppt slide for each project
-for project in ['hepatotoxic']:
-    project_dir = cachedir / 'projects' / project
+# for project in ['pfas']:
+    # project_dir = cachedir / 'projects' / project
 
     #%% 0. generate example 100 properties
     # prompt_hepatotoxic = f"""I have selected hepatotoxic chemicals.
@@ -115,9 +115,9 @@ for project in ['hepatotoxic']:
     # df = categorize_chemicals(parsed_chemicals_cosmetics_file,outdir)
 
     #%% 3. predict
-    input_csv = project_dir / 'categorize_chemicals' / 'classified_chemicals.csv'
-    outdir = project_dir / 'predict_chemicals'
-    predict_chemicals(input_csv, outdir)
+    # input_csv = project_dir / 'categorize_chemicals' / 'classified_chemicals.csv'
+    # outdir = project_dir / 'predict_chemicals'
+    # predict_chemicals(input_csv, outdir)
     #%% 4. build clustered heatmap
     #
     # outdir = project_dir / 'build_heatmap'
@@ -150,29 +150,37 @@ for project in ['hepatotoxic']:
     #
     # top5_props.to_csv(outdir / 'top_props.csv', index=False)
 
-
+projects = ['hepatotoxic']
 # parse the chemicals
-import toxindex.parse_chemicals as parse_chemicals
-for project in ['cosmetics', 'food-coloring', 'food-contact-materials', 'pfas']:
-    parse_chemicals.parse_chemicals(
-        input_path=cachedir / 'projects' / project / 'chemicals.txt',
-        output_path=cachedir / 'projects' / project / 'parsed_chemicals.csv'
-    )
+# import toxindex.parse_chemicals as parse_chemicals
+# for project in projects:
+#     parse_chemicals.parse_chemicals(
+#         input_path=cachedir / 'projects' / project / 'chemicals.txt',
+#         output_path=cachedir / 'projects' / project / 'parsed_chemicals.csv'
+#     )
 
-# run predictions
-import toxindex.predict_chemicals as predict_chemicals
-for project in ['cosmetics', 'food-coloring', 'food-contact-materials', 'pfas']:
-    predict_chemicals.predict_chemicals(
-        input_path=cachedir / 'projects' / project / 'parsed_chemicals.csv',
-        output_path=cachedir / 'projects' / project / 'predictions.parquet'
-    )
+# # categorize chemicals
+# import toxindex.categorize_chemicals as categorize_chemicals
+# for project in projects:
+#     categorize_chemicals.categorize_chemicals(
+#         input_path=cachedir / 'projects' / project / 'parsed_chemicals.csv',
+#         output_path=cachedir / 'projects' / project 
+#     )
+
+# # run predictions
+# import toxindex.predict_chemicals as predict_chemicals
+# for project in projects:
+#     predict_chemicals.predict_chemicals(
+#         input_path=cachedir / 'projects' / project / 'parsed_chemicals.csv',
+#         output_path=cachedir / 'projects' / project / 'predictions.parquet'
+#     )
 
 # build heatmaps
 import toxindex.build_heatmap as build_heatmap
-for project in ['cosmetics', 'food-coloring', 'food-contact-materials', 'pfas']:
+for project in projects:
     outdir = cachedir / 'projects' / project / 'heatmap_dir'
     outdir.mkdir(exist_ok=True)
     build_heatmap.build_heatmap(
         input_path=cachedir / 'projects' / project / 'predictions.parquet',
-        output_path=outdir / 'heatmap.png'
+        output_path=outdir / 'heatmap_test2.png'
     )

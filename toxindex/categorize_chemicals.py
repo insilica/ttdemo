@@ -47,19 +47,25 @@ def classify_molecule(inchi):
         return f"Error: RDKit Classification Error ({type(e).__name__})"
 
 
-def categorize_chemicals(parse_chem_csv, outdir):
+def categorize_chemicals(input_path, output_path):
     # Ensure output directory exists
-    os.makedirs(outdir, exist_ok=True)
+    os.makedirs(output_path, exist_ok=True)
 
-    logging.basicConfig(filename=os.path.join(outdir, 'log.txt'), level=logging.INFO, filemode='w')
+    logging.basicConfig(filename=os.path.join(output_path, 'log.txt'), level=logging.INFO, filemode='w')
     # Read the CSV file
-    df = pd.read_csv(parse_chem_csv)
+    df = pd.read_csv(input_path)
 
+    chemicals_csv = input_path.parent / 'chemicals.csv'
     # Add classification column
-    df['classification'] = df['inchi'].apply(classify_molecule)
+    if chemicals_csv.exists():
+        indf = pd.read_csv(chemicals_csv)
+        df = df.merge(indf, on='name', how='left')
+        df['classification'] = df['istoxic'].map({0: 'nontoxic', 1: 'hepatotoxic'})
+    else:
+        df['classification'] = df['inchi'].apply(classify_molecule)
 
     # Save results
-    df.to_csv(outdir / 'classified_chemicals.csv', index=False)
+    df.to_csv(output_path / 'classified_chemicals.csv', index=False)
 
     # Print summary
     logging.info("\nClassification Summary:")

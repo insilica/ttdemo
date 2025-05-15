@@ -31,14 +31,31 @@ def build_heatmap(input_path, output_path):
     logger.info(f"Building heatmap from {input_path}")
     
     # Load prediction data
-    df = pd.read_parquet(input_path)
+    df_allfeat = pd.read_parquet(input_path)
+
+    # filter feature
+    feature_path = input_path.parent / 'claude_relevant_properties.txt'
+    feature_names = set(line.strip() for line in pathlib.Path(feature_path).read_text().splitlines() if line.strip())
+    feature_names = sorted(list(feature_names))
+    df_allfeat['is_in_lookup'] = df_allfeat['property_title'].isin(feature_names)
+    df = df_allfeat[df_allfeat['is_in_lookup']]
     
+    classdf = pd.read_csv(input_path.parent / 'classified_chemicals.csv')
+    if 'classification' not in df.columns:
+        df = df.merge(classdf, on='inchi', how='left')
+
+    if 'name' not in df.columns:
+        print(df.columns)
+        df['name'] = df['name_x']
+        
+    # Input for heatmap
+    pdf = df[['name', 'property_token', 'value', 'classification']]
+
     # Filter data for ring compounds
-    ringdf = df[['name', 'property_token', 'value', 'classification']]
-    ringdf = ringdf[ringdf['classification'].str.contains("Ring")]
+    # pdf = pdf[pdf['classification'].str.contains("Ring")]
     
     # Generate the heatmap
-    _generate_heatmap(ringdf, output_path)
+    _generate_heatmap(pdf, output_path)
     
     # Create a csv of the top 10 most activated properties
     top_props_path = output_path.parent / 'top_props.csv'
@@ -73,11 +90,12 @@ def _generate_heatmap(pdf, outfile):
     )
 
     # Direct color mapping (no need for intermediate classification)
-    category_colors = {
-        '1 Ring Aromatic': '#FFFED0', '2 Ring Aromatic': '#FBDA80', 
-        '3 Ring Aromatic': '#F7B659', '4 Ring Aromatic': '#EE6033',
-        '5 Ring Aromatic': '#D53D23', '6+ Ring Aromatic': '#781A26',
-    }
+    # category_colors = {
+    #     '1 Ring Aromatic': '#FFFED0', '2 Ring Aromatic': '#FBDA80', 
+    #     '3 Ring Aromatic': '#F7B659', '4 Ring Aromatic': '#EE6033',
+    #     '5 Ring Aromatic': '#D53D23', '6+ Ring Aromatic': '#781A26',
+    # }
+    category_colors = {'hepatotoxic': '#FFFED0', 'nontoxic': '#FBDA80'}
 
     # Apply classification and get row colors
     class_series = pdf.drop_duplicates('name').set_index('name')['classification']
@@ -90,10 +108,13 @@ def _generate_heatmap(pdf, outfile):
     
     # Plot heatmap with adjusted layout - keep column clustering
     sns.set(style="white")
+
+    # if the map shows black, reduce linewidths.
     g = sns.clustermap(
         norm_values, cmap="viridis", row_colors=row_colors,
         xticklabels=False, yticklabels=False, 
-        linewidths=0.1, linecolor='black', col_cluster=True, row_cluster=True,
+        # linewidths=0.001,
+        linecolor='black', col_cluster=True, row_cluster=True,
         figsize=(18, 9),  # Wider figure
         cbar_pos=(0.91, 0.3, 0.02, 0.4),  # More to the left and higher up
         dendrogram_ratio=(0.1, 0.05),  # Make column dendrogram shorter (was 0.2 by default)
