@@ -6,6 +6,7 @@ from rdflib.plugins.stores import sparqlstore
 from rdflib_hdt import HDTStore
 import google
 from google import genai
+from tenacity import retry, wait_fixed, retry_if_exception_type
 import time
 import argparse
 
@@ -78,6 +79,25 @@ def get_response_json(response):
     return data
 
 
+@ retry(
+    retry = retry_if_exception_type(google.genai.errors.ServerError),
+    wait = wait_fixed(10),
+    reraise = True
+)
+def get_property_response(client, gene, pathway, properties):
+    """Retrying Gemini API call on server error."""
+    response = client.models.generate_content(
+        model = "gemini-2.0-flash",
+        contents = [
+            f"select properties from the list below that are strongly associated with the gene product {gene} in the biological pathway {pathway}\n\n{properties}\n\nOutput one unique property per line and nothing else; copy the property names exactly."
+        ],
+        config = {
+            "temperature": 0.0,
+        }
+    )
+    return response
+
+
 def predict_properties_for_genes(outdir, client, pathway, properties, gene_products, use_cache = True):
     """Use the Gemini LLM to predict properties for genes in a pathway.
 
@@ -91,33 +111,11 @@ def predict_properties_for_genes(outdir, client, pathway, properties, gene_produ
     rows = []
     for gene in tqdm(gene_products['geneLabel'], desc = "Predicting properties for genes", unit = "gene"):
         # Use LLM to predict the most relevant properties from the list
-        while True:
-            try:
-                response = client.models.generate_content(
-                    model = "gemini-2.0-flash",
-                    contents = [
-                        # f"Gene: {gene}",
-                        # f"Pathway: {pathway_name}",
-                        # (
-                        #     "From the list below, return a **JSON object** with a single key "
-                        #     '"property_names". Its value must be a JSON array containing ONLY '
-                        #     "those property strings that are relevant. Use the property names "
-                        #     "exactly as given—verbatim—and do not add keys or explanations."
-                        # ),
-                        # "List of possible properties:",
-                        # properties,
-                        f"select properties from the list below that are strongly associated with the gene product {gene} in the biological pathway {pathway}\n\n{properties}\n\nOutput one unique property per line and nothing else; copy the property names exactly."
-                    ],
-                    config = {
-                        # "response_mime_type": "application/json",
-                        # "response_schema": GenePropSchema,
-                        "temperature" : 0.0,  # deterministic output
-                    }
-                )
-                break  # exit the loop if successful
-            except google.genai.errors.ServerError as e:
-                print(f"Server error: {e}. Retrying...")
-                time.sleep(10)  # wait before retrying
+        try:
+            response = get_property_response(client, gene, pathway, properties)
+        except Exception as e:
+            print(f"Failed to get response for gene {gene}: {e}")
+            continue  # skip this gene
         
         # convert the output to a list of strings
         property_list = response.text.splitlines()
