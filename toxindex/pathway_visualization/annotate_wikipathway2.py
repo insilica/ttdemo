@@ -54,12 +54,13 @@ def main():
         f'?pathwayId={args.pathway}&format=gpml'
     )
     print(f'Downloading GPML from {gpml_url}...')
-    r = requests.get(gpml_url)
-    r.raise_for_status()
-    gpml_file = f'{args.pathway}.gpml'
-    with open(gpml_file, 'wb') as fh:
-        fh.write(r.content)
-    print(f'  → saved to {gpml_file}')
+    # r = requests.get(gpml_url)
+    # r.raise_for_status()
+    # gpml_file = f'{args.pathway}.gpml'
+    # with open(gpml_file, 'wb') as fh:
+    #     fh.write(r.content)
+    # print(f'  → saved to {gpml_file}')
+    gpml_file = f'toxindex/pathway_visualization/{args.pathway}.gpml'
 
     # 2) Import into Cytoscape
     print('Connecting to Cytoscape...')
