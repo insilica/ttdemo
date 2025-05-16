@@ -9,6 +9,7 @@ from google import genai
 from tenacity import retry, wait_fixed, retry_if_exception_type
 import time
 import argparse
+import numpy as np
 
 import os
 from dotenv import load_dotenv
@@ -220,15 +221,19 @@ def main(cachedir, projectdir, outdir, pathway, use_cache_predictions = True, us
         "chemicals_values": lambda lsts: sum(lsts, [])  # flatten list of lists
     })
 
-    def compute_sum_and_mean(chem_vals):
+    def compute_stats(chem_vals):
         values = [val for _, val in chem_vals]
         return pd.Series({
             "sum_value": sum(values),
-            "mean_value_over_chemicals": sum(values) / len(values) if values else float('nan')
+            "mean_value": sum(values) / len(values) if values else float('nan'),
+            "2-norm": np.linalg.norm(values),
+            "3-norm": np.linalg.norm(values, ord = 3),
+            "4-norm": np.linalg.norm(values, ord = 4),
+            "max_value": max(values) if values else float('nan'),
         })
 
     summary_gene_products = merged_gene_products.copy()
-    summary_gene_products[["sum_value", "mean_value_over_chemicals"]] = merged_gene_products["chemicals_values"].apply(compute_sum_and_mean)
+    summary_gene_products[["sum_value", "mean_value", "2-norm", "3-norm", "4-norm", "max_value"]] = merged_gene_products["chemicals_values"].apply(compute_stats)
     summary_gene_products.drop(columns = ["chemicals_values"], inplace = True)
     print(summary_gene_products)
     # save the summary dataframe to a parquet file
