@@ -43,52 +43,70 @@ def fuzzy_match_properties(input_path,output_path):
     output_path.write_text('\n'.join(matched_properties))
     return list(set(matched_properties))
 
-projects = ['dev-neurotoxic']
+
+project='nephrotoxic'
+projects = ['hepatotoxic']
+# projects = ['dev-neurotoxic']
+
 # parse the chemicals
 
-for project in projects:
-    fuzzy_match_properties(
-        input_path=cachedir / 'projects' / project / 'claude_relevant_properties.txt',
-        output_path=cachedir / 'projects' / project / 'matched_properties.txt')
+# for project in projects:
+#     fuzzy_match_properties(
+#         input_path=cachedir / 'projects' / project / 'claude_relevant_properties.txt',
+#         output_path=cachedir / 'projects' / project / 'matched_properties.txt')
 
-import toxindex.parse_chemicals as parse_chemicals
-for project in projects:
-    parse_chemicals.parse_chemicals(
-        input_path=cachedir / 'projects' / project / 'chemicals.txt',
-        output_path=cachedir / 'projects' / project / 'parsed_chemicals.csv'
-    )
+# import toxindex.parse_chemicals as parse_chemicals
+# for project in projects:
+#     parse_chemicals.parse_chemicals(
+#         input_path=cachedir / 'projects' / project / 'chemicals.txt',
+#         output_path=cachedir / 'projects' / project / 'parsed_chemicals.csv'
+#     )
 
 # categorize chemicals
-import toxindex.categorize_chemicals as categorize_chemicals
-for project in projects:
-    categorize_chemicals.categorize_chemicals(
-        input_path=cachedir / 'projects' / project / 'parsed_chemicals.csv',
-        output_path=cachedir / 'projects' / project 
-    )
+# import toxindex.categorize_chemicals as categorize_chemicals
+# for project in projects:
+#     categorize_chemicals.categorize_chemicals(
+#         input_path=cachedir / 'projects' / project / 'parsed_chemicals.csv',
+#         output_path=cachedir / 'projects' / project 
+#     )
 
-# run predictions
-import toxindex.predict_chemicals as predict_chemicals
-for project in projects:
-    predict_chemicals.predict_chemicals(
-        input_path=cachedir / 'projects' / project / 'classified_chemicals.csv',
-        output_path=cachedir / 'projects' / project / 'predictions.parquet'
-    )
+# # run predictions
+# import toxindex.predict_chemicals as predict_chemicals
+# for project in projects:
+#     predict_chemicals.predict_chemicals(
+#         input_path=cachedir / 'projects' / project / 'classified_chemicals.csv',
+#         output_path=cachedir / 'projects' / project / 'predictions.parquet'
+#     )
 
 # build heatmaps
-import toxindex.build_heatmap as build_heatmap
-for project in projects:
-    outdir = cachedir / 'projects' / project / 'heatmap_dir'
-    outdir.mkdir(exist_ok=True)
-    build_heatmap.build_heatmap(
-        input_path=cachedir / 'projects' / project / 'predictions.parquet',
-        output_path=outdir / 'heatmap.png'
-    )
+# import toxindex.build_heatmap as build_heatmap
+# for project in projects:
+#     outdir = cachedir / 'projects' / project / 'heatmap_dir'
+#     outdir.mkdir(exist_ok=True)
+#     build_heatmap.build_heatmap(
+#         input_path=cachedir / 'projects' / project / 'predictions.parquet',
+#         output_path=outdir / 'heatmap.png'
+#     )
+# input_path=cachedir / 'projects' / project / 'predictions.parquet'
+
 
 import toxindex.build_stripchart as build_stripchart
 for project in projects:
     outdir = cachedir / 'projects' / project / 'stripchart_dir'
     outdir.mkdir(exist_ok=True)
+    agg_func='median'
     build_stripchart.build_stripchart(
         input_path=cachedir / 'projects' / project / 'predictions.parquet',
-        output_path=outdir / 'stripchart.png'
+        output_path=outdir / f"{agg_func}_stripchart.png",
+        agg_func=agg_func
     )
+
+    agg_func='mean'
+    build_stripchart.build_stripchart(
+        input_path=cachedir / 'projects' / project / 'predictions.parquet',
+        output_path=outdir / f"{agg_func}_stripchart.png",
+        agg_func=agg_func
+    )
+
+# input_path=cachedir / 'projects' / project / 'predictions.parquet'
+# output_path=outdir / f"{agg_func}_stripchart.png"
