@@ -3,8 +3,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pathlib
 from sklearn.preprocessing import MinMaxScaler
-
-import numpy as np
 import scipy.cluster.hierarchy as sch
 from scipy.spatial.distance import pdist
 
@@ -48,7 +46,13 @@ def build_heatmap(input_path, output_path):
     
     classdf = pd.read_csv(input_path.parent / 'classified_chemicals.csv')
     # if 'classification' not in df.columns:
-    df = df.merge(classdf, on='inchi', how='left')
+    #     df = df.merge(classdf, on='inchi', how='left')
+
+    if 'classification' not in df.columns or df['classification'].isna().any():
+    # Merge classification info
+        print('reading classification')
+        df = df.drop(columns=['classification'], errors='ignore')  # drop to avoid _x/_y
+        df = df.merge(classdf[['inchi', 'classification']], on='inchi', how='left')
 
     if 'name' not in df.columns:
         # print(df.columns)
@@ -56,6 +60,7 @@ def build_heatmap(input_path, output_path):
         
     # Input for heatmap
     pdf = df[['name', 'property_token', 'value', 'classification']]
+
 
     # Filter data for ring compounds
     # pdf = pdf[pdf['classification'].str.contains("Ring")]
@@ -66,6 +71,8 @@ def build_heatmap(input_path, output_path):
     # Create a csv of the top 10 most activated properties
     top_props_path = output_path.parent / 'top_props.csv'
     top10df = df[['name', 'property_title', 'property_source', 'property_metadata', 'value', 'classification']]
+    
+    # str cant be used sometimes
     top10df = top10df[~top10df['classification'].str.contains("Paraffin")]
     
     top10_props = top10df\
@@ -101,7 +108,8 @@ def _generate_heatmap(pdf, output_path):
     #     '3 Ring Aromatic': '#F7B659', '4 Ring Aromatic': '#EE6033',
     #     '5 Ring Aromatic': '#D53D23', '6+ Ring Aromatic': '#781A26',
     # }
-    category_colors = {'Nephrotoxic': '#FFFED0', 'Non-Nephrotoxic': '#FBDA80'}
+    category_colors = {'Nephrotoxic': '#FFFED0', 'Non-nephrotoxic': '#FBDA80'}
+    # category_colors = {'DNT': '#FFFED0', 'Non-DNT': '#FBDA80'}
 
     # Apply classification and get row colors
     class_series = pdf.drop_duplicates('name').set_index('name')['classification']
@@ -139,7 +147,10 @@ def _generate_heatmap(pdf, output_path):
     # Clear the default dendrogram
     ax.clear()
     # Redraw dendrogram using scipy with your threshold
-    sch.dendrogram(row_linkage, ax=ax, orientation='left', color_threshold=11, above_threshold_color='gray')
+    sch.dendrogram(row_linkage, ax=ax, orientation='left', color_threshold=3, above_threshold_color='gray')
+
+    #11 for nephro
+    # 
     ax.invert_yaxis()
 
     ax.set_xticks([])
