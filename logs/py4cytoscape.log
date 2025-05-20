@@ -83,3 +83,1829 @@
 2025-05-19 10:42:12,733 [DEBUG] py4...: ǀ'commands_post' exception CyError('In commands_post(): Pathway not available -- invalid GPML')
 2025-05-19 10:42:12,733 [DEBUG] py4...: 'import_network_from_file' exception CyError('In commands_post(): Pathway not available -- invalid GPML')
 2025-05-19 10:42:12,733 [DEBUG] py4...: --------------------
+2025-05-19 12:22:03,942 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:22:03,942 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:22:03,942 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:22:03,942 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:22:04,008 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:22:04,008 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:22:04,017 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:22:04,017 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:22:04,017 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:22:04,018 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:22:04,018 [DEBUG] py4...: --------------------
+2025-05-19 12:22:04,018 [DEBUG] py4...: Calling import_network_from_file('toxindex/pathway_visualization/WP3657.gpml')
+2025-05-19 12:22:04,018 [DEBUG] py4...: ǀCalling commands_post('network load file file="/home/john/Documents/Insilica/ttdemo/toxindex/pathway_visualization/WP3657.gpml"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:22:04,018 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/load%20file), json: {'file': '/home/john/Documents/Insilica/ttdemo/toxindex/pathway_visualization/WP3657.gpml'}
+2025-05-19 12:22:04,053 [DEBUG] py4...: ǀInternal Server Error[500], content: {
+ "data": {},
+ "errors":[{"status":500,"type":"urn:cytoscape:ci:cyrest-core:v1:handle-json-command:errors:2","message":"Don\u0027t know how to read file:/home/john/Documents/Insilica/ttdemo/toxindex/pathway_visualization/WP3657.gpml","link":"file:/home/john/CytoscapeConfiguration/3/framework-cytoscape.log"}]
+}
+2025-05-19 12:22:04,053 [DEBUG] py4...: ǀ'commands_post' exception CyError("In commands_post(): Don't know how to read file:/home/john/Documents/Insilica/ttdemo/toxindex/pathway_visualization/WP3657.gpml")
+2025-05-19 12:22:04,053 [DEBUG] py4...: 'import_network_from_file' exception CyError("In commands_post(): Don't know how to read file:/home/john/Documents/Insilica/ttdemo/toxindex/pathway_visualization/WP3657.gpml")
+2025-05-19 12:22:04,053 [DEBUG] py4...: --------------------
+2025-05-19 12:24:21,398 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:24:21,398 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:24:21,398 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:24:21,398 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:24:21,405 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:24:21,406 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:24:21,411 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:24:21,411 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:24:21,411 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:24:21,412 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:24:21,412 [DEBUG] py4...: --------------------
+2025-05-19 12:24:21,412 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:24:21,412 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:24:21,413 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:24:21,425 [DEBUG] py4...: ǀNot Found[404], content: Error: no such namespace: 'wikipathways'
+2025-05-19 12:24:21,425 [DEBUG] py4...: ǀ'commands_get' exception CyError("In commands_get(): Error: no such namespace: 'wikipathways'")
+2025-05-19 12:24:21,425 [DEBUG] py4...: 'commands_run' exception CyError("In commands_get(): Error: no such namespace: 'wikipathways'")
+2025-05-19 12:24:21,425 [DEBUG] py4...: --------------------
+2025-05-19 12:26:21,718 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:26:21,718 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:26:21,718 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:26:21,718 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:26:21,723 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:26:21,724 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:26:21,728 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:26:21,728 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:26:21,729 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:26:21,729 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:26:21,729 [DEBUG] py4...: --------------------
+2025-05-19 12:26:21,729 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:26:21,729 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:26:21,730 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:26:24,255 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:26:24,255 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:26:24,256 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:26:24,256 [DEBUG] py4...: --------------------
+2025-05-19 12:33:55,855 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:33:55,855 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:33:55,855 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:33:55,855 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:33:55,861 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:33:55,861 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:33:55,877 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:33:55,878 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:33:55,878 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:33:55,878 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:33:55,878 [DEBUG] py4...: --------------------
+2025-05-19 12:33:55,878 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:33:55,878 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:33:55,878 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:33:57,578 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:33:57,579 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:33:57,579 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:33:57,579 [DEBUG] py4...: --------------------
+2025-05-19 12:39:31,176 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:39:31,176 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:39:31,176 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:39:31,176 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:39:31,182 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:39:31,183 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:39:31,188 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:39:31,188 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:39:31,188 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:39:31,189 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:39:31,189 [DEBUG] py4...: --------------------
+2025-05-19 12:39:31,189 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:39:31,189 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:39:31,189 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:39:32,892 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:39:32,892 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:39:32,892 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:39:32,893 [DEBUG] py4...: --------------------
+2025-05-19 12:44:19,462 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:44:19,462 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:44:19,462 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:44:19,462 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:44:19,468 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:44:19,468 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:44:19,472 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:44:19,472 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:44:19,472 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:44:19,473 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:44:19,473 [DEBUG] py4...: --------------------
+2025-05-19 12:44:19,473 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:44:19,473 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:44:19,473 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:44:21,020 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:44:21,021 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:44:21,021 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:44:21,021 [DEBUG] py4...: --------------------
+2025-05-19 12:44:21,073 [DEBUG] py4...: Calling get_table_columns(table='node', column='name')
+2025-05-19 12:44:21,073 [DEBUG] py4...: 'get_table_columns' exception TypeError("get_table_columns() got an unexpected keyword argument 'column'")
+2025-05-19 12:44:21,073 [DEBUG] py4...: --------------------
+2025-05-19 12:45:49,044 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:45:49,044 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:45:49,044 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:45:49,044 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:45:49,053 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:45:49,054 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:45:49,067 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:45:49,067 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:45:49,067 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:45:49,068 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:45:49,068 [DEBUG] py4...: --------------------
+2025-05-19 12:45:49,068 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:45:49,068 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:45:49,069 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:45:50,684 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:45:50,685 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:45:50,687 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:45:50,688 [DEBUG] py4...: --------------------
+2025-05-19 12:47:38,322 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:47:38,323 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:47:38,323 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:47:38,323 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:47:38,329 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:47:38,334 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:47:38,338 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:47:38,339 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:47:38,339 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:47:38,339 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:47:38,340 [DEBUG] py4...: --------------------
+2025-05-19 12:47:38,340 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:47:38,340 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:47:38,340 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:47:39,981 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:47:39,982 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:47:39,982 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:47:39,982 [DEBUG] py4...: --------------------
+2025-05-19 12:47:40,030 [DEBUG] py4...: Calling get_table_columns('node', 'name')
+2025-05-19 12:47:40,030 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:47:40,030 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:47:40,030 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 12:47:40,043 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 3383
+}
+],
+ "errors":[]
+}
+2025-05-19 12:47:40,043 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 3383}]
+2025-05-19 12:47:40,043 [DEBUG] py4...: ǀReturning 'get_network_suid': 3383
+2025-05-19 12:47:40,043 [DEBUG] py4...: ǀCalling get_table_column_types('node', namespace='default', network=None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:47:40,043 [DEBUG] py4...: ǀǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:47:40,043 [DEBUG] py4...: ǀǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:47:40,043 [DEBUG] py4...: ǀǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 12:47:40,049 [DEBUG] py4...: ǀǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 3383
+}
+],
+ "errors":[]
+}
+2025-05-19 12:47:40,049 [DEBUG] py4...: ǀǀǀReturning 'commands_post': [{'SUID': 3383}]
+2025-05-19 12:47:40,049 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 3383
+2025-05-19 12:47:40,049 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/3383/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:47:40,049 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/3383/tables/defaultnode/columns)
+2025-05-19 12:47:40,056 [DEBUG] py4...: ǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"GraphID","type":"String","immutable":false,"primaryKey":false},{"name":"XrefId","type":"String","immutable":false,"primaryKey":false},{"name":"XrefDatasource","type":"String","immutable":false,"primaryKey":false},{"name":"Type","type":"String","immutable":false,"primaryKey":false},{"name":"IsGPMLShape","type":"Boolean","immutable":false,"primaryKey":false},{"name":"Width","type":"Double","immutable":false,"primaryKey":false},{"name":"Height","type":"Double","immutable":false,"primaryKey":false},{"name":"FillColor","type":"String","immutable":false,"primaryKey":false},{"name":"Color","type":"String","immutable":false,"primaryKey":false},{"name":"LabelFont","type":"String","immutable":false,"primaryKey":false},{"name":"LabelSize","type":"Double","immutable":false,"primaryKey":false},{"name":"Transparent","type":"String","immutable":false,"primaryKey":false},{"name":"BorderThickness","type":"Double","immutable":false,"primaryKey":false},{"name":"BorderStyle","type":"String","immutable":false,"primaryKey":false},{"name":"Shape","type":"String","immutable":false,"primaryKey":false},{"name":"Ensembl","type":"String","immutable":true,"primaryKey":false},{"name":"ChEBI","type":"String","immutable":false,"primaryKey":false}]
+2025-05-19 12:47:40,056 [DEBUG] py4...: ǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'GraphID', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefId', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefDatasource', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Type', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'IsGPMLShape', 'type': 'Boolean', 'immutable': False, 'primaryKey': False}, {'name': 'Width', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Height', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'FillColor', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Color', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelFont', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelSize', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Transparent', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'BorderThickness', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'BorderStyle', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Shape', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Ensembl', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'ChEBI', 'type': 'String', 'immutable': False, 'primaryKey': False}]
+2025-05-19 12:47:40,056 [DEBUG] py4...: ǀReturning 'get_table_column_types': {'SUID': 'Long', 'shared name': 'String', 'name': 'String', 'selected': 'Boolean', 'GraphID': 'String', 'XrefId': 'String', 'XrefDatasource': 'String', 'Type': 'String', 'IsGPMLShape': 'Boolean', 'Width': 'Double', 'Height': 'Double', 'FillColor': 'String', 'Color': 'String', 'LabelFont': 'String', 'LabelSize': 'Double', 'Transparent': 'String', 'BorderThickness': 'Double', 'BorderStyle': 'String', 'Shape': 'String', 'Ensembl': 'String', 'ChEBI': 'String'}
+2025-05-19 12:47:40,056 [DEBUG] py4...: ǀCalling cyrest_get('networks/3383/tables/defaultnode/columns/SUID', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:47:40,056 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/networks/3383/tables/defaultnode/columns/SUID)
+2025-05-19 12:47:40,063 [DEBUG] py4...: ǀOK[200], content: {"name":"SUID","values":[3584,3587,3590,3593,3596,3599,3602,3605,3608,3614,3616,3618,3620,3622,3624,3626,3628,3630,3632,3634,3636,3719,3721,3726,3728,3733,3735,3530,3533,3536,3539,3542,3545,3548,3551,3554,3557,3560,3563,3566,3569,3572,3575,3578,3581]}
+2025-05-19 12:47:40,063 [DEBUG] py4...: ǀReturning 'cyrest_get': {'name': 'SUID', 'values': [3584, 3587, 3590, 3593, 3596, 3599, 3602, 3605, 3608, 3614, 3616, 3618, 3620, 3622, 3624, 3626, 3628, 3630, 3632, 3634, 3636, 3719, 3721, 3726, 3728, 3733, 3735, 3530, 3533, 3536, 3539, 3542, 3545, 3548, 3551, 3554, 3557, 3560, 3563, 3566, 3569, 3572, 3575, 3578, 3581]}
+2025-05-19 12:47:40,064 [DEBUG] py4...: ǀCalling cyrest_get('networks/3383/tables/defaultnode/columns/name', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:47:40,064 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/networks/3383/tables/defaultnode/columns/name)
+2025-05-19 12:47:40,068 [DEBUG] py4...: ǀOK[200], content: {"name":"name","values":["FLT3","CREBBP","EP300","Chromatin remodeling and \nepigenetic modifications","HSC survival","ATM","HSC quiescence","MCL1","",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"SMARCA4","HSC self renewal","BCL2","HSC differentiation","DNMT3B","DNMT3A","TERF2","ETV6","DNMT1","ZFX","GZMB","HSC aging","SMAD4","GABPA","PTEN","BCL2L1","FOXO3","GABPB"]}
+2025-05-19 12:47:40,068 [DEBUG] py4...: ǀReturning 'cyrest_get': {'name': 'name', 'values': ['FLT3', 'CREBBP', 'EP300', 'Chromatin remodeling and \nepigenetic modifications', 'HSC survival', 'ATM', 'HSC quiescence', 'MCL1', '', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 'SMARCA4', 'HSC self renewal', 'BCL2', 'HSC differentiation', 'DNMT3B', 'DNMT3A', 'TERF2', 'ETV6', 'DNMT1', 'ZFX', 'GZMB', 'HSC aging', 'SMAD4', 'GABPA', 'PTEN', 'BCL2L1', 'FOXO3', 'GABPB']}
+2025-05-19 12:47:40,071 [DEBUG] py4...: Returning 'get_table_columns':                                                    name
+3584                                               FLT3
+3587                                             CREBBP
+3590                                              EP300
+3593  Chromatin remodeling and \nepigenetic modifica...
+3596                                       HSC survival
+3599                                                ATM
+3602                                     HSC quiescence
+3605                                               MCL1
+3608                                                   
+3614                                               None
+3616                                               None
+3618                                               None
+3620                                               None
+3622                                               None
+3624                                               None
+3626                                               None
+3628                                               None
+3630                                               None
+3632                                               None
+3634                                               None
+3636                                               None
+3719                                               None
+3721                                               None
+3726                                               None
+3728                                               None
+3733                                               None
+3735                                               None
+3530                                            SMARCA4
+3533                                   HSC self renewal
+3536                                               BCL2
+3539                                HSC differentiation
+3542                                             DNMT3B
+3545                                             DNMT3A
+3548                                              TERF2
+3551                                               ETV6
+3554                                              DNMT1
+3557                                                ZFX
+3560                                               GZMB
+3563                                          HSC aging
+3566                                              SMAD4
+3569                                              GABPA
+3572                                               PTEN
+3575                                             BCL2L1
+3578                                              FOXO3
+3581                                              GABPB
+2025-05-19 12:47:40,072 [DEBUG] py4...: --------------------
+2025-05-19 12:49:52,537 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:49:52,537 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:49:52,537 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:49:52,537 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:49:52,543 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:49:52,543 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:49:52,548 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:49:52,548 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:49:52,548 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:49:52,549 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:49:52,549 [DEBUG] py4...: --------------------
+2025-05-19 12:49:52,549 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:49:52,549 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:49:52,550 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:49:54,096 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:49:54,097 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:49:54,097 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:49:54,097 [DEBUG] py4...: --------------------
+2025-05-19 12:50:41,217 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:50:41,217 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:50:41,217 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:50:41,217 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:50:41,221 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:50:41,221 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:50:41,227 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:50:41,227 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:50:41,227 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:50:41,228 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:50:41,228 [DEBUG] py4...: --------------------
+2025-05-19 12:50:41,228 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:50:41,228 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:50:41,229 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:50:42,702 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:50:42,703 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:50:42,703 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:50:42,703 [DEBUG] py4...: --------------------
+2025-05-19 12:51:54,301 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:51:54,301 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:51:54,301 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:51:54,301 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:51:54,307 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:51:54,307 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:51:54,312 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:51:54,312 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:51:54,312 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:51:54,313 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:51:54,313 [DEBUG] py4...: --------------------
+2025-05-19 12:51:54,313 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:51:54,313 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:51:54,313 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:51:55,963 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:51:55,963 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:51:55,963 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:51:55,963 [DEBUG] py4...: --------------------
+2025-05-19 12:51:55,999 [DEBUG] py4...: Calling get_table_columns('node', 'name')
+2025-05-19 12:51:55,999 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:51:55,999 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:51:55,999 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 12:51:56,007 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 5120
+}
+],
+ "errors":[]
+}
+2025-05-19 12:51:56,007 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 5120}]
+2025-05-19 12:51:56,007 [DEBUG] py4...: ǀReturning 'get_network_suid': 5120
+2025-05-19 12:51:56,007 [DEBUG] py4...: ǀCalling get_table_column_types('node', namespace='default', network=None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:51:56,007 [DEBUG] py4...: ǀǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:51:56,007 [DEBUG] py4...: ǀǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:51:56,007 [DEBUG] py4...: ǀǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 12:51:56,015 [DEBUG] py4...: ǀǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 5120
+}
+],
+ "errors":[]
+}
+2025-05-19 12:51:56,015 [DEBUG] py4...: ǀǀǀReturning 'commands_post': [{'SUID': 5120}]
+2025-05-19 12:51:56,015 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 5120
+2025-05-19 12:51:56,015 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/5120/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:51:56,015 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/5120/tables/defaultnode/columns)
+2025-05-19 12:51:56,021 [DEBUG] py4...: ǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"GraphID","type":"String","immutable":false,"primaryKey":false},{"name":"XrefId","type":"String","immutable":false,"primaryKey":false},{"name":"XrefDatasource","type":"String","immutable":false,"primaryKey":false},{"name":"Type","type":"String","immutable":false,"primaryKey":false},{"name":"IsGPMLShape","type":"Boolean","immutable":false,"primaryKey":false},{"name":"Width","type":"Double","immutable":false,"primaryKey":false},{"name":"Height","type":"Double","immutable":false,"primaryKey":false},{"name":"FillColor","type":"String","immutable":false,"primaryKey":false},{"name":"Color","type":"String","immutable":false,"primaryKey":false},{"name":"LabelFont","type":"String","immutable":false,"primaryKey":false},{"name":"LabelSize","type":"Double","immutable":false,"primaryKey":false},{"name":"Transparent","type":"String","immutable":false,"primaryKey":false},{"name":"BorderThickness","type":"Double","immutable":false,"primaryKey":false},{"name":"BorderStyle","type":"String","immutable":false,"primaryKey":false},{"name":"Shape","type":"String","immutable":false,"primaryKey":false},{"name":"Ensembl","type":"String","immutable":true,"primaryKey":false},{"name":"ChEBI","type":"String","immutable":false,"primaryKey":false}]
+2025-05-19 12:51:56,021 [DEBUG] py4...: ǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'GraphID', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefId', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefDatasource', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Type', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'IsGPMLShape', 'type': 'Boolean', 'immutable': False, 'primaryKey': False}, {'name': 'Width', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Height', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'FillColor', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Color', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelFont', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelSize', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Transparent', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'BorderThickness', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'BorderStyle', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Shape', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Ensembl', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'ChEBI', 'type': 'String', 'immutable': False, 'primaryKey': False}]
+2025-05-19 12:51:56,021 [DEBUG] py4...: ǀReturning 'get_table_column_types': {'SUID': 'Long', 'shared name': 'String', 'name': 'String', 'selected': 'Boolean', 'GraphID': 'String', 'XrefId': 'String', 'XrefDatasource': 'String', 'Type': 'String', 'IsGPMLShape': 'Boolean', 'Width': 'Double', 'Height': 'Double', 'FillColor': 'String', 'Color': 'String', 'LabelFont': 'String', 'LabelSize': 'Double', 'Transparent': 'String', 'BorderThickness': 'Double', 'BorderStyle': 'String', 'Shape': 'String', 'Ensembl': 'String', 'ChEBI': 'String'}
+2025-05-19 12:51:56,022 [DEBUG] py4...: ǀCalling cyrest_get('networks/5120/tables/defaultnode/columns/SUID', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:51:56,022 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/networks/5120/tables/defaultnode/columns/SUID)
+2025-05-19 12:51:56,026 [DEBUG] py4...: ǀOK[200], content: {"name":"SUID","values":[5456,5458,5463,5465,5470,5472,5267,5270,5273,5276,5279,5282,5285,5288,5291,5294,5297,5300,5303,5306,5309,5312,5315,5318,5321,5324,5327,5330,5333,5336,5339,5342,5345,5351,5353,5355,5357,5359,5361,5363,5365,5367,5369,5371,5373]}
+2025-05-19 12:51:56,027 [DEBUG] py4...: ǀReturning 'cyrest_get': {'name': 'SUID', 'values': [5456, 5458, 5463, 5465, 5470, 5472, 5267, 5270, 5273, 5276, 5279, 5282, 5285, 5288, 5291, 5294, 5297, 5300, 5303, 5306, 5309, 5312, 5315, 5318, 5321, 5324, 5327, 5330, 5333, 5336, 5339, 5342, 5345, 5351, 5353, 5355, 5357, 5359, 5361, 5363, 5365, 5367, 5369, 5371, 5373]}
+2025-05-19 12:51:56,028 [DEBUG] py4...: ǀCalling cyrest_get('networks/5120/tables/defaultnode/columns/name', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:51:56,028 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/networks/5120/tables/defaultnode/columns/name)
+2025-05-19 12:51:56,033 [DEBUG] py4...: ǀOK[200], content: {"name":"name","values":[null,null,null,null,null,null,"SMARCA4","HSC self renewal","BCL2","HSC differentiation","DNMT3B","DNMT3A","TERF2","ETV6","DNMT1","ZFX","GZMB","HSC aging","SMAD4","GABPA","PTEN","BCL2L1","FOXO3","GABPB","FLT3","CREBBP","EP300","Chromatin remodeling and \nepigenetic modifications","HSC survival","ATM","HSC quiescence","MCL1","",null,null,null,null,null,null,null,null,null,null,null,null]}
+2025-05-19 12:51:56,033 [DEBUG] py4...: ǀReturning 'cyrest_get': {'name': 'name', 'values': [None, None, None, None, None, None, 'SMARCA4', 'HSC self renewal', 'BCL2', 'HSC differentiation', 'DNMT3B', 'DNMT3A', 'TERF2', 'ETV6', 'DNMT1', 'ZFX', 'GZMB', 'HSC aging', 'SMAD4', 'GABPA', 'PTEN', 'BCL2L1', 'FOXO3', 'GABPB', 'FLT3', 'CREBBP', 'EP300', 'Chromatin remodeling and \nepigenetic modifications', 'HSC survival', 'ATM', 'HSC quiescence', 'MCL1', '', None, None, None, None, None, None, None, None, None, None, None, None]}
+2025-05-19 12:51:56,036 [DEBUG] py4...: Returning 'get_table_columns':                                                    name
+5456                                               None
+5458                                               None
+5463                                               None
+5465                                               None
+5470                                               None
+5472                                               None
+5267                                            SMARCA4
+5270                                   HSC self renewal
+5273                                               BCL2
+5276                                HSC differentiation
+5279                                             DNMT3B
+5282                                             DNMT3A
+5285                                              TERF2
+5288                                               ETV6
+5291                                              DNMT1
+5294                                                ZFX
+5297                                               GZMB
+5300                                          HSC aging
+5303                                              SMAD4
+5306                                              GABPA
+5309                                               PTEN
+5312                                             BCL2L1
+5315                                              FOXO3
+5318                                              GABPB
+5321                                               FLT3
+5324                                             CREBBP
+5327                                              EP300
+5330  Chromatin remodeling and \nepigenetic modifica...
+5333                                       HSC survival
+5336                                                ATM
+5339                                     HSC quiescence
+5342                                               MCL1
+5345                                                   
+5351                                               None
+5353                                               None
+5355                                               None
+5357                                               None
+5359                                               None
+5361                                               None
+5363                                               None
+5365                                               None
+5367                                               None
+5369                                               None
+5371                                               None
+5373                                               None
+2025-05-19 12:51:56,036 [DEBUG] py4...: --------------------
+2025-05-19 12:53:59,681 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:53:59,681 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:53:59,681 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:53:59,681 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:53:59,686 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:53:59,686 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:53:59,690 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:53:59,690 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:53:59,690 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:53:59,691 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:53:59,691 [DEBUG] py4...: --------------------
+2025-05-19 12:53:59,691 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:53:59,691 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:53:59,691 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:54:01,168 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:54:01,168 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:54:01,168 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:54:01,168 [DEBUG] py4...: --------------------
+2025-05-19 12:54:01,201 [DEBUG] py4...: Calling commands_run('table get rows table="node"')
+2025-05-19 12:54:01,201 [DEBUG] py4...: ǀCalling commands_get('table get rows table="node"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:54:01,202 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/table/get%20rows), params: {'table': 'node'}
+2025-05-19 12:54:01,207 [DEBUG] py4...: ǀNot Found[404], content: Error: no such command: 'get rows'
+2025-05-19 12:54:01,207 [DEBUG] py4...: ǀ'commands_get' exception CyError("In commands_get(): Error: no such command: 'get rows'")
+2025-05-19 12:54:01,207 [DEBUG] py4...: 'commands_run' exception CyError("In commands_get(): Error: no such command: 'get rows'")
+2025-05-19 12:54:01,207 [DEBUG] py4...: --------------------
+2025-05-19 12:56:08,571 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:56:08,571 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:56:08,571 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:56:08,571 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:56:08,577 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:56:08,578 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:56:08,582 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:56:08,582 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:56:08,582 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:56:08,583 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:56:08,583 [DEBUG] py4...: --------------------
+2025-05-19 12:56:08,583 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:56:08,583 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:56:08,584 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:56:10,177 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:56:10,178 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:56:10,178 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:56:10,178 [DEBUG] py4...: --------------------
+2025-05-19 12:56:10,234 [DEBUG] py4...: Calling get_table_columns('node', 'name')
+2025-05-19 12:56:10,234 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:56:10,234 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:56:10,235 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 12:56:10,258 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 6278
+}
+],
+ "errors":[]
+}
+2025-05-19 12:56:10,259 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 6278}]
+2025-05-19 12:56:10,259 [DEBUG] py4...: ǀReturning 'get_network_suid': 6278
+2025-05-19 12:56:10,259 [DEBUG] py4...: ǀCalling get_table_column_types('node', namespace='default', network=None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:56:10,259 [DEBUG] py4...: ǀǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:56:10,259 [DEBUG] py4...: ǀǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:56:10,259 [DEBUG] py4...: ǀǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 12:56:10,267 [DEBUG] py4...: ǀǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 6278
+}
+],
+ "errors":[]
+}
+2025-05-19 12:56:10,267 [DEBUG] py4...: ǀǀǀReturning 'commands_post': [{'SUID': 6278}]
+2025-05-19 12:56:10,267 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 6278
+2025-05-19 12:56:10,267 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/6278/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:56:10,267 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/6278/tables/defaultnode/columns)
+2025-05-19 12:56:10,273 [DEBUG] py4...: ǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"GraphID","type":"String","immutable":false,"primaryKey":false},{"name":"XrefId","type":"String","immutable":false,"primaryKey":false},{"name":"XrefDatasource","type":"String","immutable":false,"primaryKey":false},{"name":"Type","type":"String","immutable":false,"primaryKey":false},{"name":"IsGPMLShape","type":"Boolean","immutable":false,"primaryKey":false},{"name":"Width","type":"Double","immutable":false,"primaryKey":false},{"name":"Height","type":"Double","immutable":false,"primaryKey":false},{"name":"FillColor","type":"String","immutable":false,"primaryKey":false},{"name":"Color","type":"String","immutable":false,"primaryKey":false},{"name":"LabelFont","type":"String","immutable":false,"primaryKey":false},{"name":"LabelSize","type":"Double","immutable":false,"primaryKey":false},{"name":"Transparent","type":"String","immutable":false,"primaryKey":false},{"name":"BorderThickness","type":"Double","immutable":false,"primaryKey":false},{"name":"BorderStyle","type":"String","immutable":false,"primaryKey":false},{"name":"Shape","type":"String","immutable":false,"primaryKey":false},{"name":"Ensembl","type":"String","immutable":true,"primaryKey":false},{"name":"ChEBI","type":"String","immutable":false,"primaryKey":false}]
+2025-05-19 12:56:10,273 [DEBUG] py4...: ǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'GraphID', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefId', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefDatasource', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Type', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'IsGPMLShape', 'type': 'Boolean', 'immutable': False, 'primaryKey': False}, {'name': 'Width', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Height', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'FillColor', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Color', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelFont', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelSize', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Transparent', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'BorderThickness', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'BorderStyle', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Shape', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Ensembl', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'ChEBI', 'type': 'String', 'immutable': False, 'primaryKey': False}]
+2025-05-19 12:56:10,273 [DEBUG] py4...: ǀReturning 'get_table_column_types': {'SUID': 'Long', 'shared name': 'String', 'name': 'String', 'selected': 'Boolean', 'GraphID': 'String', 'XrefId': 'String', 'XrefDatasource': 'String', 'Type': 'String', 'IsGPMLShape': 'Boolean', 'Width': 'Double', 'Height': 'Double', 'FillColor': 'String', 'Color': 'String', 'LabelFont': 'String', 'LabelSize': 'Double', 'Transparent': 'String', 'BorderThickness': 'Double', 'BorderStyle': 'String', 'Shape': 'String', 'Ensembl': 'String', 'ChEBI': 'String'}
+2025-05-19 12:56:10,273 [DEBUG] py4...: ǀCalling cyrest_get('networks/6278/tables/defaultnode/columns/SUID', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:56:10,273 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/networks/6278/tables/defaultnode/columns/SUID)
+2025-05-19 12:56:10,277 [DEBUG] py4...: ǀOK[200], content: {"name":"SUID","values":[6425,6428,6431,6434,6437,6440,6443,6446,6449,6452,6455,6458,6461,6464,6467,6470,6473,6476,6479,6482,6485,6488,6491,6494,6497,6500,6503,6509,6511,6513,6515,6517,6519,6521,6523,6525,6527,6529,6531,6614,6616,6621,6623,6628,6630]}
+2025-05-19 12:56:10,277 [DEBUG] py4...: ǀReturning 'cyrest_get': {'name': 'SUID', 'values': [6425, 6428, 6431, 6434, 6437, 6440, 6443, 6446, 6449, 6452, 6455, 6458, 6461, 6464, 6467, 6470, 6473, 6476, 6479, 6482, 6485, 6488, 6491, 6494, 6497, 6500, 6503, 6509, 6511, 6513, 6515, 6517, 6519, 6521, 6523, 6525, 6527, 6529, 6531, 6614, 6616, 6621, 6623, 6628, 6630]}
+2025-05-19 12:56:10,278 [DEBUG] py4...: ǀCalling cyrest_get('networks/6278/tables/defaultnode/columns/name', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:56:10,278 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/networks/6278/tables/defaultnode/columns/name)
+2025-05-19 12:56:10,283 [DEBUG] py4...: ǀOK[200], content: {"name":"name","values":["SMARCA4","HSC self renewal","BCL2","HSC differentiation","DNMT3B","DNMT3A","TERF2","ETV6","DNMT1","ZFX","GZMB","HSC aging","SMAD4","GABPA","PTEN","BCL2L1","FOXO3","GABPB","FLT3","CREBBP","EP300","Chromatin remodeling and \nepigenetic modifications","HSC survival","ATM","HSC quiescence","MCL1","",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]}
+2025-05-19 12:56:10,283 [DEBUG] py4...: ǀReturning 'cyrest_get': {'name': 'name', 'values': ['SMARCA4', 'HSC self renewal', 'BCL2', 'HSC differentiation', 'DNMT3B', 'DNMT3A', 'TERF2', 'ETV6', 'DNMT1', 'ZFX', 'GZMB', 'HSC aging', 'SMAD4', 'GABPA', 'PTEN', 'BCL2L1', 'FOXO3', 'GABPB', 'FLT3', 'CREBBP', 'EP300', 'Chromatin remodeling and \nepigenetic modifications', 'HSC survival', 'ATM', 'HSC quiescence', 'MCL1', '', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]}
+2025-05-19 12:56:10,286 [DEBUG] py4...: Returning 'get_table_columns':                                                    name
+6425                                            SMARCA4
+6428                                   HSC self renewal
+6431                                               BCL2
+6434                                HSC differentiation
+6437                                             DNMT3B
+6440                                             DNMT3A
+6443                                              TERF2
+6446                                               ETV6
+6449                                              DNMT1
+6452                                                ZFX
+6455                                               GZMB
+6458                                          HSC aging
+6461                                              SMAD4
+6464                                              GABPA
+6467                                               PTEN
+6470                                             BCL2L1
+6473                                              FOXO3
+6476                                              GABPB
+6479                                               FLT3
+6482                                             CREBBP
+6485                                              EP300
+6488  Chromatin remodeling and \nepigenetic modifica...
+6491                                       HSC survival
+6494                                                ATM
+6497                                     HSC quiescence
+6500                                               MCL1
+6503                                                   
+6509                                               None
+6511                                               None
+6513                                               None
+6515                                               None
+6517                                               None
+6519                                               None
+6521                                               None
+6523                                               None
+6525                                               None
+6527                                               None
+6529                                               None
+6531                                               None
+6614                                               None
+6616                                               None
+6621                                               None
+6623                                               None
+6628                                               None
+6630                                               None
+2025-05-19 12:56:10,286 [DEBUG] py4...: --------------------
+2025-05-19 12:58:13,271 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 12:58:13,272 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:58:13,282 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:58:13,282 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 12:58:13,291 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 12:58:13,291 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 12:58:13,298 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 12:58:13,299 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 12:58:13,299 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 12:58:13,300 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 12:58:13,300 [DEBUG] py4...: --------------------
+2025-05-19 12:58:13,300 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 12:58:13,300 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:58:13,301 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 12:58:14,975 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 12:58:14,976 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 12:58:14,976 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 12:58:14,976 [DEBUG] py4...: --------------------
+2025-05-19 12:58:15,039 [DEBUG] py4...: Calling get_table_columns('name', 'node')
+2025-05-19 12:58:15,040 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:58:15,040 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:58:15,040 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 12:58:15,052 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 6857
+}
+],
+ "errors":[]
+}
+2025-05-19 12:58:15,052 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 6857}]
+2025-05-19 12:58:15,052 [DEBUG] py4...: ǀReturning 'get_network_suid': 6857
+2025-05-19 12:58:15,052 [DEBUG] py4...: ǀCalling get_table_column_types('name', namespace='default', network=None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:58:15,052 [DEBUG] py4...: ǀǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:58:15,052 [DEBUG] py4...: ǀǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:58:15,053 [DEBUG] py4...: ǀǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 12:58:15,062 [DEBUG] py4...: ǀǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 6857
+}
+],
+ "errors":[]
+}
+2025-05-19 12:58:15,063 [DEBUG] py4...: ǀǀǀReturning 'commands_post': [{'SUID': 6857}]
+2025-05-19 12:58:15,063 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 6857
+2025-05-19 12:58:15,063 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/6857/tables/defaultname/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 12:58:15,063 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/6857/tables/defaultname/columns)
+2025-05-19 12:58:15,075 [DEBUG] py4...: ǀǀNot Found[404], content: {"data":{},"errors":[{"status":404,"type":"urn:cytoscape:ci:cyrest-core:v1:networks:tables:errors:2","message":"No such table type: defaultname","link":"file:/home/john/CytoscapeConfiguration/3/framework-cytoscape.log"}]}
+2025-05-19 12:58:15,076 [DEBUG] py4...: ǀǀ'cyrest_get' exception CyError('In cyrest_get(): No such table type: defaultname')
+2025-05-19 12:58:15,076 [DEBUG] py4...: ǀ'get_table_column_types' exception CyError('In cyrest_get(): No such table type: defaultname')
+2025-05-19 12:58:15,076 [DEBUG] py4...: 'get_table_columns' exception CyError('In cyrest_get(): No such table type: defaultname')
+2025-05-19 12:58:15,076 [DEBUG] py4...: --------------------
+2025-05-19 13:00:32,067 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 13:00:32,067 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:32,067 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:32,067 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 13:00:32,075 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 13:00:32,078 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 13:00:32,084 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 13:00:32,084 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 13:00:32,084 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 13:00:32,084 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 13:00:32,084 [DEBUG] py4...: --------------------
+2025-05-19 13:00:32,084 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 13:00:32,084 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:32,085 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 13:00:33,663 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 13:00:33,663 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 13:00:33,663 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 13:00:33,664 [DEBUG] py4...: --------------------
+2025-05-19 13:00:33,721 [DEBUG] py4...: Calling load_table_data(                      name  property
+0                      ATM  0.250168
+1                    BCL-2  0.070838
+2                     BCL2  0.070838
+3      BCL2 Anti-apoptotic  0.043017
+4                   BCL2L1  0.070838
+5                    BCLXL  0.070838
+6                    Bcl-2  0.070838
+7                   Bcl-xl  0.070838
+8                      CBP  0.240500
+9                   CREBBP  0.257857
+10                   DNMT1  0.257821
+11                  DNMT3A  0.229446
+12                  DNMT3B  0.251937
+13                   EP300  0.195000
+14                    ETV6  0.262203
+15                    FLT3  0.245143
+16                FLT3-ITD  0.169550
+17  FLT3-ITD immature form  0.112737
+18                   FOXO3  0.259758
+19                   GABPA  0.316985
+20                   GABPB  0.316985
+21                    GZMB  0.169382
+22                    MCL1  0.259801
+23                    P300  0.195000
+24                    PTEN  0.265585
+25                   SMAD4  0.316468
+26                 SMARCA4  0.197202
+27                   TERF2  0.316985
+28                     ZFX  0.263738
+29                    p300  0.195000, data_key_column='name', table='node', table_key_column='name')
+2025-05-19 13:00:33,721 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,721 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,721 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 13:00:33,731 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 7436
+}
+],
+ "errors":[]
+}
+2025-05-19 13:00:33,731 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 7436}]
+2025-05-19 13:00:33,731 [DEBUG] py4...: ǀReturning 'get_network_suid': 7436
+2025-05-19 13:00:33,732 [DEBUG] py4...: ǀCalling get_table_columns(table='node', namespace='default', columns='name', network=7436, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,732 [DEBUG] py4...: ǀǀCalling get_network_suid(7436, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,732 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,732 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-19 13:00:33,737 [DEBUG] py4...: ǀǀǀOK[200], content: [5699,6278,6857,7436]
+2025-05-19 13:00:33,737 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [5699, 6278, 6857, 7436]
+2025-05-19 13:00:33,737 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 7436
+2025-05-19 13:00:33,737 [DEBUG] py4...: ǀǀCalling get_table_column_types('node', namespace='default', network=7436, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,737 [DEBUG] py4...: ǀǀǀCalling get_network_suid(7436, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,737 [DEBUG] py4...: ǀǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,737 [DEBUG] py4...: ǀǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-19 13:00:33,743 [DEBUG] py4...: ǀǀǀǀOK[200], content: [5699,6278,6857,7436]
+2025-05-19 13:00:33,744 [DEBUG] py4...: ǀǀǀǀReturning 'cyrest_get': [5699, 6278, 6857, 7436]
+2025-05-19 13:00:33,744 [DEBUG] py4...: ǀǀǀReturning 'get_network_suid': 7436
+2025-05-19 13:00:33,744 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks/7436/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,744 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/7436/tables/defaultnode/columns)
+2025-05-19 13:00:33,751 [DEBUG] py4...: ǀǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"GraphID","type":"String","immutable":false,"primaryKey":false},{"name":"XrefId","type":"String","immutable":false,"primaryKey":false},{"name":"XrefDatasource","type":"String","immutable":false,"primaryKey":false},{"name":"Type","type":"String","immutable":false,"primaryKey":false},{"name":"IsGPMLShape","type":"Boolean","immutable":false,"primaryKey":false},{"name":"Width","type":"Double","immutable":false,"primaryKey":false},{"name":"Height","type":"Double","immutable":false,"primaryKey":false},{"name":"FillColor","type":"String","immutable":false,"primaryKey":false},{"name":"Color","type":"String","immutable":false,"primaryKey":false},{"name":"LabelFont","type":"String","immutable":false,"primaryKey":false},{"name":"LabelSize","type":"Double","immutable":false,"primaryKey":false},{"name":"Transparent","type":"String","immutable":false,"primaryKey":false},{"name":"BorderThickness","type":"Double","immutable":false,"primaryKey":false},{"name":"BorderStyle","type":"String","immutable":false,"primaryKey":false},{"name":"Shape","type":"String","immutable":false,"primaryKey":false},{"name":"Ensembl","type":"String","immutable":true,"primaryKey":false},{"name":"ChEBI","type":"String","immutable":false,"primaryKey":false}]
+2025-05-19 13:00:33,751 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'GraphID', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefId', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefDatasource', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Type', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'IsGPMLShape', 'type': 'Boolean', 'immutable': False, 'primaryKey': False}, {'name': 'Width', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Height', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'FillColor', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Color', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelFont', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelSize', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Transparent', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'BorderThickness', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'BorderStyle', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Shape', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Ensembl', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'ChEBI', 'type': 'String', 'immutable': False, 'primaryKey': False}]
+2025-05-19 13:00:33,751 [DEBUG] py4...: ǀǀReturning 'get_table_column_types': {'SUID': 'Long', 'shared name': 'String', 'name': 'String', 'selected': 'Boolean', 'GraphID': 'String', 'XrefId': 'String', 'XrefDatasource': 'String', 'Type': 'String', 'IsGPMLShape': 'Boolean', 'Width': 'Double', 'Height': 'Double', 'FillColor': 'String', 'Color': 'String', 'LabelFont': 'String', 'LabelSize': 'Double', 'Transparent': 'String', 'BorderThickness': 'Double', 'BorderStyle': 'String', 'Shape': 'String', 'Ensembl': 'String', 'ChEBI': 'String'}
+2025-05-19 13:00:33,752 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/7436/tables/defaultnode/columns/SUID', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,752 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/7436/tables/defaultnode/columns/SUID)
+2025-05-19 13:00:33,756 [DEBUG] py4...: ǀǀOK[200], content: {"name":"SUID","values":[7681,7683,7685,7687,7689,7772,7774,7779,7781,7786,7788,7583,7586,7589,7592,7595,7598,7601,7604,7607,7610,7613,7616,7619,7622,7625,7628,7631,7634,7637,7640,7643,7646,7649,7652,7655,7658,7661,7667,7669,7671,7673,7675,7677,7679]}
+2025-05-19 13:00:33,756 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'SUID', 'values': [7681, 7683, 7685, 7687, 7689, 7772, 7774, 7779, 7781, 7786, 7788, 7583, 7586, 7589, 7592, 7595, 7598, 7601, 7604, 7607, 7610, 7613, 7616, 7619, 7622, 7625, 7628, 7631, 7634, 7637, 7640, 7643, 7646, 7649, 7652, 7655, 7658, 7661, 7667, 7669, 7671, 7673, 7675, 7677, 7679]}
+2025-05-19 13:00:33,757 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/7436/tables/defaultnode/columns/name', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,757 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/7436/tables/defaultnode/columns/name)
+2025-05-19 13:00:33,763 [DEBUG] py4...: ǀǀOK[200], content: {"name":"name","values":[null,null,null,null,null,null,null,null,null,null,null,"SMARCA4","HSC self renewal","BCL2","HSC differentiation","DNMT3B","DNMT3A","TERF2","ETV6","DNMT1","ZFX","GZMB","HSC aging","SMAD4","GABPA","PTEN","BCL2L1","FOXO3","GABPB","FLT3","CREBBP","EP300","Chromatin remodeling and \nepigenetic modifications","HSC survival","ATM","HSC quiescence","MCL1","",null,null,null,null,null,null,null]}
+2025-05-19 13:00:33,763 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'name', 'values': [None, None, None, None, None, None, None, None, None, None, None, 'SMARCA4', 'HSC self renewal', 'BCL2', 'HSC differentiation', 'DNMT3B', 'DNMT3A', 'TERF2', 'ETV6', 'DNMT1', 'ZFX', 'GZMB', 'HSC aging', 'SMAD4', 'GABPA', 'PTEN', 'BCL2L1', 'FOXO3', 'GABPB', 'FLT3', 'CREBBP', 'EP300', 'Chromatin remodeling and \nepigenetic modifications', 'HSC survival', 'ATM', 'HSC quiescence', 'MCL1', '', None, None, None, None, None, None, None]}
+2025-05-19 13:00:33,768 [DEBUG] py4...: ǀReturning 'get_table_columns':                                                    name
+7681                                               None
+7683                                               None
+7685                                               None
+7687                                               None
+7689                                               None
+7772                                               None
+7774                                               None
+7779                                               None
+7781                                               None
+7786                                               None
+7788                                               None
+7583                                            SMARCA4
+7586                                   HSC self renewal
+7589                                               BCL2
+7592                                HSC differentiation
+7595                                             DNMT3B
+7598                                             DNMT3A
+7601                                              TERF2
+7604                                               ETV6
+7607                                              DNMT1
+7610                                                ZFX
+7613                                               GZMB
+7616                                          HSC aging
+7619                                              SMAD4
+7622                                              GABPA
+7625                                               PTEN
+7628                                             BCL2L1
+7631                                              FOXO3
+7634                                              GABPB
+7637                                               FLT3
+7640                                             CREBBP
+7643                                              EP300
+7646  Chromatin remodeling and \nepigenetic modifica...
+7649                                       HSC survival
+7652                                                ATM
+7655                                     HSC quiescence
+7658                                               MCL1
+7661                                                   
+7667                                               None
+7669                                               None
+7671                                               None
+7673                                               None
+7675                                               None
+7677                                               None
+7679                                               None
+2025-05-19 13:00:33,772 [DEBUG] py4...: ǀCalling get_table_column_names('node', 'default', 7436, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,772 [DEBUG] py4...: ǀǀCalling get_network_suid(7436, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,772 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,772 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-19 13:00:33,779 [DEBUG] py4...: ǀǀǀOK[200], content: [5699,6278,6857,7436]
+2025-05-19 13:00:33,779 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [5699, 6278, 6857, 7436]
+2025-05-19 13:00:33,779 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 7436
+2025-05-19 13:00:33,779 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/7436/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,779 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/7436/tables/defaultnode/columns)
+2025-05-19 13:00:33,783 [DEBUG] py4...: ǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"GraphID","type":"String","immutable":false,"primaryKey":false},{"name":"XrefId","type":"String","immutable":false,"primaryKey":false},{"name":"XrefDatasource","type":"String","immutable":false,"primaryKey":false},{"name":"Type","type":"String","immutable":false,"primaryKey":false},{"name":"IsGPMLShape","type":"Boolean","immutable":false,"primaryKey":false},{"name":"Width","type":"Double","immutable":false,"primaryKey":false},{"name":"Height","type":"Double","immutable":false,"primaryKey":false},{"name":"FillColor","type":"String","immutable":false,"primaryKey":false},{"name":"Color","type":"String","immutable":false,"primaryKey":false},{"name":"LabelFont","type":"String","immutable":false,"primaryKey":false},{"name":"LabelSize","type":"Double","immutable":false,"primaryKey":false},{"name":"Transparent","type":"String","immutable":false,"primaryKey":false},{"name":"BorderThickness","type":"Double","immutable":false,"primaryKey":false},{"name":"BorderStyle","type":"String","immutable":false,"primaryKey":false},{"name":"Shape","type":"String","immutable":false,"primaryKey":false},{"name":"Ensembl","type":"String","immutable":true,"primaryKey":false},{"name":"ChEBI","type":"String","immutable":false,"primaryKey":false}]
+2025-05-19 13:00:33,783 [DEBUG] py4...: ǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'GraphID', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefId', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefDatasource', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Type', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'IsGPMLShape', 'type': 'Boolean', 'immutable': False, 'primaryKey': False}, {'name': 'Width', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Height', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'FillColor', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Color', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelFont', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelSize', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Transparent', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'BorderThickness', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'BorderStyle', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Shape', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Ensembl', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'ChEBI', 'type': 'String', 'immutable': False, 'primaryKey': False}]
+2025-05-19 13:00:33,783 [DEBUG] py4...: ǀReturning 'get_table_column_names': ['SUID', 'shared name', 'name', 'selected', 'GraphID', 'XrefId', 'XrefDatasource', 'Type', 'IsGPMLShape', 'Width', 'Height', 'FillColor', 'Color', 'LabelFont', 'LabelSize', 'Transparent', 'BorderThickness', 'BorderStyle', 'Shape', 'Ensembl', 'ChEBI']
+2025-05-19 13:00:33,784 [DEBUG] py4...: ǀCalling cyrest_put('networks/7436/tables/defaultnode', body={'key': 'name', 'dataKey': 'name', 'data': [{'name': 'ATM', 'property': 0.2501678418251686}, {'name': 'BCL2', 'property': 0.07083757495274767}, {'name': 'BCL2L1', 'property': 0.07083757495274767}, {'name': 'CREBBP', 'property': 0.2578568915705085}, {'name': 'DNMT1', 'property': 0.25782146330694106}, {'name': 'DNMT3A', 'property': 0.22944639426761218}, {'name': 'DNMT3B', 'property': 0.2519368510302733}, {'name': 'EP300', 'property': 0.1949997406452894}, {'name': 'ETV6', 'property': 0.2622033920854392}, {'name': 'FLT3', 'property': 0.24514345581410452}, {'name': 'FOXO3', 'property': 0.25975768351505396}, {'name': 'GABPA', 'property': 0.3169854938983917}, {'name': 'GABPB', 'property': 0.3169854938983917}, {'name': 'GZMB', 'property': 0.16938155165553326}, {'name': 'MCL1', 'property': 0.25980136631056666}, {'name': 'PTEN', 'property': 0.26558538298122586}, {'name': 'SMAD4', 'property': 0.31646787473291627}, {'name': 'SMARCA4', 'property': 0.19720211593005593}, {'name': 'TERF2', 'property': 0.3169854938983917}, {'name': 'ZFX', 'property': 0.26373764458459814}]}, require_json=False, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,784 [DEBUG] py4...: ǀHTTP PUT(http://127.0.0.1:1234/v1/networks/7436/tables/defaultnode), json: {'key': 'name', 'dataKey': 'name', 'data': [{'name': 'ATM', 'property': 0.2501678418251686}, {'name': 'BCL2', 'property': 0.07083757495274767}, {'name': 'BCL2L1', 'property': 0.07083757495274767}, {'name': 'CREBBP', 'property': 0.2578568915705085}, {'name': 'DNMT1', 'property': 0.25782146330694106}, {'name': 'DNMT3A', 'property': 0.22944639426761218}, {'name': 'DNMT3B', 'property': 0.2519368510302733}, {'name': 'EP300', 'property': 0.1949997406452894}, {'name': 'ETV6', 'property': 0.2622033920854392}, {'name': 'FLT3', 'property': 0.24514345581410452}, {'name': 'FOXO3', 'property': 0.25975768351505396}, {'name': 'GABPA', 'property': 0.3169854938983917}, {'name': 'GABPB', 'property': 0.3169854938983917}, {'name': 'GZMB', 'property': 0.16938155165553326}, {'name': 'MCL1', 'property': 0.25980136631056666}, {'name': 'PTEN', 'property': 0.26558538298122586}, {'name': 'SMAD4', 'property': 0.31646787473291627}, {'name': 'SMARCA4', 'property': 0.19720211593005593}, {'name': 'TERF2', 'property': 0.3169854938983917}, {'name': 'ZFX', 'property': 0.26373764458459814}]}
+2025-05-19 13:00:33,810 [DEBUG] py4...: ǀOK[200], content: 
+2025-05-19 13:00:33,810 [DEBUG] py4...: ǀReturning 'cyrest_put': ''
+2025-05-19 13:00:33,811 [DEBUG] py4...: Returning 'load_table_data': 'Success: Data loaded in defaultnode table'
+2025-05-19 13:00:33,811 [DEBUG] py4...: --------------------
+2025-05-19 13:00:33,811 [DEBUG] py4...: Calling map_visual_property(visual_prop='NODE_FILL_COLOR', table_column='property', mapping_type='continuous', table_column_values=[0.0, 0.5, 1.0], visual_prop_values=['#313695', '#ffffbf', '#a50026'])
+2025-05-19 13:00:33,811 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,811 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,811 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 13:00:33,817 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 7436
+}
+],
+ "errors":[]
+}
+2025-05-19 13:00:33,817 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 7436}]
+2025-05-19 13:00:33,818 [DEBUG] py4...: ǀReturning 'get_network_suid': 7436
+2025-05-19 13:00:33,818 [DEBUG] py4...: ǀCalling get_visual_property_names(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,818 [DEBUG] py4...: ǀǀCalling cyrest_get('styles/default/defaults', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,818 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/styles/default/defaults)
+2025-05-19 13:00:33,827 [DEBUG] py4...: ǀǀOK[200], content: {
+  "defaults" : [ {
+    "visualProperty" : "COMPOUND_NODE_PADDING",
+    "value" : 10.0
+  }, {
+    "visualProperty" : "COMPOUND_NODE_SHAPE",
+    "value" : "ROUND_RECTANGLE"
+  }, {
+    "visualProperty" : "DING_RENDERING_ENGINE_ROOT",
+    "value" : "org.cytoscape.view.presentation.property.NullVisualProperty$NullDataTypeImpl@8a9b3bd"
+  }, {
+    "visualProperty" : "EDGE",
+    "value" : "DefaultVisualizableVisualProperty(id=EDGE, name=Edge Visual Property)"
+  }, {
+    "visualProperty" : "EDGE_BEND",
+    "value" : ""
+  }, {
+    "visualProperty" : "EDGE_CURVED",
+    "value" : true
+  }, {
+    "visualProperty" : "EDGE_LABEL",
+    "value" : ""
+  }, {
+    "visualProperty" : "EDGE_LABEL_AUTOROTATE",
+    "value" : false
+  }, {
+    "visualProperty" : "EDGE_LABEL_BACKGROUND_COLOR",
+    "value" : "#B6B6B6"
+  }, {
+    "visualProperty" : "EDGE_LABEL_BACKGROUND_SHAPE",
+    "value" : "NONE"
+  }, {
+    "visualProperty" : "EDGE_LABEL_BACKGROUND_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "EDGE_LABEL_COLOR",
+    "value" : "#000000"
+  }, {
+    "visualProperty" : "EDGE_LABEL_FONT_FACE",
+    "value" : "Dialog.plain,plain,10"
+  }, {
+    "visualProperty" : "EDGE_LABEL_FONT_SIZE",
+    "value" : 10
+  }, {
+    "visualProperty" : "EDGE_LABEL_POSITION",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "EDGE_LABEL_ROTATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "EDGE_LABEL_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "EDGE_LABEL_WIDTH",
+    "value" : 200.0
+  }, {
+    "visualProperty" : "EDGE_LINE_TYPE",
+    "value" : "SOLID"
+  }, {
+    "visualProperty" : "EDGE_PAINT",
+    "value" : "#323232"
+  }, {
+    "visualProperty" : "EDGE_SELECTED",
+    "value" : false
+  }, {
+    "visualProperty" : "EDGE_SELECTED_PAINT",
+    "value" : "#FF0000"
+  }, {
+    "visualProperty" : "EDGE_SOURCE_ARROW_SELECTED_PAINT",
+    "value" : "#FFFF00"
+  }, {
+    "visualProperty" : "EDGE_SOURCE_ARROW_SHAPE",
+    "value" : "NONE"
+  }, {
+    "visualProperty" : "EDGE_SOURCE_ARROW_SIZE",
+    "value" : 6.0
+  }, {
+    "visualProperty" : "EDGE_SOURCE_ARROW_UNSELECTED_PAINT",
+    "value" : "#000000"
+  }, {
+    "visualProperty" : "EDGE_STACKING",
+    "value" : "AUTO_BEND"
+  }, {
+    "visualProperty" : "EDGE_STACKING_DENSITY",
+    "value" : 0.5
+  }, {
+    "visualProperty" : "EDGE_STROKE_SELECTED_PAINT",
+    "value" : "#FF0000"
+  }, {
+    "visualProperty" : "EDGE_STROKE_UNSELECTED_PAINT",
+    "value" : "#848484"
+  }, {
+    "visualProperty" : "EDGE_TARGET_ARROW_SELECTED_PAINT",
+    "value" : "#FFFF00"
+  }, {
+    "visualProperty" : "EDGE_TARGET_ARROW_SHAPE",
+    "value" : "NONE"
+  }, {
+    "visualProperty" : "EDGE_TARGET_ARROW_SIZE",
+    "value" : 6.0
+  }, {
+    "visualProperty" : "EDGE_TARGET_ARROW_UNSELECTED_PAINT",
+    "value" : "#000000"
+  }, {
+    "visualProperty" : "EDGE_TOOLTIP",
+    "value" : ""
+  }, {
+    "visualProperty" : "EDGE_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "EDGE_UNSELECTED_PAINT",
+    "value" : "#404040"
+  }, {
+    "visualProperty" : "EDGE_VISIBLE",
+    "value" : true
+  }, {
+    "visualProperty" : "EDGE_WIDTH",
+    "value" : 2.0
+  }, {
+    "visualProperty" : "EDGE_Z_ORDER",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NETWORK",
+    "value" : "DefaultVisualizableVisualProperty(id=NETWORK, name=Network Visual Property)"
+  }, {
+    "visualProperty" : "NETWORK_ANNOTATION_SELECTION",
+    "value" : false
+  }, {
+    "visualProperty" : "NETWORK_BACKGROUND_PAINT",
+    "value" : "#FFFFFF"
+  }, {
+    "visualProperty" : "NETWORK_CENTER_X_LOCATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NETWORK_CENTER_Y_LOCATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NETWORK_CENTER_Z_LOCATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NETWORK_DEPTH",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NETWORK_EDGE_SELECTION",
+    "value" : true
+  }, {
+    "visualProperty" : "NETWORK_FORCE_HIGH_DETAIL",
+    "value" : false
+  }, {
+    "visualProperty" : "NETWORK_HEIGHT",
+    "value" : 400.0
+  }, {
+    "visualProperty" : "NETWORK_NODE_LABEL_SELECTION",
+    "value" : false
+  }, {
+    "visualProperty" : "NETWORK_NODE_SELECTION",
+    "value" : true
+  }, {
+    "visualProperty" : "NETWORK_SCALE_FACTOR",
+    "value" : 1.0
+  }, {
+    "visualProperty" : "NETWORK_SIZE",
+    "value" : 550.0
+  }, {
+    "visualProperty" : "NETWORK_TITLE",
+    "value" : ""
+  }, {
+    "visualProperty" : "NETWORK_WIDTH",
+    "value" : 550.0
+  }, {
+    "visualProperty" : "NODE",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE, name=Node Visual Property)"
+  }, {
+    "visualProperty" : "NODE_BORDER_PAINT",
+    "value" : "#CCCCCC"
+  }, {
+    "visualProperty" : "NODE_BORDER_STROKE",
+    "value" : "SOLID"
+  }, {
+    "visualProperty" : "NODE_BORDER_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "NODE_BORDER_WIDTH",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_1",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_2",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_3",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_4",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_5",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_6",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_7",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_8",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_9",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_1",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_2",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_3",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_4",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_5",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_6",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_7",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_8",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_9",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_1",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_2",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_3",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_4",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_5",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_6",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_7",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_8",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_9",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_1",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_1, name=Node Custom Paint 1)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_2",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_2, name=Node Custom Paint 2)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_3",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_3, name=Node Custom Paint 3)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_4",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_4, name=Node Custom Paint 4)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_5",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_5, name=Node Custom Paint 5)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_6",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_6, name=Node Custom Paint 6)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_7",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_7, name=Node Custom Paint 7)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_8",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_8, name=Node Custom Paint 8)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_9",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_9, name=Node Custom Paint 9)"
+  }, {
+    "visualProperty" : "NODE_DEPTH",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NODE_FILL_COLOR",
+    "value" : "#89D0F5"
+  }, {
+    "visualProperty" : "NODE_HEIGHT",
+    "value" : 35.0
+  }, {
+    "visualProperty" : "NODE_LABEL",
+    "value" : ""
+  }, {
+    "visualProperty" : "NODE_LABEL_BACKGROUND_COLOR",
+    "value" : "#B6B6B6"
+  }, {
+    "visualProperty" : "NODE_LABEL_BACKGROUND_SHAPE",
+    "value" : "NONE"
+  }, {
+    "visualProperty" : "NODE_LABEL_BACKGROUND_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "NODE_LABEL_COLOR",
+    "value" : "#000000"
+  }, {
+    "visualProperty" : "NODE_LABEL_FONT_FACE",
+    "value" : "SansSerif.plain,plain,12"
+  }, {
+    "visualProperty" : "NODE_LABEL_FONT_SIZE",
+    "value" : 12
+  }, {
+    "visualProperty" : "NODE_LABEL_POSITION",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_LABEL_ROTATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NODE_LABEL_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "NODE_LABEL_WIDTH",
+    "value" : 200.0
+  }, {
+    "visualProperty" : "NODE_NESTED_NETWORK_IMAGE_VISIBLE",
+    "value" : true
+  }, {
+    "visualProperty" : "NODE_PAINT",
+    "value" : "#1E90FF"
+  }, {
+    "visualProperty" : "NODE_SELECTED",
+    "value" : false
+  }, {
+    "visualProperty" : "NODE_SELECTED_PAINT",
+    "value" : "#FFFF00"
+  }, {
+    "visualProperty" : "NODE_SHAPE",
+    "value" : "ROUND_RECTANGLE"
+  }, {
+    "visualProperty" : "NODE_SIZE",
+    "value" : 35.0
+  }, {
+    "visualProperty" : "NODE_TOOLTIP",
+    "value" : ""
+  }, {
+    "visualProperty" : "NODE_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "NODE_VISIBLE",
+    "value" : true
+  }, {
+    "visualProperty" : "NODE_WIDTH",
+    "value" : 75.0
+  }, {
+    "visualProperty" : "NODE_X_LOCATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NODE_Y_LOCATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NODE_Z_LOCATION",
+    "value" : 0.0
+  } ]
+}
+2025-05-19 13:00:33,828 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'defaults': [{'visualProperty': 'COMPOUND_NODE_PADDING', 'value': 10.0}, {'visualProperty': 'COMPOUND_NODE_SHAPE', 'value': 'ROUND_RECTANGLE'}, {'visualProperty': 'DING_RENDERING_ENGINE_ROOT', 'value': 'org.cytoscape.view.presentation.property.NullVisualProperty$NullDataTypeImpl@8a9b3bd'}, {'visualProperty': 'EDGE', 'value': 'DefaultVisualizableVisualProperty(id=EDGE, name=Edge Visual Property)'}, {'visualProperty': 'EDGE_BEND', 'value': ''}, {'visualProperty': 'EDGE_CURVED', 'value': True}, {'visualProperty': 'EDGE_LABEL', 'value': ''}, {'visualProperty': 'EDGE_LABEL_AUTOROTATE', 'value': False}, {'visualProperty': 'EDGE_LABEL_BACKGROUND_COLOR', 'value': '#B6B6B6'}, {'visualProperty': 'EDGE_LABEL_BACKGROUND_SHAPE', 'value': 'NONE'}, {'visualProperty': 'EDGE_LABEL_BACKGROUND_TRANSPARENCY', 'value': 255}, {'visualProperty': 'EDGE_LABEL_COLOR', 'value': '#000000'}, {'visualProperty': 'EDGE_LABEL_FONT_FACE', 'value': 'Dialog.plain,plain,10'}, {'visualProperty': 'EDGE_LABEL_FONT_SIZE', 'value': 10}, {'visualProperty': 'EDGE_LABEL_POSITION', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'EDGE_LABEL_ROTATION', 'value': 0.0}, {'visualProperty': 'EDGE_LABEL_TRANSPARENCY', 'value': 255}, {'visualProperty': 'EDGE_LABEL_WIDTH', 'value': 200.0}, {'visualProperty': 'EDGE_LINE_TYPE', 'value': 'SOLID'}, {'visualProperty': 'EDGE_PAINT', 'value': '#323232'}, {'visualProperty': 'EDGE_SELECTED', 'value': False}, {'visualProperty': 'EDGE_SELECTED_PAINT', 'value': '#FF0000'}, {'visualProperty': 'EDGE_SOURCE_ARROW_SELECTED_PAINT', 'value': '#FFFF00'}, {'visualProperty': 'EDGE_SOURCE_ARROW_SHAPE', 'value': 'NONE'}, {'visualProperty': 'EDGE_SOURCE_ARROW_SIZE', 'value': 6.0}, {'visualProperty': 'EDGE_SOURCE_ARROW_UNSELECTED_PAINT', 'value': '#000000'}, {'visualProperty': 'EDGE_STACKING', 'value': 'AUTO_BEND'}, {'visualProperty': 'EDGE_STACKING_DENSITY', 'value': 0.5}, {'visualProperty': 'EDGE_STROKE_SELECTED_PAINT', 'value': '#FF0000'}, {'visualProperty': 'EDGE_STROKE_UNSELECTED_PAINT', 'value': '#848484'}, {'visualProperty': 'EDGE_TARGET_ARROW_SELECTED_PAINT', 'value': '#FFFF00'}, {'visualProperty': 'EDGE_TARGET_ARROW_SHAPE', 'value': 'NONE'}, {'visualProperty': 'EDGE_TARGET_ARROW_SIZE', 'value': 6.0}, {'visualProperty': 'EDGE_TARGET_ARROW_UNSELECTED_PAINT', 'value': '#000000'}, {'visualProperty': 'EDGE_TOOLTIP', 'value': ''}, {'visualProperty': 'EDGE_TRANSPARENCY', 'value': 255}, {'visualProperty': 'EDGE_UNSELECTED_PAINT', 'value': '#404040'}, {'visualProperty': 'EDGE_VISIBLE', 'value': True}, {'visualProperty': 'EDGE_WIDTH', 'value': 2.0}, {'visualProperty': 'EDGE_Z_ORDER', 'value': 0.0}, {'visualProperty': 'NETWORK', 'value': 'DefaultVisualizableVisualProperty(id=NETWORK, name=Network Visual Property)'}, {'visualProperty': 'NETWORK_ANNOTATION_SELECTION', 'value': False}, {'visualProperty': 'NETWORK_BACKGROUND_PAINT', 'value': '#FFFFFF'}, {'visualProperty': 'NETWORK_CENTER_X_LOCATION', 'value': 0.0}, {'visualProperty': 'NETWORK_CENTER_Y_LOCATION', 'value': 0.0}, {'visualProperty': 'NETWORK_CENTER_Z_LOCATION', 'value': 0.0}, {'visualProperty': 'NETWORK_DEPTH', 'value': 0.0}, {'visualProperty': 'NETWORK_EDGE_SELECTION', 'value': True}, {'visualProperty': 'NETWORK_FORCE_HIGH_DETAIL', 'value': False}, {'visualProperty': 'NETWORK_HEIGHT', 'value': 400.0}, {'visualProperty': 'NETWORK_NODE_LABEL_SELECTION', 'value': False}, {'visualProperty': 'NETWORK_NODE_SELECTION', 'value': True}, {'visualProperty': 'NETWORK_SCALE_FACTOR', 'value': 1.0}, {'visualProperty': 'NETWORK_SIZE', 'value': 550.0}, {'visualProperty': 'NETWORK_TITLE', 'value': ''}, {'visualProperty': 'NETWORK_WIDTH', 'value': 550.0}, {'visualProperty': 'NODE', 'value': 'DefaultVisualizableVisualProperty(id=NODE, name=Node Visual Property)'}, {'visualProperty': 'NODE_BORDER_PAINT', 'value': '#CCCCCC'}, {'visualProperty': 'NODE_BORDER_STROKE', 'value': 'SOLID'}, {'visualProperty': 'NODE_BORDER_TRANSPARENCY', 'value': 255}, {'visualProperty': 'NODE_BORDER_WIDTH', 'value': 0.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_1', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_2', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_3', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_4', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_5', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_6', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_7', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_8', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_9', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_1', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_2', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_3', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_4', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_5', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_6', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_7', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_8', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_9', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_1', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_2', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_3', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_4', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_5', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_6', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_7', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_8', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_9', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMPAINT_1', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_1, name=Node Custom Paint 1)'}, {'visualProperty': 'NODE_CUSTOMPAINT_2', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_2, name=Node Custom Paint 2)'}, {'visualProperty': 'NODE_CUSTOMPAINT_3', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_3, name=Node Custom Paint 3)'}, {'visualProperty': 'NODE_CUSTOMPAINT_4', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_4, name=Node Custom Paint 4)'}, {'visualProperty': 'NODE_CUSTOMPAINT_5', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_5, name=Node Custom Paint 5)'}, {'visualProperty': 'NODE_CUSTOMPAINT_6', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_6, name=Node Custom Paint 6)'}, {'visualProperty': 'NODE_CUSTOMPAINT_7', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_7, name=Node Custom Paint 7)'}, {'visualProperty': 'NODE_CUSTOMPAINT_8', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_8, name=Node Custom Paint 8)'}, {'visualProperty': 'NODE_CUSTOMPAINT_9', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_9, name=Node Custom Paint 9)'}, {'visualProperty': 'NODE_DEPTH', 'value': 0.0}, {'visualProperty': 'NODE_FILL_COLOR', 'value': '#89D0F5'}, {'visualProperty': 'NODE_HEIGHT', 'value': 35.0}, {'visualProperty': 'NODE_LABEL', 'value': ''}, {'visualProperty': 'NODE_LABEL_BACKGROUND_COLOR', 'value': '#B6B6B6'}, {'visualProperty': 'NODE_LABEL_BACKGROUND_SHAPE', 'value': 'NONE'}, {'visualProperty': 'NODE_LABEL_BACKGROUND_TRANSPARENCY', 'value': 255}, {'visualProperty': 'NODE_LABEL_COLOR', 'value': '#000000'}, {'visualProperty': 'NODE_LABEL_FONT_FACE', 'value': 'SansSerif.plain,plain,12'}, {'visualProperty': 'NODE_LABEL_FONT_SIZE', 'value': 12}, {'visualProperty': 'NODE_LABEL_POSITION', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_LABEL_ROTATION', 'value': 0.0}, {'visualProperty': 'NODE_LABEL_TRANSPARENCY', 'value': 255}, {'visualProperty': 'NODE_LABEL_WIDTH', 'value': 200.0}, {'visualProperty': 'NODE_NESTED_NETWORK_IMAGE_VISIBLE', 'value': True}, {'visualProperty': 'NODE_PAINT', 'value': '#1E90FF'}, {'visualProperty': 'NODE_SELECTED', 'value': False}, {'visualProperty': 'NODE_SELECTED_PAINT', 'value': '#FFFF00'}, {'visualProperty': 'NODE_SHAPE', 'value': 'ROUND_RECTANGLE'}, {'visualProperty': 'NODE_SIZE', 'value': 35.0}, {'visualProperty': 'NODE_TOOLTIP', 'value': ''}, {'visualProperty': 'NODE_TRANSPARENCY', 'value': 255}, {'visualProperty': 'NODE_VISIBLE', 'value': True}, {'visualProperty': 'NODE_WIDTH', 'value': 75.0}, {'visualProperty': 'NODE_X_LOCATION', 'value': 0.0}, {'visualProperty': 'NODE_Y_LOCATION', 'value': 0.0}, {'visualProperty': 'NODE_Z_LOCATION', 'value': 0.0}]}
+2025-05-19 13:00:33,828 [DEBUG] py4...: ǀReturning 'get_visual_property_names': ['COMPOUND_NODE_PADDING', 'COMPOUND_NODE_SHAPE', 'DING_RENDERING_ENGINE_ROOT', 'EDGE', 'EDGE_BEND', 'EDGE_CURVED', 'EDGE_LABEL', 'EDGE_LABEL_AUTOROTATE', 'EDGE_LABEL_BACKGROUND_COLOR', 'EDGE_LABEL_BACKGROUND_SHAPE', 'EDGE_LABEL_BACKGROUND_TRANSPARENCY', 'EDGE_LABEL_COLOR', 'EDGE_LABEL_FONT_FACE', 'EDGE_LABEL_FONT_SIZE', 'EDGE_LABEL_POSITION', 'EDGE_LABEL_ROTATION', 'EDGE_LABEL_TRANSPARENCY', 'EDGE_LABEL_WIDTH', 'EDGE_LINE_TYPE', 'EDGE_PAINT', 'EDGE_SELECTED', 'EDGE_SELECTED_PAINT', 'EDGE_SOURCE_ARROW_SELECTED_PAINT', 'EDGE_SOURCE_ARROW_SHAPE', 'EDGE_SOURCE_ARROW_SIZE', 'EDGE_SOURCE_ARROW_UNSELECTED_PAINT', 'EDGE_STACKING', 'EDGE_STACKING_DENSITY', 'EDGE_STROKE_SELECTED_PAINT', 'EDGE_STROKE_UNSELECTED_PAINT', 'EDGE_TARGET_ARROW_SELECTED_PAINT', 'EDGE_TARGET_ARROW_SHAPE', 'EDGE_TARGET_ARROW_SIZE', 'EDGE_TARGET_ARROW_UNSELECTED_PAINT', 'EDGE_TOOLTIP', 'EDGE_TRANSPARENCY', 'EDGE_UNSELECTED_PAINT', 'EDGE_VISIBLE', 'EDGE_WIDTH', 'EDGE_Z_ORDER', 'NETWORK', 'NETWORK_ANNOTATION_SELECTION', 'NETWORK_BACKGROUND_PAINT', 'NETWORK_CENTER_X_LOCATION', 'NETWORK_CENTER_Y_LOCATION', 'NETWORK_CENTER_Z_LOCATION', 'NETWORK_DEPTH', 'NETWORK_EDGE_SELECTION', 'NETWORK_FORCE_HIGH_DETAIL', 'NETWORK_HEIGHT', 'NETWORK_NODE_LABEL_SELECTION', 'NETWORK_NODE_SELECTION', 'NETWORK_SCALE_FACTOR', 'NETWORK_SIZE', 'NETWORK_TITLE', 'NETWORK_WIDTH', 'NODE', 'NODE_BORDER_PAINT', 'NODE_BORDER_STROKE', 'NODE_BORDER_TRANSPARENCY', 'NODE_BORDER_WIDTH', 'NODE_CUSTOMGRAPHICS_1', 'NODE_CUSTOMGRAPHICS_2', 'NODE_CUSTOMGRAPHICS_3', 'NODE_CUSTOMGRAPHICS_4', 'NODE_CUSTOMGRAPHICS_5', 'NODE_CUSTOMGRAPHICS_6', 'NODE_CUSTOMGRAPHICS_7', 'NODE_CUSTOMGRAPHICS_8', 'NODE_CUSTOMGRAPHICS_9', 'NODE_CUSTOMGRAPHICS_POSITION_1', 'NODE_CUSTOMGRAPHICS_POSITION_2', 'NODE_CUSTOMGRAPHICS_POSITION_3', 'NODE_CUSTOMGRAPHICS_POSITION_4', 'NODE_CUSTOMGRAPHICS_POSITION_5', 'NODE_CUSTOMGRAPHICS_POSITION_6', 'NODE_CUSTOMGRAPHICS_POSITION_7', 'NODE_CUSTOMGRAPHICS_POSITION_8', 'NODE_CUSTOMGRAPHICS_POSITION_9', 'NODE_CUSTOMGRAPHICS_SIZE_1', 'NODE_CUSTOMGRAPHICS_SIZE_2', 'NODE_CUSTOMGRAPHICS_SIZE_3', 'NODE_CUSTOMGRAPHICS_SIZE_4', 'NODE_CUSTOMGRAPHICS_SIZE_5', 'NODE_CUSTOMGRAPHICS_SIZE_6', 'NODE_CUSTOMGRAPHICS_SIZE_7', 'NODE_CUSTOMGRAPHICS_SIZE_8', 'NODE_CUSTOMGRAPHICS_SIZE_9', 'NODE_CUSTOMPAINT_1', 'NODE_CUSTOMPAINT_2', 'NODE_CUSTOMPAINT_3', 'NODE_CUSTOMPAINT_4', 'NODE_CUSTOMPAINT_5', 'NODE_CUSTOMPAINT_6', 'NODE_CUSTOMPAINT_7', 'NODE_CUSTOMPAINT_8', 'NODE_CUSTOMPAINT_9', 'NODE_DEPTH', 'NODE_FILL_COLOR', 'NODE_HEIGHT', 'NODE_LABEL', 'NODE_LABEL_BACKGROUND_COLOR', 'NODE_LABEL_BACKGROUND_SHAPE', 'NODE_LABEL_BACKGROUND_TRANSPARENCY', 'NODE_LABEL_COLOR', 'NODE_LABEL_FONT_FACE', 'NODE_LABEL_FONT_SIZE', 'NODE_LABEL_POSITION', 'NODE_LABEL_ROTATION', 'NODE_LABEL_TRANSPARENCY', 'NODE_LABEL_WIDTH', 'NODE_NESTED_NETWORK_IMAGE_VISIBLE', 'NODE_PAINT', 'NODE_SELECTED', 'NODE_SELECTED_PAINT', 'NODE_SHAPE', 'NODE_SIZE', 'NODE_TOOLTIP', 'NODE_TRANSPARENCY', 'NODE_VISIBLE', 'NODE_WIDTH', 'NODE_X_LOCATION', 'NODE_Y_LOCATION', 'NODE_Z_LOCATION']
+2025-05-19 13:00:33,828 [DEBUG] py4...: ǀCalling cyrest_get('networks/7436/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,828 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/networks/7436/tables/defaultnode/columns)
+2025-05-19 13:00:33,835 [DEBUG] py4...: ǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"GraphID","type":"String","immutable":false,"primaryKey":false},{"name":"XrefId","type":"String","immutable":false,"primaryKey":false},{"name":"XrefDatasource","type":"String","immutable":false,"primaryKey":false},{"name":"Type","type":"String","immutable":false,"primaryKey":false},{"name":"IsGPMLShape","type":"Boolean","immutable":false,"primaryKey":false},{"name":"Width","type":"Double","immutable":false,"primaryKey":false},{"name":"Height","type":"Double","immutable":false,"primaryKey":false},{"name":"FillColor","type":"String","immutable":false,"primaryKey":false},{"name":"Color","type":"String","immutable":false,"primaryKey":false},{"name":"LabelFont","type":"String","immutable":false,"primaryKey":false},{"name":"LabelSize","type":"Double","immutable":false,"primaryKey":false},{"name":"Transparent","type":"String","immutable":false,"primaryKey":false},{"name":"BorderThickness","type":"Double","immutable":false,"primaryKey":false},{"name":"BorderStyle","type":"String","immutable":false,"primaryKey":false},{"name":"Shape","type":"String","immutable":false,"primaryKey":false},{"name":"Ensembl","type":"String","immutable":true,"primaryKey":false},{"name":"ChEBI","type":"String","immutable":false,"primaryKey":false},{"name":"property","type":"Double","immutable":false,"primaryKey":false}]
+2025-05-19 13:00:33,835 [DEBUG] py4...: ǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'GraphID', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefId', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefDatasource', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Type', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'IsGPMLShape', 'type': 'Boolean', 'immutable': False, 'primaryKey': False}, {'name': 'Width', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Height', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'FillColor', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Color', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelFont', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelSize', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Transparent', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'BorderThickness', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'BorderStyle', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Shape', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Ensembl', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'ChEBI', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'property', 'type': 'Double', 'immutable': False, 'primaryKey': False}]
+2025-05-19 13:00:33,835 [DEBUG] py4...: Returning 'map_visual_property': {'mappingType': 'continuous', 'mappingColumn': 'property', 'mappingColumnType': 'Double', 'visualProperty': 'NODE_FILL_COLOR', 'points': [{'value': 0.0, 'lesser': '#313695', 'equal': '#313695', 'greater': '#313695'}, {'value': 0.5, 'lesser': '#ffffbf', 'equal': '#ffffbf', 'greater': '#ffffbf'}, {'value': 1.0, 'lesser': '#a50026', 'equal': '#a50026', 'greater': '#a50026'}]}
+2025-05-19 13:00:33,836 [DEBUG] py4...: --------------------
+2025-05-19 13:00:33,836 [DEBUG] py4...: Calling create_visual_style('Style_mean_value', defaults={'NODE_SHAPE': 'ELLIPSE', 'NODE_SIZE': 30}, mappings=[{'mappingType': 'continuous', 'mappingColumn': 'property', 'mappingColumnType': 'Double', 'visualProperty': 'NODE_FILL_COLOR', 'points': [{'value': 0.0, 'lesser': '#313695', 'equal': '#313695', 'greater': '#313695'}, {'value': 0.5, 'lesser': '#ffffbf', 'equal': '#ffffbf', 'greater': '#ffffbf'}, {'value': 1.0, 'lesser': '#a50026', 'equal': '#a50026', 'greater': '#a50026'}]}])
+2025-05-19 13:00:33,836 [DEBUG] py4...: ǀCalling cyrest_post('styles', body={'title': 'Style_mean_value', 'defaults': [{'visualProperty': 'NODE_SHAPE', 'value': 'ELLIPSE'}, {'visualProperty': 'NODE_SIZE', 'value': 30}], 'mappings': [{'mappingType': 'continuous', 'mappingColumn': 'property', 'mappingColumnType': 'Double', 'visualProperty': 'NODE_FILL_COLOR', 'points': [{'value': 0.0, 'lesser': '#313695', 'equal': '#313695', 'greater': '#313695'}, {'value': 0.5, 'lesser': '#ffffbf', 'equal': '#ffffbf', 'greater': '#ffffbf'}, {'value': 1.0, 'lesser': '#a50026', 'equal': '#a50026', 'greater': '#a50026'}]}]}, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,836 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/styles), json: {'title': 'Style_mean_value', 'defaults': [{'visualProperty': 'NODE_SHAPE', 'value': 'ELLIPSE'}, {'visualProperty': 'NODE_SIZE', 'value': 30}], 'mappings': [{'mappingType': 'continuous', 'mappingColumn': 'property', 'mappingColumnType': 'Double', 'visualProperty': 'NODE_FILL_COLOR', 'points': [{'value': 0.0, 'lesser': '#313695', 'equal': '#313695', 'greater': '#313695'}, {'value': 0.5, 'lesser': '#ffffbf', 'equal': '#ffffbf', 'greater': '#ffffbf'}, {'value': 1.0, 'lesser': '#a50026', 'equal': '#a50026', 'greater': '#a50026'}]}]}
+2025-05-19 13:00:33,847 [DEBUG] py4...: ǀCreated[201], content: {"title": "Style_mean_value"}
+2025-05-19 13:00:33,848 [DEBUG] py4...: ǀReturning 'cyrest_post': {'title': 'Style_mean_value'}
+2025-05-19 13:00:33,848 [DEBUG] py4...: Returning 'create_visual_style': {'title': 'Style_mean_value'}
+2025-05-19 13:00:33,848 [DEBUG] py4...: --------------------
+2025-05-19 13:00:33,848 [DEBUG] py4...: Calling set_visual_style('Style_mean_value')
+2025-05-19 13:00:33,848 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,848 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,848 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 13:00:33,857 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 7436
+}
+],
+ "errors":[]
+}
+2025-05-19 13:00:33,858 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 7436}]
+2025-05-19 13:00:33,858 [DEBUG] py4...: ǀReturning 'get_network_suid': 7436
+2025-05-19 13:00:33,858 [DEBUG] py4...: ǀCalling get_visual_style_names(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,858 [DEBUG] py4...: ǀǀCalling cyrest_get('apply/styles', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,858 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/apply/styles)
+2025-05-19 13:00:33,865 [DEBUG] py4...: ǀǀOK[200], content: ["BioPAX","BioPAX_SIF","Gradient1","Sample3","Universe","Ripple","Sample2","Solid","default black","Sample1","default","Marquee","Nested Network Style","Curved","Big Labels","WikiPathways","Style_mean_value","Directed","size_rank","Minimal"]
+2025-05-19 13:00:33,866 [DEBUG] py4...: ǀǀReturning 'cyrest_get': ['BioPAX', 'BioPAX_SIF', 'Gradient1', 'Sample3', 'Universe', 'Ripple', 'Sample2', 'Solid', 'default black', 'Sample1', 'default', 'Marquee', 'Nested Network Style', 'Curved', 'Big Labels', 'WikiPathways', 'Style_mean_value', 'Directed', 'size_rank', 'Minimal']
+2025-05-19 13:00:33,866 [DEBUG] py4...: ǀReturning 'get_visual_style_names': ['BioPAX', 'BioPAX_SIF', 'Gradient1', 'Sample3', 'Universe', 'Ripple', 'Sample2', 'Solid', 'default black', 'Sample1', 'default', 'Marquee', 'Nested Network Style', 'Curved', 'Big Labels', 'WikiPathways', 'Style_mean_value', 'Directed', 'size_rank', 'Minimal']
+2025-05-19 13:00:33,866 [DEBUG] py4...: ǀCalling cyrest_get('apply/styles/Style_mean_value/7436', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,866 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/apply/styles/Style_mean_value/7436)
+2025-05-19 13:00:33,881 [DEBUG] py4...: ǀOK[200], content: {"message":"Visual Style applied."}
+2025-05-19 13:00:33,881 [DEBUG] py4...: ǀReturning 'cyrest_get': {'message': 'Visual Style applied.'}
+2025-05-19 13:00:33,882 [DEBUG] py4...: Returning 'set_visual_style': {'message': 'Visual Style applied.'}
+2025-05-19 13:00:33,882 [DEBUG] py4...: --------------------
+2025-05-19 13:00:33,882 [DEBUG] py4...: Calling export_image('WP3657_mean_value.png', type='PNG', resolution=300)
+2025-05-19 13:00:33,882 [DEBUG] py4...: ǀCalling get_network_view_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,882 [DEBUG] py4...: ǀǀCalling get_network_views(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,882 [DEBUG] py4...: ǀǀǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,882 [DEBUG] py4...: ǀǀǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,882 [DEBUG] py4...: ǀǀǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 13:00:33,891 [DEBUG] py4...: ǀǀǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 7436
+}
+],
+ "errors":[]
+}
+2025-05-19 13:00:33,891 [DEBUG] py4...: ǀǀǀǀReturning 'commands_post': [{'SUID': 7436}]
+2025-05-19 13:00:33,891 [DEBUG] py4...: ǀǀǀReturning 'get_network_suid': 7436
+2025-05-19 13:00:33,891 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks/7436/views', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,891 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/7436/views)
+2025-05-19 13:00:33,896 [DEBUG] py4...: ǀǀǀOK[200], content: [7484]
+2025-05-19 13:00:33,897 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [7484]
+2025-05-19 13:00:33,897 [DEBUG] py4...: ǀǀReturning 'get_network_views': [7484]
+2025-05-19 13:00:33,897 [DEBUG] py4...: ǀReturning 'get_network_view_suid': 7484
+2025-05-19 13:00:33,897 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,897 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,897 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 13:00:33,902 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 13:00:33,903 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 13:00:33,903 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 13:00:33,903 [DEBUG] py4...: ǀCalling sandbox_get_file_info('WP3657_mean_value.png', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,903 [DEBUG] py4...: ǀǀCalling commands_post('filetransfer getFileInfo fileName="/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,903 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/filetransfer/getFileInfo), json: {'fileName': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png'}
+2025-05-19 13:00:33,910 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": {"filePath":"/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png","modifiedTime":"","isFile":false},
+ "errors":[]
+}
+2025-05-19 13:00:33,910 [DEBUG] py4...: ǀǀReturning 'commands_post': {'filePath': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png', 'modifiedTime': '', 'isFile': False}
+2025-05-19 13:00:33,911 [DEBUG] py4...: ǀReturning 'sandbox_get_file_info': {'filePath': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png', 'modifiedTime': '', 'isFile': False}
+2025-05-19 13:00:33,911 [DEBUG] py4...: ǀCalling commands_post('view export options="PNG" Resolution="300" Zoom="100" outputFile="/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png" view="SUID:7484"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:00:33,911 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/view/export), json: {'options': 'PNG', 'Resolution': '300', 'Zoom': '100', 'outputFile': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png', 'view': 'SUID:7484'}
+2025-05-19 13:00:33,963 [DEBUG] py4...: ǀOK[200], content: {
+ "data": {"file":"/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png"},
+ "errors":[]
+}
+2025-05-19 13:00:33,963 [DEBUG] py4...: ǀReturning 'commands_post': {'file': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png'}
+2025-05-19 13:00:33,963 [DEBUG] py4...: Returning 'export_image': {'file': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png'}
+2025-05-19 13:00:33,963 [DEBUG] py4...: --------------------
+2025-05-19 13:18:04,841 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-19 13:18:04,841 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:04,841 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:04,841 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-19 13:18:04,847 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-19 13:18:04,847 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 13:18:04,857 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 13:18:04,858 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 13:18:04,858 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 13:18:04,858 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-19 13:18:04,858 [DEBUG] py4...: --------------------
+2025-05-19 13:18:04,859 [DEBUG] py4...: Calling commands_run('wikipathways import-as-pathway id=WP3657')
+2025-05-19 13:18:04,859 [DEBUG] py4...: ǀCalling commands_get('wikipathways import-as-pathway id=WP3657', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:04,859 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/wikipathways/import-as-pathway), params: {'id': 'WP3657'}
+2025-05-19 13:18:06,504 [DEBUG] py4...: ǀOK[200], content: Finished
+
+2025-05-19 13:18:06,505 [DEBUG] py4...: ǀReturning 'commands_get': []
+2025-05-19 13:18:06,505 [DEBUG] py4...: Returning 'commands_run': []
+2025-05-19 13:18:06,505 [DEBUG] py4...: --------------------
+2025-05-19 13:18:06,556 [DEBUG] py4...: Calling load_table_data(                      name  property
+0                      ATM  0.250168
+1                    BCL-2  0.070838
+2                     BCL2  0.070838
+3      BCL2 Anti-apoptotic  0.043017
+4                   BCL2L1  0.070838
+5                    BCLXL  0.070838
+6                    Bcl-2  0.070838
+7                   Bcl-xl  0.070838
+8                      CBP  0.240500
+9                   CREBBP  0.257857
+10                   DNMT1  0.257821
+11                  DNMT3A  0.229446
+12                  DNMT3B  0.251937
+13                   EP300  0.195000
+14                    ETV6  0.262203
+15                    FLT3  0.245143
+16                FLT3-ITD  0.169550
+17  FLT3-ITD immature form  0.112737
+18                   FOXO3  0.259758
+19                   GABPA  0.316985
+20                   GABPB  0.316985
+21                    GZMB  0.169382
+22                    MCL1  0.259801
+23                    P300  0.195000
+24                    PTEN  0.265585
+25                   SMAD4  0.316468
+26                 SMARCA4  0.197202
+27                   TERF2  0.316985
+28                     ZFX  0.263738
+29                    p300  0.195000, data_key_column='name', table='node', table_key_column='name')
+2025-05-19 13:18:06,556 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,556 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,556 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 13:18:06,563 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 8019
+}
+],
+ "errors":[]
+}
+2025-05-19 13:18:06,563 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 8019}]
+2025-05-19 13:18:06,563 [DEBUG] py4...: ǀReturning 'get_network_suid': 8019
+2025-05-19 13:18:06,563 [DEBUG] py4...: ǀCalling get_table_columns(table='node', namespace='default', columns='name', network=8019, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,563 [DEBUG] py4...: ǀǀCalling get_network_suid(8019, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,563 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,563 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-19 13:18:06,568 [DEBUG] py4...: ǀǀǀOK[200], content: [5699,8019,6278,6857,7436]
+2025-05-19 13:18:06,568 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [5699, 8019, 6278, 6857, 7436]
+2025-05-19 13:18:06,568 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 8019
+2025-05-19 13:18:06,568 [DEBUG] py4...: ǀǀCalling get_table_column_types('node', namespace='default', network=8019, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,568 [DEBUG] py4...: ǀǀǀCalling get_network_suid(8019, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,568 [DEBUG] py4...: ǀǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,568 [DEBUG] py4...: ǀǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-19 13:18:06,570 [DEBUG] py4...: ǀǀǀǀOK[200], content: [5699,8019,6278,6857,7436]
+2025-05-19 13:18:06,571 [DEBUG] py4...: ǀǀǀǀReturning 'cyrest_get': [5699, 8019, 6278, 6857, 7436]
+2025-05-19 13:18:06,571 [DEBUG] py4...: ǀǀǀReturning 'get_network_suid': 8019
+2025-05-19 13:18:06,571 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks/8019/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,571 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/8019/tables/defaultnode/columns)
+2025-05-19 13:18:06,575 [DEBUG] py4...: ǀǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"GraphID","type":"String","immutable":false,"primaryKey":false},{"name":"XrefId","type":"String","immutable":false,"primaryKey":false},{"name":"XrefDatasource","type":"String","immutable":false,"primaryKey":false},{"name":"Type","type":"String","immutable":false,"primaryKey":false},{"name":"IsGPMLShape","type":"Boolean","immutable":false,"primaryKey":false},{"name":"Width","type":"Double","immutable":false,"primaryKey":false},{"name":"Height","type":"Double","immutable":false,"primaryKey":false},{"name":"FillColor","type":"String","immutable":false,"primaryKey":false},{"name":"Color","type":"String","immutable":false,"primaryKey":false},{"name":"LabelFont","type":"String","immutable":false,"primaryKey":false},{"name":"LabelSize","type":"Double","immutable":false,"primaryKey":false},{"name":"Transparent","type":"String","immutable":false,"primaryKey":false},{"name":"BorderThickness","type":"Double","immutable":false,"primaryKey":false},{"name":"BorderStyle","type":"String","immutable":false,"primaryKey":false},{"name":"Shape","type":"String","immutable":false,"primaryKey":false},{"name":"Ensembl","type":"String","immutable":true,"primaryKey":false},{"name":"ChEBI","type":"String","immutable":false,"primaryKey":false}]
+2025-05-19 13:18:06,575 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'GraphID', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefId', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefDatasource', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Type', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'IsGPMLShape', 'type': 'Boolean', 'immutable': False, 'primaryKey': False}, {'name': 'Width', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Height', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'FillColor', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Color', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelFont', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelSize', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Transparent', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'BorderThickness', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'BorderStyle', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Shape', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Ensembl', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'ChEBI', 'type': 'String', 'immutable': False, 'primaryKey': False}]
+2025-05-19 13:18:06,575 [DEBUG] py4...: ǀǀReturning 'get_table_column_types': {'SUID': 'Long', 'shared name': 'String', 'name': 'String', 'selected': 'Boolean', 'GraphID': 'String', 'XrefId': 'String', 'XrefDatasource': 'String', 'Type': 'String', 'IsGPMLShape': 'Boolean', 'Width': 'Double', 'Height': 'Double', 'FillColor': 'String', 'Color': 'String', 'LabelFont': 'String', 'LabelSize': 'Double', 'Transparent': 'String', 'BorderThickness': 'Double', 'BorderStyle': 'String', 'Shape': 'String', 'Ensembl': 'String', 'ChEBI': 'String'}
+2025-05-19 13:18:06,575 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/8019/tables/defaultnode/columns/SUID', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,575 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/8019/tables/defaultnode/columns/SUID)
+2025-05-19 13:18:06,578 [DEBUG] py4...: ǀǀOK[200], content: {"name":"SUID","values":[8193,8196,8199,8202,8205,8208,8211,8214,8217,8220,8223,8226,8229,8232,8235,8238,8241,8244,8250,8252,8254,8256,8258,8260,8262,8264,8266,8268,8270,8272,8355,8357,8362,8364,8369,8371,8166,8169,8172,8175,8178,8181,8184,8187,8190]}
+2025-05-19 13:18:06,578 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'SUID', 'values': [8193, 8196, 8199, 8202, 8205, 8208, 8211, 8214, 8217, 8220, 8223, 8226, 8229, 8232, 8235, 8238, 8241, 8244, 8250, 8252, 8254, 8256, 8258, 8260, 8262, 8264, 8266, 8268, 8270, 8272, 8355, 8357, 8362, 8364, 8369, 8371, 8166, 8169, 8172, 8175, 8178, 8181, 8184, 8187, 8190]}
+2025-05-19 13:18:06,579 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/8019/tables/defaultnode/columns/name', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,579 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/8019/tables/defaultnode/columns/name)
+2025-05-19 13:18:06,582 [DEBUG] py4...: ǀǀOK[200], content: {"name":"name","values":["ZFX","GZMB","HSC aging","SMAD4","GABPA","PTEN","BCL2L1","FOXO3","GABPB","FLT3","CREBBP","EP300","Chromatin remodeling and \nepigenetic modifications","HSC survival","ATM","HSC quiescence","MCL1","",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"SMARCA4","HSC self renewal","BCL2","HSC differentiation","DNMT3B","DNMT3A","TERF2","ETV6","DNMT1"]}
+2025-05-19 13:18:06,582 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'name', 'values': ['ZFX', 'GZMB', 'HSC aging', 'SMAD4', 'GABPA', 'PTEN', 'BCL2L1', 'FOXO3', 'GABPB', 'FLT3', 'CREBBP', 'EP300', 'Chromatin remodeling and \nepigenetic modifications', 'HSC survival', 'ATM', 'HSC quiescence', 'MCL1', '', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 'SMARCA4', 'HSC self renewal', 'BCL2', 'HSC differentiation', 'DNMT3B', 'DNMT3A', 'TERF2', 'ETV6', 'DNMT1']}
+2025-05-19 13:18:06,584 [DEBUG] py4...: ǀReturning 'get_table_columns':                                                    name
+8193                                                ZFX
+8196                                               GZMB
+8199                                          HSC aging
+8202                                              SMAD4
+8205                                              GABPA
+8208                                               PTEN
+8211                                             BCL2L1
+8214                                              FOXO3
+8217                                              GABPB
+8220                                               FLT3
+8223                                             CREBBP
+8226                                              EP300
+8229  Chromatin remodeling and \nepigenetic modifica...
+8232                                       HSC survival
+8235                                                ATM
+8238                                     HSC quiescence
+8241                                               MCL1
+8244                                                   
+8250                                               None
+8252                                               None
+8254                                               None
+8256                                               None
+8258                                               None
+8260                                               None
+8262                                               None
+8264                                               None
+8266                                               None
+8268                                               None
+8270                                               None
+8272                                               None
+8355                                               None
+8357                                               None
+8362                                               None
+8364                                               None
+8369                                               None
+8371                                               None
+8166                                            SMARCA4
+8169                                   HSC self renewal
+8172                                               BCL2
+8175                                HSC differentiation
+8178                                             DNMT3B
+8181                                             DNMT3A
+8184                                              TERF2
+8187                                               ETV6
+8190                                              DNMT1
+2025-05-19 13:18:06,586 [DEBUG] py4...: ǀCalling get_table_column_names('node', 'default', 8019, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,586 [DEBUG] py4...: ǀǀCalling get_network_suid(8019, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,586 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,586 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-19 13:18:06,591 [DEBUG] py4...: ǀǀǀOK[200], content: [5699,8019,6278,6857,7436]
+2025-05-19 13:18:06,591 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [5699, 8019, 6278, 6857, 7436]
+2025-05-19 13:18:06,591 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 8019
+2025-05-19 13:18:06,591 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/8019/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,591 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/8019/tables/defaultnode/columns)
+2025-05-19 13:18:06,596 [DEBUG] py4...: ǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"GraphID","type":"String","immutable":false,"primaryKey":false},{"name":"XrefId","type":"String","immutable":false,"primaryKey":false},{"name":"XrefDatasource","type":"String","immutable":false,"primaryKey":false},{"name":"Type","type":"String","immutable":false,"primaryKey":false},{"name":"IsGPMLShape","type":"Boolean","immutable":false,"primaryKey":false},{"name":"Width","type":"Double","immutable":false,"primaryKey":false},{"name":"Height","type":"Double","immutable":false,"primaryKey":false},{"name":"FillColor","type":"String","immutable":false,"primaryKey":false},{"name":"Color","type":"String","immutable":false,"primaryKey":false},{"name":"LabelFont","type":"String","immutable":false,"primaryKey":false},{"name":"LabelSize","type":"Double","immutable":false,"primaryKey":false},{"name":"Transparent","type":"String","immutable":false,"primaryKey":false},{"name":"BorderThickness","type":"Double","immutable":false,"primaryKey":false},{"name":"BorderStyle","type":"String","immutable":false,"primaryKey":false},{"name":"Shape","type":"String","immutable":false,"primaryKey":false},{"name":"Ensembl","type":"String","immutable":true,"primaryKey":false},{"name":"ChEBI","type":"String","immutable":false,"primaryKey":false}]
+2025-05-19 13:18:06,596 [DEBUG] py4...: ǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'GraphID', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefId', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefDatasource', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Type', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'IsGPMLShape', 'type': 'Boolean', 'immutable': False, 'primaryKey': False}, {'name': 'Width', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Height', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'FillColor', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Color', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelFont', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelSize', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Transparent', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'BorderThickness', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'BorderStyle', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Shape', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Ensembl', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'ChEBI', 'type': 'String', 'immutable': False, 'primaryKey': False}]
+2025-05-19 13:18:06,597 [DEBUG] py4...: ǀReturning 'get_table_column_names': ['SUID', 'shared name', 'name', 'selected', 'GraphID', 'XrefId', 'XrefDatasource', 'Type', 'IsGPMLShape', 'Width', 'Height', 'FillColor', 'Color', 'LabelFont', 'LabelSize', 'Transparent', 'BorderThickness', 'BorderStyle', 'Shape', 'Ensembl', 'ChEBI']
+2025-05-19 13:18:06,597 [DEBUG] py4...: ǀCalling cyrest_put('networks/8019/tables/defaultnode', body={'key': 'name', 'dataKey': 'name', 'data': [{'name': 'ATM', 'property': 0.2501678418251686}, {'name': 'BCL2', 'property': 0.07083757495274767}, {'name': 'BCL2L1', 'property': 0.07083757495274767}, {'name': 'CREBBP', 'property': 0.2578568915705085}, {'name': 'DNMT1', 'property': 0.25782146330694106}, {'name': 'DNMT3A', 'property': 0.22944639426761218}, {'name': 'DNMT3B', 'property': 0.2519368510302733}, {'name': 'EP300', 'property': 0.1949997406452894}, {'name': 'ETV6', 'property': 0.2622033920854392}, {'name': 'FLT3', 'property': 0.24514345581410452}, {'name': 'FOXO3', 'property': 0.25975768351505396}, {'name': 'GABPA', 'property': 0.3169854938983917}, {'name': 'GABPB', 'property': 0.3169854938983917}, {'name': 'GZMB', 'property': 0.16938155165553326}, {'name': 'MCL1', 'property': 0.25980136631056666}, {'name': 'PTEN', 'property': 0.26558538298122586}, {'name': 'SMAD4', 'property': 0.31646787473291627}, {'name': 'SMARCA4', 'property': 0.19720211593005593}, {'name': 'TERF2', 'property': 0.3169854938983917}, {'name': 'ZFX', 'property': 0.26373764458459814}]}, require_json=False, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,597 [DEBUG] py4...: ǀHTTP PUT(http://127.0.0.1:1234/v1/networks/8019/tables/defaultnode), json: {'key': 'name', 'dataKey': 'name', 'data': [{'name': 'ATM', 'property': 0.2501678418251686}, {'name': 'BCL2', 'property': 0.07083757495274767}, {'name': 'BCL2L1', 'property': 0.07083757495274767}, {'name': 'CREBBP', 'property': 0.2578568915705085}, {'name': 'DNMT1', 'property': 0.25782146330694106}, {'name': 'DNMT3A', 'property': 0.22944639426761218}, {'name': 'DNMT3B', 'property': 0.2519368510302733}, {'name': 'EP300', 'property': 0.1949997406452894}, {'name': 'ETV6', 'property': 0.2622033920854392}, {'name': 'FLT3', 'property': 0.24514345581410452}, {'name': 'FOXO3', 'property': 0.25975768351505396}, {'name': 'GABPA', 'property': 0.3169854938983917}, {'name': 'GABPB', 'property': 0.3169854938983917}, {'name': 'GZMB', 'property': 0.16938155165553326}, {'name': 'MCL1', 'property': 0.25980136631056666}, {'name': 'PTEN', 'property': 0.26558538298122586}, {'name': 'SMAD4', 'property': 0.31646787473291627}, {'name': 'SMARCA4', 'property': 0.19720211593005593}, {'name': 'TERF2', 'property': 0.3169854938983917}, {'name': 'ZFX', 'property': 0.26373764458459814}]}
+2025-05-19 13:18:06,605 [DEBUG] py4...: ǀOK[200], content: 
+2025-05-19 13:18:06,605 [DEBUG] py4...: ǀReturning 'cyrest_put': ''
+2025-05-19 13:18:06,605 [DEBUG] py4...: Returning 'load_table_data': 'Success: Data loaded in defaultnode table'
+2025-05-19 13:18:06,605 [DEBUG] py4...: --------------------
+2025-05-19 13:18:06,605 [DEBUG] py4...: Calling map_visual_property(visual_prop='NODE_FILL_COLOR', table_column='property', mapping_type='continuous', table_column_values=[0.0, 0.5, 1.0], visual_prop_values=['#313695', '#ffffbf', '#a50026'])
+2025-05-19 13:18:06,605 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,605 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,605 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 13:18:06,612 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 8019
+}
+],
+ "errors":[]
+}
+2025-05-19 13:18:06,612 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 8019}]
+2025-05-19 13:18:06,612 [DEBUG] py4...: ǀReturning 'get_network_suid': 8019
+2025-05-19 13:18:06,612 [DEBUG] py4...: ǀCalling get_visual_property_names(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,612 [DEBUG] py4...: ǀǀCalling cyrest_get('styles/default/defaults', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,612 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/styles/default/defaults)
+2025-05-19 13:18:06,617 [DEBUG] py4...: ǀǀOK[200], content: {
+  "defaults" : [ {
+    "visualProperty" : "COMPOUND_NODE_PADDING",
+    "value" : 10.0
+  }, {
+    "visualProperty" : "COMPOUND_NODE_SHAPE",
+    "value" : "ROUND_RECTANGLE"
+  }, {
+    "visualProperty" : "DING_RENDERING_ENGINE_ROOT",
+    "value" : "org.cytoscape.view.presentation.property.NullVisualProperty$NullDataTypeImpl@8a9b3bd"
+  }, {
+    "visualProperty" : "EDGE",
+    "value" : "DefaultVisualizableVisualProperty(id=EDGE, name=Edge Visual Property)"
+  }, {
+    "visualProperty" : "EDGE_BEND",
+    "value" : ""
+  }, {
+    "visualProperty" : "EDGE_CURVED",
+    "value" : true
+  }, {
+    "visualProperty" : "EDGE_LABEL",
+    "value" : ""
+  }, {
+    "visualProperty" : "EDGE_LABEL_AUTOROTATE",
+    "value" : false
+  }, {
+    "visualProperty" : "EDGE_LABEL_BACKGROUND_COLOR",
+    "value" : "#B6B6B6"
+  }, {
+    "visualProperty" : "EDGE_LABEL_BACKGROUND_SHAPE",
+    "value" : "NONE"
+  }, {
+    "visualProperty" : "EDGE_LABEL_BACKGROUND_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "EDGE_LABEL_COLOR",
+    "value" : "#000000"
+  }, {
+    "visualProperty" : "EDGE_LABEL_FONT_FACE",
+    "value" : "Dialog.plain,plain,10"
+  }, {
+    "visualProperty" : "EDGE_LABEL_FONT_SIZE",
+    "value" : 10
+  }, {
+    "visualProperty" : "EDGE_LABEL_POSITION",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "EDGE_LABEL_ROTATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "EDGE_LABEL_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "EDGE_LABEL_WIDTH",
+    "value" : 200.0
+  }, {
+    "visualProperty" : "EDGE_LINE_TYPE",
+    "value" : "SOLID"
+  }, {
+    "visualProperty" : "EDGE_PAINT",
+    "value" : "#323232"
+  }, {
+    "visualProperty" : "EDGE_SELECTED",
+    "value" : false
+  }, {
+    "visualProperty" : "EDGE_SELECTED_PAINT",
+    "value" : "#FF0000"
+  }, {
+    "visualProperty" : "EDGE_SOURCE_ARROW_SELECTED_PAINT",
+    "value" : "#FFFF00"
+  }, {
+    "visualProperty" : "EDGE_SOURCE_ARROW_SHAPE",
+    "value" : "NONE"
+  }, {
+    "visualProperty" : "EDGE_SOURCE_ARROW_SIZE",
+    "value" : 6.0
+  }, {
+    "visualProperty" : "EDGE_SOURCE_ARROW_UNSELECTED_PAINT",
+    "value" : "#000000"
+  }, {
+    "visualProperty" : "EDGE_STACKING",
+    "value" : "AUTO_BEND"
+  }, {
+    "visualProperty" : "EDGE_STACKING_DENSITY",
+    "value" : 0.5
+  }, {
+    "visualProperty" : "EDGE_STROKE_SELECTED_PAINT",
+    "value" : "#FF0000"
+  }, {
+    "visualProperty" : "EDGE_STROKE_UNSELECTED_PAINT",
+    "value" : "#848484"
+  }, {
+    "visualProperty" : "EDGE_TARGET_ARROW_SELECTED_PAINT",
+    "value" : "#FFFF00"
+  }, {
+    "visualProperty" : "EDGE_TARGET_ARROW_SHAPE",
+    "value" : "NONE"
+  }, {
+    "visualProperty" : "EDGE_TARGET_ARROW_SIZE",
+    "value" : 6.0
+  }, {
+    "visualProperty" : "EDGE_TARGET_ARROW_UNSELECTED_PAINT",
+    "value" : "#000000"
+  }, {
+    "visualProperty" : "EDGE_TOOLTIP",
+    "value" : ""
+  }, {
+    "visualProperty" : "EDGE_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "EDGE_UNSELECTED_PAINT",
+    "value" : "#404040"
+  }, {
+    "visualProperty" : "EDGE_VISIBLE",
+    "value" : true
+  }, {
+    "visualProperty" : "EDGE_WIDTH",
+    "value" : 2.0
+  }, {
+    "visualProperty" : "EDGE_Z_ORDER",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NETWORK",
+    "value" : "DefaultVisualizableVisualProperty(id=NETWORK, name=Network Visual Property)"
+  }, {
+    "visualProperty" : "NETWORK_ANNOTATION_SELECTION",
+    "value" : false
+  }, {
+    "visualProperty" : "NETWORK_BACKGROUND_PAINT",
+    "value" : "#FFFFFF"
+  }, {
+    "visualProperty" : "NETWORK_CENTER_X_LOCATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NETWORK_CENTER_Y_LOCATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NETWORK_CENTER_Z_LOCATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NETWORK_DEPTH",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NETWORK_EDGE_SELECTION",
+    "value" : true
+  }, {
+    "visualProperty" : "NETWORK_FORCE_HIGH_DETAIL",
+    "value" : false
+  }, {
+    "visualProperty" : "NETWORK_HEIGHT",
+    "value" : 400.0
+  }, {
+    "visualProperty" : "NETWORK_NODE_LABEL_SELECTION",
+    "value" : false
+  }, {
+    "visualProperty" : "NETWORK_NODE_SELECTION",
+    "value" : true
+  }, {
+    "visualProperty" : "NETWORK_SCALE_FACTOR",
+    "value" : 1.0
+  }, {
+    "visualProperty" : "NETWORK_SIZE",
+    "value" : 550.0
+  }, {
+    "visualProperty" : "NETWORK_TITLE",
+    "value" : ""
+  }, {
+    "visualProperty" : "NETWORK_WIDTH",
+    "value" : 550.0
+  }, {
+    "visualProperty" : "NODE",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE, name=Node Visual Property)"
+  }, {
+    "visualProperty" : "NODE_BORDER_PAINT",
+    "value" : "#CCCCCC"
+  }, {
+    "visualProperty" : "NODE_BORDER_STROKE",
+    "value" : "SOLID"
+  }, {
+    "visualProperty" : "NODE_BORDER_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "NODE_BORDER_WIDTH",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_1",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_2",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_3",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_4",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_5",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_6",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_7",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_8",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_9",
+    "value" : "org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_1",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_2",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_3",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_4",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_5",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_6",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_7",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_8",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_POSITION_9",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_1",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_2",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_3",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_4",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_5",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_6",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_7",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_8",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMGRAPHICS_SIZE_9",
+    "value" : 50.0
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_1",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_1, name=Node Custom Paint 1)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_2",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_2, name=Node Custom Paint 2)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_3",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_3, name=Node Custom Paint 3)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_4",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_4, name=Node Custom Paint 4)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_5",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_5, name=Node Custom Paint 5)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_6",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_6, name=Node Custom Paint 6)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_7",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_7, name=Node Custom Paint 7)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_8",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_8, name=Node Custom Paint 8)"
+  }, {
+    "visualProperty" : "NODE_CUSTOMPAINT_9",
+    "value" : "DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_9, name=Node Custom Paint 9)"
+  }, {
+    "visualProperty" : "NODE_DEPTH",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NODE_FILL_COLOR",
+    "value" : "#89D0F5"
+  }, {
+    "visualProperty" : "NODE_HEIGHT",
+    "value" : 35.0
+  }, {
+    "visualProperty" : "NODE_LABEL",
+    "value" : ""
+  }, {
+    "visualProperty" : "NODE_LABEL_BACKGROUND_COLOR",
+    "value" : "#B6B6B6"
+  }, {
+    "visualProperty" : "NODE_LABEL_BACKGROUND_SHAPE",
+    "value" : "NONE"
+  }, {
+    "visualProperty" : "NODE_LABEL_BACKGROUND_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "NODE_LABEL_COLOR",
+    "value" : "#000000"
+  }, {
+    "visualProperty" : "NODE_LABEL_FONT_FACE",
+    "value" : "SansSerif.plain,plain,12"
+  }, {
+    "visualProperty" : "NODE_LABEL_FONT_SIZE",
+    "value" : 12
+  }, {
+    "visualProperty" : "NODE_LABEL_POSITION",
+    "value" : "C,C,c,0.00,0.00"
+  }, {
+    "visualProperty" : "NODE_LABEL_ROTATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NODE_LABEL_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "NODE_LABEL_WIDTH",
+    "value" : 200.0
+  }, {
+    "visualProperty" : "NODE_NESTED_NETWORK_IMAGE_VISIBLE",
+    "value" : true
+  }, {
+    "visualProperty" : "NODE_PAINT",
+    "value" : "#1E90FF"
+  }, {
+    "visualProperty" : "NODE_SELECTED",
+    "value" : false
+  }, {
+    "visualProperty" : "NODE_SELECTED_PAINT",
+    "value" : "#FFFF00"
+  }, {
+    "visualProperty" : "NODE_SHAPE",
+    "value" : "ROUND_RECTANGLE"
+  }, {
+    "visualProperty" : "NODE_SIZE",
+    "value" : 35.0
+  }, {
+    "visualProperty" : "NODE_TOOLTIP",
+    "value" : ""
+  }, {
+    "visualProperty" : "NODE_TRANSPARENCY",
+    "value" : 255
+  }, {
+    "visualProperty" : "NODE_VISIBLE",
+    "value" : true
+  }, {
+    "visualProperty" : "NODE_WIDTH",
+    "value" : 75.0
+  }, {
+    "visualProperty" : "NODE_X_LOCATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NODE_Y_LOCATION",
+    "value" : 0.0
+  }, {
+    "visualProperty" : "NODE_Z_LOCATION",
+    "value" : 0.0
+  } ]
+}
+2025-05-19 13:18:06,618 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'defaults': [{'visualProperty': 'COMPOUND_NODE_PADDING', 'value': 10.0}, {'visualProperty': 'COMPOUND_NODE_SHAPE', 'value': 'ROUND_RECTANGLE'}, {'visualProperty': 'DING_RENDERING_ENGINE_ROOT', 'value': 'org.cytoscape.view.presentation.property.NullVisualProperty$NullDataTypeImpl@8a9b3bd'}, {'visualProperty': 'EDGE', 'value': 'DefaultVisualizableVisualProperty(id=EDGE, name=Edge Visual Property)'}, {'visualProperty': 'EDGE_BEND', 'value': ''}, {'visualProperty': 'EDGE_CURVED', 'value': True}, {'visualProperty': 'EDGE_LABEL', 'value': ''}, {'visualProperty': 'EDGE_LABEL_AUTOROTATE', 'value': False}, {'visualProperty': 'EDGE_LABEL_BACKGROUND_COLOR', 'value': '#B6B6B6'}, {'visualProperty': 'EDGE_LABEL_BACKGROUND_SHAPE', 'value': 'NONE'}, {'visualProperty': 'EDGE_LABEL_BACKGROUND_TRANSPARENCY', 'value': 255}, {'visualProperty': 'EDGE_LABEL_COLOR', 'value': '#000000'}, {'visualProperty': 'EDGE_LABEL_FONT_FACE', 'value': 'Dialog.plain,plain,10'}, {'visualProperty': 'EDGE_LABEL_FONT_SIZE', 'value': 10}, {'visualProperty': 'EDGE_LABEL_POSITION', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'EDGE_LABEL_ROTATION', 'value': 0.0}, {'visualProperty': 'EDGE_LABEL_TRANSPARENCY', 'value': 255}, {'visualProperty': 'EDGE_LABEL_WIDTH', 'value': 200.0}, {'visualProperty': 'EDGE_LINE_TYPE', 'value': 'SOLID'}, {'visualProperty': 'EDGE_PAINT', 'value': '#323232'}, {'visualProperty': 'EDGE_SELECTED', 'value': False}, {'visualProperty': 'EDGE_SELECTED_PAINT', 'value': '#FF0000'}, {'visualProperty': 'EDGE_SOURCE_ARROW_SELECTED_PAINT', 'value': '#FFFF00'}, {'visualProperty': 'EDGE_SOURCE_ARROW_SHAPE', 'value': 'NONE'}, {'visualProperty': 'EDGE_SOURCE_ARROW_SIZE', 'value': 6.0}, {'visualProperty': 'EDGE_SOURCE_ARROW_UNSELECTED_PAINT', 'value': '#000000'}, {'visualProperty': 'EDGE_STACKING', 'value': 'AUTO_BEND'}, {'visualProperty': 'EDGE_STACKING_DENSITY', 'value': 0.5}, {'visualProperty': 'EDGE_STROKE_SELECTED_PAINT', 'value': '#FF0000'}, {'visualProperty': 'EDGE_STROKE_UNSELECTED_PAINT', 'value': '#848484'}, {'visualProperty': 'EDGE_TARGET_ARROW_SELECTED_PAINT', 'value': '#FFFF00'}, {'visualProperty': 'EDGE_TARGET_ARROW_SHAPE', 'value': 'NONE'}, {'visualProperty': 'EDGE_TARGET_ARROW_SIZE', 'value': 6.0}, {'visualProperty': 'EDGE_TARGET_ARROW_UNSELECTED_PAINT', 'value': '#000000'}, {'visualProperty': 'EDGE_TOOLTIP', 'value': ''}, {'visualProperty': 'EDGE_TRANSPARENCY', 'value': 255}, {'visualProperty': 'EDGE_UNSELECTED_PAINT', 'value': '#404040'}, {'visualProperty': 'EDGE_VISIBLE', 'value': True}, {'visualProperty': 'EDGE_WIDTH', 'value': 2.0}, {'visualProperty': 'EDGE_Z_ORDER', 'value': 0.0}, {'visualProperty': 'NETWORK', 'value': 'DefaultVisualizableVisualProperty(id=NETWORK, name=Network Visual Property)'}, {'visualProperty': 'NETWORK_ANNOTATION_SELECTION', 'value': False}, {'visualProperty': 'NETWORK_BACKGROUND_PAINT', 'value': '#FFFFFF'}, {'visualProperty': 'NETWORK_CENTER_X_LOCATION', 'value': 0.0}, {'visualProperty': 'NETWORK_CENTER_Y_LOCATION', 'value': 0.0}, {'visualProperty': 'NETWORK_CENTER_Z_LOCATION', 'value': 0.0}, {'visualProperty': 'NETWORK_DEPTH', 'value': 0.0}, {'visualProperty': 'NETWORK_EDGE_SELECTION', 'value': True}, {'visualProperty': 'NETWORK_FORCE_HIGH_DETAIL', 'value': False}, {'visualProperty': 'NETWORK_HEIGHT', 'value': 400.0}, {'visualProperty': 'NETWORK_NODE_LABEL_SELECTION', 'value': False}, {'visualProperty': 'NETWORK_NODE_SELECTION', 'value': True}, {'visualProperty': 'NETWORK_SCALE_FACTOR', 'value': 1.0}, {'visualProperty': 'NETWORK_SIZE', 'value': 550.0}, {'visualProperty': 'NETWORK_TITLE', 'value': ''}, {'visualProperty': 'NETWORK_WIDTH', 'value': 550.0}, {'visualProperty': 'NODE', 'value': 'DefaultVisualizableVisualProperty(id=NODE, name=Node Visual Property)'}, {'visualProperty': 'NODE_BORDER_PAINT', 'value': '#CCCCCC'}, {'visualProperty': 'NODE_BORDER_STROKE', 'value': 'SOLID'}, {'visualProperty': 'NODE_BORDER_TRANSPARENCY', 'value': 255}, {'visualProperty': 'NODE_BORDER_WIDTH', 'value': 0.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_1', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_2', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_3', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_4', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_5', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_6', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_7', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_8', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_9', 'value': 'org.cytoscape.cg.model.NullCustomGraphics,0,[ Remove Graphics ],'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_1', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_2', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_3', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_4', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_5', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_6', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_7', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_8', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_POSITION_9', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_1', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_2', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_3', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_4', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_5', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_6', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_7', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_8', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMGRAPHICS_SIZE_9', 'value': 50.0}, {'visualProperty': 'NODE_CUSTOMPAINT_1', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_1, name=Node Custom Paint 1)'}, {'visualProperty': 'NODE_CUSTOMPAINT_2', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_2, name=Node Custom Paint 2)'}, {'visualProperty': 'NODE_CUSTOMPAINT_3', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_3, name=Node Custom Paint 3)'}, {'visualProperty': 'NODE_CUSTOMPAINT_4', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_4, name=Node Custom Paint 4)'}, {'visualProperty': 'NODE_CUSTOMPAINT_5', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_5, name=Node Custom Paint 5)'}, {'visualProperty': 'NODE_CUSTOMPAINT_6', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_6, name=Node Custom Paint 6)'}, {'visualProperty': 'NODE_CUSTOMPAINT_7', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_7, name=Node Custom Paint 7)'}, {'visualProperty': 'NODE_CUSTOMPAINT_8', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_8, name=Node Custom Paint 8)'}, {'visualProperty': 'NODE_CUSTOMPAINT_9', 'value': 'DefaultVisualizableVisualProperty(id=NODE_CUSTOMPAINT_9, name=Node Custom Paint 9)'}, {'visualProperty': 'NODE_DEPTH', 'value': 0.0}, {'visualProperty': 'NODE_FILL_COLOR', 'value': '#89D0F5'}, {'visualProperty': 'NODE_HEIGHT', 'value': 35.0}, {'visualProperty': 'NODE_LABEL', 'value': ''}, {'visualProperty': 'NODE_LABEL_BACKGROUND_COLOR', 'value': '#B6B6B6'}, {'visualProperty': 'NODE_LABEL_BACKGROUND_SHAPE', 'value': 'NONE'}, {'visualProperty': 'NODE_LABEL_BACKGROUND_TRANSPARENCY', 'value': 255}, {'visualProperty': 'NODE_LABEL_COLOR', 'value': '#000000'}, {'visualProperty': 'NODE_LABEL_FONT_FACE', 'value': 'SansSerif.plain,plain,12'}, {'visualProperty': 'NODE_LABEL_FONT_SIZE', 'value': 12}, {'visualProperty': 'NODE_LABEL_POSITION', 'value': 'C,C,c,0.00,0.00'}, {'visualProperty': 'NODE_LABEL_ROTATION', 'value': 0.0}, {'visualProperty': 'NODE_LABEL_TRANSPARENCY', 'value': 255}, {'visualProperty': 'NODE_LABEL_WIDTH', 'value': 200.0}, {'visualProperty': 'NODE_NESTED_NETWORK_IMAGE_VISIBLE', 'value': True}, {'visualProperty': 'NODE_PAINT', 'value': '#1E90FF'}, {'visualProperty': 'NODE_SELECTED', 'value': False}, {'visualProperty': 'NODE_SELECTED_PAINT', 'value': '#FFFF00'}, {'visualProperty': 'NODE_SHAPE', 'value': 'ROUND_RECTANGLE'}, {'visualProperty': 'NODE_SIZE', 'value': 35.0}, {'visualProperty': 'NODE_TOOLTIP', 'value': ''}, {'visualProperty': 'NODE_TRANSPARENCY', 'value': 255}, {'visualProperty': 'NODE_VISIBLE', 'value': True}, {'visualProperty': 'NODE_WIDTH', 'value': 75.0}, {'visualProperty': 'NODE_X_LOCATION', 'value': 0.0}, {'visualProperty': 'NODE_Y_LOCATION', 'value': 0.0}, {'visualProperty': 'NODE_Z_LOCATION', 'value': 0.0}]}
+2025-05-19 13:18:06,618 [DEBUG] py4...: ǀReturning 'get_visual_property_names': ['COMPOUND_NODE_PADDING', 'COMPOUND_NODE_SHAPE', 'DING_RENDERING_ENGINE_ROOT', 'EDGE', 'EDGE_BEND', 'EDGE_CURVED', 'EDGE_LABEL', 'EDGE_LABEL_AUTOROTATE', 'EDGE_LABEL_BACKGROUND_COLOR', 'EDGE_LABEL_BACKGROUND_SHAPE', 'EDGE_LABEL_BACKGROUND_TRANSPARENCY', 'EDGE_LABEL_COLOR', 'EDGE_LABEL_FONT_FACE', 'EDGE_LABEL_FONT_SIZE', 'EDGE_LABEL_POSITION', 'EDGE_LABEL_ROTATION', 'EDGE_LABEL_TRANSPARENCY', 'EDGE_LABEL_WIDTH', 'EDGE_LINE_TYPE', 'EDGE_PAINT', 'EDGE_SELECTED', 'EDGE_SELECTED_PAINT', 'EDGE_SOURCE_ARROW_SELECTED_PAINT', 'EDGE_SOURCE_ARROW_SHAPE', 'EDGE_SOURCE_ARROW_SIZE', 'EDGE_SOURCE_ARROW_UNSELECTED_PAINT', 'EDGE_STACKING', 'EDGE_STACKING_DENSITY', 'EDGE_STROKE_SELECTED_PAINT', 'EDGE_STROKE_UNSELECTED_PAINT', 'EDGE_TARGET_ARROW_SELECTED_PAINT', 'EDGE_TARGET_ARROW_SHAPE', 'EDGE_TARGET_ARROW_SIZE', 'EDGE_TARGET_ARROW_UNSELECTED_PAINT', 'EDGE_TOOLTIP', 'EDGE_TRANSPARENCY', 'EDGE_UNSELECTED_PAINT', 'EDGE_VISIBLE', 'EDGE_WIDTH', 'EDGE_Z_ORDER', 'NETWORK', 'NETWORK_ANNOTATION_SELECTION', 'NETWORK_BACKGROUND_PAINT', 'NETWORK_CENTER_X_LOCATION', 'NETWORK_CENTER_Y_LOCATION', 'NETWORK_CENTER_Z_LOCATION', 'NETWORK_DEPTH', 'NETWORK_EDGE_SELECTION', 'NETWORK_FORCE_HIGH_DETAIL', 'NETWORK_HEIGHT', 'NETWORK_NODE_LABEL_SELECTION', 'NETWORK_NODE_SELECTION', 'NETWORK_SCALE_FACTOR', 'NETWORK_SIZE', 'NETWORK_TITLE', 'NETWORK_WIDTH', 'NODE', 'NODE_BORDER_PAINT', 'NODE_BORDER_STROKE', 'NODE_BORDER_TRANSPARENCY', 'NODE_BORDER_WIDTH', 'NODE_CUSTOMGRAPHICS_1', 'NODE_CUSTOMGRAPHICS_2', 'NODE_CUSTOMGRAPHICS_3', 'NODE_CUSTOMGRAPHICS_4', 'NODE_CUSTOMGRAPHICS_5', 'NODE_CUSTOMGRAPHICS_6', 'NODE_CUSTOMGRAPHICS_7', 'NODE_CUSTOMGRAPHICS_8', 'NODE_CUSTOMGRAPHICS_9', 'NODE_CUSTOMGRAPHICS_POSITION_1', 'NODE_CUSTOMGRAPHICS_POSITION_2', 'NODE_CUSTOMGRAPHICS_POSITION_3', 'NODE_CUSTOMGRAPHICS_POSITION_4', 'NODE_CUSTOMGRAPHICS_POSITION_5', 'NODE_CUSTOMGRAPHICS_POSITION_6', 'NODE_CUSTOMGRAPHICS_POSITION_7', 'NODE_CUSTOMGRAPHICS_POSITION_8', 'NODE_CUSTOMGRAPHICS_POSITION_9', 'NODE_CUSTOMGRAPHICS_SIZE_1', 'NODE_CUSTOMGRAPHICS_SIZE_2', 'NODE_CUSTOMGRAPHICS_SIZE_3', 'NODE_CUSTOMGRAPHICS_SIZE_4', 'NODE_CUSTOMGRAPHICS_SIZE_5', 'NODE_CUSTOMGRAPHICS_SIZE_6', 'NODE_CUSTOMGRAPHICS_SIZE_7', 'NODE_CUSTOMGRAPHICS_SIZE_8', 'NODE_CUSTOMGRAPHICS_SIZE_9', 'NODE_CUSTOMPAINT_1', 'NODE_CUSTOMPAINT_2', 'NODE_CUSTOMPAINT_3', 'NODE_CUSTOMPAINT_4', 'NODE_CUSTOMPAINT_5', 'NODE_CUSTOMPAINT_6', 'NODE_CUSTOMPAINT_7', 'NODE_CUSTOMPAINT_8', 'NODE_CUSTOMPAINT_9', 'NODE_DEPTH', 'NODE_FILL_COLOR', 'NODE_HEIGHT', 'NODE_LABEL', 'NODE_LABEL_BACKGROUND_COLOR', 'NODE_LABEL_BACKGROUND_SHAPE', 'NODE_LABEL_BACKGROUND_TRANSPARENCY', 'NODE_LABEL_COLOR', 'NODE_LABEL_FONT_FACE', 'NODE_LABEL_FONT_SIZE', 'NODE_LABEL_POSITION', 'NODE_LABEL_ROTATION', 'NODE_LABEL_TRANSPARENCY', 'NODE_LABEL_WIDTH', 'NODE_NESTED_NETWORK_IMAGE_VISIBLE', 'NODE_PAINT', 'NODE_SELECTED', 'NODE_SELECTED_PAINT', 'NODE_SHAPE', 'NODE_SIZE', 'NODE_TOOLTIP', 'NODE_TRANSPARENCY', 'NODE_VISIBLE', 'NODE_WIDTH', 'NODE_X_LOCATION', 'NODE_Y_LOCATION', 'NODE_Z_LOCATION']
+2025-05-19 13:18:06,618 [DEBUG] py4...: ǀCalling cyrest_get('networks/8019/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,618 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/networks/8019/tables/defaultnode/columns)
+2025-05-19 13:18:06,621 [DEBUG] py4...: ǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"GraphID","type":"String","immutable":false,"primaryKey":false},{"name":"XrefId","type":"String","immutable":false,"primaryKey":false},{"name":"XrefDatasource","type":"String","immutable":false,"primaryKey":false},{"name":"Type","type":"String","immutable":false,"primaryKey":false},{"name":"IsGPMLShape","type":"Boolean","immutable":false,"primaryKey":false},{"name":"Width","type":"Double","immutable":false,"primaryKey":false},{"name":"Height","type":"Double","immutable":false,"primaryKey":false},{"name":"FillColor","type":"String","immutable":false,"primaryKey":false},{"name":"Color","type":"String","immutable":false,"primaryKey":false},{"name":"LabelFont","type":"String","immutable":false,"primaryKey":false},{"name":"LabelSize","type":"Double","immutable":false,"primaryKey":false},{"name":"Transparent","type":"String","immutable":false,"primaryKey":false},{"name":"BorderThickness","type":"Double","immutable":false,"primaryKey":false},{"name":"BorderStyle","type":"String","immutable":false,"primaryKey":false},{"name":"Shape","type":"String","immutable":false,"primaryKey":false},{"name":"Ensembl","type":"String","immutable":true,"primaryKey":false},{"name":"ChEBI","type":"String","immutable":false,"primaryKey":false},{"name":"property","type":"Double","immutable":false,"primaryKey":false}]
+2025-05-19 13:18:06,622 [DEBUG] py4...: ǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'GraphID', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefId', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'XrefDatasource', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Type', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'IsGPMLShape', 'type': 'Boolean', 'immutable': False, 'primaryKey': False}, {'name': 'Width', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Height', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'FillColor', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Color', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelFont', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'LabelSize', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'Transparent', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'BorderThickness', 'type': 'Double', 'immutable': False, 'primaryKey': False}, {'name': 'BorderStyle', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Shape', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'Ensembl', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'ChEBI', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'property', 'type': 'Double', 'immutable': False, 'primaryKey': False}]
+2025-05-19 13:18:06,622 [DEBUG] py4...: Returning 'map_visual_property': {'mappingType': 'continuous', 'mappingColumn': 'property', 'mappingColumnType': 'Double', 'visualProperty': 'NODE_FILL_COLOR', 'points': [{'value': 0.0, 'lesser': '#313695', 'equal': '#313695', 'greater': '#313695'}, {'value': 0.5, 'lesser': '#ffffbf', 'equal': '#ffffbf', 'greater': '#ffffbf'}, {'value': 1.0, 'lesser': '#a50026', 'equal': '#a50026', 'greater': '#a50026'}]}
+2025-05-19 13:18:06,622 [DEBUG] py4...: --------------------
+2025-05-19 13:18:06,622 [DEBUG] py4...: Calling create_visual_style('Style_mean_value', defaults={'NODE_SHAPE': 'ELLIPSE', 'NODE_SIZE': 30}, mappings=[{'mappingType': 'continuous', 'mappingColumn': 'property', 'mappingColumnType': 'Double', 'visualProperty': 'NODE_FILL_COLOR', 'points': [{'value': 0.0, 'lesser': '#313695', 'equal': '#313695', 'greater': '#313695'}, {'value': 0.5, 'lesser': '#ffffbf', 'equal': '#ffffbf', 'greater': '#ffffbf'}, {'value': 1.0, 'lesser': '#a50026', 'equal': '#a50026', 'greater': '#a50026'}]}])
+2025-05-19 13:18:06,622 [DEBUG] py4...: ǀCalling cyrest_post('styles', body={'title': 'Style_mean_value', 'defaults': [{'visualProperty': 'NODE_SHAPE', 'value': 'ELLIPSE'}, {'visualProperty': 'NODE_SIZE', 'value': 30}], 'mappings': [{'mappingType': 'continuous', 'mappingColumn': 'property', 'mappingColumnType': 'Double', 'visualProperty': 'NODE_FILL_COLOR', 'points': [{'value': 0.0, 'lesser': '#313695', 'equal': '#313695', 'greater': '#313695'}, {'value': 0.5, 'lesser': '#ffffbf', 'equal': '#ffffbf', 'greater': '#ffffbf'}, {'value': 1.0, 'lesser': '#a50026', 'equal': '#a50026', 'greater': '#a50026'}]}]}, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,622 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/styles), json: {'title': 'Style_mean_value', 'defaults': [{'visualProperty': 'NODE_SHAPE', 'value': 'ELLIPSE'}, {'visualProperty': 'NODE_SIZE', 'value': 30}], 'mappings': [{'mappingType': 'continuous', 'mappingColumn': 'property', 'mappingColumnType': 'Double', 'visualProperty': 'NODE_FILL_COLOR', 'points': [{'value': 0.0, 'lesser': '#313695', 'equal': '#313695', 'greater': '#313695'}, {'value': 0.5, 'lesser': '#ffffbf', 'equal': '#ffffbf', 'greater': '#ffffbf'}, {'value': 1.0, 'lesser': '#a50026', 'equal': '#a50026', 'greater': '#a50026'}]}]}
+2025-05-19 13:18:06,630 [DEBUG] py4...: ǀCreated[201], content: {"title": "Style_mean_value_0"}
+2025-05-19 13:18:06,630 [DEBUG] py4...: ǀReturning 'cyrest_post': {'title': 'Style_mean_value_0'}
+2025-05-19 13:18:06,630 [DEBUG] py4...: Returning 'create_visual_style': {'title': 'Style_mean_value_0'}
+2025-05-19 13:18:06,630 [DEBUG] py4...: --------------------
+2025-05-19 13:18:06,630 [DEBUG] py4...: Calling set_visual_style('Style_mean_value')
+2025-05-19 13:18:06,630 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,630 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,631 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 13:18:06,637 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 8019
+}
+],
+ "errors":[]
+}
+2025-05-19 13:18:06,637 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 8019}]
+2025-05-19 13:18:06,637 [DEBUG] py4...: ǀReturning 'get_network_suid': 8019
+2025-05-19 13:18:06,637 [DEBUG] py4...: ǀCalling get_visual_style_names(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,637 [DEBUG] py4...: ǀǀCalling cyrest_get('apply/styles', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,637 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/apply/styles)
+2025-05-19 13:18:06,642 [DEBUG] py4...: ǀǀOK[200], content: ["BioPAX","BioPAX_SIF","Gradient1","Sample3","Universe","Ripple","Sample2","Solid","default black","Sample1","default","Marquee","Nested Network Style","Style_mean_value_0","Curved","Big Labels","WikiPathways","Style_mean_value","Directed","size_rank","Minimal"]
+2025-05-19 13:18:06,643 [DEBUG] py4...: ǀǀReturning 'cyrest_get': ['BioPAX', 'BioPAX_SIF', 'Gradient1', 'Sample3', 'Universe', 'Ripple', 'Sample2', 'Solid', 'default black', 'Sample1', 'default', 'Marquee', 'Nested Network Style', 'Style_mean_value_0', 'Curved', 'Big Labels', 'WikiPathways', 'Style_mean_value', 'Directed', 'size_rank', 'Minimal']
+2025-05-19 13:18:06,643 [DEBUG] py4...: ǀReturning 'get_visual_style_names': ['BioPAX', 'BioPAX_SIF', 'Gradient1', 'Sample3', 'Universe', 'Ripple', 'Sample2', 'Solid', 'default black', 'Sample1', 'default', 'Marquee', 'Nested Network Style', 'Style_mean_value_0', 'Curved', 'Big Labels', 'WikiPathways', 'Style_mean_value', 'Directed', 'size_rank', 'Minimal']
+2025-05-19 13:18:06,643 [DEBUG] py4...: ǀCalling cyrest_get('apply/styles/Style_mean_value/8019', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,643 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/apply/styles/Style_mean_value/8019)
+2025-05-19 13:18:06,664 [DEBUG] py4...: ǀOK[200], content: {"message":"Visual Style applied."}
+2025-05-19 13:18:06,664 [DEBUG] py4...: ǀReturning 'cyrest_get': {'message': 'Visual Style applied.'}
+2025-05-19 13:18:06,664 [DEBUG] py4...: Returning 'set_visual_style': {'message': 'Visual Style applied.'}
+2025-05-19 13:18:06,664 [DEBUG] py4...: --------------------
+2025-05-19 13:18:06,664 [DEBUG] py4...: Calling export_image('WP3657_mean_value.png', type='PNG', resolution=300)
+2025-05-19 13:18:06,665 [DEBUG] py4...: ǀCalling get_network_view_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,665 [DEBUG] py4...: ǀǀCalling get_network_views(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,665 [DEBUG] py4...: ǀǀǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,665 [DEBUG] py4...: ǀǀǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,665 [DEBUG] py4...: ǀǀǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-19 13:18:06,672 [DEBUG] py4...: ǀǀǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 8019
+}
+],
+ "errors":[]
+}
+2025-05-19 13:18:06,672 [DEBUG] py4...: ǀǀǀǀReturning 'commands_post': [{'SUID': 8019}]
+2025-05-19 13:18:06,672 [DEBUG] py4...: ǀǀǀReturning 'get_network_suid': 8019
+2025-05-19 13:18:06,672 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks/8019/views', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,672 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/8019/views)
+2025-05-19 13:18:06,678 [DEBUG] py4...: ǀǀǀOK[200], content: [8067]
+2025-05-19 13:18:06,678 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [8067]
+2025-05-19 13:18:06,678 [DEBUG] py4...: ǀǀReturning 'get_network_views': [8067]
+2025-05-19 13:18:06,678 [DEBUG] py4...: ǀReturning 'get_network_view_suid': 8067
+2025-05-19 13:18:06,678 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,678 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,678 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-19 13:18:06,682 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-19 13:18:06,682 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-19 13:18:06,682 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-19 13:18:06,682 [DEBUG] py4...: ǀCalling sandbox_get_file_info('WP3657_mean_value.png', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,682 [DEBUG] py4...: ǀǀCalling commands_post('filetransfer getFileInfo fileName="/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,682 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/filetransfer/getFileInfo), json: {'fileName': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png'}
+2025-05-19 13:18:06,686 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": {"filePath":"/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png","modifiedTime":"2025-05-19 13:00:33.0958","isFile":true},
+ "errors":[]
+}
+2025-05-19 13:18:06,686 [DEBUG] py4...: ǀǀReturning 'commands_post': {'filePath': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png', 'modifiedTime': '2025-05-19 13:00:33.0958', 'isFile': True}
+2025-05-19 13:18:06,687 [DEBUG] py4...: ǀReturning 'sandbox_get_file_info': {'filePath': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png', 'modifiedTime': '2025-05-19 13:00:33.0958', 'isFile': True}
+2025-05-19 13:18:06,687 [DEBUG] py4...: ǀCalling commands_post('view export options="PNG" Resolution="300" Zoom="100" outputFile="/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png" view="SUID:8067"', base_url='http://127.0.0.1:1234/v1')
+2025-05-19 13:18:06,687 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/view/export), json: {'options': 'PNG', 'Resolution': '300', 'Zoom': '100', 'outputFile': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png', 'view': 'SUID:8067'}
+2025-05-19 13:18:12,808 [DEBUG] py4...: ǀOK[200], content: {
+ "data": {"file":"/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png"},
+ "errors":[]
+}
+2025-05-19 13:18:12,808 [DEBUG] py4...: ǀReturning 'commands_post': {'file': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png'}
+2025-05-19 13:18:12,808 [DEBUG] py4...: Returning 'export_image': {'file': '/home/john/Documents/Insilica/ttdemo/WP3657_mean_value.png'}
+2025-05-19 13:18:12,808 [DEBUG] py4...: --------------------
