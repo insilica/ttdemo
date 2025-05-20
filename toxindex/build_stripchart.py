@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pathlib
-
+import yaml
 import logging
 
 logger = logging.getLogger(__name__)
@@ -55,6 +55,20 @@ def build_stripchart(input_path, output_path, agg_func):
     # df = df.merge(gemini_props, left_on='property_title', right_on=0, how='inner')
     stripdf = df.groupby(['classification', 'name'])['value'].agg(agg_func).reset_index()
     
+
+    # Get unique classifications
+    unique_classes = sorted(df['classification'].unique())  # sorted for consistency
+
+    # Load colors from YAML
+    with open("cache/resources/colormap.yaml", "r") as f:
+        config = yaml.safe_load(f)
+
+    colors_hex = config['colors']
+
+    # Safely assign only as many colors as needed
+    category_colors = dict(zip(unique_classes, colors_hex[:len(unique_classes)]))
+    category_order = unique_classes
+
     # Define color mapping for categories (matching the heatmap)
     # category_colors = {
     #     '1 Ring Aromatic': '#FFFED0', '2 Ring Aromatic': '#FBDA80', 
@@ -62,8 +76,8 @@ def build_stripchart(input_path, output_path, agg_func):
     #     '5 Ring Aromatic': '#D53D23', '6+ Ring Aromatic': '#781A26',
     # }
     # category_colors = {'DNT': '#FFFED0', 'Non-DNT': '#FBDA80'}
-    # category_colors = {'Nephrotoxic': '#FFFED0', 'Non-Nephrotoxic': '#FBDA80'}
-    category_colors = {'hepatotoxic': '#FFFED0', 'nontoxic': '#FBDA80'}
+    
+    # category_colors = {'hepatotoxic': '#FFFED0', 'nontoxic': '#FBDA80'}
 
     # # Create a more predictable category order
     # category_order = [
@@ -71,16 +85,30 @@ def build_stripchart(input_path, output_path, agg_func):
     #     '3 Ring Aromatic', '4 Ring Aromatic', '5 Ring Aromatic', '6+ Ring Aromatic'
     # ]
     # category_order = ['DNT','Non-DNT']
-    # category_order = ['Nephrotoxic','Non-Nephrotoxic']
-    category_order = ['hepatotoxic','nontoxic']
+    # category_order = ['Nephrotoxic','Non-nephrotoxic']
+    # category_order = ['hepatotoxic','nontoxic']
     
     # Create the figure
     plt.figure(figsize=(12, 7))
     
     # Create the stripplot
-    ax = sns.stripplot(x='classification', y='value', data=stripdf, 
-                      palette=category_colors, size=8, jitter=True, alpha=0.8,
-                      order=category_order)
+    # ax = sns.stripplot(x='classification', y='value', data=stripdf, 
+    #                   palette=category_colors, size=8, jitter=True, alpha=0.8,
+    #                   order=category_order)
+    
+    ax = sns.stripplot(
+    x='classification',
+    y='value',
+    hue='classification',  # explicitly define hue
+    data=stripdf,
+    palette=category_colors,
+    size=8,
+    jitter=True,
+    alpha=0.8,
+    order=category_order,
+    legend=False  # avoid duplicate legend
+    )
+
     
     # Add horizontal lines for means
     if agg_func == 'mean':

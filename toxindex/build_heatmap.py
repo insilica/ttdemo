@@ -9,6 +9,9 @@ from scipy.spatial.distance import pdist
 from rdkit import Chem
 from rdkit.Chem import Draw, AllChem
 import logging
+import yaml
+
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -102,13 +105,26 @@ def _generate_heatmap(pdf, output_path):
         columns=pivot_df.columns
     )
 
+
+        # Get unique classifications
+    unique_classes = sorted(pdf['classification'].unique())  # sorted for consistency
+
+    # Load colors from YAML
+    with open("cache/resources/colormap.yaml", "r") as f:
+        config = yaml.safe_load(f)
+
+    colors_hex = config['colors']
+
+    # Safely assign only as many colors as needed
+    category_colors = dict(zip(unique_classes, colors_hex[:len(unique_classes)]))
+    print(category_colors)
     # Direct color mapping (no need for intermediate classification)
     # category_colors = {
     #     '1 Ring Aromatic': '#FFFED0', '2 Ring Aromatic': '#FBDA80', 
     #     '3 Ring Aromatic': '#F7B659', '4 Ring Aromatic': '#EE6033',
     #     '5 Ring Aromatic': '#D53D23', '6+ Ring Aromatic': '#781A26',
     # }
-    category_colors = {'Nephrotoxic': '#FFFED0', 'Non-nephrotoxic': '#FBDA80'}
+    # category_colors = {'Nephrotoxic': '#FFFED0', 'Non-nephrotoxic': '#FBDA80'}
     # category_colors = {'DNT': '#FFFED0', 'Non-DNT': '#FBDA80'}
 
     # Apply classification and get row colors
