@@ -11,6 +11,7 @@ from toxindex.utils.helper import handle_exceptions, rate_limit_lockfile
 import logging
 import toxindex.utils.simplecache as simplecache
 from tqdm import tqdm
+import requests
 
 # Suppress RDKit warnings for cleaner output (optional)
 from rdkit import rdBase
@@ -36,15 +37,49 @@ def parse_chemicals(input_path, output_path):
     
     results = []
     sc = simplecache.simple_cache(pathlib.Path('cache/function_cache/parse_chemicals'))
+
+    def try_alternative_name(query,max_results=5):
+        esearch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+        params = {
+            'db': 'pccompound',
+            'term': query,
+            'retmode': 'json',
+            'retmax': max_results
+        }
+        r = requests.get(esearch_url, params=params)
+        cids = r.json().get('esearchresult').get('idlist')
+
+        records = []
+        for cid in cids:
+            try:
+                compound = pcp.get_compounds(cid, 'cid')[0]
+                if compound.inchi:
+                    records.append((compound, compound.inchi))
+            except Exception as e:
+                continue
+
+        if not records:
+            return None
+
+        # Sort by length of InChI
+        records.sort(key=lambda x: len(x[1]))
+        best = records[0][0]
+        return {"name": query, "cid": best.cid, "inchi": best.inchi}
+    
     def parse_chemical(name):
         logging.info(f"Parsing chemical: {name}")
         time.sleep(0.33)
         compounds = pcp.get_compounds(name, 'name')
-        if not compounds:
-            return None
-        compound = compounds[0] # Take the first result
-        inchi = compound.inchi
-        return {"name": name, "cid": compound.cid, "inchi": inchi}
+
+        # if compound found, return info
+        if compounds:
+            compound = compounds[0] # Take the first result
+            inchi = compound.inchi
+            return {"name": name, "cid": compound.cid, "inchi": inchi}
+        # if not found, try alternative names
+        else:
+            return try_alternative_name(name)
+
     
     parse_chemical = sc(parse_chemical)
     results = []
@@ -58,3 +93,5 @@ def parse_chemicals(input_path, output_path):
     logging.info(f"Saved results to {output_path}")
     
     return df
+
+
