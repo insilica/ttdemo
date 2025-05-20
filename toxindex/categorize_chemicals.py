@@ -56,12 +56,17 @@ def categorize_chemicals(input_path, output_path):
     df = pd.read_csv(input_path)
 
     chemicals_csv = input_path.parent / 'chemicals.csv'
+    
     # Add classification column
     if chemicals_csv.exists():
         indf = pd.read_csv(chemicals_csv)
+        indf.columns = indf.columns.str.lower()
+        indf = indf[['label','name']].copy()
+
         df = df.merge(indf, on='name', how='left')
         # TO-DO: config
-        df['classification'] = df['label']#.map({0: 'Non-DNT', 1: 'DNT'})
+        # df['classification'] = df['label']#.map({0: 'Non-DNT', 1: 'DNT'})
+        df['classification'] = df['label'].map({0: 'Non-nephrotoxic', 1: 'Nephrotoxic'})
     else:
         df['classification'] = df['inchi'].apply(classify_molecule)
 
