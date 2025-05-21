@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """
 Import a WikiPathways pathway (or an AOP-Wiki network) into Cytoscape, map a
+Import a WikiPathways pathway (or an AOP-Wiki network) into Cytoscape, map a
 numeric property onto its nodes, and export a PNG.  The script now works for
+**genes** (WikiPathways gene products) *or* **key events** (AOP-Wiki), selected
 **genes** (WikiPathways gene products) *or* **key events** (AOP-Wiki), selected
 with ``--kind gene|ke``.
 
+Changes from the gene-only version are limited to:
+  • replacing hard-coded references to "gene" with the neutral term *entity* in
 Changes from the gene-only version are limited to:
   • replacing hard-coded references to "gene" with the neutral term *entity* in
     data handling, while
@@ -54,33 +58,78 @@ def fetch_aop_xml(aop_id: int) -> bytes:
     raise RuntimeError(f"Unable to fetch XML for AOP {aop_id}")
 
 
+# def xml_to_graphml(xml_bytes: bytes) -> bytes:
+#     root = ET.fromstring(xml_bytes)
+#     G = nx.DiGraph()
+
+#     # 1) Extract Key Events
+#     for ke in root.findall('.//{*}key-event'):
+#         ke_id    = ke.get('id')
+#         if not ke_id:
+#             continue
+#         ke_title = ke.findtext('{*}title', default='')
+#         G.add_node(ke_id, label=ke_title)
+
+#     # 2) Extract Key Event Relationships
+#     for ker in root.findall('.//{*}key-event-relationship'):
+#         src = ker.findtext('{*}ke-upstream-id')
+#         tgt = ker.findtext('{*}ke-downstream-id')
+#         rel = ker.findtext('{*}relationship-type', default='')
+#         if src and tgt:
+#             G.add_edge(src, tgt, rel=rel)
+
+#     # 3) (Optional) Debug counts
+#     print(f"Built graph with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges")
+
+#     # 4) Write GraphML
+#     buf = io.BytesIO()
+#     nx.write_graphml(G, buf, encoding='utf-8')
+#     return buf.getvalue()
+
+
 def xml_to_graphml(xml_bytes: bytes) -> bytes:
+    """
+    Convert an AOP‑Wiki XML feed into GraphML using the short `aop-wiki-id`
+    integer as the node identifier (discarding the long UUID/GUID).
+    """
+    import xml.etree.ElementTree as ET, networkx as nx, io
+
     root = ET.fromstring(xml_bytes)
+
     G = nx.DiGraph()
+    id_map: dict[str, str] = {}                                # GUID  -> short ID
 
-    # 1) Extract Key Events
+    # ── 1) Extract Key Events and build ID map ────────────────────────────
     for ke in root.findall('.//{*}key-event'):
-        ke_id    = ke.get('id')
-        if not ke_id:
+        guid = ke.get('id')                                    # long GUID
+        short = ke.get('aop-wiki-id')                          # integer string
+        print(f"GUID: {guid} → short ID: {short}")
+        if not guid or not short:
             continue
-        ke_title = ke.findtext('{*}title', default='')
-        G.add_node(ke_id, label=ke_title)
+        id_map[guid] = short
+        title = ke.findtext('{*}title', default='').strip()
+        G.add_node(short, label=title)                         # use short ID
 
-    # 2) Extract Key Event Relationships
+    # ── 2) Extract Key‑Event Relationships, remap IDs ────────────────────
     for ker in root.findall('.//{*}key-event-relationship'):
-        src = ker.findtext('{*}ke-upstream-id')
-        tgt = ker.findtext('{*}ke-downstream-id')
-        rel = ker.findtext('{*}relationship-type', default='')
-        if src and tgt:
-            G.add_edge(src, tgt, rel=rel)
+        src_guid = ker.findtext('{*}ke-upstream-id')
+        tgt_guid = ker.findtext('{*}ke-downstream-id')
+        rel_type = ker.findtext('{*}relationship-type', default='').strip()
+        try:
+            src = id_map[src_guid]
+            tgt = id_map[tgt_guid]
+        except KeyError:
+            # relationship refers to a KE that was missing or filtered out
+            continue
+        G.add_edge(src, tgt, rel=rel_type)
 
-    # 3) (Optional) Debug counts
-    print(f"Built graph with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges")
+    print(f"Graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
 
-    # 4) Write GraphML
+    # ── 3) Serialize to GraphML ───────────────────────────────────────────
     buf = io.BytesIO()
     nx.write_graphml(G, buf, encoding='utf-8')
     return buf.getvalue()
+
 
 
 def import_graphml_bytes(gml_bytes: bytes, *, collection=None):
@@ -116,10 +165,13 @@ def main() -> None:
         description="Map a numeric property onto a pathway/network in Cytoscape",
     )
     parser.add_argument("--pathway", "-p", required=True, help="WikiPathways or AOP-Wiki ID, e.g. WP3657 or 37")
+    parser.add_argument("--pathway", "-p", required=True, help="WikiPathways or AOP-Wiki ID, e.g. WP3657 or 37")
     parser.add_argument("--project", default="hepatotoxic", help="Project name for I/O directories")
     parser.add_argument("--property", "-r", dest="prop", required=True, help="Column name to visualise")
     parser.add_argument("--kind", choices=["gene", "ke"], default="gene", help="Entity type contained in the data file")
     parser.add_argument("--data", "-d", default=None, help="CSV/TSV/Parquet with columns 'entity' and property column")
+    parser.add_argument("--vmin", type=float, help="Override colour-scale minimum")
+    parser.add_argument("--vmax", type=float, help="Override colour-scale maximum")
     parser.add_argument("--vmin", type=float, help="Override colour-scale minimum")
     parser.add_argument("--vmax", type=float, help="Override colour-scale maximum")
     parser.add_argument("--view", choices=["pathway", "network"], default="pathway", help="Import as diagram or topology view")
@@ -135,11 +187,12 @@ def main() -> None:
     elif args.kind == "ke":
         # AOP-Wiki
         try:
-            xml = fetch_aop_xml(int(args.pathway))
-            gml_bytes = xml_to_graphml(xml)
-            import_graphml_bytes(gml_bytes)
-            # import_graphml_bytes(gml_bytes, collection="AOP-Wiki")
-            # p4c.import_network_from_string(gml.decode("utf-8"), file_type="graphml")
+            # xml = fetch_aop_xml(int(args.pathway))
+            # gml_bytes = xml_to_graphml(xml)
+            # import_graphml_bytes(gml_bytes)
+
+            # hardcoded workaround for temporary inspection
+            p4c.import_network_from_file('/home/john/Downloads/AOP_21052025.graphml')
         except Exception as e:
             raise RuntimeError(f"could not import AOP {args.pathway}: {e}")
     else:
@@ -167,11 +220,13 @@ def main() -> None:
         sys.exit("ERROR: data must contain columns 'entity' and the specified property.")
 
     # ── 6) Prepare mapping frame ─────────────────────────────────────────────
-    df2 = df.loc[:, ["entity", args.prop]].copy().rename(columns={"entity": "name", args.prop: "property"})
+    col_label = "name" if args.kind == "gene" else "label"
+    df2 = df.loc[:, ["entity", args.prop]].copy().rename(columns={"entity": col_label, args.prop: "property"})
 
     # ── 7) Push to Cytoscape node table ──────────────────────────────────────
-    p4c.load_table_data(df2, data_key_column="name", table="node", table_key_column="name")
+    p4c.load_table_data(df2, data_key_column=col_label, table="node", table_key_column=col_label)
 
+    # ── 8) Determine colour-scale bounds ─────────────────────────────────────
     # ── 8) Determine colour-scale bounds ─────────────────────────────────────
     vmin = args.vmin if args.vmin is not None else df2["property"].min()
     vmax = args.vmax if args.vmax is not None else df2["property"].max()
@@ -180,7 +235,8 @@ def main() -> None:
     # ── 9) Create visual style ───────────────────────────────────────────────
     style_name = f"Style_{args.prop}"
     defaults = {
-        "NODE_SHAPE": "ELLIPSE",
+        # "NODE_SHAPE": "ELLIPSE",
+        "NODE_SHAPE": "RECTANGLE",
         "NODE_LABEL_COLOR": "#000000",
         "NODE_LABEL_FONT_SIZE": 12,
     }
@@ -194,15 +250,18 @@ def main() -> None:
     )
     label_mapping = p4c.map_visual_property(
         visual_prop="NODE_LABEL",
+        # table_column="name" if args.kind == "gene" else "label",
         table_column="name",
         mapping_type="passthrough",
     )
     p4c.create_visual_style(style_name, defaults=defaults, mappings=[fill_mapping, label_mapping])
     p4c.set_visual_style(style_name)
 
-    # ── 10) Optional layout for topology view ────────────────────────────────
+    # ── 10) Optional layout for graph view ───────────────────────────────────
     if args.view == "network":
         p4c.layout_network("force-directed")
+    else:
+        p4c.layout_network("hierarchical")
 
     # ── 11) Export image ─────────────────────────────────────────────────────
     image_dir = project_dir / "images"
