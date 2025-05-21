@@ -65,8 +65,9 @@ def categorize_chemicals(input_path, output_path):
 
         df = df.merge(indf, on='name', how='left')
         # TO-DO: config
+        df['classification'] = df['label'].map({0: 'Non-toxic', 1: 'Toxic'})
         # df['classification'] = df['label']#.map({0: 'Non-DNT', 1: 'DNT'})
-        df['classification'] = df['label'].map({0: 'Non-nephrotoxic', 1: 'Nephrotoxic'})
+        # df['classification'] = df['label'].map({0: 'Non-nephrotoxic', 1: 'Nephrotoxic'})
     else:
         df['classification'] = df['inchi'].apply(classify_molecule)
 
