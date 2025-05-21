@@ -24264,3 +24264,1115 @@ Finished
 2025-05-20 11:27:29,648 [DEBUG] py4...: ǀ'commands_post' exception CyError('In commands_post(): Task Cancelled. All inputs were validated.')
 2025-05-20 11:27:29,648 [DEBUG] py4...: 'export_image' exception CyError('In commands_post(): Task Cancelled. All inputs were validated.')
 2025-05-20 11:27:29,648 [DEBUG] py4...: --------------------
+2025-05-21 10:35:46,760 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 10:35:46,760 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:35:46,760 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:35:46,761 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 10:35:46,768 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 10:35:46,769 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 10:35:46,775 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 10:35:46,775 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 10:35:46,776 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 10:35:46,776 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 10:35:46,776 [DEBUG] py4...: --------------------
+2025-05-21 10:35:46,776 [DEBUG] py4...: Calling commands_run('aopxplorer import-as-pathway id=https://identifiers.org/aop/34')
+2025-05-21 10:35:46,776 [DEBUG] py4...: ǀCalling commands_get('aopxplorer import-as-pathway id=https://identifiers.org/aop/34', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:35:46,777 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/aopxplorer/import-as-pathway), params: {'id': 'https://identifiers.org/aop/34'}
+2025-05-21 10:35:46,784 [DEBUG] py4...: ǀNot Found[404], content: Error: no such namespace: 'aopxplorer'
+2025-05-21 10:35:46,784 [DEBUG] py4...: ǀ'commands_get' exception CyError("In commands_get(): Error: no such namespace: 'aopxplorer'")
+2025-05-21 10:35:46,784 [DEBUG] py4...: 'commands_run' exception CyError("In commands_get(): Error: no such namespace: 'aopxplorer'")
+2025-05-21 10:35:46,784 [DEBUG] py4...: --------------------
+2025-05-21 10:36:13,930 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 10:36:13,930 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:36:13,930 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:36:13,930 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 10:36:13,936 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 10:36:13,936 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 10:36:13,941 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 10:36:13,942 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 10:36:13,942 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 10:36:13,942 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 10:36:13,942 [DEBUG] py4...: --------------------
+2025-05-21 10:36:13,942 [DEBUG] py4...: Calling commands_run('aopwiki import-as-pathway id=https://identifiers.org/aop/34')
+2025-05-21 10:36:13,943 [DEBUG] py4...: ǀCalling commands_get('aopwiki import-as-pathway id=https://identifiers.org/aop/34', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:36:13,943 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/aopwiki/import-as-pathway), params: {'id': 'https://identifiers.org/aop/34'}
+2025-05-21 10:36:13,948 [DEBUG] py4...: ǀNot Found[404], content: Error: no such namespace: 'aopwiki'
+2025-05-21 10:36:13,948 [DEBUG] py4...: ǀ'commands_get' exception CyError("In commands_get(): Error: no such namespace: 'aopwiki'")
+2025-05-21 10:36:13,948 [DEBUG] py4...: 'commands_run' exception CyError("In commands_get(): Error: no such namespace: 'aopwiki'")
+2025-05-21 10:36:13,948 [DEBUG] py4...: --------------------
+2025-05-21 10:37:00,520 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 10:37:00,520 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:37:00,521 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:37:00,521 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 10:37:00,527 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 10:37:00,527 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 10:37:00,531 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 10:37:00,531 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 10:37:00,531 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 10:37:00,531 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 10:37:00,531 [DEBUG] py4...: --------------------
+2025-05-21 10:37:00,531 [DEBUG] py4...: Calling commands_run('AOPXplorer import-as-pathway id=https://identifiers.org/aop/34')
+2025-05-21 10:37:00,531 [DEBUG] py4...: ǀCalling commands_get('AOPXplorer import-as-pathway id=https://identifiers.org/aop/34', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:37:00,531 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/AOPXplorer/import-as-pathway), params: {'id': 'https://identifiers.org/aop/34'}
+2025-05-21 10:37:00,536 [DEBUG] py4...: ǀNot Found[404], content: Error: no such namespace: 'AOPXplorer'
+2025-05-21 10:37:00,536 [DEBUG] py4...: ǀ'commands_get' exception CyError("In commands_get(): Error: no such namespace: 'AOPXplorer'")
+2025-05-21 10:37:00,536 [DEBUG] py4...: 'commands_run' exception CyError("In commands_get(): Error: no such namespace: 'AOPXplorer'")
+2025-05-21 10:37:00,536 [DEBUG] py4...: --------------------
+2025-05-21 10:53:13,459 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 10:53:13,459 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:53:13,459 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:53:13,459 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 10:53:13,523 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 10:53:13,523 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 10:53:13,531 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 10:53:13,531 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 10:53:13,531 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 10:53:13,531 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 10:53:13,532 [DEBUG] py4...: --------------------
+2025-05-21 10:53:13,532 [DEBUG] py4...: Calling commands_run('aopxplorer import-as-pathway id=https://identifiers.org/aop/34')
+2025-05-21 10:53:13,532 [DEBUG] py4...: ǀCalling commands_get('aopxplorer import-as-pathway id=https://identifiers.org/aop/34', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:53:13,532 [DEBUG] py4...: ǀHTTP GET(http://127.0.0.1:1234/v1/commands/aopxplorer/import-as-pathway), params: {'id': 'https://identifiers.org/aop/34'}
+2025-05-21 10:53:13,547 [DEBUG] py4...: ǀNot Found[404], content: Error: no such namespace: 'aopxplorer'
+2025-05-21 10:53:13,547 [DEBUG] py4...: ǀ'commands_get' exception CyError("In commands_get(): Error: no such namespace: 'aopxplorer'")
+2025-05-21 10:53:13,547 [DEBUG] py4...: 'commands_run' exception CyError("In commands_get(): Error: no such namespace: 'aopxplorer'")
+2025-05-21 10:53:13,547 [DEBUG] py4...: --------------------
+2025-05-21 10:53:53,597 [DEBUG] py4...: Calling commands_help('aopxplorer')
+2025-05-21 10:53:53,598 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 10:53:53,607 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 10:53:53,607 [DEBUG] py4...: HTTP GET(http://127.0.0.1:1234/v1/commands/aopxplorer)
+2025-05-21 10:53:53,642 [DEBUG] py4...: Not Found[404], content: HTTP ERROR 404 Not Found
+URI: /v1/commands/aopxplorer
+STATUS: 404
+MESSAGE: Not Found
+SERVLET: org.ops4j.pax.web.service.spi.model.ServletModel-5
+
+2025-05-21 10:53:53,642 [DEBUG] py4...: 'commands_help' exception CyError('In commands_help(): HTTP ERROR 404 Not Found\nURI: /v1/commands/aopxplorer\nSTATUS: 404\nMESSAGE: Not Found\nSERVLET: org.ops4j.pax.web.service.spi.model.ServletModel-5\n')
+2025-05-21 10:53:53,642 [DEBUG] py4...: --------------------
+2025-05-21 10:55:02,388 [DEBUG] py4...: Calling get_app_status('aopxplorer')
+2025-05-21 10:55:02,388 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:55:02,388 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:55:02,388 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 10:55:02,396 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 10:55:02,396 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 10:55:02,396 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 10:55:02,396 [DEBUG] py4...: ǀCalling commands_post('apps status app="aopxplorer"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 10:55:02,397 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/apps/status), json: {'app': 'aopxplorer'}
+2025-05-21 10:55:02,413 [DEBUG] py4...: ǀOK[200], content: {
+ "data": {"appName": "aopxplorer", "status": "Installed" },
+ "errors":[]
+}
+2025-05-21 10:55:02,413 [DEBUG] py4...: ǀReturning 'commands_post': {'appName': 'aopxplorer', 'status': 'Installed'}
+2025-05-21 10:55:02,413 [DEBUG] py4...: Returning 'get_app_status': {'appName': 'aopxplorer', 'status': 'Installed'}
+2025-05-21 10:55:02,413 [DEBUG] py4...: --------------------
+2025-05-21 10:55:02,413 [DEBUG] py4...: Calling commands_help()
+2025-05-21 10:55:02,413 [DEBUG] py4...: HTTP GET(http://127.0.0.1:1234/v1/commands/)
+2025-05-21 10:55:02,419 [DEBUG] py4...: OK[200], content: Available namespaces:
+  analyzer
+  annotation
+  apps
+  command
+  cybrowser
+  cychart
+  diffusion
+  edge
+  enhancedGraphics
+  enrichment
+  filetransfer
+  filter
+  gpml
+  group
+  idmapper
+  layout
+  mapSourceAndTarget
+  network
+  node
+  session
+  table
+  view
+  vizmap
+  wikipathways
+
+2025-05-21 10:55:02,419 [DEBUG] py4...: Returning 'commands_help': ['analyzer', 'annotation', 'apps', 'command', 'cybrowser', 'cychart', 'diffusion', 'edge', 'enhancedGraphics', 'enrichment', 'filetransfer', 'filter', 'gpml', 'group', 'idmapper', 'layout', 'mapSourceAndTarget', 'network', 'node', 'session', 'table', 'view', 'vizmap', 'wikipathways']
+2025-05-21 10:55:02,419 [DEBUG] py4...: --------------------
+2025-05-21 11:04:23,031 [DEBUG] py4...: Calling get_app_status('aopxplorer')
+2025-05-21 11:04:23,032 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:04:23,032 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:04:23,032 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 11:04:23,039 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 11:04:23,039 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 11:04:23,039 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 11:04:23,039 [DEBUG] py4...: ǀCalling commands_post('apps status app="aopxplorer"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:04:23,039 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/apps/status), json: {'app': 'aopxplorer'}
+2025-05-21 11:04:23,054 [DEBUG] py4...: ǀOK[200], content: {
+ "data": {"appName": "aopxplorer", "status": "Installed" },
+ "errors":[]
+}
+2025-05-21 11:04:23,055 [DEBUG] py4...: ǀReturning 'commands_post': {'appName': 'aopxplorer', 'status': 'Installed'}
+2025-05-21 11:04:23,055 [DEBUG] py4...: Returning 'get_app_status': {'appName': 'aopxplorer', 'status': 'Installed'}
+2025-05-21 11:04:23,055 [DEBUG] py4...: --------------------
+2025-05-21 11:04:23,055 [DEBUG] py4...: Calling commands_help()
+2025-05-21 11:04:23,055 [DEBUG] py4...: HTTP GET(http://127.0.0.1:1234/v1/commands/)
+2025-05-21 11:04:23,068 [DEBUG] py4...: OK[200], content: Available namespaces:
+  analyzer
+  annotation
+  apps
+  command
+  cybrowser
+  cychart
+  diffusion
+  edge
+  enhancedGraphics
+  enrichment
+  filetransfer
+  filter
+  gpml
+  group
+  idmapper
+  layout
+  mapSourceAndTarget
+  network
+  node
+  session
+  table
+  view
+  vizmap
+  wikipathways
+
+2025-05-21 11:04:23,068 [DEBUG] py4...: Returning 'commands_help': ['analyzer', 'annotation', 'apps', 'command', 'cybrowser', 'cychart', 'diffusion', 'edge', 'enhancedGraphics', 'enrichment', 'filetransfer', 'filter', 'gpml', 'group', 'idmapper', 'layout', 'mapSourceAndTarget', 'network', 'node', 'session', 'table', 'view', 'vizmap', 'wikipathways']
+2025-05-21 11:04:23,068 [DEBUG] py4...: --------------------
+2025-05-21 11:16:35,348 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 11:16:35,348 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:16:35,348 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:16:35,348 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 11:16:35,355 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 11:16:35,356 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 11:16:35,363 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 11:16:35,363 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 11:16:35,363 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 11:16:35,363 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 11:16:35,363 [DEBUG] py4...: --------------------
+2025-05-21 11:26:29,278 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 11:26:29,278 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:26:29,278 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:26:29,278 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 11:26:29,285 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 11:26:29,285 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 11:26:29,290 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 11:26:29,291 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 11:26:29,291 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 11:26:29,291 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 11:26:29,291 [DEBUG] py4...: --------------------
+2025-05-21 11:26:29,957 [DEBUG] py4...: Calling import_network_from_file('/tmp/tmpieg6pl4z.graphml')
+2025-05-21 11:26:29,957 [DEBUG] py4...: ǀCalling commands_post('network load file file="/tmp/tmpieg6pl4z.graphml"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:26:29,957 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/load%20file), json: {'file': '/tmp/tmpieg6pl4z.graphml'}
+2025-05-21 11:26:29,976 [DEBUG] py4...: ǀInternal Server Error[500], content: {
+ "data": {},
+ "errors":[{"status":500,"type":"urn:cytoscape:ci:cyrest-core:v1:handle-json-command:errors:2","message":"Don\u0027t know how to read file:/tmp/tmpieg6pl4z.graphml","link":"file:/home/john/CytoscapeConfiguration/3/framework-cytoscape.log"}]
+}
+2025-05-21 11:26:29,976 [DEBUG] py4...: ǀ'commands_post' exception CyError("In commands_post(): Don't know how to read file:/tmp/tmpieg6pl4z.graphml")
+2025-05-21 11:26:29,976 [DEBUG] py4...: 'import_network_from_file' exception CyError("In commands_post(): Don't know how to read file:/tmp/tmpieg6pl4z.graphml")
+2025-05-21 11:26:29,976 [DEBUG] py4...: --------------------
+2025-05-21 11:28:16,753 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 11:28:16,753 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:28:16,753 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:28:16,753 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 11:28:16,759 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 11:28:16,759 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 11:28:16,766 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 11:28:16,766 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 11:28:16,766 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 11:28:16,767 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 11:28:16,767 [DEBUG] py4...: --------------------
+2025-05-21 11:28:30,130 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 11:28:30,130 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:28:30,130 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:28:30,130 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 11:28:30,136 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 11:28:30,136 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 11:28:30,144 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 11:28:30,144 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 11:28:30,144 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 11:28:30,145 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 11:28:30,145 [DEBUG] py4...: --------------------
+2025-05-21 11:28:30,689 [DEBUG] py4...: Calling import_network_from_file('/tmp/tmpiugk0dpv.graphml')
+2025-05-21 11:28:30,689 [DEBUG] py4...: ǀCalling commands_post('network load file file="/tmp/tmpiugk0dpv.graphml"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:28:30,689 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/load%20file), json: {'file': '/tmp/tmpiugk0dpv.graphml'}
+2025-05-21 11:28:30,702 [DEBUG] py4...: ǀInternal Server Error[500], content: {
+ "data": {},
+ "errors":[{"status":500,"type":"urn:cytoscape:ci:cyrest-core:v1:handle-json-command:errors:2","message":"Don\u0027t know how to read file:/tmp/tmpiugk0dpv.graphml","link":"file:/home/john/CytoscapeConfiguration/3/framework-cytoscape.log"}]
+}
+2025-05-21 11:28:30,702 [DEBUG] py4...: ǀ'commands_post' exception CyError("In commands_post(): Don't know how to read file:/tmp/tmpiugk0dpv.graphml")
+2025-05-21 11:28:30,702 [DEBUG] py4...: 'import_network_from_file' exception CyError("In commands_post(): Don't know how to read file:/tmp/tmpiugk0dpv.graphml")
+2025-05-21 11:28:30,703 [DEBUG] py4...: --------------------
+2025-05-21 11:51:26,774 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 11:51:26,774 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:51:26,774 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:51:26,774 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 11:51:26,780 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 11:51:26,780 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 11:51:26,786 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 11:51:26,786 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 11:51:26,787 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 11:51:26,787 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 11:51:26,787 [DEBUG] py4...: --------------------
+2025-05-21 11:51:49,328 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 11:51:49,328 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:51:49,328 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 11:51:49,328 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 11:51:49,333 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 11:51:49,333 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 11:51:49,339 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 11:51:49,339 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 11:51:49,339 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 11:51:49,340 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 11:51:49,340 [DEBUG] py4...: --------------------
+2025-05-21 12:03:09,273 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 12:03:09,273 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:03:09,273 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:03:09,273 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 12:03:09,280 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 12:03:09,280 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 12:03:09,284 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 12:03:09,285 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 12:03:09,285 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 12:03:09,285 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 12:03:09,285 [DEBUG] py4...: --------------------
+2025-05-21 12:03:18,316 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 12:03:18,316 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:03:18,316 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:03:18,316 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 12:03:18,321 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 12:03:18,321 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 12:03:18,325 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 12:03:18,325 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 12:03:18,325 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 12:03:18,326 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 12:03:18,326 [DEBUG] py4...: --------------------
+2025-05-21 12:07:52,094 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 12:07:52,094 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:07:52,094 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:07:52,094 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 12:07:52,100 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 12:07:52,100 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 12:07:52,105 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 12:07:52,105 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 12:07:52,105 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 12:07:52,106 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 12:07:52,106 [DEBUG] py4...: --------------------
+2025-05-21 12:16:35,832 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 12:16:35,832 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:16:35,832 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:16:35,832 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 12:16:35,838 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 12:16:35,838 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 12:16:35,843 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 12:16:35,844 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 12:16:35,844 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 12:16:35,844 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 12:16:35,844 [DEBUG] py4...: --------------------
+2025-05-21 12:17:58,725 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 12:17:58,725 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:17:58,726 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:17:58,726 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 12:17:58,732 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 12:17:58,732 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 12:17:58,736 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 12:17:58,736 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 12:17:58,736 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 12:17:58,737 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 12:17:58,737 [DEBUG] py4...: --------------------
+2025-05-21 12:22:04,098 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 12:22:04,098 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:22:04,098 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:22:04,098 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 12:22:04,104 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 12:22:04,104 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 12:22:04,109 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 12:22:04,110 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 12:22:04,110 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 12:22:04,110 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 12:22:04,110 [DEBUG] py4...: --------------------
+2025-05-21 12:22:19,582 [DEBUG] py4...: Calling import_network_from_file('/tmp/tmpm64645j5.graphml', collection='AOP-Wiki')
+2025-05-21 12:22:19,583 [DEBUG] py4...: 'import_network_from_file' exception TypeError("import_network_from_file() got an unexpected keyword argument 'collection'")
+2025-05-21 12:22:19,583 [DEBUG] py4...: --------------------
+2025-05-21 12:23:57,030 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 12:23:57,030 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:23:57,030 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:23:57,030 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 12:23:57,035 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 12:23:57,035 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 12:23:57,040 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 12:23:57,040 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 12:23:57,040 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 12:23:57,041 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 12:23:57,041 [DEBUG] py4...: --------------------
+2025-05-21 12:24:07,717 [DEBUG] py4...: Calling import_network_from_file('/tmp/tmptqf_a84b.graphml')
+2025-05-21 12:24:07,717 [DEBUG] py4...: ǀCalling commands_post('network load file file="/tmp/tmptqf_a84b.graphml"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:07,718 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/load%20file), json: {'file': '/tmp/tmptqf_a84b.graphml'}
+2025-05-21 12:24:07,750 [DEBUG] py4...: ǀOK[200], content: {
+ "data": { "networks":[
+  880
+], "views":[
+  910
+]},
+ "errors":[]
+}
+2025-05-21 12:24:07,750 [DEBUG] py4...: ǀReturning 'commands_post': {'networks': [880], 'views': [910]}
+2025-05-21 12:24:11,768 [DEBUG] py4...: Returning 'import_network_from_file': {'networks': [880], 'views': [910]}
+2025-05-21 12:24:11,768 [DEBUG] py4...: --------------------
+2025-05-21 12:24:11,798 [DEBUG] py4...: Calling load_table_data(      name  property
+0   KE 115  0.405013
+1   KE 116  0.358226
+2   KE 167  0.410480
+3   KE 177  0.386651
+4   KE 228  0.405650
+5   KE 258  0.410514
+6   KE 264  0.410514
+7   KE 291  0.358226
+8   KE 345  0.358226
+9    KE 54  0.410514
+10   KE 66  0.358226
+11   KE 89  0.385816, data_key_column='name', table='node', table_key_column='name')
+2025-05-21 12:24:11,799 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:11,799 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:11,799 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-21 12:24:11,836 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 880
+}
+],
+ "errors":[]
+}
+2025-05-21 12:24:11,836 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 880}]
+2025-05-21 12:24:11,836 [DEBUG] py4...: ǀReturning 'get_network_suid': 880
+2025-05-21 12:24:11,836 [DEBUG] py4...: ǀCalling get_table_columns(table='node', namespace='default', columns='name', network=880, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:11,836 [DEBUG] py4...: ǀǀCalling get_network_suid(880, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:11,836 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:11,836 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-21 12:24:11,843 [DEBUG] py4...: ǀǀǀOK[200], content: [880,641]
+2025-05-21 12:24:11,843 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [880, 641]
+2025-05-21 12:24:11,843 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 880
+2025-05-21 12:24:11,843 [DEBUG] py4...: ǀǀCalling get_table_column_types('node', namespace='default', network=880, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:11,843 [DEBUG] py4...: ǀǀǀCalling get_network_suid(880, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:11,843 [DEBUG] py4...: ǀǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:11,843 [DEBUG] py4...: ǀǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-21 12:24:11,847 [DEBUG] py4...: ǀǀǀǀOK[200], content: [880,641]
+2025-05-21 12:24:11,847 [DEBUG] py4...: ǀǀǀǀReturning 'cyrest_get': [880, 641]
+2025-05-21 12:24:11,847 [DEBUG] py4...: ǀǀǀReturning 'get_network_suid': 880
+2025-05-21 12:24:11,847 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks/880/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:11,847 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/880/tables/defaultnode/columns)
+2025-05-21 12:24:11,853 [DEBUG] py4...: ǀǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false}]
+2025-05-21 12:24:11,854 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}]
+2025-05-21 12:24:11,854 [DEBUG] py4...: ǀǀReturning 'get_table_column_types': {'SUID': 'Long', 'shared name': 'String', 'name': 'String', 'selected': 'Boolean'}
+2025-05-21 12:24:11,854 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/880/tables/defaultnode/columns/SUID', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:11,854 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/880/tables/defaultnode/columns/SUID)
+2025-05-21 12:24:11,859 [DEBUG] py4...: ǀǀOK[200], content: {"name":"SUID","values":[]}
+2025-05-21 12:24:11,860 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'SUID', 'values': []}
+2025-05-21 12:24:11,862 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/880/tables/defaultnode/columns/name', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 12:24:11,862 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/880/tables/defaultnode/columns/name)
+2025-05-21 12:24:11,871 [DEBUG] py4...: ǀǀOK[200], content: {"name":"name","values":[]}
+2025-05-21 12:24:11,871 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'name', 'values': []}
+2025-05-21 12:24:11,872 [DEBUG] py4...: ǀReturning 'get_table_columns': Empty DataFrame
+Columns: [name]
+Index: []
+2025-05-21 12:24:11,873 [DEBUG] py4...: Pandas: 2.2.3
+2025-05-21 12:24:11,873 [DEBUG] py4...: Python: 3.10.12 (main, Feb  4 2025, 14:57:36) [GCC 11.4.0]
+2025-05-21 12:24:11,873 [DEBUG] py4...: data_key_column: name
+2025-05-21 12:24:11,873 [DEBUG] py4...: table_key_column: name
+2025-05-21 12:24:11,877 [DEBUG] py4...: data:       name  property
+0   KE 115  0.405013
+1   KE 116  0.358226
+2   KE 167  0.410480
+3   KE 177  0.386651
+4   KE 228  0.405650
+5   KE 258  0.410514
+6   KE 264  0.410514
+7   KE 291  0.358226
+8   KE 345  0.358226
+9    KE 54  0.410514
+10   KE 66  0.358226
+11   KE 89  0.385816
+2025-05-21 12:24:11,877 [DEBUG] py4...: type(data[data_key_column]): <class 'pandas.core.series.Series'>
+2025-05-21 12:24:11,878 [DEBUG] py4...: data[data_key_column]: 0     KE 115
+1     KE 116
+2     KE 167
+3     KE 177
+4     KE 228
+5     KE 258
+6     KE 264
+7     KE 291
+8     KE 345
+9      KE 54
+10     KE 66
+11     KE 89
+Name: name, dtype: object
+2025-05-21 12:24:11,878 [DEBUG] py4...: table_key_column_values: Empty DataFrame
+Columns: [name]
+Index: []
+2025-05-21 12:24:11,878 [DEBUG] py4...: type(table_key_column_values[table_key_column]): <class 'pandas.core.series.Series'>
+2025-05-21 12:24:11,878 [DEBUG] py4...: table_key_column_values[table_key_column]: Series([], Name: name, dtype: float64)
+2025-05-21 12:24:11,879 [DEBUG] py4...: data_subset: Empty DataFrame
+Columns: [name, property]
+Index: []
+2025-05-21 12:24:11,879 [DEBUG] py4...: 'load_table_data' exception CyError('In load_table_data(): Provided table key column "name" and data key column "name" do not contain any matches')
+2025-05-21 12:24:11,879 [DEBUG] py4...: --------------------
+2025-05-21 13:27:25,026 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 13:27:25,026 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:25,026 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:25,026 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 13:27:25,032 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 13:27:25,032 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 13:27:25,037 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 13:27:25,038 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 13:27:25,038 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 13:27:25,038 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 13:27:25,038 [DEBUG] py4...: --------------------
+2025-05-21 13:27:43,228 [DEBUG] py4...: Calling import_network_from_file('/tmp/tmptww0xe73.graphml')
+2025-05-21 13:27:43,228 [DEBUG] py4...: ǀCalling commands_post('network load file file="/tmp/tmptww0xe73.graphml"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:43,229 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/load%20file), json: {'file': '/tmp/tmptww0xe73.graphml'}
+2025-05-21 13:27:43,294 [DEBUG] py4...: ǀOK[200], content: {
+ "data": { "networks":[
+  931
+], "views":[
+  1001
+]},
+ "errors":[]
+}
+2025-05-21 13:27:43,294 [DEBUG] py4...: ǀReturning 'commands_post': {'networks': [931], 'views': [1001]}
+2025-05-21 13:27:47,314 [DEBUG] py4...: Returning 'import_network_from_file': {'networks': [931], 'views': [1001]}
+2025-05-21 13:27:47,314 [DEBUG] py4...: --------------------
+2025-05-21 13:27:47,340 [DEBUG] py4...: Calling load_table_data(      name  property
+0   KE 115  0.405013
+1   KE 116  0.358226
+2   KE 167  0.410480
+3   KE 177  0.386651
+4   KE 228  0.405650
+5   KE 258  0.410514
+6   KE 264  0.410514
+7   KE 291  0.358226
+8   KE 345  0.358226
+9    KE 54  0.410514
+10   KE 66  0.358226
+11   KE 89  0.385816, data_key_column='name', table='node', table_key_column='name')
+2025-05-21 13:27:47,341 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:47,341 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:47,341 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-21 13:27:47,364 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 931
+}
+],
+ "errors":[]
+}
+2025-05-21 13:27:47,364 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 931}]
+2025-05-21 13:27:47,364 [DEBUG] py4...: ǀReturning 'get_network_suid': 931
+2025-05-21 13:27:47,364 [DEBUG] py4...: ǀCalling get_table_columns(table='node', namespace='default', columns='name', network=931, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:47,364 [DEBUG] py4...: ǀǀCalling get_network_suid(931, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:47,364 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:47,365 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-21 13:27:47,371 [DEBUG] py4...: ǀǀǀOK[200], content: [880,641,931]
+2025-05-21 13:27:47,371 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [880, 641, 931]
+2025-05-21 13:27:47,371 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 931
+2025-05-21 13:27:47,371 [DEBUG] py4...: ǀǀCalling get_table_column_types('node', namespace='default', network=931, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:47,371 [DEBUG] py4...: ǀǀǀCalling get_network_suid(931, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:47,371 [DEBUG] py4...: ǀǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:47,371 [DEBUG] py4...: ǀǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-21 13:27:47,376 [DEBUG] py4...: ǀǀǀǀOK[200], content: [880,641,931]
+2025-05-21 13:27:47,376 [DEBUG] py4...: ǀǀǀǀReturning 'cyrest_get': [880, 641, 931]
+2025-05-21 13:27:47,376 [DEBUG] py4...: ǀǀǀReturning 'get_network_suid': 931
+2025-05-21 13:27:47,376 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks/931/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:47,376 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/931/tables/defaultnode/columns)
+2025-05-21 13:27:47,382 [DEBUG] py4...: ǀǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"NumChildren","type":"Integer","immutable":true,"primaryKey":false},{"name":"__ViewSettings","type":"List","listType":"String","immutable":false,"primaryKey":false},{"name":"__AggregationSettings","type":"List","listType":"String","immutable":false,"primaryKey":false},{"name":"__AggregationOverrideSettings","type":"List","listType":"String","immutable":false,"primaryKey":false},{"name":"NumDescendents","type":"Integer","immutable":true,"primaryKey":false}]
+2025-05-21 13:27:47,383 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'NumChildren', 'type': 'Integer', 'immutable': True, 'primaryKey': False}, {'name': '__ViewSettings', 'type': 'List', 'listType': 'String', 'immutable': False, 'primaryKey': False}, {'name': '__AggregationSettings', 'type': 'List', 'listType': 'String', 'immutable': False, 'primaryKey': False}, {'name': '__AggregationOverrideSettings', 'type': 'List', 'listType': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'NumDescendents', 'type': 'Integer', 'immutable': True, 'primaryKey': False}]
+2025-05-21 13:27:47,383 [DEBUG] py4...: ǀǀReturning 'get_table_column_types': {'SUID': 'Long', 'shared name': 'String', 'name': 'String', 'selected': 'Boolean', 'NumChildren': 'Integer', '__ViewSettings': 'List', '__AggregationSettings': 'List', '__AggregationOverrideSettings': 'List', 'NumDescendents': 'Integer'}
+2025-05-21 13:27:47,383 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/931/tables/defaultnode/columns/SUID', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:47,383 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/931/tables/defaultnode/columns/SUID)
+2025-05-21 13:27:47,389 [DEBUG] py4...: ǀǀOK[200], content: {"name":"SUID","values":[959]}
+2025-05-21 13:27:47,389 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'SUID', 'values': [959]}
+2025-05-21 13:27:47,390 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/931/tables/defaultnode/columns/name', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:27:47,390 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/931/tables/defaultnode/columns/name)
+2025-05-21 13:27:47,396 [DEBUG] py4...: ǀǀOK[200], content: {"name":"name","values":["tmptqf_a84b.graphml"]}
+2025-05-21 13:27:47,397 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'name', 'values': ['tmptqf_a84b.graphml']}
+2025-05-21 13:27:47,407 [DEBUG] py4...: ǀReturning 'get_table_columns':                     name
+959  tmptqf_a84b.graphml
+2025-05-21 13:27:47,409 [DEBUG] py4...: Pandas: 2.2.3
+2025-05-21 13:27:47,409 [DEBUG] py4...: Python: 3.10.12 (main, Feb  4 2025, 14:57:36) [GCC 11.4.0]
+2025-05-21 13:27:47,409 [DEBUG] py4...: data_key_column: name
+2025-05-21 13:27:47,409 [DEBUG] py4...: table_key_column: name
+2025-05-21 13:27:47,416 [DEBUG] py4...: data:       name  property
+0   KE 115  0.405013
+1   KE 116  0.358226
+2   KE 167  0.410480
+3   KE 177  0.386651
+4   KE 228  0.405650
+5   KE 258  0.410514
+6   KE 264  0.410514
+7   KE 291  0.358226
+8   KE 345  0.358226
+9    KE 54  0.410514
+10   KE 66  0.358226
+11   KE 89  0.385816
+2025-05-21 13:27:47,417 [DEBUG] py4...: type(data[data_key_column]): <class 'pandas.core.series.Series'>
+2025-05-21 13:27:47,418 [DEBUG] py4...: data[data_key_column]: 0     KE 115
+1     KE 116
+2     KE 167
+3     KE 177
+4     KE 228
+5     KE 258
+6     KE 264
+7     KE 291
+8     KE 345
+9      KE 54
+10     KE 66
+11     KE 89
+Name: name, dtype: object
+2025-05-21 13:27:47,422 [DEBUG] py4...: table_key_column_values:                     name
+959  tmptqf_a84b.graphml
+2025-05-21 13:27:47,422 [DEBUG] py4...: type(table_key_column_values[table_key_column]): <class 'pandas.core.series.Series'>
+2025-05-21 13:27:47,422 [DEBUG] py4...: table_key_column_values[table_key_column]: 959    tmptqf_a84b.graphml
+Name: name, dtype: object
+2025-05-21 13:27:47,423 [DEBUG] py4...: data_subset: Empty DataFrame
+Columns: [name, property]
+Index: []
+2025-05-21 13:27:47,424 [DEBUG] py4...: 'load_table_data' exception CyError('In load_table_data(): Provided table key column "name" and data key column "name" do not contain any matches')
+2025-05-21 13:27:47,424 [DEBUG] py4...: --------------------
+2025-05-21 13:35:46,694 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 13:35:46,694 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:35:46,694 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:35:46,694 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 13:35:46,700 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 13:35:46,700 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 13:35:46,704 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 13:35:46,705 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 13:35:46,705 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 13:35:46,705 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 13:35:46,705 [DEBUG] py4...: --------------------
+2025-05-21 13:36:04,613 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 13:36:04,613 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:36:04,614 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:36:04,614 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 13:36:04,618 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 13:36:04,618 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 13:36:04,623 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 13:36:04,623 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 13:36:04,623 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 13:36:04,623 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 13:36:04,624 [DEBUG] py4...: --------------------
+2025-05-21 13:36:46,045 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 13:36:46,045 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:36:46,045 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:36:46,045 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 13:36:46,050 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 13:36:46,051 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 13:36:46,054 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 13:36:46,055 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 13:36:46,055 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 13:36:46,055 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 13:36:46,055 [DEBUG] py4...: --------------------
+2025-05-21 13:37:08,845 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 13:37:08,845 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:37:08,845 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:37:08,845 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 13:37:08,849 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 13:37:08,850 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 13:37:08,854 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 13:37:08,855 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 13:37:08,855 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 13:37:08,855 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 13:37:08,855 [DEBUG] py4...: --------------------
+2025-05-21 13:37:45,023 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 13:37:45,023 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:37:45,023 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:37:45,023 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 13:37:45,027 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 13:37:45,028 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 13:37:45,032 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 13:37:45,032 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 13:37:45,032 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 13:37:45,033 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 13:37:45,033 [DEBUG] py4...: --------------------
+2025-05-21 13:43:19,714 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 13:43:19,714 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:43:19,714 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:43:19,714 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 13:43:19,720 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 13:43:19,720 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 13:43:19,726 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 13:43:19,726 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 13:43:19,726 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 13:43:19,727 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 13:43:19,727 [DEBUG] py4...: --------------------
+2025-05-21 13:44:05,371 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 13:44:05,371 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:05,371 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:05,371 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 13:44:05,376 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 13:44:05,377 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 13:44:05,380 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 13:44:05,381 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 13:44:05,381 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 13:44:05,381 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 13:44:05,381 [DEBUG] py4...: --------------------
+2025-05-21 13:44:07,504 [DEBUG] py4...: Calling import_network_from_file('/tmp/tmpr4a5rao8.graphml')
+2025-05-21 13:44:07,505 [DEBUG] py4...: ǀCalling commands_post('network load file file="/tmp/tmpr4a5rao8.graphml"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:07,505 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/load%20file), json: {'file': '/tmp/tmpr4a5rao8.graphml'}
+2025-05-21 13:44:07,559 [DEBUG] py4...: ǀOK[200], content: {
+ "data": { "networks":[
+  1054
+], "views":[
+  1248
+]},
+ "errors":[]
+}
+2025-05-21 13:44:07,560 [DEBUG] py4...: ǀReturning 'commands_post': {'networks': [1054], 'views': [1248]}
+2025-05-21 13:44:11,580 [DEBUG] py4...: Returning 'import_network_from_file': {'networks': [1054], 'views': [1248]}
+2025-05-21 13:44:11,580 [DEBUG] py4...: --------------------
+2025-05-21 13:44:11,596 [DEBUG] py4...: Calling load_table_data(      name  property
+0   KE 115  0.405013
+1   KE 116  0.358226
+2   KE 167  0.410480
+3   KE 177  0.386651
+4   KE 228  0.405650
+5   KE 258  0.410514
+6   KE 264  0.410514
+7   KE 291  0.358226
+8   KE 345  0.358226
+9    KE 54  0.410514
+10   KE 66  0.358226
+11   KE 89  0.385816, data_key_column='name', table='node', table_key_column='name')
+2025-05-21 13:44:11,596 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:11,596 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:11,596 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-21 13:44:11,609 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 1054
+}
+],
+ "errors":[]
+}
+2025-05-21 13:44:11,611 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 1054}]
+2025-05-21 13:44:11,611 [DEBUG] py4...: ǀReturning 'get_network_suid': 1054
+2025-05-21 13:44:11,612 [DEBUG] py4...: ǀCalling get_table_columns(table='node', namespace='default', columns='name', network=1054, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:11,612 [DEBUG] py4...: ǀǀCalling get_network_suid(1054, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:11,612 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:11,612 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-21 13:44:11,629 [DEBUG] py4...: ǀǀǀOK[200], content: [880,641,931,1054]
+2025-05-21 13:44:11,629 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [880, 641, 931, 1054]
+2025-05-21 13:44:11,629 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 1054
+2025-05-21 13:44:11,629 [DEBUG] py4...: ǀǀCalling get_table_column_types('node', namespace='default', network=1054, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:11,630 [DEBUG] py4...: ǀǀǀCalling get_network_suid(1054, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:11,630 [DEBUG] py4...: ǀǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:11,630 [DEBUG] py4...: ǀǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-21 13:44:11,635 [DEBUG] py4...: ǀǀǀǀOK[200], content: [880,641,931,1054]
+2025-05-21 13:44:11,635 [DEBUG] py4...: ǀǀǀǀReturning 'cyrest_get': [880, 641, 931, 1054]
+2025-05-21 13:44:11,635 [DEBUG] py4...: ǀǀǀReturning 'get_network_suid': 1054
+2025-05-21 13:44:11,635 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks/1054/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:11,635 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/1054/tables/defaultnode/columns)
+2025-05-21 13:44:11,640 [DEBUG] py4...: ǀǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"NumChildren","type":"Integer","immutable":true,"primaryKey":false},{"name":"__ViewSettings","type":"List","listType":"String","immutable":false,"primaryKey":false},{"name":"__AggregationSettings","type":"List","listType":"String","immutable":false,"primaryKey":false},{"name":"__AggregationOverrideSettings","type":"List","listType":"String","immutable":false,"primaryKey":false},{"name":"NumDescendents","type":"Integer","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"label","type":"String","immutable":false,"primaryKey":false}]
+2025-05-21 13:44:11,640 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'NumChildren', 'type': 'Integer', 'immutable': True, 'primaryKey': False}, {'name': '__ViewSettings', 'type': 'List', 'listType': 'String', 'immutable': False, 'primaryKey': False}, {'name': '__AggregationSettings', 'type': 'List', 'listType': 'String', 'immutable': False, 'primaryKey': False}, {'name': '__AggregationOverrideSettings', 'type': 'List', 'listType': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'NumDescendents', 'type': 'Integer', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'label', 'type': 'String', 'immutable': False, 'primaryKey': False}]
+2025-05-21 13:44:11,641 [DEBUG] py4...: ǀǀReturning 'get_table_column_types': {'SUID': 'Long', 'shared name': 'String', 'NumChildren': 'Integer', '__ViewSettings': 'List', '__AggregationSettings': 'List', '__AggregationOverrideSettings': 'List', 'NumDescendents': 'Integer', 'name': 'String', 'selected': 'Boolean', 'label': 'String'}
+2025-05-21 13:44:11,641 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/1054/tables/defaultnode/columns/SUID', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:11,641 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/1054/tables/defaultnode/columns/SUID)
+2025-05-21 13:44:11,645 [DEBUG] py4...: ǀǀOK[200], content: {"name":"SUID","values":[1087,1098,1101,1104,1107,1110,1113,1116,1119,1122,1125,1128,1131,1169,1208,959]}
+2025-05-21 13:44:11,645 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'SUID', 'values': [1087, 1098, 1101, 1104, 1107, 1110, 1113, 1116, 1119, 1122, 1125, 1128, 1131, 1169, 1208, 959]}
+2025-05-21 13:44:11,646 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/1054/tables/defaultnode/columns/name', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:44:11,646 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/1054/tables/defaultnode/columns/name)
+2025-05-21 13:44:11,652 [DEBUG] py4...: ǀǀOK[200], content: {"name":"name","values":["9b3f27cf-2a43-4d86-a42a-1b59313f867c","edc3a5c2-a090-4f07-9a06-5c4d7665524a","9b1cd9f5-6998-4dd6-a988-cbcfbf50b5fe","a27bc23a-ea18-406f-86a8-658b7f7bd3f9","7fdaffd7-5d84-4f4b-93de-1649261b3581","11d46b20-e430-4712-b063-34a868e6c2bf","dfc4062a-c888-407d-98c2-e89886e3df11","78530d3c-6211-40ae-9e3c-cbe55958b9d3","303381dc-2d65-4f6c-aba0-3c67df6230bc","9810923c-f640-4e77-bb82-b208d801ea05","d35dac45-8c6c-42e3-aeb7-1818f312fa40","96a23d01-89cc-449b-a1ae-568f5cdf0eba","tmptqf_a84b.graphml","tmptww0xe73.graphml",null,null]}
+2025-05-21 13:44:11,652 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'name', 'values': ['9b3f27cf-2a43-4d86-a42a-1b59313f867c', 'edc3a5c2-a090-4f07-9a06-5c4d7665524a', '9b1cd9f5-6998-4dd6-a988-cbcfbf50b5fe', 'a27bc23a-ea18-406f-86a8-658b7f7bd3f9', '7fdaffd7-5d84-4f4b-93de-1649261b3581', '11d46b20-e430-4712-b063-34a868e6c2bf', 'dfc4062a-c888-407d-98c2-e89886e3df11', '78530d3c-6211-40ae-9e3c-cbe55958b9d3', '303381dc-2d65-4f6c-aba0-3c67df6230bc', '9810923c-f640-4e77-bb82-b208d801ea05', 'd35dac45-8c6c-42e3-aeb7-1818f312fa40', '96a23d01-89cc-449b-a1ae-568f5cdf0eba', 'tmptqf_a84b.graphml', 'tmptww0xe73.graphml', None, None]}
+2025-05-21 13:44:11,664 [DEBUG] py4...: ǀReturning 'get_table_columns':                                       name
+1087  9b3f27cf-2a43-4d86-a42a-1b59313f867c
+1098  edc3a5c2-a090-4f07-9a06-5c4d7665524a
+1101  9b1cd9f5-6998-4dd6-a988-cbcfbf50b5fe
+1104  a27bc23a-ea18-406f-86a8-658b7f7bd3f9
+1107  7fdaffd7-5d84-4f4b-93de-1649261b3581
+1110  11d46b20-e430-4712-b063-34a868e6c2bf
+1113  dfc4062a-c888-407d-98c2-e89886e3df11
+1116  78530d3c-6211-40ae-9e3c-cbe55958b9d3
+1119  303381dc-2d65-4f6c-aba0-3c67df6230bc
+1122  9810923c-f640-4e77-bb82-b208d801ea05
+1125  d35dac45-8c6c-42e3-aeb7-1818f312fa40
+1128  96a23d01-89cc-449b-a1ae-568f5cdf0eba
+1131                   tmptqf_a84b.graphml
+1169                   tmptww0xe73.graphml
+1208                                  None
+959                                   None
+2025-05-21 13:44:11,666 [DEBUG] py4...: Pandas: 2.2.3
+2025-05-21 13:44:11,666 [DEBUG] py4...: Python: 3.10.12 (main, Feb  4 2025, 14:57:36) [GCC 11.4.0]
+2025-05-21 13:44:11,666 [DEBUG] py4...: data_key_column: name
+2025-05-21 13:44:11,666 [DEBUG] py4...: table_key_column: name
+2025-05-21 13:44:11,674 [DEBUG] py4...: data:       name  property
+0   KE 115  0.405013
+1   KE 116  0.358226
+2   KE 167  0.410480
+3   KE 177  0.386651
+4   KE 228  0.405650
+5   KE 258  0.410514
+6   KE 264  0.410514
+7   KE 291  0.358226
+8   KE 345  0.358226
+9    KE 54  0.410514
+10   KE 66  0.358226
+11   KE 89  0.385816
+2025-05-21 13:44:11,675 [DEBUG] py4...: type(data[data_key_column]): <class 'pandas.core.series.Series'>
+2025-05-21 13:44:11,675 [DEBUG] py4...: data[data_key_column]: 0     KE 115
+1     KE 116
+2     KE 167
+3     KE 177
+4     KE 228
+5     KE 258
+6     KE 264
+7     KE 291
+8     KE 345
+9      KE 54
+10     KE 66
+11     KE 89
+Name: name, dtype: object
+2025-05-21 13:44:11,682 [DEBUG] py4...: table_key_column_values:                                       name
+1087  9b3f27cf-2a43-4d86-a42a-1b59313f867c
+1098  edc3a5c2-a090-4f07-9a06-5c4d7665524a
+1101  9b1cd9f5-6998-4dd6-a988-cbcfbf50b5fe
+1104  a27bc23a-ea18-406f-86a8-658b7f7bd3f9
+1107  7fdaffd7-5d84-4f4b-93de-1649261b3581
+1110  11d46b20-e430-4712-b063-34a868e6c2bf
+1113  dfc4062a-c888-407d-98c2-e89886e3df11
+1116  78530d3c-6211-40ae-9e3c-cbe55958b9d3
+1119  303381dc-2d65-4f6c-aba0-3c67df6230bc
+1122  9810923c-f640-4e77-bb82-b208d801ea05
+1125  d35dac45-8c6c-42e3-aeb7-1818f312fa40
+1128  96a23d01-89cc-449b-a1ae-568f5cdf0eba
+1131                   tmptqf_a84b.graphml
+1169                   tmptww0xe73.graphml
+1208                                  None
+959                                   None
+2025-05-21 13:44:11,683 [DEBUG] py4...: type(table_key_column_values[table_key_column]): <class 'pandas.core.series.Series'>
+2025-05-21 13:44:11,684 [DEBUG] py4...: table_key_column_values[table_key_column]: 1087    9b3f27cf-2a43-4d86-a42a-1b59313f867c
+1098    edc3a5c2-a090-4f07-9a06-5c4d7665524a
+1101    9b1cd9f5-6998-4dd6-a988-cbcfbf50b5fe
+1104    a27bc23a-ea18-406f-86a8-658b7f7bd3f9
+1107    7fdaffd7-5d84-4f4b-93de-1649261b3581
+1110    11d46b20-e430-4712-b063-34a868e6c2bf
+1113    dfc4062a-c888-407d-98c2-e89886e3df11
+1116    78530d3c-6211-40ae-9e3c-cbe55958b9d3
+1119    303381dc-2d65-4f6c-aba0-3c67df6230bc
+1122    9810923c-f640-4e77-bb82-b208d801ea05
+1125    d35dac45-8c6c-42e3-aeb7-1818f312fa40
+1128    96a23d01-89cc-449b-a1ae-568f5cdf0eba
+1131                     tmptqf_a84b.graphml
+1169                     tmptww0xe73.graphml
+1208                                    None
+959                                     None
+Name: name, dtype: object
+2025-05-21 13:44:11,685 [DEBUG] py4...: data_subset: Empty DataFrame
+Columns: [name, property]
+Index: []
+2025-05-21 13:44:11,685 [DEBUG] py4...: 'load_table_data' exception CyError('In load_table_data(): Provided table key column "name" and data key column "name" do not contain any matches')
+2025-05-21 13:44:11,685 [DEBUG] py4...: --------------------
+2025-05-21 13:50:15,489 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 13:50:15,489 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:15,489 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:15,489 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 13:50:15,495 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 13:50:15,495 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 13:50:15,499 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 13:50:15,499 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 13:50:15,499 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 13:50:15,500 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 13:50:15,500 [DEBUG] py4...: --------------------
+2025-05-21 13:50:48,402 [DEBUG] py4...: Calling import_network_from_file('/tmp/tmpd6kgyx7h.graphml')
+2025-05-21 13:50:48,402 [DEBUG] py4...: ǀCalling commands_post('network load file file="/tmp/tmpd6kgyx7h.graphml"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:48,402 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/load%20file), json: {'file': '/tmp/tmpd6kgyx7h.graphml'}
+2025-05-21 13:50:48,490 [DEBUG] py4...: ǀOK[200], content: {
+ "data": { "networks":[
+  1392
+], "views":[
+  1467
+]},
+ "errors":[]
+}
+2025-05-21 13:50:48,490 [DEBUG] py4...: ǀReturning 'commands_post': {'networks': [1392], 'views': [1467]}
+2025-05-21 13:50:52,511 [DEBUG] py4...: Returning 'import_network_from_file': {'networks': [1392], 'views': [1467]}
+2025-05-21 13:50:52,511 [DEBUG] py4...: --------------------
+2025-05-21 13:50:52,527 [DEBUG] py4...: Calling load_table_data(      name  property
+0   KE 115  0.405013
+1   KE 116  0.358226
+2   KE 167  0.410480
+3   KE 177  0.386651
+4   KE 228  0.405650
+5   KE 258  0.410514
+6   KE 264  0.410514
+7   KE 291  0.358226
+8   KE 345  0.358226
+9    KE 54  0.410514
+10   KE 66  0.358226
+11   KE 89  0.385816, data_key_column='name', table='node', table_key_column='name')
+2025-05-21 13:50:52,527 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:52,527 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:52,527 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-21 13:50:52,535 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 1392
+}
+],
+ "errors":[]
+}
+2025-05-21 13:50:52,535 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 1392}]
+2025-05-21 13:50:52,535 [DEBUG] py4...: ǀReturning 'get_network_suid': 1392
+2025-05-21 13:50:52,535 [DEBUG] py4...: ǀCalling get_table_columns(table='node', namespace='default', columns='name', network=1392, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:52,535 [DEBUG] py4...: ǀǀCalling get_network_suid(1392, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:52,535 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:52,536 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-21 13:50:52,541 [DEBUG] py4...: ǀǀǀOK[200], content: [1392]
+2025-05-21 13:50:52,542 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [1392]
+2025-05-21 13:50:52,542 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 1392
+2025-05-21 13:50:52,542 [DEBUG] py4...: ǀǀCalling get_table_column_types('node', namespace='default', network=1392, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:52,542 [DEBUG] py4...: ǀǀǀCalling get_network_suid(1392, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:52,542 [DEBUG] py4...: ǀǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:52,542 [DEBUG] py4...: ǀǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-21 13:50:52,555 [DEBUG] py4...: ǀǀǀǀOK[200], content: [1392]
+2025-05-21 13:50:52,555 [DEBUG] py4...: ǀǀǀǀReturning 'cyrest_get': [1392]
+2025-05-21 13:50:52,556 [DEBUG] py4...: ǀǀǀReturning 'get_network_suid': 1392
+2025-05-21 13:50:52,556 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks/1392/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:52,556 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/1392/tables/defaultnode/columns)
+2025-05-21 13:50:52,563 [DEBUG] py4...: ǀǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"label","type":"String","immutable":false,"primaryKey":false}]
+2025-05-21 13:50:52,563 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'label', 'type': 'String', 'immutable': False, 'primaryKey': False}]
+2025-05-21 13:50:52,563 [DEBUG] py4...: ǀǀReturning 'get_table_column_types': {'SUID': 'Long', 'shared name': 'String', 'name': 'String', 'selected': 'Boolean', 'label': 'String'}
+2025-05-21 13:50:52,563 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/1392/tables/defaultnode/columns/SUID', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:52,563 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/1392/tables/defaultnode/columns/SUID)
+2025-05-21 13:50:52,568 [DEBUG] py4...: ǀǀOK[200], content: {"name":"SUID","values":[1420,1426,1429,1432,1435,1438,1441,1444,1447,1450,1453,1456]}
+2025-05-21 13:50:52,568 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'SUID', 'values': [1420, 1426, 1429, 1432, 1435, 1438, 1441, 1444, 1447, 1450, 1453, 1456]}
+2025-05-21 13:50:52,569 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/1392/tables/defaultnode/columns/name', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 13:50:52,569 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/1392/tables/defaultnode/columns/name)
+2025-05-21 13:50:52,574 [DEBUG] py4...: ǀǀOK[200], content: {"name":"name","values":["af046281-5267-4480-961d-37f2b2159c65","fcf51990-4746-4b18-9141-316308e6b1ec","9b317dd5-4eda-4f0d-93a3-9cb126ccbcc6","1ced7df4-8361-41da-980d-5a7d3ce36807","cdb8c364-a2cc-4f69-84bb-adac4c524778","b3c340a1-1018-4a65-8e95-888f8dd38986","4cbfffb2-1a68-4dc1-80fa-56e67622eee2","15bb8b88-d452-4c39-9389-53b507d3fb4a","fd15c45e-28b3-4641-be18-c5ca24153384","f8b039fa-a369-4116-89fe-f96094bfd56c","f50cece0-1939-44cb-8111-35024de68c14","3b3e4efe-0262-49f9-9fd1-211b32b93cef"]}
+2025-05-21 13:50:52,574 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'name', 'values': ['af046281-5267-4480-961d-37f2b2159c65', 'fcf51990-4746-4b18-9141-316308e6b1ec', '9b317dd5-4eda-4f0d-93a3-9cb126ccbcc6', '1ced7df4-8361-41da-980d-5a7d3ce36807', 'cdb8c364-a2cc-4f69-84bb-adac4c524778', 'b3c340a1-1018-4a65-8e95-888f8dd38986', '4cbfffb2-1a68-4dc1-80fa-56e67622eee2', '15bb8b88-d452-4c39-9389-53b507d3fb4a', 'fd15c45e-28b3-4641-be18-c5ca24153384', 'f8b039fa-a369-4116-89fe-f96094bfd56c', 'f50cece0-1939-44cb-8111-35024de68c14', '3b3e4efe-0262-49f9-9fd1-211b32b93cef']}
+2025-05-21 13:50:52,577 [DEBUG] py4...: ǀReturning 'get_table_columns':                                       name
+1420  af046281-5267-4480-961d-37f2b2159c65
+1426  fcf51990-4746-4b18-9141-316308e6b1ec
+1429  9b317dd5-4eda-4f0d-93a3-9cb126ccbcc6
+1432  1ced7df4-8361-41da-980d-5a7d3ce36807
+1435  cdb8c364-a2cc-4f69-84bb-adac4c524778
+1438  b3c340a1-1018-4a65-8e95-888f8dd38986
+1441  4cbfffb2-1a68-4dc1-80fa-56e67622eee2
+1444  15bb8b88-d452-4c39-9389-53b507d3fb4a
+1447  fd15c45e-28b3-4641-be18-c5ca24153384
+1450  f8b039fa-a369-4116-89fe-f96094bfd56c
+1453  f50cece0-1939-44cb-8111-35024de68c14
+1456  3b3e4efe-0262-49f9-9fd1-211b32b93cef
+2025-05-21 13:50:52,577 [DEBUG] py4...: Pandas: 2.2.3
+2025-05-21 13:50:52,577 [DEBUG] py4...: Python: 3.10.12 (main, Feb  4 2025, 14:57:36) [GCC 11.4.0]
+2025-05-21 13:50:52,577 [DEBUG] py4...: data_key_column: name
+2025-05-21 13:50:52,577 [DEBUG] py4...: table_key_column: name
+2025-05-21 13:50:52,579 [DEBUG] py4...: data:       name  property
+0   KE 115  0.405013
+1   KE 116  0.358226
+2   KE 167  0.410480
+3   KE 177  0.386651
+4   KE 228  0.405650
+5   KE 258  0.410514
+6   KE 264  0.410514
+7   KE 291  0.358226
+8   KE 345  0.358226
+9    KE 54  0.410514
+10   KE 66  0.358226
+11   KE 89  0.385816
+2025-05-21 13:50:52,579 [DEBUG] py4...: type(data[data_key_column]): <class 'pandas.core.series.Series'>
+2025-05-21 13:50:52,579 [DEBUG] py4...: data[data_key_column]: 0     KE 115
+1     KE 116
+2     KE 167
+3     KE 177
+4     KE 228
+5     KE 258
+6     KE 264
+7     KE 291
+8     KE 345
+9      KE 54
+10     KE 66
+11     KE 89
+Name: name, dtype: object
+2025-05-21 13:50:52,581 [DEBUG] py4...: table_key_column_values:                                       name
+1420  af046281-5267-4480-961d-37f2b2159c65
+1426  fcf51990-4746-4b18-9141-316308e6b1ec
+1429  9b317dd5-4eda-4f0d-93a3-9cb126ccbcc6
+1432  1ced7df4-8361-41da-980d-5a7d3ce36807
+1435  cdb8c364-a2cc-4f69-84bb-adac4c524778
+1438  b3c340a1-1018-4a65-8e95-888f8dd38986
+1441  4cbfffb2-1a68-4dc1-80fa-56e67622eee2
+1444  15bb8b88-d452-4c39-9389-53b507d3fb4a
+1447  fd15c45e-28b3-4641-be18-c5ca24153384
+1450  f8b039fa-a369-4116-89fe-f96094bfd56c
+1453  f50cece0-1939-44cb-8111-35024de68c14
+1456  3b3e4efe-0262-49f9-9fd1-211b32b93cef
+2025-05-21 13:50:52,581 [DEBUG] py4...: type(table_key_column_values[table_key_column]): <class 'pandas.core.series.Series'>
+2025-05-21 13:50:52,581 [DEBUG] py4...: table_key_column_values[table_key_column]: 1420    af046281-5267-4480-961d-37f2b2159c65
+1426    fcf51990-4746-4b18-9141-316308e6b1ec
+1429    9b317dd5-4eda-4f0d-93a3-9cb126ccbcc6
+1432    1ced7df4-8361-41da-980d-5a7d3ce36807
+1435    cdb8c364-a2cc-4f69-84bb-adac4c524778
+1438    b3c340a1-1018-4a65-8e95-888f8dd38986
+1441    4cbfffb2-1a68-4dc1-80fa-56e67622eee2
+1444    15bb8b88-d452-4c39-9389-53b507d3fb4a
+1447    fd15c45e-28b3-4641-be18-c5ca24153384
+1450    f8b039fa-a369-4116-89fe-f96094bfd56c
+1453    f50cece0-1939-44cb-8111-35024de68c14
+1456    3b3e4efe-0262-49f9-9fd1-211b32b93cef
+Name: name, dtype: object
+2025-05-21 13:50:52,581 [DEBUG] py4...: data_subset: Empty DataFrame
+Columns: [name, property]
+Index: []
+2025-05-21 13:50:52,581 [DEBUG] py4...: 'load_table_data' exception CyError('In load_table_data(): Provided table key column "name" and data key column "name" do not contain any matches')
+2025-05-21 13:50:52,581 [DEBUG] py4...: --------------------
+2025-05-21 14:27:34,715 [DEBUG] py4...: Calling cytoscape_ping()
+2025-05-21 14:27:34,715 [DEBUG] py4...: ǀCalling cytoscape_version_info(base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:34,715 [DEBUG] py4...: ǀǀCalling cyrest_get('version', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:34,715 [DEBUG] py4...: Attempting to direct connect to Cytoscape on http://127.0.0.1:1234/v1
+2025-05-21 14:27:34,721 [DEBUG] py4...: Detected py4cytoscape running on Cytoscape workstation
+2025-05-21 14:27:34,721 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/version)
+2025-05-21 14:27:34,726 [DEBUG] py4...: ǀǀOK[200], content: {"apiVersion":"v1","cytoscapeVersion":"3.10.3"}
+2025-05-21 14:27:34,726 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3'}
+2025-05-21 14:27:34,726 [DEBUG] py4...: ǀReturning 'cytoscape_version_info': {'apiVersion': 'v1', 'cytoscapeVersion': '3.10.3', 'automationAPIVersion': '1.12.0', 'py4cytoscapeVersion': '1.12.0'}
+2025-05-21 14:27:34,727 [DEBUG] py4...: Returning 'cytoscape_ping': 'You are connected to Cytoscape!'
+2025-05-21 14:27:34,727 [DEBUG] py4...: --------------------
+2025-05-21 14:27:36,065 [DEBUG] py4...: Calling import_network_from_file('/tmp/tmpici8wcut.graphml')
+2025-05-21 14:27:36,065 [DEBUG] py4...: ǀCalling commands_post('network load file file="/tmp/tmpici8wcut.graphml"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:36,066 [DEBUG] py4...: ǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/load%20file), json: {'file': '/tmp/tmpici8wcut.graphml'}
+2025-05-21 14:27:36,152 [DEBUG] py4...: ǀOK[200], content: {
+ "data": { "networks":[
+  1759
+], "views":[
+  1884
+]},
+ "errors":[]
+}
+2025-05-21 14:27:36,152 [DEBUG] py4...: ǀReturning 'commands_post': {'networks': [1759], 'views': [1884]}
+2025-05-21 14:27:40,158 [DEBUG] py4...: Returning 'import_network_from_file': {'networks': [1759], 'views': [1884]}
+2025-05-21 14:27:40,158 [DEBUG] py4...: --------------------
+2025-05-21 14:27:40,175 [DEBUG] py4...: Calling load_table_data(      name  property
+0   KE 115  0.405013
+1   KE 116  0.358226
+2   KE 167  0.410480
+3   KE 177  0.386651
+4   KE 228  0.405650
+5   KE 258  0.410514
+6   KE 264  0.410514
+7   KE 291  0.358226
+8   KE 345  0.358226
+9    KE 54  0.410514
+10   KE 66  0.358226
+11   KE 89  0.385816, data_key_column='name', table='node', table_key_column='name')
+2025-05-21 14:27:40,175 [DEBUG] py4...: ǀCalling get_network_suid(None, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:40,175 [DEBUG] py4...: ǀǀCalling commands_post('network get attribute network="current" namespace="default" columnList="SUID"', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:40,175 [DEBUG] py4...: ǀǀHTTP POST(http://127.0.0.1:1234/v1/commands/network/get%20attribute), json: {'network': 'current', 'namespace': 'default', 'columnList': 'SUID'}
+2025-05-21 14:27:40,183 [DEBUG] py4...: ǀǀOK[200], content: {
+ "data": [ {
+  "SUID": 1759
+}
+],
+ "errors":[]
+}
+2025-05-21 14:27:40,184 [DEBUG] py4...: ǀǀReturning 'commands_post': [{'SUID': 1759}]
+2025-05-21 14:27:40,184 [DEBUG] py4...: ǀReturning 'get_network_suid': 1759
+2025-05-21 14:27:40,184 [DEBUG] py4...: ǀCalling get_table_columns(table='node', namespace='default', columns='name', network=1759, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:40,184 [DEBUG] py4...: ǀǀCalling get_network_suid(1759, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:40,184 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:40,184 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-21 14:27:40,190 [DEBUG] py4...: ǀǀǀOK[200], content: [1392,1549,1759]
+2025-05-21 14:27:40,191 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [1392, 1549, 1759]
+2025-05-21 14:27:40,191 [DEBUG] py4...: ǀǀReturning 'get_network_suid': 1759
+2025-05-21 14:27:40,191 [DEBUG] py4...: ǀǀCalling get_table_column_types('node', namespace='default', network=1759, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:40,191 [DEBUG] py4...: ǀǀǀCalling get_network_suid(1759, base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:40,191 [DEBUG] py4...: ǀǀǀǀCalling cyrest_get('networks', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:40,191 [DEBUG] py4...: ǀǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks)
+2025-05-21 14:27:40,198 [DEBUG] py4...: ǀǀǀǀOK[200], content: [1392,1549,1759]
+2025-05-21 14:27:40,199 [DEBUG] py4...: ǀǀǀǀReturning 'cyrest_get': [1392, 1549, 1759]
+2025-05-21 14:27:40,199 [DEBUG] py4...: ǀǀǀReturning 'get_network_suid': 1759
+2025-05-21 14:27:40,199 [DEBUG] py4...: ǀǀǀCalling cyrest_get('networks/1759/tables/defaultnode/columns', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:40,199 [DEBUG] py4...: ǀǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/1759/tables/defaultnode/columns)
+2025-05-21 14:27:40,205 [DEBUG] py4...: ǀǀǀOK[200], content: [{"name":"SUID","type":"Long","immutable":true,"primaryKey":true},{"name":"shared name","type":"String","immutable":true,"primaryKey":false},{"name":"ke_type","type":"String","immutable":false,"primaryKey":false},{"name":"label","type":"String","immutable":false,"primaryKey":false},{"name":"value","type":"String","immutable":false,"primaryKey":false},{"name":"ke_in_aop","type":"String","immutable":false,"primaryKey":false},{"name":"name","type":"String","immutable":true,"primaryKey":false},{"name":"selected","type":"Boolean","immutable":true,"primaryKey":false},{"name":"NumChildren","type":"Integer","immutable":true,"primaryKey":false},{"name":"__ViewSettings","type":"List","listType":"String","immutable":false,"primaryKey":false},{"name":"__AggregationSettings","type":"List","listType":"String","immutable":false,"primaryKey":false},{"name":"__AggregationOverrideSettings","type":"List","listType":"String","immutable":false,"primaryKey":false},{"name":"NumDescendents","type":"Integer","immutable":true,"primaryKey":false}]
+2025-05-21 14:27:40,205 [DEBUG] py4...: ǀǀǀReturning 'cyrest_get': [{'name': 'SUID', 'type': 'Long', 'immutable': True, 'primaryKey': True}, {'name': 'shared name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'ke_type', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'label', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'value', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'ke_in_aop', 'type': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'name', 'type': 'String', 'immutable': True, 'primaryKey': False}, {'name': 'selected', 'type': 'Boolean', 'immutable': True, 'primaryKey': False}, {'name': 'NumChildren', 'type': 'Integer', 'immutable': True, 'primaryKey': False}, {'name': '__ViewSettings', 'type': 'List', 'listType': 'String', 'immutable': False, 'primaryKey': False}, {'name': '__AggregationSettings', 'type': 'List', 'listType': 'String', 'immutable': False, 'primaryKey': False}, {'name': '__AggregationOverrideSettings', 'type': 'List', 'listType': 'String', 'immutable': False, 'primaryKey': False}, {'name': 'NumDescendents', 'type': 'Integer', 'immutable': True, 'primaryKey': False}]
+2025-05-21 14:27:40,205 [DEBUG] py4...: ǀǀReturning 'get_table_column_types': {'SUID': 'Long', 'shared name': 'String', 'ke_type': 'String', 'label': 'String', 'value': 'String', 'ke_in_aop': 'String', 'name': 'String', 'selected': 'Boolean', 'NumChildren': 'Integer', '__ViewSettings': 'List', '__AggregationSettings': 'List', '__AggregationOverrideSettings': 'List', 'NumDescendents': 'Integer'}
+2025-05-21 14:27:40,205 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/1759/tables/defaultnode/columns/SUID', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:40,205 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/1759/tables/defaultnode/columns/SUID)
+2025-05-21 14:27:40,221 [DEBUG] py4...: ǀǀOK[200], content: {"name":"SUID","values":[1794,1797,1800,1803,1806,1809,1812,1815,1818,1821,1824,1827,1791]}
+2025-05-21 14:27:40,222 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'SUID', 'values': [1794, 1797, 1800, 1803, 1806, 1809, 1812, 1815, 1818, 1821, 1824, 1827, 1791]}
+2025-05-21 14:27:40,225 [DEBUG] py4...: ǀǀCalling cyrest_get('networks/1759/tables/defaultnode/columns/name', base_url='http://127.0.0.1:1234/v1')
+2025-05-21 14:27:40,225 [DEBUG] py4...: ǀǀHTTP GET(http://127.0.0.1:1234/v1/networks/1759/tables/defaultnode/columns/name)
+2025-05-21 14:27:40,235 [DEBUG] py4...: ǀǀOK[200], content: {"name":"name","values":["13a80183-67c8-40b7-9957-0fd0d3a3eee6","84577880-f7b8-4d34-9ceb-310bfcb32bf7","c5f49953-d0f6-4a1b-8230-17f8ad69fade","a0a883f2-e19c-4062-a6e9-6a00e449d779","1050af1e-ac92-41ae-ae19-76453683f056","d39f89b6-1728-4bf9-9920-1173deef3e37","60d8c53e-e7cd-4c7c-bc12-38d411effb02","73050569-af20-42d9-9b8a-54c71d9e71e2","a315768b-5fbb-4959-a84a-1066c18b1def","c2c5bfc4-1a2f-4456-949d-ed80d04838b2","e5e839a2-40e8-475e-876d-6ee05b38169c","G","f2828957-6b89-476e-b8e4-4f42314cafbd"]}
+2025-05-21 14:27:40,235 [DEBUG] py4...: ǀǀReturning 'cyrest_get': {'name': 'name', 'values': ['13a80183-67c8-40b7-9957-0fd0d3a3eee6', '84577880-f7b8-4d34-9ceb-310bfcb32bf7', 'c5f49953-d0f6-4a1b-8230-17f8ad69fade', 'a0a883f2-e19c-4062-a6e9-6a00e449d779', '1050af1e-ac92-41ae-ae19-76453683f056', 'd39f89b6-1728-4bf9-9920-1173deef3e37', '60d8c53e-e7cd-4c7c-bc12-38d411effb02', '73050569-af20-42d9-9b8a-54c71d9e71e2', 'a315768b-5fbb-4959-a84a-1066c18b1def', 'c2c5bfc4-1a2f-4456-949d-ed80d04838b2', 'e5e839a2-40e8-475e-876d-6ee05b38169c', 'G', 'f2828957-6b89-476e-b8e4-4f42314cafbd']}
+2025-05-21 14:27:40,237 [DEBUG] py4...: ǀReturning 'get_table_columns':                                       name
+1794  13a80183-67c8-40b7-9957-0fd0d3a3eee6
+1797  84577880-f7b8-4d34-9ceb-310bfcb32bf7
+1800  c5f49953-d0f6-4a1b-8230-17f8ad69fade
+1803  a0a883f2-e19c-4062-a6e9-6a00e449d779
+1806  1050af1e-ac92-41ae-ae19-76453683f056
+1809  d39f89b6-1728-4bf9-9920-1173deef3e37
+1812  60d8c53e-e7cd-4c7c-bc12-38d411effb02
+1815  73050569-af20-42d9-9b8a-54c71d9e71e2
+1818  a315768b-5fbb-4959-a84a-1066c18b1def
+1821  c2c5bfc4-1a2f-4456-949d-ed80d04838b2
+1824  e5e839a2-40e8-475e-876d-6ee05b38169c
+1827                                     G
+1791  f2828957-6b89-476e-b8e4-4f42314cafbd
+2025-05-21 14:27:40,238 [DEBUG] py4...: Pandas: 2.2.3
+2025-05-21 14:27:40,238 [DEBUG] py4...: Python: 3.10.12 (main, Feb  4 2025, 14:57:36) [GCC 11.4.0]
+2025-05-21 14:27:40,238 [DEBUG] py4...: data_key_column: name
+2025-05-21 14:27:40,238 [DEBUG] py4...: table_key_column: name
+2025-05-21 14:27:40,239 [DEBUG] py4...: data:       name  property
+0   KE 115  0.405013
+1   KE 116  0.358226
+2   KE 167  0.410480
+3   KE 177  0.386651
+4   KE 228  0.405650
+5   KE 258  0.410514
+6   KE 264  0.410514
+7   KE 291  0.358226
+8   KE 345  0.358226
+9    KE 54  0.410514
+10   KE 66  0.358226
+11   KE 89  0.385816
+2025-05-21 14:27:40,239 [DEBUG] py4...: type(data[data_key_column]): <class 'pandas.core.series.Series'>
+2025-05-21 14:27:40,239 [DEBUG] py4...: data[data_key_column]: 0     KE 115
+1     KE 116
+2     KE 167
+3     KE 177
+4     KE 228
+5     KE 258
+6     KE 264
+7     KE 291
+8     KE 345
+9      KE 54
+10     KE 66
+11     KE 89
+Name: name, dtype: object
+2025-05-21 14:27:40,241 [DEBUG] py4...: table_key_column_values:                                       name
+1794  13a80183-67c8-40b7-9957-0fd0d3a3eee6
+1797  84577880-f7b8-4d34-9ceb-310bfcb32bf7
+1800  c5f49953-d0f6-4a1b-8230-17f8ad69fade
+1803  a0a883f2-e19c-4062-a6e9-6a00e449d779
+1806  1050af1e-ac92-41ae-ae19-76453683f056
+1809  d39f89b6-1728-4bf9-9920-1173deef3e37
+1812  60d8c53e-e7cd-4c7c-bc12-38d411effb02
+1815  73050569-af20-42d9-9b8a-54c71d9e71e2
+1818  a315768b-5fbb-4959-a84a-1066c18b1def
+1821  c2c5bfc4-1a2f-4456-949d-ed80d04838b2
+1824  e5e839a2-40e8-475e-876d-6ee05b38169c
+1827                                     G
+1791  f2828957-6b89-476e-b8e4-4f42314cafbd
+2025-05-21 14:27:40,241 [DEBUG] py4...: type(table_key_column_values[table_key_column]): <class 'pandas.core.series.Series'>
+2025-05-21 14:27:40,241 [DEBUG] py4...: table_key_column_values[table_key_column]: 1794    13a80183-67c8-40b7-9957-0fd0d3a3eee6
+1797    84577880-f7b8-4d34-9ceb-310bfcb32bf7
+1800    c5f49953-d0f6-4a1b-8230-17f8ad69fade
+1803    a0a883f2-e19c-4062-a6e9-6a00e449d779
+1806    1050af1e-ac92-41ae-ae19-76453683f056
+1809    d39f89b6-1728-4bf9-9920-1173deef3e37
+1812    60d8c53e-e7cd-4c7c-bc12-38d411effb02
+1815    73050569-af20-42d9-9b8a-54c71d9e71e2
+1818    a315768b-5fbb-4959-a84a-1066c18b1def
+1821    c2c5bfc4-1a2f-4456-949d-ed80d04838b2
+1824    e5e839a2-40e8-475e-876d-6ee05b38169c
+1827                                       G
+1791    f2828957-6b89-476e-b8e4-4f42314cafbd
+Name: name, dtype: object
+2025-05-21 14:27:40,241 [DEBUG] py4...: data_subset: Empty DataFrame
+Columns: [name, property]
+Index: []
+2025-05-21 14:27:40,241 [DEBUG] py4...: 'load_table_data' exception CyError('In load_table_data(): Provided table key column "name" and data key column "name" do not contain any matches')
+2025-05-21 14:27:40,241 [DEBUG] py4...: --------------------

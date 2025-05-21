@@ -37,73 +37,116 @@ class PathwayEntityPropSchema(BaseModel):
 # ──────────────────────────────────────────────────────────────────────────────
 # SPARQL helper ─ generic for genes *or* key events
 # ──────────────────────────────────────────────────────────────────────────────
-
 def get_pathway_entities(
     identifier: str,
     store: HDTStore,
     kind: Literal["gene", "ke"] = "gene",
 ) -> pd.DataFrame:
-    """Return the *labels* of pathway entities (genes or key events) that belong
-    to a pathway.
-
-    Parameters
-    ----------
-    identifier
-        Pathway identifier, e.g. ``"WP3657"`` (WikiPathways) or ``"37"`` (AOP‑Wiki).
-    store
-        An :class:`rdflib_hdt.HDTStore` containing the relevant RDF triples.
-    kind
-        ``"gene"`` → WikiPathways ``wp:GeneProduct``
-        ``"ke"``   → AOP‑Wiki     ``aopo:KeyEvent``.
     """
-    CONFIG = {
-        "gene": dict(
-            prefix_block="""
-                PREFIX wp:   <http://vocabularies.wikipathways.org/wp#>
-            """,
-            pathway_class="wp:Pathway",
-            entity_class="wp:GeneProduct",
-            entity_var="geneProduct",
-            label_var="geneLabel",
-            col_names=["geneProduct", "geneLabel"],
-        ),
-        "ke": dict(
-            prefix_block="""
-                PREFIX aopo: <http://aopkb.org/aop_ontology#>
-            """,
-            pathway_class="aopo:AdverseOutcomePathway",
-            entity_class="aopo:KeyEvent",
-            entity_var="keyEvent",
-            label_var="eventLabel",
-            col_names=["keyEvent", "eventLabel"],
-        ),
-    }
-
-    if kind not in CONFIG:
-        raise ValueError("kind must be 'gene' or 'ke'")
-
-    cfg = CONFIG[kind]
-
-    query = f"""
-    {cfg['prefix_block']}
-    PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
-    PREFIX dcterms: <http://purl.org/dc/terms/>
-
-    SELECT DISTINCT ?{cfg['entity_var']} ?{cfg['label_var']}
-    WHERE {{
-        ?pathway a {cfg['pathway_class']} ;
-                 dcterms:identifier "{identifier}" .
-
-        ?{cfg['entity_var']} a {cfg['entity_class']} ;
-                          dcterms:isPartOf ?pathway ;
-                          rdfs:label ?{cfg['label_var']} .
-    }}
-    ORDER BY ?{cfg['label_var']}
+    Return labels for pathway entities:
+      • kind="gene" → WikiPathways GeneProducts
+      • kind="ke"   → AOP‑Wiki Key Events
     """
-
     g = Graph(store=store)
-    results = g.query(query)
-    return pd.DataFrame(results, columns=cfg["col_names"])
+
+    if kind == "gene":                    # ── WikiPathways branch ─────────────
+        q = f"""
+        PREFIX wp:   <http://vocabularies.wikipathways.org/wp#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX dct:  <http://purl.org/dc/terms/>
+
+        SELECT DISTINCT ?gp ?label WHERE {{
+            ?pw  a wp:Pathway ;
+                 dct:identifier "{identifier}" .
+            ?gp  a wp:GeneProduct ;
+                 dct:isPartOf ?pw ;
+                 rdfs:label ?label .
+        }}
+        ORDER BY ?label
+        """
+        cols = ["geneProduct", "geneLabel"]
+
+    elif kind == "ke":                    # ── AOP‑Wiki branch ─────────────────
+        # If the caller already passed the full IRI, keep it; otherwise build it
+        if identifier.startswith("http"):
+            aop_uri = identifier
+        else:
+            aop_uri = f"https://identifiers.org/aop/{identifier}"
+
+        q = f"""
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX dc:   <http://purl.org/dc/elements/1.1/>
+        PREFIX aopo: <http://aopkb.org/aop_ontology#>
+        PREFIX obo:  <http://purl.obolibrary.org/obo/>
+
+        SELECT DISTINCT ?ke (COALESCE(?l1,?l2) AS ?label) WHERE {{
+            VALUES ?aop {{ <{aop_uri}> }}
+            VALUES ?pred {{ aopo:has_key_event aopo:hasKeyEvent obo:aopo_0001015 }}
+
+            ?aop ?pred ?ke .
+
+            # accept both AOPO namespace variants for the KE class
+            VALUES ?keClass {{ aopo:KeyEvent  obo:aopo_0000044 }}
+            ?ke a ?keClass .
+
+            OPTIONAL {{ ?ke rdfs:label ?l1 }}
+            OPTIONAL {{ ?ke dc:title   ?l2 }}
+        }}
+        ORDER BY ?label
+        """
+        cols = ["keyEvent", "eventLabel"]
+    
+    return pd.DataFrame(g.query(q), columns=cols)
+
+
+# def get_pathway_entities(identifier: str, store: HDTStore,
+#                          kind: Literal["gene", "ke"] = "gene") -> pd.DataFrame:
+#     """Return labels for pathway entities (gene products or AOP key events)."""
+
+#     if kind == "gene":                           # ── WikiPathways branch ──
+#         q = f"""
+#         PREFIX wp:   <http://vocabularies.wikipathways.org/wp#>
+#         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+#         PREFIX dct:  <http://purl.org/dc/terms/>
+
+#         SELECT DISTINCT ?gp ?label WHERE {{
+#             ?pw  a wp:Pathway ;
+#                  dct:identifier "{identifier}" .
+#             ?gp  a wp:GeneProduct ;
+#                  dct:isPartOf ?pw ;
+#                  rdfs:label ?label .
+#         }}
+#         ORDER BY ?label
+#         """
+#         cols = ["geneProduct", "geneLabel"]
+
+#     else:                                        # ── AOP‑Wiki branch ──────
+#         q = f"""
+#         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+#         PREFIX dc:   <http://purl.org/dc/elements/1.1/>
+#         PREFIX dct:  <http://purl.org/dc/terms/>
+#         PREFIX aopo: <http://aopkb.org/aop_ontology#>
+#         PREFIX obo:  <http://purl.obolibrary.org/obo/>
+
+#         SELECT DISTINCT ?ke (COALESCE(?l1,?l2) AS ?label) WHERE {{
+#             # -------- pathway node -------------------------------------------------
+#             VALUES ?aopClass {{ aopo:AdverseOutcomePathway  obo:aopo_0000001 }}
+#             ?aop  a ?aopClass ;
+#                   (dc:identifier|dct:identifier) "{identifier}" ;
+#                   (aopo:has_key_event|aopo:hasKeyEvent|obo:aopo_0001015) ?ke .
+
+#             # -------- key‑event node -----------------------------------------------
+#             VALUES ?keClass {{ aopo:KeyEvent  obo:aopo_0000044 }}
+#             ?ke   a ?keClass .
+#             OPTIONAL {{ ?ke rdfs:label ?l1 }}
+#             OPTIONAL {{ ?ke dc:title   ?l2 }}
+#         }}
+#         ORDER BY ?label
+#         """
+#         cols = ["keyEvent", "eventLabel"]
+
+#     g = Graph(store=store)
+#     return pd.DataFrame(g.query(q), columns=cols)
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -229,6 +272,13 @@ def entity_chemical_strengths(
     return df
 
 
+def softmax(arr, beta=1.0):
+    """Compute the softmax of an array."""
+    e_x = np.exp(beta*arr)
+    weights = e_x / np.sum(e_x)
+    return np.dot(arr, weights)
+
+
 # ──────────────────────────────────────────────────────────────────────────────
 # Main driver
 # ──────────────────────────────────────────────────────────────────────────────
@@ -241,7 +291,7 @@ def main(
     kind: Literal["gene", "ke"],
     use_cache_predictions: bool = True,
     use_cache_chemicals: bool = True,
-    softmax_beta: float = 1.0,
+    # softmax_beta: float = 1.0,
 ):
     load_dotenv()
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
@@ -255,10 +305,11 @@ def main(
         aopwiki = bb.assets("aopwikirdf-kg")
         store = HDTStore(aopwiki.AOPWikiRDF_hdt)
 
+    print("Retrieving pathway entities...")
     pathway_entities = get_pathway_entities(pathway, store, kind=kind)
     store.close()
 
-    if pathway_entities.empty:
+    if (pathway_entities is None) or pathway_entities.empty:
         raise RuntimeError("No entities found for the specified pathway.")
 
     properties = [p.strip() for p in (cachedir / "predicted_property_names.txt").read_text().splitlines()]
@@ -293,17 +344,17 @@ def main(
         if not values:
             return pd.Series(dtype=float)
         arr = np.array(values)
-        sw = np.exp(softmax_beta * arr)
-        sw /= sw.sum()
         return pd.Series(
             {
                 "sum_value": arr.sum(),
                 "mean_value": arr.mean(),
-                "2-norm": np.linalg.norm(arr),
-                "3-norm": np.linalg.norm(arr, ord=3),
-                "4-norm": np.linalg.norm(arr, ord=4),
+                # "2-norm": np.linalg.norm(arr),
+                # "3-norm": np.linalg.norm(arr, ord=3),
+                # "4-norm": np.linalg.norm(arr, ord=4),
                 "max_value": arr.max(),
-                "softmax": np.dot(arr, sw),
+                "softmax" : softmax(arr, beta = 1.0),
+                "softmax2": softmax(arr, beta = 2.0),
+                "softmax3": softmax(arr, beta = 3.0),
             }
         )
 
@@ -321,7 +372,7 @@ if __name__ == "__main__":
     parser.add_argument("--kind", choices=["gene", "ke"], default="gene", help="Entity type: gene (WikiPathways) or ke (AOP‑Wiki)")
     parser.add_argument("--use_cache_predictions", type=str2bool, default=True, help="Reuse cached entity→property predictions")
     parser.add_argument("--use_cache_chemicals", type=str2bool, default=True, help="Reuse cached chemicals filtered by entity properties")
-    parser.add_argument("--softmax_beta", type=float, default=1.0, help="Softmax β for weighted averages")
+    # parser.add_argument("--softmax_beta", type=float, default=1.0, help="Softmax β for weighted averages")
     args = parser.parse_args()
 
     cachedir = pathlib.Path("cache")
@@ -339,5 +390,5 @@ if __name__ == "__main__":
         args.kind,
         args.use_cache_predictions,
         args.use_cache_chemicals,
-        args.softmax_beta,
+        # args.softmax_beta,
     )
