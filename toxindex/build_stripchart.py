@@ -8,7 +8,7 @@ from scipy.stats import ttest_ind
 
 logger = logging.getLogger(__name__)
 
-def build_stripchart(input_path, output_path, agg_func):
+def build_stripchart(input_path, output_path, agg_func, feature_selection_method):
     """
     Create a strip chart showing mean property values by chemical classification.
     
@@ -36,8 +36,7 @@ def build_stripchart(input_path, output_path, agg_func):
     df_allfeat = pd.read_parquet(input_path)
 
     # feature_path = input_path.parent / 'matched_properties.txt'
-    feature_path = input_path.parent / 'selected_properties.txt'
-
+    feature_path = input_path.parent / 'selected_properties' / f'{feature_selection_method}_selected_properties.txt'
     feature_names = set(line.strip() for line in pathlib.Path(feature_path).read_text().splitlines() if line.strip())
     feature_names = sorted(list(feature_names))
     df_allfeat['is_in_lookup'] = df_allfeat['property_title'].isin(feature_names)
@@ -147,14 +146,18 @@ def build_stripchart(input_path, output_path, agg_func):
                     colors='magenta', linewidth=2)
     
     # Customize the plot
-    plt.ylim(0, 0.7)  # Set y-axis limits
-    plt.ylabel(f"{agg_func.capitalize()} property value", fontsize=12)
+    # Get current y-limits from the data
+    ymin, ymax = plt.ylim()
+    plt.ylim(0, ymax * 1.1)  # Add 10% space above the max
+
+    plt.ylabel(f"{agg_func.capitalize()} property value", fontsize=20)
+    plt.yticks(fontsize=20)
     plt.xlabel('')
-    plt.xticks(rotation=45, ha='right')
+    plt.xticks(rotation=45, ha='right', fontsize=20)
     plt.tight_layout()
     
     # Add a descriptive title
-    plt.title('Top Properties by Activity Level', fontsize=16, pad=20)
+    plt.title('Top Properties by Activity Level', fontsize=24, pad=20)
     
     # Save and close the plot
     plt.savefig(output_path, dpi=300, bbox_inches='tight', transparent=True)

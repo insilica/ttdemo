@@ -43,12 +43,12 @@ def fuzzy_match_properties(input_path,output_path):
     output_path.write_text('\n'.join(matched_properties))
     return list(set(matched_properties))
 
-
+# project='hepatotoxic'
 # project='nephrotoxic'
-# projects = ['nephrotoxic']
+projects = ['nephrotoxic']
 # projects = ['hepatotoxic']
 # projects = ['dev-neurotoxic']
-projects = ['nephrotoxic','dev-neurotoxic']
+# projects = ['nephrotoxic','dev-neurotoxic']
 
 # for project in projects:
 #     fuzzy_match_properties(
@@ -79,28 +79,55 @@ projects = ['nephrotoxic','dev-neurotoxic']
 #         output_path=cachedir / 'projects' / project / 'predictions.parquet'
 #     )
 
-# # run feature selection
-# import toxindex.select_feature as select_feature
-# for project in projects:
-#     outdir = cachedir / 'projects' / project
-#     outdir.mkdir(exist_ok=True)
-#     select_feature.select_feature(
-#         input_path=cachedir / 'projects' / project / 'predictions.parquet',
-#         output_path= outdir / 'selected_properties.txt'
-#     )
-
+# run feature selection
+import toxindex.select_feature as select_feature
+for project in projects:
+    outdir = cachedir / 'projects' / project / 'selected_properties'
+    outdir.mkdir(exist_ok=True)
+    select_feature.select_feature(
+        input_path=cachedir / 'projects' / project / 'predictions.parquet',
+        output_path= outdir,
+        max_features=150
+    )
+# input_path=cachedir / 'projects' / project / 'predictions.parquet'
+# output_path= outdir
+runtag = 'noLLM'
 # build heatmaps
 import toxindex.build_heatmap as build_heatmap
 for project in projects:
     outdir = cachedir / 'projects' / project / 'heatmap_dir'
     outdir.mkdir(exist_ok=True)
+    feature_selection_method = 'lasso'
     build_heatmap.build_heatmap(
         input_path=cachedir / 'projects' / project / 'predictions.parquet',
-        output_path=outdir / 'heatmap_morechem_lessfeat.png'
+        output_path=outdir / f'{feature_selection_method}_heatmap_{runtag}.png',
+        feature_selection_method= feature_selection_method
     )
-input_path=cachedir / 'projects' / project / 'predictions.parquet'
-# 
 
+    feature_selection_method = 'random_forest'
+    build_heatmap.build_heatmap(
+        input_path=cachedir / 'projects' / project / 'predictions.parquet',
+        output_path=outdir / f'{feature_selection_method}_heatmap_{runtag}.png',
+        feature_selection_method= feature_selection_method
+    )
+
+    feature_selection_method = 'mutual_info'
+    build_heatmap.build_heatmap(
+        input_path=cachedir / 'projects' / project / 'predictions.parquet',
+        output_path=outdir / f'{feature_selection_method}_heatmap_{runtag}.png',
+        feature_selection_method= feature_selection_method
+    )
+
+    feature_selection_method = 'rfe'
+    build_heatmap.build_heatmap(
+        input_path=cachedir / 'projects' / project / 'predictions.parquet',
+        output_path=outdir / f'{feature_selection_method}_heatmap_{runtag}.png',
+        feature_selection_method= feature_selection_method
+    )
+
+# input_path=cachedir / 'projects' / project / 'predictions.parquet'
+# 
+feature_selection_method = 'mutual_info'
 import toxindex.build_stripchart as build_stripchart
 for project in projects:
     outdir = cachedir / 'projects' / project / 'stripchart_dir'
@@ -108,15 +135,17 @@ for project in projects:
     agg_func='median'
     build_stripchart.build_stripchart(
         input_path=cachedir / 'projects' / project / 'predictions.parquet',
-        output_path=outdir / f"{agg_func}_stripchart_morechem_lessfeat.png",
-        agg_func=agg_func
+        output_path=outdir / f"{agg_func}_{feature_selection_method}_stripchart_{runtag}.png",
+        agg_func=agg_func,
+        feature_selection_method= feature_selection_method
     )
 
     agg_func='mean'
     build_stripchart.build_stripchart(
         input_path=cachedir / 'projects' / project / 'predictions.parquet',
-        output_path=outdir / f"{agg_func}_stripchart_morechem_lessfeat.png",
-        agg_func=agg_func
+        output_path=outdir / f"{agg_func}_{feature_selection_method}_stripchart_{runtag}.png",
+        agg_func=agg_func,
+        feature_selection_method= feature_selection_method
     )
 
 # input_path=cachedir / 'projects' / project / 'predictions.parquet'

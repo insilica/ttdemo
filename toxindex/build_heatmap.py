@@ -15,7 +15,7 @@ import os
 
 logger = logging.getLogger(__name__)
 
-def build_heatmap(input_path, output_path):
+def build_heatmap(input_path, output_path, feature_selection_method=None):
     """
     Build a heatmap visualization from chemical prediction data.
     
@@ -40,7 +40,7 @@ def build_heatmap(input_path, output_path):
     df_allfeat = pd.read_parquet(input_path)
 
     # filter feature
-    feature_path = input_path.parent / 'selected_properties.txt'
+    feature_path = input_path.parent / 'selected_properties' / f'{feature_selection_method}_selected_properties.txt'
     feature_names = set(line.strip() for line in pathlib.Path(feature_path).read_text().splitlines() if line.strip())
     feature_names = sorted(list(feature_names))
     df_allfeat['is_in_lookup'] = df_allfeat['property_title'].isin(feature_names)
@@ -104,7 +104,6 @@ def _generate_heatmap(pdf, output_path):
         columns=pivot_df.columns
     )
 
-
     # Get unique classifications
     unique_classes = sorted(pdf['classification'].astype(str).unique())  # sorted for consistency
     # Load colors from YAML
@@ -115,15 +114,6 @@ def _generate_heatmap(pdf, output_path):
 
     # Safely assign only as many colors as needed
     category_colors = dict(zip(unique_classes, colors_hex[:len(unique_classes)]))
-    print(category_colors)
-    # Direct color mapping (no need for intermediate classification)
-    # category_colors = {
-    #     '1 Ring Aromatic': '#FFFED0', '2 Ring Aromatic': '#FBDA80', 
-    #     '3 Ring Aromatic': '#F7B659', '4 Ring Aromatic': '#EE6033',
-    #     '5 Ring Aromatic': '#D53D23', '6+ Ring Aromatic': '#781A26',
-    # }
-    # category_colors = {'Nephrotoxic': '#FFFED0', 'Non-nephrotoxic': '#FBDA80'}
-    # category_colors = {'DNT': '#FFFED0', 'Non-DNT': '#FBDA80'}
 
     # Apply classification and get row colors
     class_series = pdf.drop_duplicates('name').set_index('name')['classification']
@@ -133,8 +123,6 @@ def _generate_heatmap(pdf, output_path):
     norm_values = norm_values.drop(columns='substance_class')
 
     # Thresholding dendrogram
-    # Compute linkage
-    # row_linkage = sch.linkage(pdist(norm_values), method='ward')
     row_linkage = sch.linkage(pdist(norm_values, metric='euclidean'), method='average')
 
     # Plot heatmap with adjusted layout - keep column clustering
@@ -164,7 +152,6 @@ def _generate_heatmap(pdf, output_path):
     sch.dendrogram(row_linkage, ax=ax, orientation='left', color_threshold=3, above_threshold_color='gray')
 
     #11 for nephro
-    # 
     ax.invert_yaxis()
 
     ax.set_xticks([])
@@ -173,10 +160,7 @@ def _generate_heatmap(pdf, output_path):
     ax.set_yticklabels([])
 
     # plt.show()
-
-
-    
-    left_margin = 0.05  # Amount of padding on the left
+    left_margin = 0.10  # Amount of padding on the left
 
     # Shift heatmap
     heatmap_pos = g.ax_heatmap.get_position()
@@ -208,21 +192,26 @@ def _generate_heatmap(pdf, output_path):
 
     # Add class legend to the left axis
     class_legend_handles = [plt.Rectangle((0, 0), 1, 1, color=color) for color in category_colors.values()]
-    left_legend_ax.legend(
+    legend = left_legend_ax.legend(
         class_legend_handles, 
         category_colors.keys(), 
         loc='center', 
         frameon=False, 
         title='Class', 
-        title_fontsize=10,
+        title_fontsize=20,
         labelcolor='white',
-        prop={'size': 8}
+        prop={'size': 20}
+        # # handlelength=1.5,                # Length of rectangle
+        # handleheight=1.5,                # Height spacing
+        # handletextpad=0.8                # Padding between rectangle and label
     )
+    legend.get_title().set_color('white')
 
     # Adjust the colorbar (scale legend) that's now on the far right
     cbar = g.ax_cbar
-    cbar.set_ylabel('Scale', color='white', fontsize=10)
-    cbar.tick_params(colors='white', labelsize=8)
+    # cbar.set_ylabel('Scale', color='white', fontsize=20)
+    cbar.set_xlabel('Scale', color='white', fontsize=20, labelpad=10)
+    cbar.tick_params(colors='white', labelsize=20)
 
     cbar_pos = cbar.get_position()
     cbar.set_position([
@@ -233,8 +222,8 @@ def _generate_heatmap(pdf, output_path):
     ])
     
     # Add axis labels but no title
-    g.ax_heatmap.set_xlabel("Estimated property values", color='white')
-    g.ax_heatmap.set_ylabel("Substance", color='white')
+    g.ax_heatmap.set_xlabel("Estimated property values", color='white', fontsize=20)
+    g.ax_heatmap.set_ylabel("Substance", color='white', fontsize=20)
     
     plt.savefig(output_path, dpi=300, transparent=True, bbox_inches='tight')
     plt.close()
