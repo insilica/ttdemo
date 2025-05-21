@@ -32,12 +32,9 @@ def parse_chemicals(input_path, output_path):
     logging.info(f"Processing chemicals from {input_path}")
     
     # Read chemical names from input file
-    chemical_names = set(line.strip() for line in pathlib.Path(input_path).read_text().splitlines() if line.strip())
+    chemical_names = set(line.strip().strip('"')  for line in pathlib.Path(input_path).read_text().splitlines() if line.strip())
     chemical_names = sorted(list(chemical_names))
-    
-    results = []
-    sc = simplecache.simple_cache(pathlib.Path('cache/function_cache/parse_chemicals'))
-
+     
     def try_alternative_name(query,max_results=5):
         esearch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
         params = {
@@ -65,33 +62,45 @@ def parse_chemicals(input_path, output_path):
         records.sort(key=lambda x: len(x[1]))
         best = records[0][0]
         return {"name": query, "cid": best.cid, "inchi": best.inchi}
-    
-    def parse_chemical(name):
+
+        
+    @simplecache.simple_cache(pathlib.Path('cache/function_cache/parse_chemicals'))
+    def cached_parse_chemical(name):
         logging.info(f"Parsing chemical: {name}")
         time.sleep(0.33)
+
+        # First try exact match
         compounds = pcp.get_compounds(name, 'name')
-
-        # if compound found, return info
         if compounds:
-            compound = compounds[0] # Take the first result
-            inchi = compound.inchi
-            return {"name": name, "cid": compound.cid, "inchi": inchi}
-        # if not found, try alternative names
-        else:
-            return try_alternative_name(name)
+            compound = compounds[0]
+            return {"name": name, "cid": compound.cid, "inchi": compound.inchi}
 
-    
-    parse_chemical = sc(parse_chemical)
+        # Fallback: try fuzzy name lookup
+        result = try_alternative_name(name)
+        return result  # May be None
+
+    def safe_parse_chemical(name):
+        try:
+            result = cached_parse_chemical(name)
+            if result is None:
+                logging.warning(f"No compound found for: {name}")
+            return result
+        except Exception as e:
+            logging.error(f"Error parsing {name}: {e}")
+            return None
+
+    # do i still need the following two lines
+    # sc = simplecache.simple_cache(pathlib.Path('cache/function_cache/parse_chemicals'))
+    # parse_chemical = sc(parse_chemical)
+
     results = []
     for name in tqdm(chemical_names, desc="Parsing chemicals", unit="chemical"):
-        res = parse_chemical(name)
+        res = safe_parse_chemical(name)
         if res is not None:
             results.append(res)
-    
+
     df = pd.DataFrame(results)
     df.to_csv(output_path, index=False)
     logging.info(f"Saved results to {output_path}")
+
     
-    return df
-
-

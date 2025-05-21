@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import pathlib
 import yaml
 import logging
+from scipy.stats import ttest_ind
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +36,7 @@ def build_stripchart(input_path, output_path, agg_func):
     df_allfeat = pd.read_parquet(input_path)
 
     # feature_path = input_path.parent / 'matched_properties.txt'
-    feature_path = input_path.parent / 'claude_relevant_properties.txt'
+    feature_path = input_path.parent / 'selected_properties.txt'
 
     feature_names = set(line.strip() for line in pathlib.Path(feature_path).read_text().splitlines() if line.strip())
     feature_names = sorted(list(feature_names))
@@ -45,6 +46,7 @@ def build_stripchart(input_path, output_path, agg_func):
     classdf = pd.read_csv(input_path.parent / 'classified_chemicals.csv')
     if 'classification' not in df.columns or df['classification'].isna().any():
         df = df.drop(columns=['classification'], errors='ignore')  # drop to avoid _x/_y
+        df = df[df['inchi'].isin(classdf['inchi'])] #filter inchi with classified label
         df = df.merge(classdf, on='inchi', how='left')
         if 'classification' not in df.columns:
             raise ValueError("Merge failed: 'classification' column is missing after merging with 'classified_chemicals.csv'.") 
@@ -109,6 +111,25 @@ def build_stripchart(input_path, output_path, agg_func):
     legend=False  # avoid duplicate legend
     )
 
+    classes = df['classification'].unique()
+    if len(classes) != 2:
+        raise ValueError("T-test requires exactly two groups for comparison.")
+
+    # Split the groups
+    group_a = stripdf[stripdf['classification'] == classes[0]]['value']
+    group_b = stripdf[stripdf['classification'] == classes[1]]['value']
+
+    # Perform independent t-test (assume unequal variance just to be safe)
+    t_stat, p_value = ttest_ind(group_a, group_b, equal_var=False)
+
+    print(f"T-statistic: {t_stat:.4f}")
+    print(f"P-value: {p_value:.4e}")
+
+    # Check for significance (e.g., alpha = 0.05)
+    if p_value < 0.05:
+        print("Result: Significant difference between groups")
+    else:
+        print("Result: No significant difference between groups")
     
     # Add horizontal lines for means
     if agg_func == 'mean':

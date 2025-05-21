@@ -40,22 +40,21 @@ def build_heatmap(input_path, output_path):
     df_allfeat = pd.read_parquet(input_path)
 
     # filter feature
-    feature_path = input_path.parent / 'matched_properties.txt'
+    feature_path = input_path.parent / 'selected_properties.txt'
     feature_names = set(line.strip() for line in pathlib.Path(feature_path).read_text().splitlines() if line.strip())
     feature_names = sorted(list(feature_names))
     df_allfeat['is_in_lookup'] = df_allfeat['property_title'].isin(feature_names)
     df = df_allfeat[df_allfeat['is_in_lookup']]
 
     
-    classdf = pd.read_csv(input_path.parent / 'classified_chemicals.csv')
-    # if 'classification' not in df.columns:
-    #     df = df.merge(classdf, on='inchi', how='left')
+    classdf = pd.read_csv(input_path.parent / 'classified_chemicals.csv') 
 
     if 'classification' not in df.columns or df['classification'].isna().any():
     # Merge classification info
         print('reading classification')
         df = df.drop(columns=['classification'], errors='ignore')  # drop to avoid _x/_y
-        df = df.merge(classdf[['inchi', 'classification']], on='inchi', how='left')
+        df = df[df['inchi'].isin(classdf['inchi'])] #filter inchi with classified label
+        df = df.merge(classdf[['inchi', 'classification']], on='inchi', how='left') # 
 
     if 'name' not in df.columns:
         # print(df.columns)
@@ -106,9 +105,8 @@ def _generate_heatmap(pdf, output_path):
     )
 
 
-        # Get unique classifications
-    unique_classes = sorted(pdf['classification'].unique())  # sorted for consistency
-
+    # Get unique classifications
+    unique_classes = sorted(pdf['classification'].astype(str).unique())  # sorted for consistency
     # Load colors from YAML
     with open("cache/resources/colormap.yaml", "r") as f:
         config = yaml.safe_load(f)

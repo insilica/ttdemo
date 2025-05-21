@@ -44,18 +44,18 @@ def fuzzy_match_properties(input_path,output_path):
     return list(set(matched_properties))
 
 
-project='nephrotoxic'
-projects = ['nephrotoxic']
+# project='nephrotoxic'
+# projects = ['nephrotoxic']
 # projects = ['hepatotoxic']
 # projects = ['dev-neurotoxic']
-
+projects = ['nephrotoxic','dev-neurotoxic']
 
 # for project in projects:
 #     fuzzy_match_properties(
 #         input_path=cachedir / 'projects' / project / 'claude_relevant_properties.txt',
 #         output_path=cachedir / 'projects' / project / 'matched_properties.txt')
 
-# # parse the chemicals
+# parse the chemicals
 # import toxindex.parse_chemicals as parse_chemicals
 # for project in projects:
 #     parse_chemicals.parse_chemicals(
@@ -79,6 +79,16 @@ projects = ['nephrotoxic']
 #         output_path=cachedir / 'projects' / project / 'predictions.parquet'
 #     )
 
+# # run feature selection
+# import toxindex.select_feature as select_feature
+# for project in projects:
+#     outdir = cachedir / 'projects' / project
+#     outdir.mkdir(exist_ok=True)
+#     select_feature.select_feature(
+#         input_path=cachedir / 'projects' / project / 'predictions.parquet',
+#         output_path= outdir / 'selected_properties.txt'
+#     )
+
 # build heatmaps
 import toxindex.build_heatmap as build_heatmap
 for project in projects:
@@ -86,10 +96,10 @@ for project in projects:
     outdir.mkdir(exist_ok=True)
     build_heatmap.build_heatmap(
         input_path=cachedir / 'projects' / project / 'predictions.parquet',
-        output_path=outdir / 'heatmap2.png'
+        output_path=outdir / 'heatmap_morechem_lessfeat.png'
     )
 input_path=cachedir / 'projects' / project / 'predictions.parquet'
-
+# 
 
 import toxindex.build_stripchart as build_stripchart
 for project in projects:
@@ -98,16 +108,16 @@ for project in projects:
     agg_func='median'
     build_stripchart.build_stripchart(
         input_path=cachedir / 'projects' / project / 'predictions.parquet',
-        output_path=outdir / f"{agg_func}_stripchart2.png",
+        output_path=outdir / f"{agg_func}_stripchart_morechem_lessfeat.png",
         agg_func=agg_func
     )
 
     agg_func='mean'
     build_stripchart.build_stripchart(
         input_path=cachedir / 'projects' / project / 'predictions.parquet',
-        output_path=outdir / f"{agg_func}_stripchart2.png",
+        output_path=outdir / f"{agg_func}_stripchart_morechem_lessfeat.png",
         agg_func=agg_func
     )
 
 # input_path=cachedir / 'projects' / project / 'predictions.parquet'
-# output_path=outdir / f"{agg_func}_stripchart.png"
+# output_path=outdir / f"{agg_func}_stripchart_morechem_lessfeat.png"
