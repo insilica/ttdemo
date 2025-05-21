@@ -423,7 +423,6 @@ def main(
     store.close()
 
     if (pathway_entities is None) or pathway_entities.empty:
-    if (pathway_entities is None) or pathway_entities.empty:
         raise RuntimeError("No entities found for the specified pathway.")
 
     properties = [p.strip() for p in (cachedir / "predicted_property_names.txt").read_text().splitlines()]
