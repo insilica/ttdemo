@@ -20,17 +20,19 @@ Requirements (unchanged):
   - py4cytoscape  •  pandas  •  requests (indirect)
 """
 
+from __future__ import annotations
+
 import argparse
-import pathlib
+from pathlib import Path
 import sys
 
 import pandas as pd
 import py4cytoscape as p4c
 
 import tempfile
-import io
 import os
 import requests
+from typing import Union, Dict, Set, List
 
 import xml.etree.ElementTree as ET
 import networkx as nx
@@ -58,78 +60,94 @@ def fetch_aop_xml(aop_id: int) -> bytes:
     raise RuntimeError(f"Unable to fetch XML for AOP {aop_id}")
 
 
-# def xml_to_graphml(xml_bytes: bytes) -> bytes:
-#     root = ET.fromstring(xml_bytes)
-#     G = nx.DiGraph()
-
-#     # 1) Extract Key Events
-#     for ke in root.findall('.//{*}key-event'):
-#         ke_id    = ke.get('id')
-#         if not ke_id:
-#             continue
-#         ke_title = ke.findtext('{*}title', default='')
-#         G.add_node(ke_id, label=ke_title)
-
-#     # 2) Extract Key Event Relationships
-#     for ker in root.findall('.//{*}key-event-relationship'):
-#         src = ker.findtext('{*}ke-upstream-id')
-#         tgt = ker.findtext('{*}ke-downstream-id')
-#         rel = ker.findtext('{*}relationship-type', default='')
-#         if src and tgt:
-#             G.add_edge(src, tgt, rel=rel)
-
-#     # 3) (Optional) Debug counts
-#     print(f"Built graph with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges")
-
-#     # 4) Write GraphML
-#     buf = io.BytesIO()
-#     nx.write_graphml(G, buf, encoding='utf-8')
-#     return buf.getvalue()
-
-
-def xml_to_graphml(xml_bytes: bytes) -> bytes:
+def aop_xml_bytes_to_graphml(xml_bytes: bytes) -> Path:
     """
-    Convert an AOP‑Wiki XML feed into GraphML using the short `aop-wiki-id`
-    integer as the node identifier (discarding the long UUID/GUID).
+    Convert AOP-Wiki XML (as bytes) into a temporary GraphML file and
+    return the path to that file.
     """
-    import xml.etree.ElementTree as ET, networkx as nx, io
 
+    # --------------------------- parse XML ----------------------------------
     root = ET.fromstring(xml_bytes)
+    ns_url = root.tag.partition('}')[0].lstrip('{')
+    ns = {"a": ns_url}  # single dynamic namespace mapping
 
+    # --------------------- gather global lookup tables ----------------------
+    aop_ids: List[str] = sorted({e.get("aop-wiki-id")
+                                 for e in root.findall(".//a:aop-reference", ns)
+                                 if e.get("aop-wiki-id")}) or [""]
+
+    ke_wiki_id: Dict[str, str] = {
+        ref.get("id"): ref.get("aop-wiki-id", "?")
+        for ref in root.findall(".//a:key-event-reference", ns)
+    }
+
+    mie_ids: Set[str] = {
+        e.get("key-event-id") or e.get("key_event_id")
+        for e in root.findall(".//a:molecular-initiating-event", ns)
+    }
+    ao_ids: Set[str] = {
+        e.get("key-event-id") or e.get("key_event_id")
+        for e in root.findall(".//a:adverse-outcome", ns)
+    }
+
+    # --------------------------- build graph --------------------------------
     G = nx.DiGraph()
-    id_map: dict[str, str] = {}                                # GUID  -> short ID
 
-    # ── 1) Extract Key Events and build ID map ────────────────────────────
-    for ke in root.findall('.//{*}key-event'):
-        guid = ke.get('id')                                    # long GUID
-        short = ke.get('aop-wiki-id')                          # integer string
-        print(f"GUID: {guid} → short ID: {short}")
-        if not guid or not short:
+    # ---- nodes
+    for ke in root.findall(".//a:key-event", ns):
+        ke_id = ke.get("id")
+        if not ke_id:
             continue
-        id_map[guid] = short
-        title = ke.findtext('{*}title', default='').strip()
-        G.add_node(short, label=title)                         # use short ID
+        title = ke.findtext("a:title", default="", namespaces=ns)
 
-    # ── 2) Extract Key‑Event Relationships, remap IDs ────────────────────
-    for ker in root.findall('.//{*}key-event-relationship'):
-        src_guid = ker.findtext('{*}ke-upstream-id')
-        tgt_guid = ker.findtext('{*}ke-downstream-id')
-        rel_type = ker.findtext('{*}relationship-type', default='').strip()
-        try:
-            src = id_map[src_guid]
-            tgt = id_map[tgt_guid]
-        except KeyError:
-            # relationship refers to a KE that was missing or filtered out
-            continue
-        G.add_edge(src, tgt, rel=rel_type)
+        if ke_id in mie_ids:
+            ke_type = "Molecular Initiating Event"
+        elif ke_id in ao_ids:
+            ke_type = "Adverse Outcome"
+        else:
+            ke_type = "Key Event"
 
-    print(f"Graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
+        G.add_node(
+            ke_id,
+            **{
+                "ke_in_aop": str(aop_ids),
+                "ke_type": ke_type,
+                "label": f"KE {ke_wiki_id.get(ke_id, ke_id)}",
+                "name": title,
+                "selected": "false",
+                "shared name": title,
+                "value": title,
+            },
+        )
 
-    # ── 3) Serialize to GraphML ───────────────────────────────────────────
-    buf = io.BytesIO()
-    nx.write_graphml(G, buf, encoding='utf-8')
-    return buf.getvalue()
+    # ---- edges (handle several schema spellings)
+    for ker in root.findall(".//a:key-event-relationship", ns):
+        src = (
+            ker.findtext(".//a:upstream-id", namespaces=ns)
+            or ker.findtext(".//a:upstream_id", namespaces=ns)
+            or ker.findtext(".//a:ke-upstream-id", namespaces=ns)
+            or ker.findtext(".//a:ke_upstream_id", namespaces=ns)
+        )
+        dst = (
+            ker.findtext(".//a:downstream-id", namespaces=ns)
+            or ker.findtext(".//a:downstream_id", namespaces=ns)
+            or ker.findtext(".//a:ke-downstream-id", namespaces=ns)
+            or ker.findtext(".//a:ke_downstream_id", namespaces=ns)
+        )
+        if src and dst and src in G and dst in G:
+            G.add_edge(src, dst)
 
+    # ------------------------- write GraphML --------------------------------
+    with tempfile.NamedTemporaryFile(
+        mode="w+", delete=False, suffix=".graphml", encoding="utf-8"
+    ) as fh:
+        graphml_path = Path(fh.name)
+        nx.write_graphml(G, graphml_path)
+
+    print(
+        f"[INFO] Wrote {len(G.nodes)} nodes and {len(G.edges)} edges → {graphml_path}"
+    )
+    return graphml_path
 
 
 def import_graphml_bytes(gml_bytes: bytes, *, collection=None):
@@ -165,13 +183,10 @@ def main() -> None:
         description="Map a numeric property onto a pathway/network in Cytoscape",
     )
     parser.add_argument("--pathway", "-p", required=True, help="WikiPathways or AOP-Wiki ID, e.g. WP3657 or 37")
-    parser.add_argument("--pathway", "-p", required=True, help="WikiPathways or AOP-Wiki ID, e.g. WP3657 or 37")
     parser.add_argument("--project", default="hepatotoxic", help="Project name for I/O directories")
     parser.add_argument("--property", "-r", dest="prop", required=True, help="Column name to visualise")
     parser.add_argument("--kind", choices=["gene", "ke"], default="gene", help="Entity type contained in the data file")
     parser.add_argument("--data", "-d", default=None, help="CSV/TSV/Parquet with columns 'entity' and property column")
-    parser.add_argument("--vmin", type=float, help="Override colour-scale minimum")
-    parser.add_argument("--vmax", type=float, help="Override colour-scale maximum")
     parser.add_argument("--vmin", type=float, help="Override colour-scale minimum")
     parser.add_argument("--vmax", type=float, help="Override colour-scale maximum")
     parser.add_argument("--view", choices=["pathway", "network"], default="pathway", help="Import as diagram or topology view")
@@ -187,26 +202,29 @@ def main() -> None:
     elif args.kind == "ke":
         # AOP-Wiki
         try:
-            # xml = fetch_aop_xml(int(args.pathway))
+            xml_bytes = fetch_aop_xml(int(args.pathway))
+            graphml_path = aop_xml_bytes_to_graphml(xml_bytes)
+            p4c.import_network_from_file(graphml_path)
+            graphml_path.unlink()  # remove temp file
             # gml_bytes = xml_to_graphml(xml)
             # import_graphml_bytes(gml_bytes)
 
-            # hardcoded workaround for temporary inspection
-            p4c.import_network_from_file('/home/john/Downloads/AOP_21052025.graphml')
+            # # hardcoded workaround for temporary inspection
+            # p4c.import_network_from_file('/home/john/Downloads/AOP_21052025.graphml')
         except Exception as e:
             raise RuntimeError(f"could not import AOP {args.pathway}: {e}")
     else:
         raise ValueError(f"Unknown entity type: {args.kind}")
 
     # ── 3) Locate data file ─────────────────────────────────────────────────
-    project_dir = pathlib.Path("cache") / "projects" / args.project
+    project_dir = Path("cache") / "projects" / args.project
     if args.data is None:
         args.data = (
             project_dir
             / f"{args.kind}_property_predictions"
             / f"{args.pathway}.{args.kind}_property_chemicals_summary.parquet"
         )
-    args.data = pathlib.Path(args.data)
+    args.data = Path(args.data)
 
     # ── 4) Load data ─────────────────────────────────────────────────────────
     print(f"Loading data from {args.data}")
@@ -226,7 +244,6 @@ def main() -> None:
     # ── 7) Push to Cytoscape node table ──────────────────────────────────────
     p4c.load_table_data(df2, data_key_column=col_label, table="node", table_key_column=col_label)
 
-    # ── 8) Determine colour-scale bounds ─────────────────────────────────────
     # ── 8) Determine colour-scale bounds ─────────────────────────────────────
     vmin = args.vmin if args.vmin is not None else df2["property"].min()
     vmax = args.vmax if args.vmax is not None else df2["property"].max()
