@@ -15,6 +15,7 @@ import re
 from pydantic import BaseModel
 from typing import Literal
 import pathlib
+import rapidfuzz
 
 
 def str2bool(v):
@@ -45,12 +46,12 @@ def get_pathway_entities(
     """
     Return labels for pathway entities:
       • kind="gene" → WikiPathways GeneProducts
-      • kind="ke"   → AOP‑Wiki Key Events
+      • kind="ke"   → AOP-Wiki Key Events
     """
     """
     Return labels for pathway entities:
       • kind="gene" → WikiPathways GeneProducts
-      • kind="ke"   → AOP‑Wiki Key Events
+      • kind="ke"   → AOP-Wiki Key Events
     """
     g = Graph(store=store)
 
@@ -71,7 +72,7 @@ def get_pathway_entities(
         """
         cols = ["geneProduct", "geneLabel"]
 
-    elif kind == "ke":                    # ── AOP‑Wiki branch ─────────────────
+    elif kind == "ke":                    # ── AOP-Wiki branch ─────────────────
         # If the caller already passed the full IRI, keep it; otherwise build it
         if identifier.startswith("http"):
             aop_uri = identifier
@@ -102,155 +103,6 @@ def get_pathway_entities(
         cols = ["keyEvent", "eventLabel"]
     
     return pd.DataFrame(g.query(q), columns=cols)
-
-
-# def get_pathway_entities(identifier: str, store: HDTStore,
-#                          kind: Literal["gene", "ke"] = "gene") -> pd.DataFrame:
-#     """Return labels for pathway entities (gene products or AOP key events)."""
-
-#     if kind == "gene":                           # ── WikiPathways branch ──
-#         q = f"""
-#         PREFIX wp:   <http://vocabularies.wikipathways.org/wp#>
-#         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-#         PREFIX dct:  <http://purl.org/dc/terms/>
-
-#         SELECT DISTINCT ?gp ?label WHERE {{
-#             ?pw  a wp:Pathway ;
-#                  dct:identifier "{identifier}" .
-#             ?gp  a wp:GeneProduct ;
-#                  dct:isPartOf ?pw ;
-#                  rdfs:label ?label .
-#         }}
-#         ORDER BY ?label
-#         """
-#         cols = ["geneProduct", "geneLabel"]
-
-#     else:                                        # ── AOP‑Wiki branch ──────
-#         q = f"""
-#         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-#         PREFIX dc:   <http://purl.org/dc/elements/1.1/>
-#         PREFIX dct:  <http://purl.org/dc/terms/>
-#         PREFIX aopo: <http://aopkb.org/aop_ontology#>
-#         PREFIX obo:  <http://purl.obolibrary.org/obo/>
-
-#         SELECT DISTINCT ?ke (COALESCE(?l1,?l2) AS ?label) WHERE {{
-#             # -------- pathway node -------------------------------------------------
-#             VALUES ?aopClass {{ aopo:AdverseOutcomePathway  obo:aopo_0000001 }}
-#             ?aop  a ?aopClass ;
-#                   (dc:identifier|dct:identifier) "{identifier}" ;
-#                   (aopo:has_key_event|aopo:hasKeyEvent|obo:aopo_0001015) ?ke .
-
-#             # -------- key‑event node -----------------------------------------------
-#             VALUES ?keClass {{ aopo:KeyEvent  obo:aopo_0000044 }}
-#             ?ke   a ?keClass .
-#             OPTIONAL {{ ?ke rdfs:label ?l1 }}
-#             OPTIONAL {{ ?ke dc:title   ?l2 }}
-#         }}
-#         ORDER BY ?label
-#         """
-#         cols = ["keyEvent", "eventLabel"]
-
-#     g = Graph(store=store)
-#     return pd.DataFrame(g.query(q), columns=cols)
-
-    # if kind == "gene":                    # ── WikiPathways branch ─────────────
-    #     q = f"""
-    #     PREFIX wp:   <http://vocabularies.wikipathways.org/wp#>
-    #     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    #     PREFIX dct:  <http://purl.org/dc/terms/>
-
-    #     SELECT DISTINCT ?gp ?label WHERE {{
-    #         ?pw  a wp:Pathway ;
-    #              dct:identifier "{identifier}" .
-    #         ?gp  a wp:GeneProduct ;
-    #              dct:isPartOf ?pw ;
-    #              rdfs:label ?label .
-    #     }}
-    #     ORDER BY ?label
-    #     """
-    #     cols = ["geneProduct", "geneLabel"]
-
-    # elif kind == "ke":                    # ── AOP‑Wiki branch ─────────────────
-    #     # If the caller already passed the full IRI, keep it; otherwise build it
-    #     if identifier.startswith("http"):
-    #         aop_uri = identifier
-    #     else:
-    #         aop_uri = f"https://identifiers.org/aop/{identifier}"
-
-    #     q = f"""
-    #     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    #     PREFIX dc:   <http://purl.org/dc/elements/1.1/>
-    #     PREFIX aopo: <http://aopkb.org/aop_ontology#>
-    #     PREFIX obo:  <http://purl.obolibrary.org/obo/>
-
-    #     SELECT DISTINCT ?ke (COALESCE(?l1,?l2) AS ?label) WHERE {{
-    #         VALUES ?aop {{ <{aop_uri}> }}
-    #         VALUES ?pred {{ aopo:has_key_event aopo:hasKeyEvent obo:aopo_0001015 }}
-
-    #         ?aop ?pred ?ke .
-
-    #         # accept both AOPO namespace variants for the KE class
-    #         VALUES ?keClass {{ aopo:KeyEvent  obo:aopo_0000044 }}
-    #         ?ke a ?keClass .
-
-    #         OPTIONAL {{ ?ke rdfs:label ?l1 }}
-    #         OPTIONAL {{ ?ke dc:title   ?l2 }}
-    #     }}
-    #     ORDER BY ?label
-    #     """
-    #     cols = ["keyEvent", "eventLabel"]
-    
-    # return pd.DataFrame(g.query(q), columns=cols)
-
-
-# def get_pathway_entities(identifier: str, store: HDTStore,
-#                          kind: Literal["gene", "ke"] = "gene") -> pd.DataFrame:
-#     """Return labels for pathway entities (gene products or AOP key events)."""
-
-#     if kind == "gene":                           # ── WikiPathways branch ──
-#         q = f"""
-#         PREFIX wp:   <http://vocabularies.wikipathways.org/wp#>
-#         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-#         PREFIX dct:  <http://purl.org/dc/terms/>
-
-#         SELECT DISTINCT ?gp ?label WHERE {{
-#             ?pw  a wp:Pathway ;
-#                  dct:identifier "{identifier}" .
-#             ?gp  a wp:GeneProduct ;
-#                  dct:isPartOf ?pw ;
-#                  rdfs:label ?label .
-#         }}
-#         ORDER BY ?label
-#         """
-#         cols = ["geneProduct", "geneLabel"]
-
-#     else:                                        # ── AOP‑Wiki branch ──────
-#         q = f"""
-#         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-#         PREFIX dc:   <http://purl.org/dc/elements/1.1/>
-#         PREFIX dct:  <http://purl.org/dc/terms/>
-#         PREFIX aopo: <http://aopkb.org/aop_ontology#>
-#         PREFIX obo:  <http://purl.obolibrary.org/obo/>
-
-#         SELECT DISTINCT ?ke (COALESCE(?l1,?l2) AS ?label) WHERE {{
-#             # -------- pathway node -------------------------------------------------
-#             VALUES ?aopClass {{ aopo:AdverseOutcomePathway  obo:aopo_0000001 }}
-#             ?aop  a ?aopClass ;
-#                   (dc:identifier|dct:identifier) "{identifier}" ;
-#                   (aopo:has_key_event|aopo:hasKeyEvent|obo:aopo_0001015) ?ke .
-
-#             # -------- key‑event node -----------------------------------------------
-#             VALUES ?keClass {{ aopo:KeyEvent  obo:aopo_0000044 }}
-#             ?ke   a ?keClass .
-#             OPTIONAL {{ ?ke rdfs:label ?l1 }}
-#             OPTIONAL {{ ?ke dc:title   ?l2 }}
-#         }}
-#         ORDER BY ?label
-#         """
-#         cols = ["keyEvent", "eventLabel"]
-
-#     g = Graph(store=store)
-#     return pd.DataFrame(g.query(q), columns=cols)
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -301,10 +153,28 @@ def get_property_response(client, entity_label: str, pathway: str, properties: l
     )
 
 
-# ──────────────────────────────────────────────────────────────────────────────
-# LLM‑driven property selection and downstream processing
-# ──────────────────────────────────────────────────────────────────────────────
+def fuzzy_match_properties(predicted_properties, relevant_properties, similarity_threshold = 80):
+    """Fuzzy match relevant properties to predicted property names."""
+    # lowercase both property lists to avoid case sensitivity issues
+    predicted_properties = [p.lower() for p in predicted_properties]
+    relevant_properties = [p.lower() for p in relevant_properties]
 
+    matched_properties = []
+    for rel_prop in relevant_properties:
+        # Calculate similarity scores between this relevant property and all predicted properties
+        scores = [rapidfuzz.fuzz.token_sort_ratio(rel_prop, pred_prop) for pred_prop in predicted_properties]
+        best_match_idx = int(np.argmax(scores))
+
+        # Check if the best match is at least the similarity threshold
+        if scores[best_match_idx] >= similarity_threshold:
+            matched_properties.append(predicted_properties[best_match_idx])
+
+    return list(set(matched_properties))
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# LLM-driven property selection and downstream processing
+# ──────────────────────────────────────────────────────────────────────────────
 def predict_properties_for_entities(
     outdir: pathlib.Path,
     client,
@@ -331,7 +201,11 @@ def predict_properties_for_entities(
             print(f"Failed for entity {entity_label!r}: {exc}")
             continue
 
-        prop_list = [p for p in response.text.splitlines() if p in properties]
+        llm_properties = response.text.splitlines()
+        llm_properties = list(set(llm_properties))  # remove duplicates
+        prop_list = fuzzy_match_properties(llm_properties, properties)
+        # prop_list = [p for p in llm_properties if p in properties]
+
         rows.append({"entity": entity_label, "pathway": pathway, "property_list": prop_list})
 
     df = pd.DataFrame(rows)
@@ -407,7 +281,8 @@ def main(
     load_dotenv()
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-    predictions = pd.read_parquet(projectdir / "predict_chemicals" / "chemprop_predictions.parquet")
+    # predictions = pd.read_parquet(projectdir / "predict_chemicals" / "chemprop_predictions.parquet")
+    predictions = pd.read_parquet(projectdir / "predictions.parquet")
 
     if kind == "gene":
         wikipathways = bb.assets("wikipathways")
@@ -481,7 +356,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Property extraction for genes or key events in a pathway.")
     parser.add_argument("--project", type=str, default="hepatotoxic", help="Project name")
     parser.add_argument("--pathway", type=str, required=True, help="Pathway ID to query")
-    parser.add_argument("--kind", choices=["gene", "ke"], default="gene", help="Entity type: gene (WikiPathways) or ke (AOP‑Wiki)")
+    parser.add_argument("--kind", choices=["gene", "ke"], default="gene", help="Entity type: gene (WikiPathways) or ke (AOP-Wiki)")
     parser.add_argument("--use_cache_predictions", type=str2bool, default=True, help="Reuse cached entity→property predictions")
     parser.add_argument("--use_cache_chemicals", type=str2bool, default=True, help="Reuse cached chemicals filtered by entity properties")
     # parser.add_argument("--softmax_beta", type=float, default=1.0, help="Softmax β for weighted averages")
