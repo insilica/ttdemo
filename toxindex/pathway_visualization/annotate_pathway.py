@@ -1,21 +1,11 @@
 #!/usr/bin/env python3
 """
 Import a WikiPathways pathway (or an AOP-Wiki network) into Cytoscape, map a
-Import a WikiPathways pathway (or an AOP-Wiki network) into Cytoscape, map a
 numeric property onto its nodes, and export a PNG.  The script now works for
-**genes** (WikiPathways gene products) *or* **key events** (AOP-Wiki), selected
 **genes** (WikiPathways gene products) *or* **key events** (AOP-Wiki), selected
 with ``--kind gene|ke``.
 
-Changes from the gene-only version are limited to:
-  • replacing hard-coded references to "gene" with the neutral term *entity* in
-Changes from the gene-only version are limited to:
-  • replacing hard-coded references to "gene" with the neutral term *entity* in
-    data handling, while
-  • keeping the ``gene`` / ``ke`` token in filenames so downstream tooling is
-    unaffected.
-
-Requirements (unchanged):
+Requirements:
   - Cytoscape (>=3.8) running with WikiPathways app + cyREST
   - py4cytoscape  •  pandas  •  requests (indirect)
 """
@@ -32,16 +22,18 @@ import py4cytoscape as p4c
 import tempfile
 import os
 import requests
-from typing import Union, Dict, Set, List
+from typing import Dict, Set, List
 
 import xml.etree.ElementTree as ET
 import networkx as nx
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+from toxindex.utils.helper import str2bool
+
 def fetch_aop_xml(aop_id: int) -> bytes:
     """
-    Download the AOP-Wiki XML feed, ignoring the server’s incomplete
+    Download the AOP-Wiki XML feed, ignoring the server's incomplete
     certificate chain.  If that still fails, try the plain-HTTP mirror.
     """
     urls = [
@@ -219,10 +211,14 @@ def main() -> None:
     # ── 3) Locate data file ─────────────────────────────────────────────────
     project_dir = Path("cache") / "projects" / args.project
     if args.data is None:
+        if args.prop == "reduced_softmax_z":
+            suffix = "_reduced"
+        else:
+            suffix = "_summary"
         args.data = (
             project_dir
             / f"{args.kind}_property_predictions"
-            / f"{args.pathway}.{args.kind}_property_chemicals_summary.parquet"
+            / f"{args.pathway}.{args.kind}_property_chemicals{suffix}.parquet"
         )
     args.data = Path(args.data)
 

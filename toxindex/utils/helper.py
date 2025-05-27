@@ -1,6 +1,7 @@
 # helper.py
 import functools
 import logging
+import argparse
 
 def handle_exceptions(catch_exceptions=(Exception,), default_value=None, log_errors=True):
     """
@@ -140,3 +141,12 @@ def rate_limit_lockfile(seconds, lock_file_prefix="ratelimit_lock_"):
         return wrapper
     return decorator
 
+def str2bool(v):
+    if isinstance(v, bool):
+        return v
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')

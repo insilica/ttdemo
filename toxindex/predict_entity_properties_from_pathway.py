@@ -16,17 +16,18 @@ from pydantic import BaseModel
 from typing import Literal
 import pathlib
 import rapidfuzz
+from toxindex.utils.helper import str2bool
 
 
-def str2bool(v):
-    if isinstance(v, bool):
-        return v
-    if v.lower() in ('yes', 'true', 't', 'y', '1'):
-        return True
-    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
-        return False
-    else:
-        raise argparse.ArgumentTypeError('Boolean value expected.')
+# def str2bool(v):
+#     if isinstance(v, bool):
+#         return v
+#     if v.lower() in ('yes', 'true', 't', 'y', '1'):
+#         return True
+#     elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+#         return False
+#     else:
+#         raise argparse.ArgumentTypeError('Boolean value expected.')
 
 
 class PathwayEntityPropSchema(BaseModel):
@@ -108,7 +109,6 @@ def get_pathway_entities(
 # ──────────────────────────────────────────────────────────────────────────────
 # Utility for sloppy JSON returned by LLM
 # ──────────────────────────────────────────────────────────────────────────────
-
 def get_response_json(response):
     """Attempt to coerce an LLM response into valid JSON."""
 
@@ -130,7 +130,6 @@ def get_response_json(response):
 # ──────────────────────────────────────────────────────────────────────────────
 # Gemini wrapper
 # ──────────────────────────────────────────────────────────────────────────────
-
 @retry(
     retry=retry_if_exception_type(google.genai.errors.ServerError),
     wait=wait_fixed(10),
@@ -256,14 +255,6 @@ def softmax(arr, beta=1.0):
     weights = e_x / np.sum(e_x)
     return np.dot(arr, weights)
 
-
-def softmax(arr, beta=1.0):
-    """Compute the softmax of an array."""
-    e_x = np.exp(beta*arr)
-    weights = e_x / np.sum(e_x)
-    return np.dot(arr, weights)
-
-
 # ──────────────────────────────────────────────────────────────────────────────
 # Main driver
 # ──────────────────────────────────────────────────────────────────────────────
@@ -276,6 +267,7 @@ def main(
     kind: Literal["gene", "ke"],
     use_cache_predictions: bool = True,
     use_cache_chemicals: bool = True,
+    reduce_all: bool = True,
     # softmax_beta: float = 1.0,
 ):
     load_dotenv()
@@ -341,15 +333,50 @@ def main(
                 "softmax" : softmax(arr, beta = 1.0),
                 "softmax2": softmax(arr, beta = 2.0),
                 "softmax3": softmax(arr, beta = 3.0),
-                "softmax_z": softmax(arr, beta = 1/arr.std()),
+                "softmax_z": softmax(arr, beta = 1.0/arr.std()),
             }
         )
 
-    summary = pd.concat([merged.drop(columns="chemicals_values"), merged["chemicals_values"].apply(compute_stats)], axis=1)
+    if reduce_all:
+        summary = pd.concat([merged.drop(columns="chemicals_values"), merged["chemicals_values"].apply(compute_stats)], axis=1)
 
-    fname_summary = outdir / f"{pathway}.{prefix}_property_chemicals_summary.parquet"
-    summary.to_parquet(fname_summary)
-    print(summary)
+        fname_summary = outdir / f"{pathway}.{prefix}_property_chemicals_summary.parquet"
+        summary.to_parquet(fname_summary)
+        print(summary)
+    else:
+        merged["reduced_softmax_z"] = np.nan
+        for idx, row in merged.iterrows():
+            # Reduce along chemicals first, then properties
+            chemicals_values = []
+            chem_vals = row["chemicals_values"]
+            chem_dict = {}
+            for cv in chem_vals:
+                if len(cv) != 2:
+                    raise ValueError(f"Expected chemical value entry of length 2, got {cv} at index {idx}/{len(merged)}")
+                chem, value = cv
+                if chem not in chem_dict:
+                    chem_dict[chem] = []
+                chem_dict[chem].append(value)
+            # Now reduce the strength arrays for each chemical
+            for chem, values in chem_dict.items():
+                arr = np.array(values)
+                if len(values):
+                    std = arr.std()
+                    if std == 0.0:  # Avoid division by zero in softmax
+                        reduced_value = arr[0]  # If all values are the same, use that value
+                    else:
+                        reduced_value = softmax(arr, beta=1.0/std)
+                    chemicals_values.append({"chemical": chem, "value": reduced_value})
+                else:
+                    chemicals_values.append({"chemical": chem, "value": 0.0})
+            # Now reduce the chemicals_values to a single number per entity
+            arr = np.array([cv["value"] for cv in chemicals_values])
+            merged.at[idx, "reduced_softmax_z"] = softmax(arr, beta=1.0/arr.std())
+
+        fname_reduced = outdir / f"{pathway}.{prefix}_property_chemicals_reduced.parquet"
+        reduced = merged.drop(columns="chemicals_values")
+        reduced.to_parquet(fname_reduced)
+        print(reduced)
 
 
 if __name__ == "__main__":
@@ -359,6 +386,7 @@ if __name__ == "__main__":
     parser.add_argument("--kind", choices=["gene", "ke"], default="gene", help="Entity type: gene (WikiPathways) or ke (AOP-Wiki)")
     parser.add_argument("--use_cache_predictions", type=str2bool, default=True, help="Reuse cached entity→property predictions")
     parser.add_argument("--use_cache_chemicals", type=str2bool, default=True, help="Reuse cached chemicals filtered by entity properties")
+    parser.add_argument("--reduce_all", type=str2bool, default=True, help="Reduce all chemical-properties at once per entity. If False, reduce along chemicals first, then properties.")
     # parser.add_argument("--softmax_beta", type=float, default=1.0, help="Softmax β for weighted averages")
     args = parser.parse_args()
 
@@ -377,5 +405,6 @@ if __name__ == "__main__":
         args.kind,
         args.use_cache_predictions,
         args.use_cache_chemicals,
+        args.reduce_all,
         # args.softmax_beta,
     )

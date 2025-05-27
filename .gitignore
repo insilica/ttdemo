@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 miniconda.sh
 toxindex/__pycache__/*
 .env
@@ -6,7 +5,4 @@ toxindex/__pycache__/*
 scratch.py
 py4cytoscape.logs
 logs/
-=======
-.env
-*.pyc
-scratch.py
+.venv/
