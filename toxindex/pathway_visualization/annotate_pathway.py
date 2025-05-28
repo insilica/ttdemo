@@ -272,8 +272,9 @@ def main() -> None:
 
     # ── 10) Optional layout for graph view ───────────────────────────────────
     if args.view == "network":
-        p4c.layout_network("force-directed")
-    else:
+        # p4c.layout_network("force-directed")
+        pass
+    elif args.view == "pathway":
         p4c.layout_network("hierarchical")
 
     # ── 11) Export image ─────────────────────────────────────────────────────
