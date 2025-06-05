@@ -1,0 +1,30 @@
+[project]
+name = "ttdemo"
+version = "0.1.0"
+description = "Test environment using uv for package management"
+dependencies = [
+    "rdkit",
+    "pandas",
+    "rapidfuzz",
+    "aiohttp",
+    "tenacity",
+    "pyarrow",
+    "fastparquet",
+    "seaborn",
+    "matplotlib",
+    "scikit-learn",
+    "cython",
+    "blosc2",
+    "pyyaml",
+    "numpy",
+    "pubchempy",
+    "fastcluster",
+    "fuzzytm"
+]
+
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[tool.uv.workspace]
+members = [".",]
