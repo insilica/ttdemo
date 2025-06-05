@@ -15,7 +15,7 @@ import os
 
 logger = logging.getLogger(__name__)
 
-def build_heatmap(input_path, output_path, feature_selection_method=None):
+def build_heatmap(input_path, output_path, feature_selection_method=None, linecolor='black', fontcolor='white', dpi=300):
     """
     Build a heatmap visualization from chemical prediction data.
     
@@ -68,7 +68,7 @@ def build_heatmap(input_path, output_path, feature_selection_method=None):
     # pdf = pdf[pdf['classification'].str.contains("Ring")]
     
     # Generate the heatmap
-    _generate_heatmap(pdf, output_path)
+    _generate_heatmap(pdf, output_path, linecolor=linecolor, fontcolor=fontcolor, dpi=dpi)
     
     # Create a csv of the top 10 most activated properties
     top_props_path = output_path.parent / 'top_props.csv'
@@ -88,7 +88,7 @@ def build_heatmap(input_path, output_path, feature_selection_method=None):
     return output_path
 
 
-def _generate_heatmap(pdf, output_path):
+def _generate_heatmap(pdf, output_path, linecolor='black', fontcolor='white', dpi=300):
     """
     Internal function to generate the actual heatmap visualization.
     
@@ -132,13 +132,13 @@ def _generate_heatmap(pdf, output_path):
     g = sns.clustermap(
         norm_values, cmap="viridis",
         row_colors=row_colors, row_linkage=row_linkage,
-        xticklabels=False, yticklabels=False, 
-        # linewidths=0.001,
-        linecolor='black', col_cluster=True, row_cluster=True,
-        figsize=(18, 9),  # Wider figure
-        cbar_pos=(0.91, 0.3, 0.02, 0.4),  # More to the left and higher up
-        dendrogram_ratio=(0.1, 0.05),  # Make column dendrogram shorter (was 0.2 by default)
-        tree_kws={'linewidths': 0.5}  # Thinner dendrogram lines
+        xticklabels=False, yticklabels=False,
+        linecolor=linecolor, col_cluster=True, row_cluster=True,
+        linewidths=0.5,
+        figsize=(18, 9),
+        cbar_pos=(0.91, 0.3, 0.02, 0.4),
+        dendrogram_ratio=(0.1, 0.05),
+        tree_kws={'linewidths': 0.5}
     )
 
     # Hide column dendrogram but still keep clustering
@@ -193,25 +193,21 @@ def _generate_heatmap(pdf, output_path):
     # Add class legend to the left axis
     class_legend_handles = [plt.Rectangle((0, 0), 1, 1, color=color) for color in category_colors.values()]
     legend = left_legend_ax.legend(
-        class_legend_handles, 
-        category_colors.keys(), 
-        loc='center', 
-        frameon=False, 
-        title='Class', 
+        class_legend_handles,
+        category_colors.keys(),
+        loc='center',
+        frameon=False,
+        title='Class',
         title_fontsize=20,
-        labelcolor='white',
+        labelcolor=fontcolor,
         prop={'size': 20}
-        # # handlelength=1.5,                # Length of rectangle
-        # handleheight=1.5,                # Height spacing
-        # handletextpad=0.8                # Padding between rectangle and label
     )
-    legend.get_title().set_color('white')
+    legend.get_title().set_color(fontcolor)
 
-    # Adjust the colorbar (scale legend) that's now on the far right
+    # Adjust colorbar
     cbar = g.ax_cbar
-    # cbar.set_ylabel('Scale', color='white', fontsize=20)
-    cbar.set_xlabel('Scale', color='white', fontsize=20, labelpad=10)
-    cbar.tick_params(colors='white', labelsize=20)
+    cbar.set_xlabel('Scale', color=fontcolor, fontsize=20, labelpad=10)
+    cbar.tick_params(colors=fontcolor, labelsize=20)
 
     cbar_pos = cbar.get_position()
     cbar.set_position([
@@ -222,9 +218,9 @@ def _generate_heatmap(pdf, output_path):
     ])
     
     # Add axis labels but no title
-    g.ax_heatmap.set_xlabel("Estimated property values", color='white', fontsize=20)
-    g.ax_heatmap.set_ylabel("Substance", color='white', fontsize=20)
+    g.ax_heatmap.set_xlabel("Estimated property values", color=fontcolor, fontsize=20)
+    g.ax_heatmap.set_ylabel("Substance", color=fontcolor, fontsize=20)
     
-    plt.savefig(output_path, dpi=300, transparent=True, bbox_inches='tight')
+    plt.savefig(output_path, dpi=dpi, transparent=True, bbox_inches='tight')
     plt.close()
     logger.info(f"Saved heatmap to {output_path}")

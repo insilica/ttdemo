@@ -8,7 +8,7 @@ from scipy.stats import ttest_ind
 
 logger = logging.getLogger(__name__)
 
-def build_stripchart(input_path, output_path, agg_func, feature_selection_method):
+def build_stripchart(input_path, output_path, agg_func, feature_selection_method, fontcolor='black', linecolor='black', dpi=300, class_colors=None, bordercolor='black'):
     """
     Create a strip chart showing mean property values by chemical classification.
     
@@ -20,6 +20,10 @@ def build_stripchart(input_path, output_path, agg_func, feature_selection_method
         - 'value': Numerical property values
     outfile : str or pathlib.Path
         Path to save the output plot
+    class_colors : dict, optional
+        Dictionary mapping classification names to colors. If not provided, will use colors from colormap.yaml.
+    bordercolor : str, optional
+        Color of the plot border. Defaults to 'black'.
         
     Returns:
     --------
@@ -60,55 +64,39 @@ def build_stripchart(input_path, output_path, agg_func, feature_selection_method
     # Get unique classifications
     unique_classes = sorted(df['classification'].unique())  # sorted for consistency
 
-    # Load colors from YAML
-    with open("cache/resources/colormap.yaml", "r") as f:
-        config = yaml.safe_load(f)
+    # Use provided colors if available, otherwise load from YAML
+    if class_colors is None:
+        # Load colors from YAML
+        with open("cache/resources/colormap.yaml", "r") as f:
+            config = yaml.safe_load(f)
 
-    colors_hex = config['colors']
+        colors_hex = config['colors']
+        # Safely assign only as many colors as needed
+        category_colors = dict(zip(unique_classes, colors_hex[:len(unique_classes)]))
+    else:
+        category_colors = class_colors
 
-    # Safely assign only as many colors as needed
-    category_colors = dict(zip(unique_classes, colors_hex[:len(unique_classes)]))
     category_order = unique_classes
 
-    # Define color mapping for categories (matching the heatmap)
-    # category_colors = {
-    #     '1 Ring Aromatic': '#FFFED0', '2 Ring Aromatic': '#FBDA80', 
-    #     '3 Ring Aromatic': '#F7B659', '4 Ring Aromatic': '#EE6033',
-    #     '5 Ring Aromatic': '#D53D23', '6+ Ring Aromatic': '#781A26',
-    # }
-    # category_colors = {'DNT': '#FFFED0', 'Non-DNT': '#FBDA80'}
-    
-    # category_colors = {'hepatotoxic': '#FFFED0', 'nontoxic': '#FBDA80'}
-
-    # # Create a more predictable category order
-    # category_order = [
-    #     '1 Ring Aromatic', '2 Ring Aromatic',
-    #     '3 Ring Aromatic', '4 Ring Aromatic', '5 Ring Aromatic', '6+ Ring Aromatic'
-    # ]
-    # category_order = ['DNT','Non-DNT']
-    # category_order = ['Nephrotoxic','Non-nephrotoxic']
-    # category_order = ['hepatotoxic','nontoxic']
-    
     # Create the figure
     plt.figure(figsize=(12, 7))
     
-    # Create the stripplot
-    # ax = sns.stripplot(x='classification', y='value', data=stripdf, 
-    #                   palette=category_colors, size=8, jitter=True, alpha=0.8,
-    #                   order=category_order)
-    
     ax = sns.stripplot(
-    x='classification',
-    y='value',
-    hue='classification',  # explicitly define hue
-    data=stripdf,
-    palette=category_colors,
-    size=8,
-    jitter=True,
-    alpha=0.8,
-    order=category_order,
-    legend=False  # avoid duplicate legend
+        x='classification',
+        y='value',
+        hue='classification',  # explicitly define hue
+        data=stripdf,
+        palette=category_colors,
+        size=8,
+        jitter=True,
+        alpha=0.8,
+        order=category_order,
+        legend=False  # avoid duplicate legend
     )
+
+    # Set border color
+    for spine in ax.spines.values():
+        spine.set_color(bordercolor)
 
     classes = df['classification'].unique()
     if len(classes) != 2:
@@ -143,24 +131,24 @@ def build_stripchart(input_path, output_path, agg_func, feature_selection_method
             plt.hlines(y=stats[cat], 
                     xmin=ax.get_xticks()[category_order.index(cat)] - 0.4,
                     xmax=ax.get_xticks()[category_order.index(cat)] + 0.4, 
-                    colors='magenta', linewidth=2)
+                    colors=linecolor, linewidth=2)
     
     # Customize the plot
     # Get current y-limits from the data
     ymin, ymax = plt.ylim()
     plt.ylim(0, ymax * 1.1)  # Add 10% space above the max
 
-    plt.ylabel(f"{agg_func.capitalize()} property value", fontsize=20)
-    plt.yticks(fontsize=20)
+    plt.ylabel(f"{agg_func.capitalize()} property value", fontsize=20, color=fontcolor)
+    plt.yticks(fontsize=20, color=fontcolor)
     plt.xlabel('')
-    plt.xticks(rotation=45, ha='right', fontsize=20)
+    plt.xticks(rotation=45, ha='right', fontsize=20, color=fontcolor)
     plt.tight_layout()
     
     # Add a descriptive title
-    plt.title('Top Properties by Activity Level', fontsize=24, pad=20)
+    # plt.title('Top Chemicals by Aggregated Activity Level', fontsize=24, pad=20, color=fontcolor)
     
     # Save and close the plot
-    plt.savefig(output_path, dpi=300, bbox_inches='tight', transparent=True)
+    plt.savefig(output_path, dpi=dpi, bbox_inches='tight', transparent=True)
     plt.close()
     
     print(f"Strip chart saved to {output_path}")
