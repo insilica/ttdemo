@@ -2,9 +2,9 @@ import pandas as pd
 import logging
 import pathlib
 import time 
-import toxindex.utils.chemprop as chemprop
+import ttdemo.utils.chemprop as chemprop
 import itertools
-import toxindex.utils.simplecache as simplecache
+import ttdemo.utils.simplecache as simplecache
 from tqdm import tqdm
 
 def predict_chemicals(input_path, output_path):

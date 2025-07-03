@@ -7,9 +7,9 @@ import sys
 import warnings
 import pathlib
 import pandas as pd
-from toxindex.utils.helper import handle_exceptions, rate_limit_lockfile
+from ttdemo.utils.helper import handle_exceptions, rate_limit_lockfile
 import logging
-import toxindex.utils.simplecache as simplecache
+import ttdemo.utils.simplecache as simplecache
 from tqdm import tqdm
 import requests
 
